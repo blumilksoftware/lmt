@@ -21,20 +21,24 @@
         transform: rotate(-180deg);
       }
 
-      .bg-brand {
-        background: #01FF6B;
+      .from-secondary {
+        --tw-gradient-from: #231769;
+        --tw-gradient-to: rgb(46 16 101 / 0);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
-      .text-brand {
-        color: #01FF6B;
+      .box-shadow {
+        -webkit-box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
+        -moz-box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
+        box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
       }
     </style>
   </head>
-  <body class="bg-violet-950">
-    <div class="landing absolute relative top-0 w-full h-screen bg-cover ">
+  <body class="bg-[#231769] overflow-x-hidden">
+    <div class="landing absolute relative top-0 w-full h-screen bg-cover">
       <div class="w-full h-full flex  justify-center items-center backdrop-blur-sm">
         <div class="absolute top-0 w-full h-[360px] bg-gradient-to-b from-black"></div>
-        <div class="absolute bottom-0 w-full h-[240px] bg-gradient-to-t from-violet-950"></div>
+        <div class="absolute bottom-0 w-full h-[240px] bg-gradient-to-t from-secondary"></div>
         <img class="size-48 absolute left-0 -ml-24 top-0 mt-48" src="./images/x.svg" alt="Krzyżyk">
         <img class="size-8 absolute right-0 mr-64 top-0 mt-80" src="./images/x-white.svg" alt="Krzyżyk">
       </div>
@@ -47,7 +51,7 @@
         </div>
         <div class="flex flex-1">
           <ul class="w-full flex items-center justify-end gap-10">
-            <li>Wydarzenia</li>
+            <li>Wydarzenie</li>
             <li>Prelegenci</li>
             <li>Agenda</li>
             <li>Partnerzy</li>
@@ -58,7 +62,6 @@
       </nav>
 
       <div class="h-full mx-auto max-w-7xl flex flex-col justify-center items-start text-white relative">
-
         <div class="absolute top-0 right-0">
           <img class="mt-36 size-16 mx-auto" src="./images/x.svg" alt="Krzyżyk">
           <div class="mt-32 flex flex-col items-center gap-8">
@@ -72,15 +75,15 @@
           </div>
         </div>
         
-        <div class="-mt-16 w-1/2 leading-none text-8xl font-bold">Łączenie innowacji</div>
-        <div class="mt-4 text-4xl flex items-center">
+        <div class="-mt-16 w-1/2 leading-none text-9xl font-bold">Łączenie innowacji</div>
+        <div class="mt-8 text-4xl flex items-center">
           <span class="flex-grow">gdzie coś tam coś tam</span>
-          <div class="ml-20 bg-brand h-3 w-20"></div>
+          <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
         <div class="flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl counters flex divide-x divide-slate-100/25">
           <div class="flex px-4">
-            <div class="text-7xl font-bold text-brand">32</div>
+            <div class="text-7xl font-bold text-[#01FF6B]">32</div>
             <div class="flex text-sm py-2">
               <div class="rotate px-1">dni</div>
             </div>
@@ -106,5 +109,39 @@
         </div>
       </div>
     </div>
+
+    <section class="my-12">
+      <div class="mx-auto max-w-7xl text-white flex-col">
+        <div class="absolute right-0 -mt-[12em] -mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
+        <div class="flex flex-col gap-6 ml-36 font-bold">
+          <div class="relative text-9xl">
+            24 kwietnia
+            <div class="absolute">
+              <div class="-mt-12 bg-[#01FF6B] h-3 w-64 -ml-72"></div>
+            </div>
+          </div>
+          <div class="text-5xl text-[#01FF6B]">Legnicki Hotel Książęcy</div>
+          <div class="text-5xl">start 18:00</div>
+          <div class="absolute -mt-4 left-0 rotate">
+            <span class="opacity-10 text-[16em]">2024</span>
+          </div>
+        </div>
+
+        <div class="mt-32 grid grid-cols-3 gap-16 text-lg text-[#231769]">
+          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+            <h2 class="text-4xl font-bold mb-8">O co chodzi?</h2>
+            <p class="tracking-tight">Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania aplikacji internetowych. Celujemy w formę dwóch lub trzech 30-45 minutowych prezentacji organizowanych (w zależności od zainteresowania) raz na kwartał.</p>
+          </div>
+          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+            <h2 class="text-4xl font-bold mb-8">Dla kogo?</h2>
+            <p class="tracking-tight">Nasze spotkania są dostępne dla każdego chętnego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Zapraszamy programistów grafików, administratorów, devopsów, studentów kierunków informatycznych oraz pasjonatów i hobbystów.</p>
+          </div>
+          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+            <h2 class="text-4xl font-bold mb-8">O czym?</h2>
+            <p class="tracking-tight">Webdevelopment jest na tyle szeroką domeną, że każdy powinien znaleźć coś dla siebie: od programowania backendu w PHP, C# czy Javie i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
