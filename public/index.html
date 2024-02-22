@@ -20,14 +20,23 @@
         writing-mode: tb-rl;
         transform: rotate(-180deg);
       }
+
+      .bg-brand {
+        background: #01FF6B;
+      }
+
+      .text-brand {
+        color: #01FF6B;
+      }
     </style>
   </head>
   <body class="bg-violet-950">
     <div class="landing absolute relative top-0 w-full h-screen bg-cover ">
       <div class="w-full h-full flex  justify-center items-center backdrop-blur-sm">
         <div class="absolute top-0 w-full h-[360px] bg-gradient-to-b from-black"></div>
-        <div class="absolute bottom-0 w-full h-[360px] bg-gradient-to-t from-violet-950"></div>
+        <div class="absolute bottom-0 w-full h-[240px] bg-gradient-to-t from-violet-950"></div>
         <img class="size-48 absolute left-0 -ml-24 top-0 mt-48" src="./images/x.svg" alt="Krzyżyk">
+        <img class="size-8 absolute right-0 mr-64 top-0 mt-80" src="./images/x-white.svg" alt="Krzyżyk">
       </div>
     </div>
 
@@ -64,11 +73,14 @@
         </div>
         
         <div class="-mt-16 w-1/2 leading-none text-8xl font-bold">Łączenie innowacji</div>
-        <div class="mt-4 text-4xl">gdzie coś tam coś tam</div>
+        <div class="mt-4 text-4xl flex items-center">
+          <span class="flex-grow">gdzie coś tam coś tam</span>
+          <div class="ml-20 bg-brand h-3 w-20"></div>
+        </div>
 
         <div class="flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl counters flex divide-x divide-slate-100/25">
           <div class="flex px-4">
-            <div class="text-7xl font-bold text-green-400">32</div>
+            <div class="text-7xl font-bold text-brand">32</div>
             <div class="flex text-sm py-2">
               <div class="rotate px-1">dni</div>
             </div>
