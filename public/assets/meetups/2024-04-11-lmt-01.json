@@ -1,0 +1,78 @@
+{
+  "title": "I legnicki meetup technologiczny",
+  "datetime": "2024-04-11 18:00:00",
+  "place": "Legnicki Browar Książęcy",
+  "lineup": [
+    {
+      "name": "Adam",
+      "surname": "Marszowski",
+      "role": "software developer",
+      "company": "Softiq",
+      "avatarUrl": "https://media.licdn.com/dms/image/D4D03AQG9aiIX_CsSJA/profile-displayphoto-shrink_400_400/0/1703508254582?e=2147483647&v=beta&t=UxFKM40UwGPgznPbHLd5Pi8e9bRG520YdpPq4S3RC2w",
+      "about": "Adam specjalizuje się w programowaniu w Javie i frameworku React. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI."
+    },
+    {
+      "name": "Joanna",
+      "surname": "Rewak",
+      "role": "radca prawny",
+      "company": "Blumilk & Kancelaria radcy prawnego Joanny Rewak",
+      "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01GMS4M59D-9bbd7c8faf64-512",
+      "about": "Joanna (...)"
+    },
+    {
+      "name": "Jacek",
+      "surname": "Sawoszczuk",
+      "role": "inżynier oprogramowania",
+      "company": "Blumilk",
+      "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01FG97BZHU-413208bdc9b8-512",
+      "about": "Jacek (...)"
+    }
+  ],
+  "agenda": [
+    {
+      "start": "18:00",
+      "title": "Rozpoczęcie"
+    },
+    {
+      "start": "18:15",
+      "title": "Łącząc teraźniejszość z przyszłością: Praktyczne zastosowania AI",
+      "description": "Podczas prezentacji Adama przyjrzymy się praktycznemu zastosowaniu modeli językowych (LLMs) do rozwiązywania rzeczywistych problemów biznesowych. Skupiając się na konkretnym case study, Adam pokaże, jak technologie AI mogą transformować tradycyjne procesy i przyczyniać się do efektywniejszego funkcjonowania firm."
+    },
+    {
+      "start": "19:00",
+      "title": "Prawne aspekty wykorzystania generatywnego AI",
+      "description": "W swojej prezentacji Joanna (...)"
+    },
+    {
+      "start": "19:30",
+      "title": "Wykorzystanie GitHub Copilot na 100%",
+      "description": "W ramach live codingu Jacek (...)"
+    },
+    {
+      "start": "20:15",
+      "title": "Zakończenie oficjalnej części spotkania"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Collegium Witelona Uczelnia Państwowa",
+      "image": "./images/partners/cwup.png"
+    },
+    {
+      "name": "KGHM Centrum Analityki",
+      "image": "./images/partners/kghm.png"
+    },
+    {
+      "name": "Legnicka Specjalna Strefa Ekonomiczna",
+      "image": "./images/partners/lsse.png"
+    },
+    {
+      "name": "Softiq",
+      "image": "./images/partners/softiq.png"
+    },
+    {
+      "name": "Stigal",
+      "image": "./images/partners/stigal.png"
+    }
+  ]
+}

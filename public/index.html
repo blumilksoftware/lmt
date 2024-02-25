@@ -2,7 +2,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <title>Legnicki meetup technologiczny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +35,7 @@
       }
     </style>
   </head>
-  <body class="bg-[#231769] overflow-x-hidden">
+  <body class="bg-[#231769] overflow-x-hidden" x-data="initialize()" x-init="start()">
     <div class="landing absolute relative top-0 w-full h-screen bg-cover">
       <div class="w-full h-full flex  justify-center items-center backdrop-blur-sm">
         <div class="absolute top-0 w-full h-[360px] bg-gradient-to-b from-black"></div>
@@ -81,68 +82,72 @@
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
-        <div class="flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl flex divide-x divide-slate-100/25">
-          <div class="flex px-4">
-            <div class="text-7xl font-bold text-[#01FF6B]">32</div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">dni</div>
+        <template x-if="counters">
+          <div class="flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl flex divide-x divide-slate-100/25">
+            <div class="flex px-4">
+              <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+              <div class="flex text-sm py-2">
+                <div class="rotate px-1">dni</div>
+              </div>
+            </div>
+            <div class="flex px-4">
+              <div class="text-7xl font-bold" x-text="counters.hours"></div>
+              <div class="flex text-sm py-2">
+                <div class="rotate px-1">godzin</div>
+              </div>
+            </div>
+            <div class="flex px-4">
+              <div class="text-7xl font-bold" x-text="counters.minutes"></div>
+              <div class="flex text-sm py-2">
+                <div class="rotate px-1">minut</div>
+              </div>
+            </div>
+            <div class="flex px-4">
+              <div class="text-7xl font-bold" x-text="counters.seconds"></div>
+              <div class="flex text-sm py-2">
+                <div class="rotate px-1">sekund</div>
+              </div>
             </div>
           </div>
-          <div class="flex px-4">
-            <div class="text-7xl font-bold">00</div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">godzin</div>
-            </div>
-          </div>
-          <div class="flex px-4">
-            <div class="text-7xl font-bold">12</div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">minut</div>
-            </div>
-          </div>
-          <div class="flex px-4">
-            <div class="text-7xl font-bold">04</div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">sekund</div>
-            </div>
-          </div>
-        </div>
+        </template>
       </div>
     </div>
 
-    <section class="my-12">
-      <div class="mx-auto max-w-7xl text-white flex-col">
-        <div class="absolute right-0 -mt-[12em] -mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
-        <div class="flex flex-col gap-6 ml-36 font-bold">
-          <div class="relative text-9xl">
-            24 kwietnia
-            <div class="absolute">
-              <div class="-mt-12 bg-[#01FF6B] h-3 w-64 -ml-72"></div>
+    <template x-if="meetup">
+      <section class="my-12">
+        <div class="mx-auto max-w-7xl text-white flex-col">
+          <div class="absolute right-0 -mt-[12em] -mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
+          <div class="flex flex-col gap-6 ml-36 font-bold">
+            <div class="relative text-9xl">
+              <span x-text="meetup.date"></span>
+              <div class="absolute">
+                <div class="-mt-12 bg-[#01FF6B] h-3 w-64 -ml-72"></div>
+              </div>
+            </div>
+            <div class="text-5xl text-[#01FF6B]" x-text="meetup.place"></div>
+            <div class="text-5xl">start <span x-text="meetup.time"></span></div>
+            <div class="absolute -mt-4 left-0 rotate">
+              <span class="opacity-10 text-[16em]" x-text="meetup.year"></span>
             </div>
           </div>
-          <div class="text-5xl text-[#01FF6B]">Legnicki Browar Książęcy</div>
-          <div class="text-5xl">start 18:00</div>
-          <div class="absolute -mt-4 left-0 rotate">
-            <span class="opacity-10 text-[16em]">2024</span>
-          </div>
-        </div>
 
-        <div class="mt-32 grid grid-cols-3 gap-16 text-lg text-[#231769]">
-          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
-            <h2 class="text-4xl font-bold mb-8">O co chodzi?</h2>
-            <p class="tracking-tight">Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania aplikacji internetowych. Celujemy w formę dwóch lub trzech 30-45 minutowych prezentacji organizowanych (w zależności od zainteresowania) raz na kwartał.</p>
-          </div>
-          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
-            <h2 class="text-4xl font-bold mb-8">Dla kogo?</h2>
-            <p class="tracking-tight">Nasze spotkania są dostępne dla każdego chętnego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Zapraszamy programistów, grafików, administratorów, devopsów, studentów kierunków informatycznych oraz pasjonatów i hobbystów.</p>
-          </div>
-          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
-            <h2 class="text-4xl font-bold mb-8">O czym?</h2>
-            <p class="tracking-tight">Webdevelopment jest na tyle szeroką domeną, że każdy powinien znaleźć coś dla siebie: od programowania backendu w PHP, C# czy Javie i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.</p>
+          <div class="mt-32 grid grid-cols-3 gap-16 text-lg text-[#231769]">
+            <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+              <h2 class="text-4xl font-bold mb-8">O co chodzi?</h2>
+              <p class="tracking-tight">Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania aplikacji internetowych. Celujemy w formę dwóch lub trzech 30-45 minutowych prezentacji organizowanych (w zależności od zainteresowania) raz na kwartał.</p>
+            </div>
+            <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+              <h2 class="text-4xl font-bold mb-8">Dla kogo?</h2>
+              <p class="tracking-tight">Nasze spotkania są dostępne dla każdego chętnego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Zapraszamy programistów, grafików, administratorów, devopsów, studentów kierunków informatycznych oraz pasjonatów i hobbystów.</p>
+            </div>
+            <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+              <h2 class="text-4xl font-bold mb-8">O czym?</h2>
+              <p class="tracking-tight">Webdevelopment jest na tyle szeroką domeną, że każdy powinien znaleźć coś dla siebie: od programowania backendu w PHP, C# czy Javie i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </template>
 
     <section class="my-12">
       <div class="mx-auto w-full text-white static">
@@ -362,4 +367,53 @@
       </div>
     </section>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/pl.min.js"></script>
+  <script>
+    function initialize() {
+      return {
+        meetups: [],
+        meetup: null,
+        counters: {
+          days: "00",
+          hours: "00",
+          minutes: "00",
+          seconds: "00"
+        },
+        start: async function() {
+          await this.fetchData();
+          this.calculateCounters();
+          setInterval(() => {
+            this.calculateCounters();
+          }, 1000);
+        },
+        fetchData: async function() {
+          const meetupsResponse = await fetch('./assets/meetups.json?timestamp=' + Date.now());
+          const meetupsData = await meetupsResponse.json();
+          this.meetups = meetupsData;
+
+          const meetupResponse = await fetch(meetupsData[0] + '?timestamp=' + Date.now());
+          const meetupData = await meetupResponse.json();
+
+          let time = moment(meetupData.datetime).locale("pl")
+          meetupData["date"] = time.format("DD MMMM")
+          meetupData["time"] = time.format("HH:mm")
+          meetupData["year"] = time.format("Y")
+
+          this.meetup = meetupData
+        },
+        calculateCounters: function() {
+          if (this.meetup) {
+            const now = moment();
+            const diff = moment(this.meetup.datetime).diff(now);
+
+            this.counters.days = String(moment.duration(diff).days()).padStart(2, '0')
+            this.counters.hours = String(moment.duration(diff).hours()).padStart(2, '0')
+            this.counters.minutes = String(moment.duration(diff).minutes()).padStart(2, '0')
+            this.counters.seconds = String(moment.duration(diff).seconds()).padStart(2, '0')
+          }
+        }
+      };
+    }
+  </script>
 </html>
