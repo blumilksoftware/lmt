@@ -285,11 +285,13 @@
 
       <template x-if="meetup">
         <div class="mx-auto w-full text-white flex-col">
-          <div class="w-full text-center opacity-5 text-white font-bold text-[18em]">Partnerzy</div>
+          <div class="w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
           <div class="mx-auto max-w-7xl -mt-[12em] flex gap-16">
             <template x-for="partner in meetup.partners">
-              <div class="flex-1">
-                <img class="mx-auto" :src="partner.logoUrl" :alt="partner.name">
+              <div class="flex-1 z-10">
+                <a class="mx-auto" :href="partner.website" target="_blank">
+                  <img :src="partner.logoUrl" :alt="partner.name">
+                </a>
               </div>
             </template>
           </div>
