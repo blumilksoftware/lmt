@@ -56,23 +56,23 @@
   "partners": [
     {
       "name": "Collegium Witelona Uczelnia Państwowa",
-      "image": "./images/partners/cwup.png"
+      "logoUrl": "./images/partners/cwup.png"
     },
     {
       "name": "KGHM Centrum Analityki",
-      "image": "./images/partners/kghm.png"
+      "logoUrl": "./images/partners/kghm.png"
     },
     {
       "name": "Legnicka Specjalna Strefa Ekonomiczna",
-      "image": "./images/partners/lsse.png"
+      "logoUrl": "./images/partners/lsse.png"
     },
     {
       "name": "Softiq",
-      "image": "./images/partners/softiq.png"
+      "logoUrl": "./images/partners/softiq.png"
     },
     {
       "name": "Stigal",
-      "image": "./images/partners/stigal.png"
+      "logoUrl": "./images/partners/stigal.png"
     }
   ]
 }

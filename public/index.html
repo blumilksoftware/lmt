@@ -76,40 +76,38 @@
           </div>
         </div>
 
-        <div class="-mt-16 w-1/2 leading-none text-9xl font-bold">Łączenie innowacji</div>
+        <div class="-mt-16 w-1/2 leading-none text-9xl font-bold">Nowoczesne technologie</div>
         <div class="mt-8 text-4xl flex items-center">
-          <span class="flex-grow">gdzie coś tam coś tam</span>
+          <span class="flex-grow">w samym sercu Legnicy</span>
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
-        <template x-if="counters">
-          <div class="flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl flex divide-x divide-slate-100/25">
-            <div class="flex px-4">
-              <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
-              <div class="flex text-sm py-2">
-                <div class="rotate px-1">dni</div>
-              </div>
-            </div>
-            <div class="flex px-4">
-              <div class="text-7xl font-bold" x-text="counters.hours"></div>
-              <div class="flex text-sm py-2">
-                <div class="rotate px-1">godzin</div>
-              </div>
-            </div>
-            <div class="flex px-4">
-              <div class="text-7xl font-bold" x-text="counters.minutes"></div>
-              <div class="flex text-sm py-2">
-                <div class="rotate px-1">minut</div>
-              </div>
-            </div>
-            <div class="flex px-4">
-              <div class="text-7xl font-bold" x-text="counters.seconds"></div>
-              <div class="flex text-sm py-2">
-                <div class="rotate px-1">sekund</div>
-              </div>
+        <div class="flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl flex divide-x divide-slate-100/25">
+          <div class="flex px-4">
+            <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">dni</div>
             </div>
           </div>
-        </template>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.hours"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">godzin</div>
+            </div>
+          </div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.minutes"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">minut</div>
+            </div>
+          </div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.seconds"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">sekund</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -156,43 +154,45 @@
         </div>
         <div class="mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em]">Lineup</div>
 
-        <div class="w-full -mt-48 flex">
-          <div class="w-3/4 flex bg-black bg-opacity-50 p-16 rounded-r-2xl">
-            <div class="flex-1">
-              <img src="https://media.licdn.com/dms/image/D4D03AQG9aiIX_CsSJA/profile-displayphoto-shrink_400_400/0/1703508254582?e=2147483647&v=beta&t=UxFKM40UwGPgznPbHLd5Pi8e9bRG520YdpPq4S3RC2w" class="mx-auto size-64 mr-24 rounded-full" alt="">
-            </div>
-            <div class="flex flex-col flex-1">
-              <div class="font-bold">
-                <div class="text-6xl text-[#01FF6B]">Adam</div>
-                <div class="text-6xl">Marszowski</div>
+        <template x-if="meetup">
+          <div class="w-full -mt-48 flex">
+            <div class="w-3/4 flex bg-black bg-opacity-50 p-16 rounded-r-2xl">
+              <div class="flex-1">
+                <img :src="selectedSpeaker.avatarUrl" class="mx-auto size-64 mr-24 rounded-full" :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname">
               </div>
-              <div class="mt-4 text-2xl opacity-50">
-                software developer w <span class="font-bold">Softiq</span>
-              </div>
-              <div class="mt-12 pr-24 flex flex-col gap-2 opacity-90">
-                <p>Adam specjalizuje się w programowaniu w Javie i frameworku React. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI.</p>
-              </div>
-            </div>
-          </div>
-          <div class="flex-1 flex px-12 gap-12 mr-24">
-            <div class="flex-1 flex flex-col items-center rounded-2xl bg-gradient-to-b from-[#01FF6B]/70 to-black/70 cursor-pointer">
-              <div class="rotate origin-top-center flex items-center justify-start py-16 gap-8">
-                <p class="text-nowrap whitespace-nowrap rotate-180">Joanna Rewak, radca prawny</p>
-                <div class="">
-                  <img class="mx-auto rotate-180 w-20 rounded-full" src="https://ca.slack-edge.com/T019TH2KGRW-U01GMS4M59D-9bbd7c8faf64-512" alt="">
+              <div class="flex flex-col flex-1">
+                <div class="font-bold">
+                  <div class="text-6xl" x-text="selectedSpeaker.name"></div>
+                  <div class="text-6xl text-[#01FF6B]" x-text="selectedSpeaker.surname"></div>
+                </div>
+                <div class="mt-4 text-2xl text-gray-300">
+                  <span x-text="selectedSpeaker.role"></span> w <span class="font-bold text-[#01FF6B]" x-text="selectedSpeaker.company"></span>
+                </div>
+                <div class="mt-12 pr-24 flex flex-col gap-2 text-gray-300 text-lg">
+                  <p x-text="selectedSpeaker.about"></p>
                 </div>
               </div>
             </div>
-            <div class="flex-1 flex flex-col items-center rounded-2xl bg-gradient-to-b from-[#01FF6B]/70 to-black/70 cursor-pointer">
-              <div class="rotate origin-top-center flex items-center justify-start py-16 gap-8">
-                <p class="text-nowrap whitespace-nowrap rotate-180">Jacek Sawoszczuk, inżynier oprogramowania</p>
-                <div class="">
-                  <img class="mx-auto rotate-180 w-20 rounded-full" src="https://ca.slack-edge.com/T019TH2KGRW-U01FG97BZHU-413208bdc9b8-512" alt="">
-                </div>
-              </div>
+            <div class="flex-1 flex px-12 gap-12 mr-24">
+              <template x-for="speaker in meetup.lineup">
+                <template x-if="speaker !== selectedSpeaker">
+                  <div class="flex-1 flex flex-col items-center rounded-2xl bg-gradient-to-b from-[#01FF6B]/70 to-black/70 cursor-pointer" @click="selectedSpeaker = speaker">
+                    <div class="rotate origin-top-center flex items-center justify-start py-16 gap-8">
+                      <p class="text-nowrap whitespace-nowrap rotate-180">
+                        <span x-text="speaker.name"></span>
+                        <span x-text="speaker.surname"></span>,
+                        <span x-text="speaker.role"></span>
+                      </p>
+                      <div class="">
+                        <img class="mx-auto rotate-180 w-20 rounded-full" :src="speaker.avatarUrl" :alt="speaker.name + ' ' + speaker.surname">
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </template>
             </div>
           </div>
-        </div>
+        </template>
       </div>
     </section>
 
@@ -220,37 +220,29 @@
             <div class="w-2/3 text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
           </div>
           <div class="flex-1">
-            <div class="flex-shrink w-max-2xl px-4 py-6 rounded-2xl flex flex-col divide-y divide-slate-100/25">
-              <div class="flex items-center py-8 pt-0">
-                <div class="w-[100px] text-4xl font-bold text-[#01FF6B]">18:00</div>
-                <div class="px-8">Rozpoczęcie</div>
-                <div class="flex-grow text-right text-5xl -mt-6">&#8964;</div>
+            <template x-if="meetup">
+              <div class="flex-shrink w-max-2xl px-4 py-6 rounded-2xl flex flex-col divide-y divide-slate-100/25">
+                <template x-for="(lecture, index) in meetup.agenda">
+                  <div class="flex flex-col">
+                    <div class="flex items-center py-8">
+                      <div class="w-[100px] text-4xl font-bold" :class="index !== 0 || 'text-[#01FF6B]'" x-text="lecture.start">18:15</div>
+                      <div class="px-8" x-text="lecture.title"></div>
+                      <template x-if="lecture.description && lecture.expanded === false">
+                        <div class="flex-grow text-right text-5xl cursor-pointer -mt-6" @click="lecture.expanded = true">&#8964;</div>
+                      </template>
+                      <template x-if="lecture.description && lecture.expanded === true">
+                        <div class="flex-grow text-right text-5xl cursor-pointer mt-6" @click="lecture.expanded = false">&#8963;</div>
+                      </template>
+                    </div>
+                    <template x-if="lecture.description && lecture.expanded === true">
+                      <div class="-mt-12 flex items-center py-8">
+                        <p x-text="lecture.description"></p>
+                      </div>
+                    </template>
+                  </div>
+                </template>
               </div>
-              <div class="flex items-center py-8">
-                <div class="w-[100px] text-4xl font-bold">18:15</div>
-                <div class="px-8">
-                  Łącząc teraźniejszość z przyszłością: Praktyczne zastosowania AI
-                </div>
-                <div class="flex-grow text-right text-5xl mt-6">&#8963;</div>
-              </div>
-              <div class="-mt-8 flex items-center py-8" hidden>
-                <p>Podczas prezentacji Adama przyjrzymy się praktycznemu zastosowaniu modeli językowych (LLMs) do rozwiązywania rzeczywistych problemów biznesowych. Skupiając się na konkretnym case study, Adam pokaże, jak technologie AI mogą transformować tradycyjne procesy i przyczyniać się do efektywniejszego funkcjonowania firm.</p>
-              </div>
-              <div class="flex items-center py-8">
-                <div class="w-[100px] text-4xl font-bold">19:00</div>
-                <div class="px-8">Prawne aspekty wykorzystania generatywnego AI</div>
-                <div class="flex-grow text-right text-5xl -mt-6">&#8964;</div>
-              </div>
-              <div class="flex items-center py-8">
-                <div class="w-[100px] text-4xl font-bold">19:30</div>
-                <div class="px-8">Wykorzystanie GitHub Copilot na 100%</div>
-                <div class="flex-grow text-right text-5xl -mt-6">&#8964;</div>
-              </div>
-              <div class="flex items-center py-8">
-                <div class="w-[100px] text-4xl font-bold">20:15</div>
-                <div class="px-8">Zakończenie oficjalnej części spotkania</div>
-              </div>
-            </div>
+            </template>
           </div>
         </div>
       </div>
@@ -291,26 +283,18 @@
         </div>
       </div>
 
-      <div class="mx-auto w-full text-white flex-col">
-        <div class="w-full text-center opacity-5 text-white font-bold text-[18em]">Partnerzy</div>
-        <div class="mx-auto max-w-7xl -mt-[12em] flex gap-16">
-          <div class="flex-1">
-            <img class="mx-auto" src="./images/partners/cwup.png" alt="Collegium Witelona Uczelnia Państwowa">
-          </div>
-          <div class="flex-1">
-            <img class="mx-auto" src="./images/partners/kghm.png" alt="KGHM Centrum Analityki">
-          </div>
-          <div class="flex-1">
-            <img class="mx-auto" src="./images/partners/lsse.png" alt="Legnicka Specjalna Strefa Ekonomiczna">
-          </div>
-          <div class="flex-1">
-            <img class="mx-auto" src="./images/partners/softiq.png" alt="Softiq">
-          </div>
-          <div class="flex-1">
-            <img class="mx-auto" src="./images/partners/stigal.png" alt="Stigal">
+      <template x-if="meetup">
+        <div class="mx-auto w-full text-white flex-col">
+          <div class="w-full text-center opacity-5 text-white font-bold text-[18em]">Partnerzy</div>
+          <div class="mx-auto max-w-7xl -mt-[12em] flex gap-16">
+            <template x-for="partner in meetup.partners">
+              <div class="flex-1">
+                <img class="mx-auto" :src="partner.logoUrl" :alt="partner.name">
+              </div>
+            </template>
           </div>
         </div>
-      </div>
+      </template>
     </section>
 
     <section class="mt-32 relative">
@@ -374,6 +358,7 @@
       return {
         meetups: [],
         meetup: null,
+        selectedSpeaker: null,
         counters: {
           days: "00",
           hours: "00",
@@ -399,7 +384,12 @@
           meetupData["date"] = time.format("DD MMMM")
           meetupData["time"] = time.format("HH:mm")
           meetupData["year"] = time.format("Y")
+          meetupData["agenda"] = meetupData["agenda"].map(lecture => {
+            lecture["expanded"] = false
+            return lecture
+          })
 
+          this.selectedSpeaker = meetupData.lineup[0] ?? null
           this.meetup = meetupData
         },
         calculateCounters: function() {
@@ -407,7 +397,7 @@
             const now = moment();
             const diff = moment(this.meetup.datetime).diff(now);
 
-            this.counters.days = String(moment.duration(diff).days()).padStart(2, '0')
+            this.counters.days = String(Math.floor(moment.duration(diff).asDays())).padStart(2, '0')
             this.counters.hours = String(moment.duration(diff).hours()).padStart(2, '0')
             this.counters.minutes = String(moment.duration(diff).minutes()).padStart(2, '0')
             this.counters.seconds = String(moment.duration(diff).seconds()).padStart(2, '0')
