@@ -40,15 +40,14 @@
       <div class="w-full h-full flex  justify-center items-center backdrop-blur-sm">
         <div class="absolute top-0 w-full h-[360px] bg-gradient-to-b from-black"></div>
         <div class="absolute bottom-0 w-full h-[240px] bg-gradient-to-t from-secondary"></div>
-        <img class="size-48 absolute left-0 -ml-24 top-0 mt-48" src="./images/x.svg" alt="Krzyżyk">
-        <img class="size-8 absolute right-0 mr-64 top-0 mt-80" src="./images/x-white.svg" alt="Krzyżyk">
+        <img class="hidden size-48 lg:block absolute left-0 -ml-24 top-0 mt-48" src="./images/x.svg" alt="Krzyżyk">
+        <img class="hidden size-8 lg:block absolute right-0 mr-64 top-0 mt-80" src="./images/x-white.svg" alt="Krzyżyk">
       </div>
     </div>
 
     <div class="absolute top-0 w-full h-screen">
 
       <div x-data="{ open: false }">
-        <!-- Mobile navigation -->
         <nav class=" xl:hidden bg-black">
           <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -68,7 +67,6 @@
             </div>
           </div>
 
-          <!-- Mobile menu, toggle classes based on menu state. -->
           <div :class="{'block': open, 'hidden': !open}" class="xl:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
               <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Wydarzenie</a>
@@ -81,7 +79,6 @@
           </div>
         </nav>
 
-        <!-- Desktop navigation -->
         <nav class="hidden xl:block text-white">
           <div class="max-w-7xl mx-auto px-2 xl:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -106,7 +103,7 @@
       </div>
 
       <div class="h-full mx-auto max-w-7xl flex flex-col justify-center items-start text-white relative">
-        <div class="absolute top-0 right-0">
+        <div class="hidden lg:block absolute top-0 right-0">
           <img class="mt-36 size-16 mx-auto" src="./images/x.svg" alt="Krzyżyk">
           <div class="mt-32 flex flex-col items-center gap-8">
             <img class="size-5" src="./images/o.svg" alt="Kółko">
@@ -157,7 +154,7 @@
     <template x-if="meetup">
       <section class="my-12">
         <div class="mx-auto max-w-7xl text-white flex-col">
-          <div class="absolute right-0 -mt-[12em] -mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
+          <div class="hidden lg:block absolute right-0 -mt-[12em] -mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
           <div class="flex flex-col gap-6 ml-4 sm:ml-36 font-bold">
             <div class="relative text-5xl sm:text-9xl">
               <span x-text="meetup.date"></span>
@@ -188,10 +185,11 @@
         </div>
       </div>
     </section>
+    </template>
 
     <section class="my-12">
       <div class="mx-auto w-full text-white static">
-        <div class="absolute w-24">
+        <div class="hidden lg:block absolute w-24">
           <img class="size-24 absolute left-0 top-0 ml-40 mt-20" src="./images/x.svg" alt="Krzyżyk">
         </div>
         <div class="mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em]">Lineup</div>
@@ -239,7 +237,7 @@
     </section>
 
     <section class="mt-32 relative">
-      <div class="absolute left-0 mt-[24em] -ml-[16em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
+      <div class="hidden lg:block absolute left-0 mt-[24em] -ml-[16em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
 
       <div class="mx-auto max-w-7xl text-white flex-col relative">
         <div class="absolute top-0 left-0 -ml-32 -mt-[22em]">
@@ -327,7 +325,10 @@
 
       <template x-if="meetup">
         <div class="mx-auto w-full text-white flex-col">
-          <div class="w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
+          <div class="absolute -mt-4 left-0 rotate">
+            <span class="opacity-10 text-[16em]">Partnerzy></span>
+          </div>
+          <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
           <div class="mx-auto max-w-2xl sm:max-w-7xl -mt-[12em] flex flex-col lg:flex-row gap-2 lg:gap-4">
             <template x-for="partner in meetup.partners">
               <div class="flex-1 z-10">
@@ -342,7 +343,7 @@
     </section>
 
     <section class="mt-32 relative">
-      <div class="mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]">Rejestracja</div>
+      <div class="hidden lg:block mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]">Rejestracja</div>
       <div class="relative mx-auto max-w-7xl z-10 -m-36">
         <div class="p-16 bg-neutral-200 rounded-3xl text-[#231769]">
           <h2 class="text-center text-5xl font-bold mb-8">Rejestracja</h2>
@@ -365,10 +366,10 @@
             </div>
 
             <div class="relative w-full flex justify-center mt-8 -mr-4 cursor-pointer">
-              <div class="w-[310px] relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
+              <div class="relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
                 Zarejestruj się
               </div>
-              <div class="w-[320px] absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent border-2 border-[#01FF6B] rounded-full z-0">
+              <div class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent border-2 border-[#01FF6B] rounded-full z-0">
                 Zarejestruj się
               </div>
             </div>
@@ -377,7 +378,7 @@
       </div>
       <div class="-mt-24 bg-[#01FF6B] h-[320px] z-0"></div>
       <div class="bg-white p-8">
-        <div class="absolute right-0 bottom-0 -mr-[4em] z-20 h-[24em] overflow-hidden">
+        <div class="hidden lg:block absolute right-0 bottom-0 -mr-[4em] z-20 h-[24em] overflow-hidden">
           <div class="border border-[96px] border-[#231769] size-[64em] rounded-full"></div>
         </div>
         <div class="mx-auto max-w-7xl opacity-50 flex">
