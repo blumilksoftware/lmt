@@ -33,6 +33,15 @@
         -moz-box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
         box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
       }
+
+      @media (max-width: 640px) {
+        .box-shadow {
+          -webkit-box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
+          -moz-box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
+          box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
+        }
+      }
+
     </style>
   </head>
   <body class="bg-[#231769] overflow-x-hidden" x-data="initialize()" x-init="start()">
@@ -116,28 +125,30 @@
           </div>
         </div>
 
-        <div class="-mt-16 xl:w-1/2 leading-none text-6xl min-[460px]:text-7xl sm:text-9xl font-bold">Technologia bez granic</div>
+        <div class="-mt-16 pl-2 sm:pl-0 w-1/2 lg:w-full leading-none text-6xl min-[460px]:text-7xl sm:text-9xl font-bold">Technologia bez granic</div>
         <div class="mt-8 text-2xl sm:text-4xl flex items-center">
-          <span class="flex-grow px-1">Inteligentne rozwiązania, lokalne podejście </span>
+          <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście </span>
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
-        <div class="sm:w-full flex flex-wrap justify-center gap-4 mt-20 px-4 py-6 rounded-2xl">
-          <div class="flex flex-col items-center px-4">
-            <div class="text-4xl sm:text-6xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+        <div class="flex flex-wrap justify-center sm:justify-start gap-4 mt-20 px-4 py-6 rounded-2xl sm:bg-black sm:divide-x sm:divide-slate-100/25 sm:bg-opacity-75">
+          <div class="flex flex-col items-center px-4 sm:order-first">
+            <div class="text-5xl sm:text-6xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
             <div class="text-sm">dni</div>
           </div>
-          <div class="flex flex-col items-center px-4">
-            <div class="text-4xl sm:text-6xl font-bold" x-text="counters.hours"></div>
-            <div class="text-sm">godzin</div>
-          </div>
-          <div class="flex flex-col items-center px-4">
-            <div class="text-4xl sm:text-6xl font-bold" x-text="counters.minutes"></div>
-            <div class="text-sm">minut</div>
-          </div>
-          <div class="flex flex-col items-center px-4">
-            <div class="text-4xl sm:text-6xl font-bold" x-text="counters.seconds"></div>
-            <div class="text-sm">sekund</div>
+          <div class="flex flex-wrap justify-center gap-4 sm:flex-row sm:order-last sm:divide-x sm:divide-slate-100/25">
+            <div class="flex flex-col items-center px-4">
+              <div class="text-4xl sm:text-6xl font-bold" x-text="counters.hours"></div>
+              <div class="text-sm">godzin</div>
+            </div>
+            <div class="flex flex-col items-center px-4">
+              <div class="text-4xl sm:text-6xl font-bold" x-text="counters.minutes"></div>
+              <div class="text-sm">minut</div>
+            </div>
+            <div class="flex flex-col items-center px-4">
+              <div class="text-4xl sm:text-6xl font-bold" x-text="counters.seconds"></div>
+              <div class="text-sm">sekund</div>
+            </div>
           </div>
         </div>
       </div>
@@ -150,13 +161,14 @@
           <div class="flex flex-col gap-6 ml-4 sm:ml-36 font-bold">
             <div class="relative text-5xl sm:text-9xl">
               <span x-text="meetup.date"></span>
+              <div class="lg:hidden" x-text="meetup.year"></div>
               <div class="absolute">
                 <div class="-mt-12 bg-[#01FF6B] h-3 w-64 -ml-72"></div>
               </div>
             </div>
             <div class="text-3xl sm:text-5xl text-[#01FF6B]" x-text="meetup.place"></div>
             <div class="text-3xl sm:text-5xl">start <span x-text="meetup.time"></span></div>
-            <div class="absolute -mt-4 left-0 rotate">
+            <div class="hidden lg:block absolute -mt-4 left-0 rotate">
               <span class="opacity-10 text-[16em]" x-text="meetup.year"></span>
             </div>
           </div>
@@ -324,13 +336,13 @@
 
     <section class="mt-32 lg:mt-48 mb-12">
       <div class="mx-auto max-w-5xl text-white flex flex-col relative">
-        <div class="flex items-center flex-col lg:flex-row">
-          <div class="rotate-90 origin-center lg:mr-8">
-            <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class="w-[32em] rotate-180 lg:-mt-32">
+        <div class="flex items-center flex-row">
+          <div class="rotate-90 origin-center lg:mr-8 -mx-8 lg:mx-0">
+            <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class=" w-[28em] lg:w-[32em] rotate-180 lg:-mt-32">
           </div>
           <div class="lg:w-3/4">
             <div class="font-bold text-4xl sm:text-6xl lg:text-left">Organizator</div>
-            <div class="mt-4 font-bold text-7xl text-[#01FF6B] lg:text-left">Blumilk sp. o.o.</div>
+            <div class="mt-4 font-bold text-6xl sm:text-7xl text-[#01FF6B] lg:text-left">Blumilk sp. o.o.</div>
             <div class="mt-12 max-w-lg lg:text-left">Legnicki software house, specjalizujący się w tworzeniu aplikacji web/mobile oraz zaawansowanych projektach B+R.</div>
           </div>
         </div>
@@ -338,15 +350,15 @@
 
       <template x-if="meetup">
         <div class="mx-auto w-full text-white flex-col">
-          <div class="lg:hidden absolute -mt-4 left-0 rotate">
-            <span class="opacity-10 text-[16em]">Partnerzy</span>
+          <div class="lg:hidden my-24 lg:my-0">
+            <span class="pl-8 text-white font-bold text-6xl">Partnerzy</span>
           </div>
           <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
-          <div class="mx-auto max-w-2xl sm:max-w-7xl -mt-[12em] flex flex-col lg:flex-row gap-2 lg:gap-4">
+          <div class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0lg:gap-16">
             <template x-for="partner in meetup.partners">
-              <div class="flex-1 z-10">
+              <div class="flex-1 z-10 px-8">
                 <a class="mx-auto" :href="partner.website" target="_blank">
-                  <img :src="partner.logoUrl" :alt="partner.name">
+                  <img :src="partner.logoUrl" :alt="partner.name" class="w-80 lg:w-auto">
                 </a>
               </div>
             </template>
@@ -355,10 +367,10 @@
       </template>
     </section>
 
-    <section class="mt-32 relative">
+    <section class="mt-64 lg:mt-32 relative">
       <div class="hidden lg:block mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]">Rejestracja</div>
       <div class="relative mx-auto max-w-7xl z-10 -m-36">
-        <div class="p-16 bg-neutral-200 rounded-3xl text-[#231769]">
+        <div class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
           <h2 class="text-center text-5xl font-bold mb-8">Rejestracja</h2>
           <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
             <div class="relative">
@@ -389,12 +401,12 @@
           </div>
         </div>
       </div>
-      <div class="-mt-24 bg-[#01FF6B] h-[320px] z-0"></div>
+      <div class="-mt-24 bg-[#01FF6B] h-[160px] lg:h-[320px] z-0"></div>
       <div class="bg-white p-8">
         <div class="hidden lg:block absolute right-0 bottom-0 -mr-[4em] z-20 h-[24em] overflow-hidden">
           <div class="border border-[96px] border-[#231769] size-[64em] rounded-full"></div>
         </div>
-        <div class="mx-auto max-w-7xl opacity-50 flex">
+        <div class="mx-auto max-w-7xl opacity-50 flex items-center">
           <div class="flex-grow">
             2024 legnicki meetup technologiczny powered by <a href="https://blumilk.pl/" class="font-bold" target="_blank">Blumilk</a>
           </div>
