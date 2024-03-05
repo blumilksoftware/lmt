@@ -6,59 +6,65 @@
     {
       "name": "Adam",
       "surname": "Marszowski",
-      "role": "software developer",
-      "company": "Softiq",
+      "role": "Software Developer",
+      "company": "SOFTIQ",
       "avatarUrl": "https://media.licdn.com/dms/image/D4D03AQG9aiIX_CsSJA/profile-displayphoto-shrink_400_400/0/1703508254582?e=2147483647&v=beta&t=UxFKM40UwGPgznPbHLd5Pi8e9bRG520YdpPq4S3RC2w",
-      "about": "Adam specjalizuje się w programowaniu w Javie i frameworku React. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI."
+      "about": "Adam specjalizuje się w programowaniu w React i Java. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI."
     },
     {
       "name": "Joanna",
       "surname": "Rewak",
-      "role": "radca prawny",
+      "role": "Radca Prawny",
       "company": "Blumilk & Kancelaria radcy prawnego Joanny Rewak",
       "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01GMS4M59D-9bbd7c8faf64-512",
-      "about": "Joanna (...)"
+      "about": "Asia jest radcą prawnym pasjonującym się prawem nowych technologii. Specjalizuje się w tworzeniu umów, regulaminów oraz dokumentów dotyczących ochrony danych dla podmiotów z branży technologicznej. Ciekawostkami prawnymi dzieli się social mediach."
     },
     {
       "name": "Jacek",
       "surname": "Sawoszczuk",
-      "role": "inżynier oprogramowania",
-      "company": "Blumilk",
+      "role": "Software Developer",
+      "company": "Blumilk sp. z o.o.",
       "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01FG97BZHU-413208bdc9b8-512",
-      "about": "Jacek (...)"
+      "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie gdzie specjalizuje się w Vue i Tailwind. Entuzjasta oprogramowania open-source, Linuxa i całej społeczności powstałej wokół otwartego oprogramowania."
     }
   ],
   "agenda": [
     {
       "start": "18:00",
-      "title": "Rozpoczęcie"
+      "title": "Krótka opowieść o LMT i przywitanie gości"
     },
     {
       "start": "18:15",
-      "title": "Łącząc teraźniejszość z przyszłością: Praktyczne zastosowania AI",
+      "title": "Łącząc teraźniejszość z przyszłością: Praktyczne zastosowania AI; Adam Marszowski, SoFTIQ",
       "description": "Podczas prezentacji Adama przyjrzymy się praktycznemu zastosowaniu modeli językowych (LLMs) do rozwiązywania rzeczywistych problemów biznesowych. Skupiając się na konkretnym case study, Adam pokaże, jak technologie AI mogą transformować tradycyjne procesy i przyczyniać się do efektywniejszego funkcjonowania firm."
     },
     {
       "start": "19:00",
-      "title": "Prawne aspekty wykorzystania generatywnego AI",
+      "title": "Uwarunkowania prawne dotyczące wykorzystywania narzędzi AI w programowaniu; Joanna Rewak, radca prawny",
       "description": "W swojej prezentacji Joanna (...)"
     },
     {
-      "start": "19:30",
-      "title": "Wykorzystanie GitHub Copilot na 100%",
-      "description": "W ramach live codingu Jacek (...)"
+      "start": "19:45",
+      "title": "Przerwa"
     },
     {
-      "start": "20:15",
-      "title": "Zakończenie oficjalnej części spotkania"
+      "start": "20:00",
+      "title": "HTMX - Czy frontend musi być skomplikowany?",
+      "description": "Ekosystem javascriptowy z roku na rok rośnie a nasze frontendy stają się coraz bardziej skomplikowane. HTMX proponuje odważne podejście do uproszczenia aplikacji webowych poprzez powrót do korzeni tej dziedziny. W tej prezentacji przyjrzymy się czym konkretnie jest HTMX i czy faktycznie może spełnić te obietnice."
+    },
+    {
+      "start": "20:45",
+      "title": "Networking"
     }
   ],
-  "partners": [
+  "sponsors": [
     {
       "name": "Collegium Witelona Uczelnia Państwowa",
       "website": "https://collegiumwitelona.pl/",
       "logoUrl": "./images/partners/cwup.png"
-    },
+    }
+  ],
+  "partners": [
     {
       "name": "KGHM Centrum Analityki",
       "website": "https://cakghm.com/",
