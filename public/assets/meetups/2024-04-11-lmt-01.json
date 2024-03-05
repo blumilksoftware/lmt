@@ -25,7 +25,7 @@
       "role": "Software Developer",
       "company": "Blumilk sp. z o.o.",
       "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01FG97BZHU-413208bdc9b8-512",
-      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum rutrum nisl, eget maximus sem hendrerit eget. Aliquam erat volutpat. Aliquam sodales enim eros, ut faucibus lorem laoreet vitae. Vivamus eu metus sagittis, consequat libero tincidunt, molestie mi. Curabitur eget egestas neque. Vivamus risus odio, finibus sit amet leo a, congue porta arcu. Sed pulvinar nunc semper mattis bibendum. Pellentesque vitae neque sapien."
+      "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie gdzie specjalizuje się w Vue i Tailwind. Entuzjasta oprogramowania open-source, Linuxa i całej społeczności powstałej wokół otwartego oprogramowania."
     }
   ],
   "agenda": [
@@ -49,8 +49,8 @@
     },
     {
       "start": "20:00",
-      "title": "Prezentacja Jacka o HTMX??",
-      "description": "W ramach live codingu Jacek (...)"
+      "title": "HTMX - Czy frontend musi być skomplikowany?",
+      "description": "Ekosystem javascriptowy z roku na rok rośnie a nasze frontendy stają się coraz bardziej skomplikowane. HTMX proponuje odważne podejście do uproszczenia aplikacji webowych poprzez powrót do korzeni tej dziedziny. W tej prezentacji przyjrzymy się czym konkretnie jest HTMX i czy faktycznie może spełnić te obietnice."
     },
     {
       "start": "20:45",
