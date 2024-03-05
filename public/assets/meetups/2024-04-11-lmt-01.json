@@ -57,12 +57,14 @@
       "title": "Networking"
     }
   ],
-  "partners": [
+  "sponsors": [
     {
       "name": "Collegium Witelona Uczelnia Państwowa",
       "website": "https://collegiumwitelona.pl/",
       "logoUrl": "./images/partners/cwup.png"
-    },
+    }
+  ],
+  "partners": [
     {
       "name": "KGHM Centrum Analityki",
       "website": "https://cakghm.com/",

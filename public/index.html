@@ -78,12 +78,12 @@
 
           <div :class="{'block': open, 'hidden': !open}" class="xl:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Wydarzenie</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Prelegenci</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Agenda</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Partnerzy</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patronat</a>
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Rejestracja</a>
+              <a href="#event" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Wydarzenie</a>
+              <a href="#speakers" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Prelegenci</a>
+              <a href="#agenda" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Agenda</a>
+              <a href="#partners" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Partnerzy</a>
+              <a href="#sponsors" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Patronat</a>
+              <a href="#register" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Rejestracja</a>
             </div>
           </div>
         </nav>
@@ -103,7 +103,7 @@
                     <a href="#speakers" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Prelegenci</a>
                     <a href="#agenda" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Agenda</a>
                     <a href="#partners" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Partnerzy</a>
-                    <a href="#patronate" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Patronat</a>
+                    <a href="#sponsors" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Patronat</a>
                     <a href="#register" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Rejestracja</a>
                   </div>
                 </div>
@@ -351,19 +351,36 @@
       </div>
 
       <template x-if="meetup">
-        <div class="mx-auto w-full text-white flex-col" id="partners">
-          <div class="lg:hidden my-24 lg:my-0">
-            <span class="pl-8 text-white font-bold text-6xl">Partnerzy</span>
+        <div>
+          <div class="mx-auto w-full text-white flex-col mt-16" id="sponsors">
+            <div class="lg:hidden my-24 lg:my-0">
+              <span class="pl-8 text-white font-bold text-6xl">Patronat</span>
+            </div>
+            <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Patronat</div>
+            <div class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center justify-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16 text-center">
+              <template x-for="sponsor in meetup.sponsors">
+                <div class="flex-1 z-10 px-4">
+                  <a :href="sponsor.website" target="_blank">
+                    <img :src="sponsor.logoUrl" :alt="sponsor.name" class="w-48 lg:w-96 mx-auto">
+                  </a>
+                </div>
+              </template>
+            </div>
           </div>
-          <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
-          <div class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0lg:gap-16">
-            <template x-for="partner in meetup.partners">
-              <div class="flex-1 z-10 px-8">
-                <a class="mx-auto" :href="partner.website" target="_blank">
-                  <img :src="partner.logoUrl" :alt="partner.name" class="w-80 lg:w-auto">
-                </a>
-              </div>
-            </template>
+          <div class="mx-auto w-full text-white flex-col" id="partners">
+            <div class="lg:hidden my-24 lg:my-0">
+              <span class="pl-8 text-white font-bold text-5xl">Partnerzy</span>
+            </div>
+            <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
+            <div class="mx-auto sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16">
+              <template x-for="partner in meetup.partners">
+                <div class="flex-1 z-10 lg:px-8">
+                  <a class="mx-auto" :href="partner.website" target="_blank">
+                    <img :src="partner.logoUrl" :alt="partner.name" class="w-64 lg:w-auto">
+                  </a>
+                </div>
+              </template>
+            </div>
           </div>
         </div>
       </template>
