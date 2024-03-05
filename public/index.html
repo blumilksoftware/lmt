@@ -81,8 +81,8 @@
               <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
               <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
               <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
-              <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
               <a href="#sponsors" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Patronat</a>
+              <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
               <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
             </div>
           </div>
@@ -102,8 +102,8 @@
                     <a href="#event" class="hover:bg-gray-700 hover:text-white px-3 py-2">Wydarzenie</a>
                     <a href="#speakers" class="hover:bg-gray-700 hover:text-white px-3 py-2">Prelegenci</a>
                     <a href="#agenda" class="hover:bg-gray-700 hover:text-white px-3 py-2">Agenda</a>
-                    <a href="#partners" class="hover:bg-gray-700 hover:text-white px-3 py-2">Partnerzy</a>
                     <a href="#sponsors" class="hover:bg-gray-700 hover:text-white px-3 py-2">Patronat</a>
+                    <a href="#partners" class="hover:bg-gray-700 hover:text-white px-3 py-2">Partnerzy</a>
                     <a href="#register" class="hover:bg-gray-700 hover:text-white px-3 py-2">Rejestracja</a>
                   </div>
                 </div>
@@ -175,19 +175,19 @@
             </div>
           </div>
 
-          <div class="mt-32 grid grid-cols-1 lg:grid-cols-3 gap-16 text-lg text-[#231769]">
+          <div class="mt-32 grid grid-cols-1 gap-16 text-lg text-[#231769]">
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
-            <h2 class="text-4xl font-bold mb-8">Legnicki Meetup Technologiczny</h2>
-            <p class="tracking-tight">Cykl spotkań technologicznych w Legnicy, podczas których zaproszeni goście dzielą się swoimi doświadczeniami i przemyśleniami w dziedzinie programowania i nowych technologii. Chcemy, aby to wydarzenie stało się miejscem, gdzie ludzie mogą wymieniać myśli oraz nawiązywać nowe kontakty biznesowe.</p>
+            <h2 class="text-4xl font-bold mb-8">LMT</h2>
+            <p class="tracking-tight">Legnicki Meetup Technologiczny to cykl spotkań technologicznych w Legnicy, podczas których zaproszeni goście dzielą się swoimi doświadczeniami i przemyśleniami w dziedzinie programowania i nowych technologii. Chcemy, aby to wydarzenie stało się miejscem, gdzie uczestnicy mogą wymieniać myśli oraz nawiązywać nowe kontakty biznesowe.</p>
           </div>
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">O czym?</h2>
-            <p class="tracking-tight">Nasz meetup ma na celu stworzenie inspirującej i otwartej przestrzeni do nauki, wymiany pomysłów oraz budowania relacji zawodowych, które mogą przyczynić się do rozwoju każdego uczestnika oraz lokalnej społeczności technologicznej w Legnicy i okolicach.
-              Celem LMT jest stworzenie przestrzeni, w której programiści backendu pracujący w PHP, C#, Javie czy innych językach, mogą wymieniać doświadczenia oraz zdobywać nową wiedzę. Jednocześnie, chcemy zapewnić miejsce dla specjalistów od projektowania frontendu, testowania aplikacji oraz osób zainteresowanych ciekawostkami technologicznymi i tematami devops.</p>
+            <p class="tracking-tight">Meetup ma na celu stworzenie inspirującej i otwartej przestrzeni do nauki, wymiany pomysłów oraz budowania relacji zawodowych, które mogą przyczynić się do rozwoju każdego uczestnika oraz lokalnej społeczności technologicznej w Legnicy i okolicach.
+              Podczas spotkania programiści backendu pracujący w PHP, C#, Javie czy innych językach, mogą wymieniać doświadczenia oraz zdobywać nową wiedzę. Jednocześnie, chcemy zapewnić miejsce dla specjalistów od projektowania frontendu, testowania aplikacji oraz osób zainteresowanych ciekawostkami technologicznymi i tematami devops.</p>
           </div>
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">Dla kogo?</h2>
-            <p class="tracking-tight">Zapraszamy programistów, przedsiębiorców, specjalistów IT, badaczy, studentów oraz wszystkich, którzy chcą nawiązać kontakty, wymienić doświadczenia oraz rozwijać swoją wiedzę i umiejętności w tej dziedzinie. Celem spotkania jest stworzenie platformy do networkingu, współpracy i inspirowania się nawzajem, a także odkrycie potencjału technologicznego i biznesowego regionu Legnicy i okolic. Nasze spotkanie jest otwarte dla wszystkich zainteresowanych tematyką technologiczną, bez względu na ich specjalizację czy poziom zaawansowania.</p>
+            <p class="tracking-tight">Zapraszamy programistów, przedsiębiorców, specjalistów IT, badaczy, studentów oraz wszystkich, którzy chcą nawiązać kontakty, wymienić doświadczenia oraz rozwijać swoją wiedzę i umiejętności w tej dziedzinie. Nasze spotkanie jest otwarte dla wszystkich zainteresowanych tematyką technologiczną, bez względu na ich specjalizację czy poziom zaawansowania.</p>
           </div>
         </div>
       </div>
@@ -214,7 +214,12 @@
                     <div class="text-6xl text-[#01FF6B]" x-text="selectedSpeaker.surname"></div>
                   </div>
                   <div class="mt-4 text-2xl text-gray-300">
-                    <span x-text="selectedSpeaker.role"></span> w <span class="font-bold text-[#01FF6B]" x-text="selectedSpeaker.company"></span>
+                    <span x-text="selectedSpeaker.role"></span>
+                    <template x-for="company in selectedSpeaker.companies">
+                        <div class="font-bold text-[#01FF6B]" >
+                          <a :href="company.url" target="_blank" x-text="company.name"></a>
+                        </div>
+                    </template>
                   </div>
                   <div class="mt-12 pr-24 flex flex-col gap-2 text-gray-300 text-lg">
                     <p x-text="selectedSpeaker.about"></p>
@@ -250,7 +255,13 @@
                       </div>
                       <div>
                         <div class="font-bold text-2xl text-[#01FF6B]" x-text="speaker.name + ' ' + speaker.surname"></div>
-                        <span x-text="speaker.role"></span> w <span class="font-bold text-[#01FF6B]" x-text="speaker.company"></span>
+                        <span x-text="speaker.role"></span>
+                        <template x-for="company in speaker.companies">
+                          <div class="font-bold text-[#01FF6B]" >
+                            <a :href="company.url" target="_blank" x-text="company.name"></a>
+                          </div>
+                        </template>
+                        <span class="font-bold text-[#01FF6B]" x-text="speaker.company"></span>
                       </div>
                     </div>
                     <div class="mt-4 text-gray-300 text-lg text-center" x-text="speaker.about"></div>
@@ -293,7 +304,10 @@
                   <div class="flex flex-col">
                     <div class="flex items-center py-8">
                       <div class="w-[100px] text-4xl font-bold" :class="index !== 0 || 'text-[#01FF6B]'" x-text="lecture.start">18:15</div>
-                      <div class="px-8" x-text="lecture.title"></div>
+                      <div>
+                        <div class="px-8" x-text="lecture.title"></div>
+                        <div class="px-8 pt-2 text-sm" x-text="lecture.speaker"></div>
+                      </div>
                       <template x-if="lecture.description && lecture.expanded === false">
                         <div class="flex-grow text-right text-5xl cursor-pointer -mt-6" @click="lecture.expanded = true">&#8964;</div>
                       </template>
@@ -352,7 +366,7 @@
 
       <template x-if="meetup">
         <div>
-          <div class="mx-auto w-full text-white flex-col mt-16" id="sponsors">
+          <div class="mx-auto w-full text-white flex-col" id="sponsors">
             <div class="lg:hidden my-24 lg:my-0">
               <span class="pl-8 text-white font-bold text-6xl">Patronat</span>
             </div>
@@ -361,7 +375,7 @@
               <template x-for="sponsor in meetup.sponsors">
                 <div class="flex-1 z-10 px-4">
                   <a :href="sponsor.website" target="_blank">
-                    <img :src="sponsor.logoUrl" :alt="sponsor.name" class="w-48 lg:w-96 mx-auto">
+                    <img :src="sponsor.logoUrl" :alt="sponsor.name" class="w-64 lg:w-96 mx-auto">
                   </a>
                 </div>
               </template>
@@ -376,7 +390,7 @@
               <template x-for="partner in meetup.partners">
                 <div class="flex-1 z-10 lg:px-8">
                   <a class="mx-auto" :href="partner.website" target="_blank">
-                    <img :src="partner.logoUrl" :alt="partner.name" class="w-64 lg:w-auto">
+                    <img :src="partner.logoUrl" :alt="partner.name" class="w-48 lg:w-64 lg:w-auto">
                   </a>
                 </div>
               </template>

@@ -7,7 +7,12 @@
       "name": "Adam",
       "surname": "Marszowski",
       "role": "Software Developer",
-      "company": "SOFTIQ",
+      "companies": [
+        {
+          "name": "Softiq sp. z o.o.",
+          "url": "https://softiq.pl/"
+        }
+      ],
       "avatarUrl": "https://media.licdn.com/dms/image/D4D03AQG9aiIX_CsSJA/profile-displayphoto-shrink_400_400/0/1703508254582?e=2147483647&v=beta&t=UxFKM40UwGPgznPbHLd5Pi8e9bRG520YdpPq4S3RC2w",
       "about": "Adam specjalizuje się w programowaniu w React i Java. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI."
     },
@@ -15,7 +20,16 @@
       "name": "Joanna",
       "surname": "Rewak",
       "role": "Radca Prawny",
-      "company": "Blumilk & Kancelaria radcy prawnego Joanny Rewak",
+      "companies": [
+        {
+          "name": "Blumilk sp. z o.o.",
+          "url": "https://www.blumilk.pl/"
+        },
+        {
+          "name": "Kancelaria radcy prawnego Joanny Rewak",
+          "url": "https://kancelaria.rewak.pl/"
+        }
+      ],
       "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01GMS4M59D-9bbd7c8faf64-512",
       "about": "Asia jest radcą prawnym pasjonującym się prawem nowych technologii. Specjalizuje się w tworzeniu umów, regulaminów oraz dokumentów dotyczących ochrony danych dla podmiotów z branży technologicznej. Ciekawostkami prawnymi dzieli się social mediach."
     },
@@ -23,7 +37,12 @@
       "name": "Jacek",
       "surname": "Sawoszczuk",
       "role": "Software Developer",
-      "company": "Blumilk sp. z o.o.",
+      "companies": [
+        {
+          "name": "Blumilk sp. z o.o.",
+          "url": "https://www.blumilk.pl/"
+        }
+        ],
       "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01FG97BZHU-413208bdc9b8-512",
       "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie gdzie specjalizuje się w Vue i Tailwind. Entuzjasta oprogramowania open-source, Linuxa i całej społeczności powstałej wokół otwartego oprogramowania."
     }
@@ -35,12 +54,14 @@
     },
     {
       "start": "18:15",
-      "title": "Łącząc teraźniejszość z przyszłością: Praktyczne zastosowania AI; Adam Marszowski, SoFTIQ",
+      "title": "Łącząc teraźniejszość z przyszłością: Praktyczne zastosowania AI",
+      "speaker": "Adam Marszowski, SOFTIQ",
       "description": "Podczas prezentacji Adama przyjrzymy się praktycznemu zastosowaniu modeli językowych (LLMs) do rozwiązywania rzeczywistych problemów biznesowych. Skupiając się na konkretnym case study, Adam pokaże, jak technologie AI mogą transformować tradycyjne procesy i przyczyniać się do efektywniejszego funkcjonowania firm."
     },
     {
       "start": "19:00",
-      "title": "Uwarunkowania prawne dotyczące wykorzystywania narzędzi AI w programowaniu; Joanna Rewak, radca prawny",
+      "title": "Uwarunkowania prawne dotyczące wykorzystywania narzędzi AI w programowaniu",
+      "speaker": "Joanna Rewak, radca prawny",
       "description": "W swojej prezentacji Joanna (...)"
     },
     {
@@ -50,6 +71,7 @@
     {
       "start": "20:00",
       "title": "HTMX - Czy frontend musi być skomplikowany?",
+      "speaker": "Jacek Sawoszczuk, Blumilk",
       "description": "Ekosystem javascriptowy z roku na rok rośnie a nasze frontendy stają się coraz bardziej skomplikowane. HTMX proponuje odważne podejście do uproszczenia aplikacji webowych poprzez powrót do korzeni tej dziedziny. W tej prezentacji przyjrzymy się czym konkretnie jest HTMX i czy faktycznie może spełnić te obietnice."
     },
     {
