@@ -57,7 +57,7 @@
     <div class="absolute top-0 w-full h-screen">
 
       <div x-data="{ open: false }">
-        <nav class=" xl:hidden bg-black">
+        <nav class="xl:hidden bg-black">
           <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
               <div class="flex items-center">
@@ -90,19 +90,21 @@
 
         <nav class="hidden xl:block text-white">
           <div class="max-w-7xl mx-auto px-2 xl:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-32">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
-                  <img class="h-8 w-auto w-[250px]" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny">
                 </div>
+              </div>
+              <div class="flex items-center">
                 <div class="hidden xl:block xl:ml-6">
-                  <div class="flex space-x-4">
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Wydarzenie</a>
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Prelegenci</a>
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Agenda</a>
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Partnerzy</a>
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Patronat</a>
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Rejestracja</a>
+                  <div class="flex justify-end space-x-4">
+                    <a href="#event" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Wydarzenie</a>
+                    <a href="#speakers" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Prelegenci</a>
+                    <a href="#agenda" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Agenda</a>
+                    <a href="#partners" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Partnerzy</a>
+                    <a href="#patronate" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Patronat</a>
+                    <a href="#register" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-medium">Rejestracja</a>
                   </div>
                 </div>
               </div>
@@ -125,29 +127,29 @@
           </div>
         </div>
 
-        <div class="-mt-16 pl-2 sm:pl-0 w-1/2 lg:w-full leading-none text-6xl min-[460px]:text-7xl sm:text-9xl font-bold">Technologia bez granic</div>
+        <div id="event" class="-mt-16 px-2 sm:pl-0 lg:w-full leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesne technologie</div>
         <div class="mt-8 text-2xl sm:text-4xl flex items-center">
           <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście </span>
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
         <div class="flex flex-wrap justify-center sm:justify-start gap-4 mt-20 px-4 py-6 rounded-2xl sm:bg-black sm:divide-x sm:divide-slate-100/25 sm:bg-opacity-75">
-          <div class="flex flex-col items-center px-4 sm:order-first">
-            <div class="text-5xl sm:text-6xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
-            <div class="text-sm">dni</div>
+          <div class="flex flex-col sm:flex-row items-center px-4 sm:order-first">
+            <div class="text-5xl sm:text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+            <div class="text-sm sm:-rotate-90">dni</div>
           </div>
           <div class="flex flex-wrap justify-center gap-4 sm:flex-row sm:order-last sm:divide-x sm:divide-slate-100/25">
-            <div class="flex flex-col items-center px-4">
-              <div class="text-4xl sm:text-6xl font-bold" x-text="counters.hours"></div>
-              <div class="text-sm">godzin</div>
+            <div class="flex flex-col sm:flex-row items-center px-4">
+              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.hours"></div>
+              <div class="text-sm sm:-rotate-90">godzin</div>
             </div>
-            <div class="flex flex-col items-center px-4">
-              <div class="text-4xl sm:text-6xl font-bold" x-text="counters.minutes"></div>
-              <div class="text-sm">minut</div>
+            <div class="flex flex-col sm:flex-row items-center px-4">
+              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.minutes"></div>
+              <div class="text-sm sm:-rotate-90">minut</div>
             </div>
-            <div class="flex flex-col items-center px-4">
-              <div class="text-4xl sm:text-6xl font-bold" x-text="counters.seconds"></div>
-              <div class="text-sm">sekund</div>
+            <div class="flex flex-col sm:flex-row items-center px-4">
+              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.seconds"></div>
+              <div class="text-sm sm:-rotate-90">sekund</div>
             </div>
           </div>
         </div>
@@ -193,11 +195,11 @@
     </template>
 
     <section class="my-12">
-      <div class="mx-auto w-full text-white static">
+      <div class="mx-auto w-full text-white static" id="speakers">
         <div class="hidden lg:block absolute w-24">
           <img class="size-24 absolute left-0 top-0 ml-40 mt-20" src="./images/x.svg" alt="Krzyżyk">
         </div>
-        <div class="lg:hidden mt-20 text-8xl font-bold p-4">Lineup</div>
+        <div class="lg:hidden mt-20 text-6xl lg:text-8xl font-bold p-4">Lineup</div>
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em]">Lineup</div>
         <template x-if="meetup">
           <div class="w-full">
@@ -277,9 +279,9 @@
           </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row">
+        <div class="flex flex-col lg:flex-row" id="agenda">
           <div class="w-full lg:w-[40%] flex flex-col gap-12 px-4 lg:px-0">
-            <div class="mt-8 text-6xl lg:text-8xl font-bold">
+            <div class="lg:mt-8 text-6xl lg:text-8xl font-bold">
               Agenda
             </div>
             <div class="w-2/3 text-xl">Każda prezentacja trwa 30 min + 15 min sesja Q&A</div>
@@ -349,7 +351,7 @@
       </div>
 
       <template x-if="meetup">
-        <div class="mx-auto w-full text-white flex-col">
+        <div class="mx-auto w-full text-white flex-col" id="partners">
           <div class="lg:hidden my-24 lg:my-0">
             <span class="pl-8 text-white font-bold text-6xl">Partnerzy</span>
           </div>
@@ -368,7 +370,7 @@
     </section>
 
     <section class="mt-64 lg:mt-32 relative">
-      <div class="hidden lg:block mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]">Rejestracja</div>
+      <div class="hidden lg:block mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]" id="register">Rejestracja</div>
       <div class="relative mx-auto max-w-7xl z-10 -m-36">
         <div class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
           <h2 class="text-center text-5xl font-bold mb-8">Rejestracja</h2>
