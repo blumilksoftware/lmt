@@ -168,33 +168,34 @@
                 <div class="-mt-12 bg-[#01FF6B] h-3 w-64 -ml-72"></div>
               </div>
             </div>
-            <div class="text-3xl sm:text-5xl text-[#01FF6B]" x-text="meetup.place"></div>
+            <div class="text-3xl sm:text-5xl text-[#01FF6B]">
+              <a :href="meetup.localization" x-text="meetup.place"></a>
+            </div>
             <div class="text-3xl sm:text-5xl">start <span x-text="meetup.time"></span></div>
             <div class="hidden lg:block absolute -mt-4 left-0 rotate">
               <span class="opacity-10 text-[16em]" x-text="meetup.year"></span>
             </div>
           </div>
 
-          <div class="mt-32 grid grid-cols-1 gap-16 text-lg text-[#231769]">
+          <div class="mt-32 grid grid-cols-1 lg:grid-cols-3 gap-16 text-lg text-[#231769]">
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">LMT</h2>
-            <p class="tracking-tight">Legnicki Meetup Technologiczny to cykl spotkań technologicznych w Legnicy, podczas których zaproszeni goście dzielą się swoimi doświadczeniami i przemyśleniami w dziedzinie programowania i nowych technologii. Chcemy, aby to wydarzenie stało się miejscem, gdzie uczestnicy mogą wymieniać myśli oraz nawiązywać nowe kontakty biznesowe.</p>
+            <p class="tracking-tight">Inicjatywa, gdzie technologia łączy pasjonatów i profesjonalistów programowania i innowacyjnych rozwiązań biznesowych. Dołącz do naszej społeczności, rozwijaj się i poszerzaj nowe horyzonty dzięki networkingowi.</p>
           </div>
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">O czym?</h2>
-            <p class="tracking-tight">Meetup ma na celu stworzenie inspirującej i otwartej przestrzeni do nauki, wymiany pomysłów oraz budowania relacji zawodowych, które mogą przyczynić się do rozwoju każdego uczestnika oraz lokalnej społeczności technologicznej w Legnicy i okolicach.
-              Podczas spotkania programiści backendu pracujący w PHP, C#, Javie czy innych językach, mogą wymieniać doświadczenia oraz zdobywać nową wiedzę. Jednocześnie, chcemy zapewnić miejsce dla specjalistów od projektowania frontendu, testowania aplikacji oraz osób zainteresowanych ciekawostkami technologicznymi i tematami devops.</p>
+            <p class="tracking-tight">Podczas LMT tworzymy otwartą przestrzeń do nauki, wymiany doświadczeń i budowania relacji. Spotkanie backendowych programistów pracujących w różnych językach, frontendowców, testerów aplikacji i wszystkich, których interesuje świat technologii.</p>
           </div>
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">Dla kogo?</h2>
-            <p class="tracking-tight">Zapraszamy programistów, przedsiębiorców, specjalistów IT, badaczy, studentów oraz wszystkich, którzy chcą nawiązać kontakty, wymienić doświadczenia oraz rozwijać swoją wiedzę i umiejętności w tej dziedzinie. Nasze spotkanie jest otwarte dla wszystkich zainteresowanych tematyką technologiczną, bez względu na ich specjalizację czy poziom zaawansowania.</p>
+            <p class="tracking-tight">Dla programistów, przedsiębiorców, specjalistów IT, badaczy, studentów i każdego, kto chce poszerzyć swoje horyzonty w dziedzinie technologii. Bez względu na Twój poziom zaawansowania czy specjalizację - znajdziesz coś dla siebie!</p>
           </div>
         </div>
       </div>
     </section>
     </template>
 
-    <section class="my-12">
+    <section class="my-6">
       <div class="mx-auto w-full text-white static" id="speakers">
         <div class="hidden lg:block absolute w-24">
           <img class="size-24 absolute left-0 top-0 ml-40 mt-20" src="./images/x.svg" alt="Krzyżyk">
@@ -336,10 +337,15 @@
           <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-10">Media</div>
           <div class="w-full -mt-48 px-4 flex flex-col font-bold items-start lg:items-end justify-content gap-2">
             <div class="text-4xl sm:text-6xl text-white">Zainteresowany?</div>
-            <div class="text-2xl sm:text-4xl text-[#01FF6B]">Dołącz do grupy na Facebooku i bądź na bieżąco!</div>
+            <div class="text-2xl sm:text-4xl text-[#01FF6B] flex flex-col">
+              <div>Dołącz do grupy na Facebooku</div>
+              <div>i bądź na bieżąco!</div>
+            </div>
             <div class="relative mt-8 -mr-4 cursor-pointer">
               <div class="relative px-12 py-4 text-2xl text-[#231769] bg-neutral-200 rounded-full z-10 mr-4">
-                Dołącz do grupy
+                <a href="https://www.facebook.com/groups/webdevlegnica/">
+                  Dołącz do grupy
+                </a>
               </div>
               <div class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent bg-[#231769] border-2 border-[#01FF6B] rounded-full z-0">
                 Dołącz do grupy
