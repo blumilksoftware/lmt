@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
     <title>Legnicki meetup technologiczny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +44,13 @@
         }
       }
 
+      [data-loading] {
+        display: none;
+      }
+
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body class="bg-[#231769] overflow-x-hidden" x-data="initialize()" x-init="start()">
@@ -409,35 +418,41 @@
     <section class="mt-64 lg:mt-32 relative">
       <div class="hidden lg:block mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]" id="register">Rejestracja</div>
       <div class="relative mx-auto max-w-7xl z-10 -m-36">
-        <div class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
+        <div hx-ext="loading-states" data-loading-delay="300" class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
           <h2 class="text-center text-5xl font-bold mb-8">Rejestracja</h2>
-          <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
-            <div class="relative">
-              <label for="name" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Imię</label>
-              <input type="text" name="name" id="name" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
-            <div class="relative">
-              <label for="surname" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Nazwisko</label>
-              <input type="text" name="surname" id="surname" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
-            <div class="relative">
-              <label for="company" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Firma</label>
-              <input type="text" name="company" id="company" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
-            <div class="relative">
-              <label for="email" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Adres e-mail</label>
-              <input type="email" name="email" id="email" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
+          <form data-loading-class="hidden" id="registration-form">
+            <div id="registration-errors"></div>
+            <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
+              <div class="relative">
+                <label for="name" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Imię *</label>
+                <input type="text" name="name" id="name" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
+              <div class="relative">
+                <label for="surname" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Nazwisko *</label>
+                <input type="text" name="surname" id="surname" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
+              <div class="relative">
+                <label for="company" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Firma</label>
+                <input type="text" name="company" id="company" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
+              <div class="relative">
+                <label for="email" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Adres e-mail *</label>
+                <input type="email" name="email" id="email" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
 
-            <div class="relative w-full flex justify-center mt-8 -mr-4 cursor-pointer">
-              <div class="relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
-                Zarejestruj się
-              </div>
-              <div class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent border-2 border-[#01FF6B] rounded-full z-0">
-                Zarejestruj się
+              <div class="relative w-full flex justify-center mt-8 -mr-4 cursor-pointer">
+                <button data-loading-disable hx-post="register.php" hx-target="#registration-form" hx-swap="innerHTML show:top" class="relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
+                  Zarejestruj się
+                </button>
+                <div class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent border-2 border-[#01FF6B] rounded-full z-0">
+                  Zarejestruj się
+                </div>
               </div>
             </div>
-          </div>
+          </form>
+          <p data-loading class="text-xl mt-8 mb-32 text-center w-full">
+            Trwa wysyłanie...
+          </p>
         </div>
       </div>
       <div class="-mt-24 bg-[#01FF6B] h-[160px] lg:h-[320px] z-0"></div>
