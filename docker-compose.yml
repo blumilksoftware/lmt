@@ -1,0 +1,21 @@
+version: '3.8'
+networks:
+  traefik-proxy-blumilk-local:
+    external: true
+  lmt-dev:
+    driver: bridge
+
+services:
+  node:
+    image: node:21.6-alpine3.18
+    container_name: lmt-dev-node
+    working_dir: /application
+    volumes:
+      - .:/application
+    ports:
+      - ${EXTERNAL_NODE_PORT:-8050}:8050
+    networks:
+      - lmt-dev
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
