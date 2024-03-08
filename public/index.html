@@ -8,13 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
-    <style>
-      .rotate {
-        writing-mode: tb-rl;
-      }
-
-    </style>
   </head>
   <body class="bg-[#231769] overflow-x-hidden" x-data="initialize()" x-init="start()">
     <div class="landing absolute relative top-0 w-full h-screen bg-cover">
@@ -203,7 +196,7 @@
                 <template x-for="speaker in meetup.lineup">
                   <template x-if="speaker !== selectedSpeaker">
                     <div class="flex-1 flex flex-col items-center rounded-2xl bg-gradient-to-b from-[#01FF6B]/70 to-black/70 cursor-pointer" @click="selectedSpeaker = speaker">
-                      <div class="rotate writing-tb-rl origin-top-center flex items-center justify-start py-16 gap-8">
+                      <div class="rotate [writing-mode:vertical-lr] origin-top-center flex items-center justify-start py-16 gap-8">
                         <div>
                           <img class="mx-auto w-20 rounded-full" :src="speaker.avatarUrl" :alt="speaker.name + ' ' + speaker.surname">
                         </div>
