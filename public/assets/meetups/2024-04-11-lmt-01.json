@@ -20,7 +20,7 @@
     {
       "name": "Joanna",
       "surname": "Rewak",
-      "role": "Radca Prawny",
+      "role": "radca prawny",
       "companies": [
         {
           "name": "Blumilk sp. z o.o.",
@@ -37,7 +37,7 @@
     {
       "name": "Jacek",
       "surname": "Sawoszczuk",
-      "role": "Software Developer",
+      "role": "inżynier oprogramowania",
       "companies": [
         {
           "name": "Blumilk sp. z o.o.",
@@ -63,7 +63,7 @@
       "start": "19:00",
       "title": "Uwarunkowania prawne dotyczące wykorzystywania narzędzi AI w programowaniu",
       "speaker": "Joanna Rewak, radca prawny",
-      "description": "W swojej prezentacji Joanna (...)"
+      "description": "Narzędzia AI pracę programistów mają ułatwiać, a prawnicy jak powszechnie wiadomo utrudniać. Z prezentacji Asi dowiecie się dlaczego w software house potrzebny jest regulamin korzystania z rozwiązań sztucznej inteligencji i jakie ryzyka niesie za sobą jego brak."
     },
     {
       "start": "19:45",
