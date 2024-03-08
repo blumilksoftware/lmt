@@ -62,7 +62,9 @@
             <div class="flex items-center justify-between h-16">
               <div class="flex items-center">
                 <div class="shrink-0">
-                  <img class="h-8 w-auto w-[250px]" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  <a href="/">
+                    <img class="h-8 w-auto w-[250px]" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  </a>
                 </div>
               </div>
               <div class="block xl:hidden">
@@ -93,7 +95,9 @@
             <div class="flex items-center justify-between h-32">
               <div class="flex items-center">
                 <div class="shrink-0">
-                  <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  <a href="/">
+                    <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  </a>
                 </div>
               </div>
               <div class="flex items-center">
@@ -129,27 +133,61 @@
 
         <div id="event" class="-mt-16 px-2 sm:pl-0 lg:w-full leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesne technologie</div>
         <div class="mt-8 text-2xl sm:text-4xl flex items-center">
-          <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście </span>
+          <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście</span>
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
-        <div class="flex flex-wrap justify-center sm:justify-start gap-4 mt-20 px-4 py-6 rounded-2xl sm:bg-black sm:divide-x sm:divide-slate-100/25 sm:bg-opacity-75">
-          <div class="flex flex-col sm:flex-row items-center px-4 sm:order-first">
-            <div class="text-5xl sm:text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
-            <div class="text-sm sm:-rotate-90">dni</div>
+        <div class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
+          <div class="flex px-4">
+            <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">dni</div>
+            </div>
           </div>
-          <div class="flex flex-wrap justify-center gap-4 sm:flex-row sm:order-last sm:divide-x sm:divide-slate-100/25">
-            <div class="flex flex-col sm:flex-row items-center px-4">
-              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.hours"></div>
-              <div class="text-sm sm:-rotate-90">godzin</div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.hours"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">godzin</div>
             </div>
-            <div class="flex flex-col sm:flex-row items-center px-4">
-              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.minutes"></div>
-              <div class="text-sm sm:-rotate-90">minut</div>
+          </div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.minutes"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">minut</div>
             </div>
-            <div class="flex flex-col sm:flex-row items-center px-4">
-              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.seconds"></div>
-              <div class="text-sm sm:-rotate-90">sekund</div>
+          </div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.seconds"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">sekund</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:hidden flex-wrap justify-center items-center flex-col gap-4 mt-20 px-4 py-6 rounded-2xl">
+          <div class="flex flex-col items-center px-4">
+            <div class="text-5xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+            <div class="flex text-sm py-2">
+              <div class="px-1">dni</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex flex-col items-center px-4">
+              <div class="text-4xl font-bold" x-text="counters.hours"></div>
+              <div class="flex text-sm py-2">
+                <div class="px-1">godzin</div>
+              </div>
+            </div>
+            <div class="flex flex-col px-4">
+              <div class="text-4xl font-bold" x-text="counters.minutes"></div>
+              <div class="flex text-sm py-2">
+                <div class="px-1">minut</div>
+              </div>
+            </div>
+            <div class="flex flex-col items-center px-4">
+              <div class="text-4xl font-bold" x-text="counters.seconds"></div>
+              <div class="flex text-sm py-2">
+                <div class="px-1">sekund</div>
+              </div>
             </div>
           </div>
         </div>
@@ -203,9 +241,9 @@
         <div class="lg:hidden mt-20 text-6xl lg:text-8xl font-bold p-4">Lineup</div>
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
         <template x-if="meetup">
-          <div class="w-full">
-            <div class="lg:flex">
-              <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl">
+          <div class="w-full -mt-48">
+            <div class="lg:flex lg:h-2/3">
+              <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl ">
                 <div class="flex-1">
                   <img :src="selectedSpeaker.avatarUrl" class="mx-auto size-64 mr-24 rounded-full" :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname">
                 </div>
