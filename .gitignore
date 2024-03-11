@@ -1,1 +1,5 @@
 .idea
+/vendor/
+.env
+/cache/*
+!/cache/.gitkeep

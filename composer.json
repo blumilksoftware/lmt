@@ -1,0 +1,16 @@
+{
+    "name": "blumilksoftware/lmt",
+    "require": {
+        "php": "^8.0",
+        "symfony/mailer": "^7.0",
+        "symfony/validator": "^7.0",
+        "illuminate/collections": "^10.47",
+        "symfony/dotenv": "^7.0",
+        "twig/twig": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blumilksoftware\\Lmt\\": "src/"
+        }
+    }
+}
