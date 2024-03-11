@@ -21,7 +21,7 @@ class FormValidator
 
         $errors->put("email", $validator->validate($formInput["email"], [
             new Email(message: "Niepoprawny adres e-mail"),
-            new NotBlank(message: "E-mail jest wymagany")
+            new NotBlank(message: "E-mail jest wymagany"),
         ]));
 
         $errors->put("name", $validator->validate($formInput["name"], [
@@ -29,7 +29,7 @@ class FormValidator
             new Length(
                 min: 2, max: 50,
                 minMessage: "Imię musi mieć co najmniej 2 znaki",
-                maxMessage: "Imię może mieć maksymalnie 50 znaków"
+                maxMessage: "Imię może mieć maksymalnie 50 znaków",
             ),
         ]));
 
@@ -38,18 +38,18 @@ class FormValidator
             new Length(
                 min: 2, max: 50,
                 minMessage: "Nazwisko musi mieć co najmniej 2 znaki",
-                maxMessage: "Nazwisko może mieć maksymalnie 50 znaków"
-            )
+                maxMessage: "Nazwisko może mieć maksymalnie 50 znaków",
+            ),
         ]));
 
         $errors->put("company", $validator->validate($formInput["company"], [
             new Length(
-                max: 50, maxMessage: "Firma może mieć maksymalnie 50 znaków"
-            )
+                max: 50, maxMessage: "Firma może mieć maksymalnie 50 znaków",
+            ),
         ]));
 
         return $errors->map(
-            fn(ConstraintViolationList $violationList) => $violationList->count() > 0 ? $violationList->get(0)->getMessage() : null
+            fn(ConstraintViolationList $violationList): ?string => $violationList->count() > 0 ? $violationList->get(0)->getMessage() : null,
         )->filter();
     }
 }
