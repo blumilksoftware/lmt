@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
     <title>Legnicki meetup technologiczny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +29,9 @@
             <div class="flex items-center justify-between h-16">
               <div class="flex items-center">
                 <div class="shrink-0">
-                  <img class="h-8 w-auto w-[250px]" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  <a href="/">
+                    <img class="h-8 w-auto w-[250px]" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  </a>
                 </div>
               </div>
               <div class="block xl:hidden">
@@ -58,7 +62,9 @@
             <div class="flex items-center justify-between h-32">
               <div class="flex items-center">
                 <div class="shrink-0">
-                  <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  <a href="/">
+                    <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny">
+                  </a>
                 </div>
               </div>
               <div class="flex items-center">
@@ -94,27 +100,61 @@
 
         <div id="event" class="-mt-16 px-2 sm:pl-0 lg:w-full leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesne technologie</div>
         <div class="mt-8 text-2xl sm:text-4xl flex items-center">
-          <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście </span>
+          <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście</span>
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
-        <div class="flex flex-wrap justify-center sm:justify-start gap-4 mt-20 px-4 py-6 rounded-2xl sm:bg-black sm:divide-x sm:divide-slate-100/25 sm:bg-opacity-75">
-          <div class="flex flex-col sm:flex-row items-center px-4 sm:order-first">
-            <div class="text-5xl sm:text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
-            <div class="text-sm sm:-rotate-90">dni</div>
+        <div class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
+          <div class="flex px-4">
+            <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">dni</div>
+            </div>
           </div>
-          <div class="flex flex-wrap justify-center gap-4 sm:flex-row sm:order-last sm:divide-x sm:divide-slate-100/25">
-            <div class="flex flex-col sm:flex-row items-center px-4">
-              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.hours"></div>
-              <div class="text-sm sm:-rotate-90">godzin</div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.hours"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">godzin</div>
             </div>
-            <div class="flex flex-col sm:flex-row items-center px-4">
-              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.minutes"></div>
-              <div class="text-sm sm:-rotate-90">minut</div>
+          </div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.minutes"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">minut</div>
             </div>
-            <div class="flex flex-col sm:flex-row items-center px-4">
-              <div class="text-4xl sm:text-7xl font-bold" x-text="counters.seconds"></div>
-              <div class="text-sm sm:-rotate-90">sekund</div>
+          </div>
+          <div class="flex px-4">
+            <div class="text-7xl font-bold" x-text="counters.seconds"></div>
+            <div class="flex text-sm py-2">
+              <div class="rotate px-1">sekund</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex sm:hidden flex-wrap justify-center items-center flex-col gap-4 mt-20 px-4 py-6 rounded-2xl">
+          <div class="flex flex-col items-center px-4">
+            <div class="text-5xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+            <div class="flex text-sm py-2">
+              <div class="px-1">dni</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex flex-col items-center px-4">
+              <div class="text-4xl font-bold" x-text="counters.hours"></div>
+              <div class="flex text-sm py-2">
+                <div class="px-1">godzin</div>
+              </div>
+            </div>
+            <div class="flex flex-col px-4">
+              <div class="text-4xl font-bold" x-text="counters.minutes"></div>
+              <div class="flex text-sm py-2">
+                <div class="px-1">minut</div>
+              </div>
+            </div>
+            <div class="flex flex-col items-center px-4">
+              <div class="text-4xl font-bold" x-text="counters.seconds"></div>
+              <div class="flex text-sm py-2">
+                <div class="px-1">sekund</div>
+              </div>
             </div>
           </div>
         </div>
@@ -145,7 +185,7 @@
           <div class="mt-32 grid grid-cols-1 lg:grid-cols-3 gap-16 text-lg text-[#231769]">
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">LMT</h2>
-            <p class="tracking-tight">Legnicki Meetup Technologiczny to inicjatywa, gdzie technologia łączy pasjonatów i profesjonalistów programowania i innowacyjnych rozwiązań biznesowych. Dołącz do naszej społeczności, rozwijaj się i poszerzaj nowe horyzonty dzięki networkingowi.</p>
+            <p class="tracking-tight">Legnicki Meetup Technologiczny – inicjatywa, gdzie technologia łączy pasjonatów i profesjonalistów programowania! Chcesz rozwijać swoje umiejętności programistyczne, dzielić się pomysłami lub poszerzać horyzonty? To wydarzenie jest dla Ciebie!</p>
           </div>
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">O czym?</h2>
@@ -153,7 +193,7 @@
           </div>
           <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">Dla kogo?</h2>
-            <p class="tracking-tight">Dla programistów, przedsiębiorców, specjalistów IT, badaczy, studentów i każdego, kto chce poszerzyć swoje horyzonty w dziedzinie technologii. Bez względu na Twój poziom zaawansowania czy specjalizację - znajdziesz coś dla siebie!</p>
+            <p class="tracking-tight">Dla programistów, specjalistów IT, badaczy, przedsiębiorców, studentów i każdego, kto chce poszerzyć swoje horyzonty w dziedzinie technologii. Bez względu na Twój poziom zaawansowania czy specjalizację – znajdziesz coś dla siebie!</p>
           </div>
         </div>
       </div>
@@ -168,9 +208,9 @@
         <div class="lg:hidden mt-20 text-6xl lg:text-8xl font-bold p-4">Lineup</div>
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
         <template x-if="meetup">
-          <div class="w-full">
-            <div class="lg:flex">
-              <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl">
+          <div class="w-full -mt-48">
+            <div class="lg:flex lg:h-2/3">
+              <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl ">
                 <div class="flex-1">
                   <img :src="selectedSpeaker.avatarUrl" class="mx-auto size-64 mr-24 rounded-full" :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname">
                 </div>
@@ -374,35 +414,41 @@
     <section class="mt-64 lg:mt-32 relative">
       <div class="hidden lg:block mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]" id="register">Rejestracja</div>
       <div class="relative mx-auto max-w-7xl z-10 -m-36">
-        <div class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
+        <div hx-ext="loading-states" data-loading-delay="300" class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
           <h2 class="text-center text-5xl font-bold mb-8">Rejestracja</h2>
-          <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
-            <div class="relative">
-              <label for="name" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Imię</label>
-              <input type="text" name="name" id="name" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
-            <div class="relative">
-              <label for="surname" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Nazwisko</label>
-              <input type="text" name="surname" id="surname" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
-            <div class="relative">
-              <label for="company" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Firma</label>
-              <input type="text" name="company" id="company" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
-            <div class="relative">
-              <label for="email" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Adres e-mail</label>
-              <input type="email" name="email" id="email" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
-            </div>
+          <form data-loading-class="hidden" id="registration-form">
+            <div id="registration-errors"></div>
+            <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
+              <div class="relative">
+                <label for="name" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Imię *</label>
+                <input type="text" name="name" id="name" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
+              <div class="relative">
+                <label for="surname" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Nazwisko *</label>
+                <input type="text" name="surname" id="surname" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
+              <div class="relative">
+                <label for="company" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Firma</label>
+                <input type="text" name="company" id="company" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
+              <div class="relative">
+                <label for="email" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Adres e-mail *</label>
+                <input type="email" name="email" id="email" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
+              </div>
 
-            <div class="relative w-full flex justify-center mt-8 -mr-4 cursor-pointer">
-              <div class="relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
-                Zarejestruj się
-              </div>
-              <div class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent border-2 border-[#01FF6B] rounded-full z-0">
-                Zarejestruj się
+              <div class="relative w-full flex justify-center mt-8 -mr-4 cursor-pointer">
+                <button data-loading-disable hx-post="register.php" hx-target="#registration-form" hx-swap="innerHTML show:top" class="relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
+                  Zarejestruj się
+                </button>
+                <div class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent border-2 border-[#01FF6B] rounded-full z-0">
+                  Zarejestruj się
+                </div>
               </div>
             </div>
-          </div>
+          </form>
+          <p data-loading class="text-xl mt-8 mb-32 text-center w-full">
+            Trwa wysyłanie...
+          </p>
         </div>
       </div>
       <div class="-mt-24 bg-[#01FF6B] h-[160px] lg:h-[320px] z-0"></div>
