@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="//cdn.tailwindcss.com"></script>
+<!--    <script src="//cdn.tailwindcss.com"></script>-->
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
@@ -10,47 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-      * {
-        font-family: Inter, serif;
-      }
-
-      .landing {
-        background: linear-gradient(0deg, #231769 8.09%, rgba(0, 0, 0, 0.00) 51.12%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(./images/background.jpg), lightgray 50% / cover no-repeat;
-      }
-
-      .rotate {
-        writing-mode: tb-rl;
-        transform: rotate(-180deg);
-      }
-
-      .from-secondary {
-        --tw-gradient-from: #231769;
-        --tw-gradient-to: rgb(46 16 101 / 0);
-        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-      }
-
-      .box-shadow {
-        -webkit-box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
-        -moz-box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
-        box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
-      }
-
-      @media (max-width: 640px) {
-        .box-shadow {
-          -webkit-box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
-          -moz-box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
-          box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
-        }
-      }
-
-      [data-loading], .hidden {
-        display: none;
-      }
-    </style>
+    <link href="output.css" rel="stylesheet">
   </head>
   <body class="bg-[#231769] overflow-x-hidden" x-data="initialize()" x-init="start()">
-    <div class="landing absolute relative top-0 w-full h-screen bg-cover">
+    <div class="landing relative top-0 w-full h-screen bg-cover">
       <div class="w-full h-full flex justify-center items-center backdrop-blur-sm">
         <div class="absolute top-0 w-full h-[360px] bg-gradient-to-b from-black"></div>
         <div class="absolute bottom-0 w-full h-[240px] bg-gradient-to-t from-secondary"></div>
@@ -145,26 +108,26 @@
         <div class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
           <div class="flex px-4">
             <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">dni</div>
+            <div class="rotate-180 text-sm py-2">
+              <div class="rotate-90 px-1">dni</div>
             </div>
           </div>
           <div class="flex px-4">
             <div class="text-7xl font-bold" x-text="counters.hours"></div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">godzin</div>
+            <div class="rotate-180 text-sm py-4">
+              <div class="rotate-90 px-1">godzin</div>
             </div>
           </div>
           <div class="flex px-4">
             <div class="text-7xl font-bold" x-text="counters.minutes"></div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">minut</div>
+            <div class="rotate-180 text-sm py-4">
+              <div class="rotate-90 px-1">minut</div>
             </div>
           </div>
           <div class="flex px-4">
             <div class="text-7xl font-bold" x-text="counters.seconds"></div>
-            <div class="flex text-sm py-2">
-              <div class="rotate px-1">sekund</div>
+            <div class="rotate-180 text-sm py-4">
+              <div class="rotate-90 px-1">sekund</div>
             </div>
           </div>
         </div>
@@ -215,8 +178,8 @@
               <a :href="meetup.localization" x-text="meetup.place"></a>
             </div>
             <div class="text-3xl sm:text-5xl">start <span x-text="meetup.time"></span></div>
-            <div class="hidden lg:block absolute -mt-4 left-0 rotate">
-              <span class="opacity-10 text-[16em]" x-text="meetup.year"></span>
+            <div class="hidden lg:block absolute -mt-4 left-0 rotate-180">
+              <div class="opacity-10 text-[16em] rotate-90" x-text="meetup.year"></div>
             </div>
           </div>
 
@@ -246,7 +209,7 @@
         <div class="lg:hidden mt-20 text-6xl lg:text-8xl font-bold p-4">Lineup</div>
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
         <template x-if="meetup">
-          <div class="w-full -mt-48">
+          <div class="w-full lg:-mt-48">
             <div class="lg:flex lg:h-2/3">
               <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl ">
                 <div class="flex-1">
@@ -274,7 +237,7 @@
                 <template x-for="speaker in meetup.lineup">
                   <template x-if="speaker !== selectedSpeaker">
                     <div class="flex-1 flex flex-col items-center rounded-2xl bg-gradient-to-b from-[#01FF6B]/70 to-black/70 cursor-pointer" @click="selectedSpeaker = speaker">
-                      <div class="rotate origin-top-center flex items-center justify-start py-16 gap-8">
+                      <div class="rotate-180 [writing-mode:vertical-lr] origin-top-center flex items-center justify-start py-16 gap-8">
                         <p class="text-nowrap whitespace-nowrap rotate-180">
                           <span x-text="speaker.name"></span>
                           <span x-text="speaker.surname"></span>,
@@ -473,8 +436,14 @@
                 <label for="email" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Adres e-mail *</label>
                 <input type="email" name="email" id="email" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
               </div>
+              <div class="relative">
+                <label for="consent" class="-top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">
+                  <input type="checkbox" name="consent" id="consent" required>
+                  Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu w celach marketingowych przez organizatora Legnickiego Meetupu Technologicznego, firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5, 59-220 Legnica oraz przez podmioty trzecie odpowiedzialne za organizację Legnickiego Meetupu Technologicznego.
+                </label>
+              </div>
 
-              <div class="relative w-full flex justify-center mt-8 -mr-4 cursor-pointer">
+              <div class="relative w-full flex justify-center -mr-4 cursor-pointer">
                 <button data-loading-disable hx-post="register.php" hx-target="#registration-form" hx-swap="innerHTML show:top" class="relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
                   Zarejestruj się
                 </button>

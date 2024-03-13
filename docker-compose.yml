@@ -1,0 +1,28 @@
+version: '3.8'
+networks:
+  traefik-proxy-blumilk-local:
+    external: true
+  lmt-dev:
+    driver: bridge
+
+services:
+  web:
+    image: nginx:1.25-alpine
+    container_name: lmt-dev-web
+    volumes:
+      - ./environment/dev/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/application
+    ports:
+      - ${EXTERNAL_WEBSERVER_PORT:-8051}:80
+    networks:
+      - lmt-dev
+      - traefik-proxy-blumilk-local
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.blumilk.environment=true"
+      - "traefik.http.routers.lmt-http-router.rule=Host(`lmt.blumilk.localhost`)"
+      - "traefik.http.routers.lmt-http-router.entrypoints=web"
+      - "traefik.http.routers.lmt-https-router.rule=Host(`lmt.blumilk.localhost`)"
+      - "traefik.http.routers.lmt-https-router.entrypoints=websecure"
+      - "traefik.http.routers.lmt-https-router.tls=true"

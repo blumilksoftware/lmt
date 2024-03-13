@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ * {
+     font-family: Inter, serif;
+ }
+
+.landing {
+    background: linear-gradient(0deg, #231769 8.09%, rgba(0, 0, 0, 0.00) 51.12%), linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(./images/background.jpg), lightgray 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.rotate {
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
+}
+
+.from-secondary {
+    --tw-gradient-from: #231769;
+    --tw-gradient-to: rgb(46 16 101 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.box-shadow {
+    -webkit-box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
+    -moz-box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
+    box-shadow: 32px -32px 0 0 rgba(0, 0, 0, .44);
+}
+
+@media (max-width: 640px) {
+    .box-shadow {
+        -webkit-box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
+        -moz-box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
+        box-shadow: 0 -32px 0 0 rgba(0, 0, 0, .44);
+    }
+}
+
+[data-loading], .hidden {
+    display: none;
+}
