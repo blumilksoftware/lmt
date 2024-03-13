@@ -1,35 +1,30 @@
-FROM composer/composer:2.7.2-bin as composer-bin
+### PHP DEPENDENCIES ###
+FROM composer:2.7.2 as vendor
 
-FROM node:21.7.1-bookworm-slim as node
+WORKDIR /app_composer_dependencies
 
-FROM php:8.3.3-fpm-bookworm
+COPY composer.json composer.lock ./
 
-COPY --from=composer-bin ./composer /usr/bin/composer
+RUN composer install \
+    --no-interaction \
+    --no-plugins \
+    --no-scripts \
+    --prefer-dist \
+    --ignore-platform-reqs
 
-ARG USER_NAME=host-user
-ARG USER_ID=1000
-ARG PHP_FPM_GROUP=www-data
+### FRONTEND ###
+FROM node:21.7.1-bookworm-slim as frontend
 
-RUN adduser \
-        --disabled-password \
-        --uid ${USER_ID} \
-        ${USER_NAME} \
-    && usermod \
-        --append \
-        --groups \
-        ${PHP_FPM_GROUP} \
-        ${USER_NAME}
+WORKDIR /app_frontend_dependencies
 
-#Add node and npm
-COPY --from=node --chown=${USER_NAME}:root /usr/local/lib/node_modules /usr/local/lib/node_modules
-COPY --from=node --chown=${USER_NAME}:root /usr/local/bin/node /usr/local/bin/node
-RUN ln --symbolic /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
-    && chown --no-dereference ${USER_NAME}:root /usr/local/bin/npm \
-    && ln --symbolic /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx \
-    && chown --no-dereference ${USER_NAME}:root /usr/local/bin/npx
+COPY package.json package-lock.json postcss.config.js tailwind.config.js ./
 
-# Use the default development configuration
-RUN mv "${PHP_INI_DIR}/php.ini-development" "${PHP_INI_DIR}/php.ini"
+RUN npm clean-install
+
+### APPLICATION ###
+FROM php:8.3.3-fpm-bookworm as app
+
+COPY --from=vendor /usr/bin/composer /usr/local/bin/composer
 
 # For other versions check: http://nginx.org/packages/mainline/debian/pool/nginx/n/nginx/
 ARG NGINX_VERSION="1.25.4-1~bookworm"
@@ -45,8 +40,30 @@ RUN apt-get update \
         supervisor \
         cron
 
-COPY ./entrypoint.sh /entrypoint.sh
+RUN mv "${PHP_INI_DIR}/php.ini-production" "${PHP_INI_DIR}/php.ini"
+
+COPY ./environment/prod/app/php.ini "${PHP_INI_DIR}/conf.d/zzz-overrides-php.ini"
+COPY ./environment/prod/app/php-fpm.conf "/usr/local/etc/php-fpm.d/zzz-overrides.conf"
+COPY ./environment/prod/app/nginx.conf "/etc/nginx/nginx.conf"
+COPY ./environment/prod/app/supervisord.conf "/etc/supervisor/custom-supervisord.conf"
+COPY ./environment/prod/app/entrypoint.sh /entrypoint.sh
 
 WORKDIR /application
 
+# Copy Frontend build
+COPY --chown=www-data:www-data --from=frontend /app_frontend_dependencies ./app_frontend_dependencies/
+
+# Copy Composer dependencies
+COPY --chown=www-data:www-data --from=vendor /app_composer_dependencies/vendor ./vendor/
+
+# Copy App files
+COPY --chown=www-data:www-data . .
+
+RUN composer dump-autoload --optimize
+
+EXPOSE 80
+
 ENTRYPOINT ["/entrypoint.sh"]
+
+ARG DEPLOYMENT_PROJECT_VERSION_ARG
+ENV DEPLOYMENT_VERSION=${DEPLOYMENT_PROJECT_VERSION_ARG}
