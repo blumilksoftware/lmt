@@ -7,4 +7,7 @@ build:
 run:
 	docker compose up -d
 
+tailwind:
+	npx tailwindcss -i ./styles.css -o ./public/output.css
+
 restart: stop run
