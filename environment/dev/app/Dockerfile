@@ -1,8 +1,8 @@
-FROM composer/composer:2.7.1-bin as composer-bin
+FROM composer/composer:2.7.2-bin as composer-bin
 
-FROM node:21.4.0-bullseye-slim as node
+FROM node:21.7.1-bookworm-slim as node
 
-FROM php:8.3.1-fpm-bullseye
+FROM php:8.3.3-fpm-bookworm
 
 COPY --from=composer-bin ./composer /usr/bin/composer
 
@@ -32,19 +32,21 @@ RUN ln --symbolic /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/
 RUN mv "${PHP_INI_DIR}/php.ini-development" "${PHP_INI_DIR}/php.ini"
 
 # For other versions check: http://nginx.org/packages/mainline/debian/pool/nginx/n/nginx/
-ARG NGINX_VERSION="1.25.2-1~bullseye"
+ARG NGINX_VERSION="1.25.4-1~bookworm"
 
 RUN apt-get update \
     && apt-get install --assume-yes gpg \
     && curl https://nginx.org/keys/nginx_signing.key | gpg --dearmour --output /etc/apt/trusted.gpg.d/apt.nginx.org.gpg > /dev/null \
-    && echo "deb https://nginx.org/packages/mainline/debian bullseye nginx" | tee /etc/apt/sources.list.d/nginx.list \
+    && echo "deb https://nginx.org/packages/mainline/debian bookworm nginx" | tee /etc/apt/sources.list.d/nginx.list \
     && apt-get update && apt-get install --assume-yes \
         nginx=${NGINX_VERSION} \
+        7zip \
         libzip-dev \
-        libpq-dev \
         supervisor \
         cron
 
 COPY ./entrypoint.sh /entrypoint.sh
 
 WORKDIR /application
+
+ENTRYPOINT ["/entrypoint.sh"]

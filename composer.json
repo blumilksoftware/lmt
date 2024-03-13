@@ -1,12 +1,13 @@
 {
     "name": "blumilksoftware/lmt",
+    "type": "project",
     "require": {
-        "php": "^8.0",
-        "symfony/mailer": "^7.0",
-        "symfony/validator": "^7.0",
-        "illuminate/collections": "^10.47",
-        "symfony/dotenv": "^7.0",
-        "twig/twig": "^3.8"
+        "php": "^8.3",
+        "symfony/mailer": "^7.0.4",
+        "symfony/validator": "^7.0.5",
+        "illuminate/collections": "^10.47.0",
+        "symfony/dotenv": "^7.0.4",
+        "twig/twig": "^3.8.0"
     },
     "autoload": {
         "psr-4": {
