@@ -29,7 +29,6 @@ services:
       - "traefik.http.routers.lmt-https-router.entrypoints=websecure"
       - "traefik.http.routers.lmt-https-router.tls=true"
 
-
   php:
     image: ghcr.io/blumilksoftware/php:8.3
     container_name: lmt-dev-php
