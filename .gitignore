@@ -1,7 +1,6 @@
 .idea
 /vendor/
 .env
-.env.prod
 .env.prod.secrets.decrypted
 /cache/*
 !/cache/.gitkeep
