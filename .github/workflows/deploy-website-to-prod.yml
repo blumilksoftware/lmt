@@ -5,9 +5,11 @@ concurrency:
   cancel-in-progress: false
 
 on:
-  push:
-    tags:
-      - v*
+  release:
+    types:
+      - published
+
+  workflow_dispatch:
 
 jobs:
   deploy:
