@@ -43,7 +43,6 @@ jobs:
           images: ghcr.io/${{ github.repository_owner }}/${{ env.REPO_NAME }}
           tags: |
             type=raw,value=latest
-            type=raw,value=${{ github.ref_name }}
           context: workflow
 
       - name: build and push image
