@@ -1,0 +1,24 @@
+name: Deploy to production
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    environment: production
+    runs-on: ubuntu-22.04
+    name: Deploy to production
+    env:
+      DOCKER_REGISTRY: ghcr.io
+      DOCKER_REGISTRY_USER_NAME: blumilkbot
+      REPO_NAME: ${{ github.event.repository.name }}
+      REPO_OWNER: ${{ github.repository_owner }}
+      TARGET_DIR_ON_SERVER: /blumilk/production
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4.1.1
