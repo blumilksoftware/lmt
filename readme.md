@@ -17,9 +17,9 @@ Copy `.env.example` to `.env` and set your environment variables
       make run
 
 - enter the APP container with `make shell`, then install php and node dependencies
-        
+
       composer install
-      npm i
+      npm install
 
 - The website should be available at `localhost:8051` and `lmt.blumilk.localhost` if we use a Blumilk local traefik proxy
 
