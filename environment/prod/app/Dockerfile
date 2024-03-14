@@ -53,7 +53,7 @@ COPY ./environment/prod/app/entrypoint.sh /entrypoint.sh
 WORKDIR /application
 
 # Copy Frontend build
-COPY --chown=www-data:www-data --from=frontend /app_frontend_dependencies/ ./
+COPY --chown=www-data:www-data --from=frontend /app_frontend_dependencies/ ./app_frontend_dependencies/
 
 # Copy Composer dependencies
 COPY --chown=www-data:www-data --from=vendor /app_composer_dependencies/vendor ./vendor/
