@@ -17,7 +17,7 @@ FROM node:21.7.1-bookworm-slim as frontend
 
 WORKDIR /app_frontend_dependencies
 
-COPY package.json package-lock.json postcss.config.js tailwind.config.js ./
+COPY package.json package-lock.json tailwind.config.js ./
 
 RUN npm clean-install
 
@@ -51,7 +51,7 @@ COPY ./environment/prod/app/entrypoint.sh /entrypoint.sh
 WORKDIR /application
 
 # Copy Frontend build
-COPY --chown=www-data:www-data --from=frontend /app_frontend_dependencies ./app_frontend_dependencies/
+COPY --chown=www-data:www-data --from=frontend /app_frontend_dependencies/ ./app_frontend_dependencies/
 
 # Copy Composer dependencies
 COPY --chown=www-data:www-data --from=vendor /app_composer_dependencies/vendor ./vendor/

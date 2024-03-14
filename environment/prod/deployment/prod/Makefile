@@ -6,11 +6,15 @@ MAKEFLAGS += --no-print-directory
 DOCKER_COMPOSE_FILENAME = docker-compose.prod.yml
 DOCKER_COMPOSE_APP_SERVICE = lmt-prod-app-container
 
+DOCKER_EXEC_SCRIPT = docker compose --file ${DOCKER_COMPOSE_FILENAME} exec --workdir /application/environment/prod/deployment/scripts ${DOCKER_COMPOSE_APP_SERVICE} bash
+
 CURRENT_DIR = $(shell pwd)
 
 prod-deploy: decrypt-secrets create-deployment-file
 	@docker compose --file ${DOCKER_COMPOSE_FILENAME} pull && \
-	docker compose --file ${DOCKER_COMPOSE_FILENAME} up --detach
+	docker compose --file ${DOCKER_COMPOSE_FILENAME} up --detach \
+	echo "App post deploy actions" && \
+    ${DOCKER_EXEC_SCRIPT} post-deploy-actions.sh
 
 SOPS_VERSION=3.8.1
 
