@@ -22,7 +22,7 @@ stop:
 restart: stop run
 
 shell:
-	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} bash
+	@docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} bash
 
 encrypt-prod-secrets:
 	@$(MAKE) encrypt-secrets SECRETS_ENV=prod
