@@ -17,7 +17,7 @@ run:
 	docker compose up -d
 
 tailwind:
-	npx tailwindcss -i ./styles.css -o ./public/output.css
+	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx tailwindcss -i ./styles.css -o ./public/output.css
 
 stop:
 	docker compose stop
