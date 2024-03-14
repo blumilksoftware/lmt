@@ -67,7 +67,7 @@ jobs:
           key: ${{ secrets.VPS_OVH_BF7EC892_SSH_PRIVATE_KEY }}
           passphrase: ${{ secrets.VPS_OVH_BF7EC892_SSH_PRIVATE_KEY_PASSPHRASE }}
           source: "./environment/prod/deployment/prod/*,./environment/prod/deployment/scripts/*"
-          target: ${{ secrets.LMT_VPS_LIVE_APP_PATH }}
+          target: ${{ env.TARGET_DIR_ON_SERVER }}/${{ env.REPO_NAME }}
           rm: true
 
       - uses: appleboy/ssh-action@v1.0.3
