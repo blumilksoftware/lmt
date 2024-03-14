@@ -89,19 +89,9 @@
   ],
   "partners": [
     {
-      "name": "Legnicka Specjalna Strefa Ekonomiczna",
-      "website": "https://lsse.eu/",
-      "logoUrl": "./images/partners/lsse.png"
-    },
-    {
       "name": "Softiq",
       "website": "https://softiq.pl/",
       "logoUrl": "./images/partners/softiq.png"
-    },
-    {
-      "name": "Stigal",
-      "website": "https://stigal.pl/",
-      "logoUrl": "./images/partners/stigal.png"
     }
   ]
 }

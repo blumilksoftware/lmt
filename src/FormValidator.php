@@ -48,6 +48,10 @@ class FormValidator
             ),
         ]));
 
+        $errors->put("consent", $validator->validate($formInput["consent"], [
+            new NotBlank(message: "Zgoda na przetwarzanie danych jest wymagana"),
+        ]));
+
         return $errors->map(
             fn(ConstraintViolationList $violationList): ?string => $violationList->count() > 0 ? $violationList->get(0)->getMessage() : null,
         )->filter();
