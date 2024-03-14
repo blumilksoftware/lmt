@@ -12,7 +12,7 @@ CURRENT_DIR = $(shell pwd)
 
 prod-deploy: decrypt-secrets create-deployment-file
 	@docker compose --file ${DOCKER_COMPOSE_FILENAME} pull && \
-	docker compose --file ${DOCKER_COMPOSE_FILENAME} up --detach \
+	docker compose --file ${DOCKER_COMPOSE_FILENAME} up --detach && \
 	echo "App post deploy actions" && \
     ${DOCKER_EXEC_SCRIPT} post-deploy-actions.sh
 
