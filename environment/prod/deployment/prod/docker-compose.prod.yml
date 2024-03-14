@@ -1,7 +1,7 @@
 networks:
   traefik-proxy:
     external: true
-  lmt-prod-app:
+  lmt-prod:
     driver: bridge
 
 services:
