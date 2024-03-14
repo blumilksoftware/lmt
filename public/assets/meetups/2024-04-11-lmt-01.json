@@ -89,11 +89,6 @@
   ],
   "partners": [
     {
-      "name": "KGHM Centrum Analityki",
-      "website": "https://cakghm.com/",
-      "logoUrl": "./images/partners/kghm.png"
-    },
-    {
       "name": "Legnicka Specjalna Strefa Ekonomiczna",
       "website": "https://lsse.eu/",
       "logoUrl": "./images/partners/lsse.png"

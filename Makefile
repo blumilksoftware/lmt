@@ -16,6 +16,9 @@ build:
 run:
 	docker compose up -d
 
+tailwind:
+	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx tailwindcss -i ./styles.css -o ./public/output.css
+
 stop:
 	docker compose stop
 
@@ -44,4 +47,4 @@ encrypt-secrets:
 			&& sops --encrypt --input-type=dotenv --output-type=dotenv --output .env.${SECRETS_ENV}.secrets .env.${SECRETS_ENV}.secrets.decrypted \
 			&& echo 'Done'"
 
-.PHONY:  build run stop restart shell
+.PHONY:  build run tailwind stop restart shell

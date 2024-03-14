@@ -3,3 +3,5 @@
 .env
 /cache/*
 !/cache/.gitkeep
+node_modules/
+output.css
