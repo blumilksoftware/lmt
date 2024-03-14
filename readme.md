@@ -16,10 +16,11 @@ Copy `.env.example` to `.env` and set your environment variables
 
       make run
 
-- enter the APP container with `make shell`, then install php and node dependencies
+- enter the APP container with `make shell`, then install php, node dependencies and compile css:
 
       composer install
       npm install
+      make tailwind
 
 - The website should be available at `localhost:8051` and `lmt.blumilk.localhost` if we use a Blumilk local traefik proxy
 

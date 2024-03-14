@@ -1,7 +1,7 @@
 .idea
 /vendor/
 .env
-.env.prod.secrets.decrypted
 /cache/*
 !/cache/.gitkeep
-.composer
+node_modules/
+output.css
