@@ -14,7 +14,7 @@
           "url": "https://softiq.pl/"
         }
       ],
-      "avatarUrl": "https://media.licdn.com/dms/image/D4D03AQG9aiIX_CsSJA/profile-displayphoto-shrink_400_400/0/1703508254582?e=2147483647&v=beta&t=UxFKM40UwGPgznPbHLd5Pi8e9bRG520YdpPq4S3RC2w",
+      "avatarUrl": "./images/speakers/adam-marszowski.jpeg",
       "about": "Adam specjalizuje się w programowaniu w React i Java. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI."
     },
     {
@@ -31,7 +31,7 @@
           "url": "https://kancelaria.rewak.pl/"
         }
       ],
-      "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01GMS4M59D-9bbd7c8faf64-512",
+      "avatarUrl": "./images/speakers/joanna-rewak.png",
       "about": "Asia jest radcą prawnym pasjonującym się prawem nowych technologii. Specjalizuje się w tworzeniu umów, regulaminów oraz dokumentów dotyczących ochrony danych dla podmiotów z branży technologicznej. Ciekawostkami prawnymi dzieli się social mediach."
     },
     {
@@ -44,7 +44,7 @@
           "url": "https://www.blumilk.pl/"
         }
         ],
-      "avatarUrl": "https://ca.slack-edge.com/T019TH2KGRW-U01FG97BZHU-9c53d43bafe9-512",
+      "avatarUrl": "./images/speakers/jacek-sawoszczuk.jpeg",
       "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie, gdzie specjalizuje się w Vue.js i Tailwindzie. Entuzjasta oprogramowania open-source, Linuksa i całej społeczności powstałej wokół otwartego oprogramowania."
     }
   ],
@@ -89,19 +89,9 @@
   ],
   "partners": [
     {
-      "name": "Legnicka Specjalna Strefa Ekonomiczna",
-      "website": "https://lsse.eu/",
-      "logoUrl": "./images/partners/lsse.png"
-    },
-    {
       "name": "Softiq",
       "website": "https://softiq.pl/",
       "logoUrl": "./images/partners/softiq.png"
-    },
-    {
-      "name": "Stigal",
-      "website": "https://stigal.pl/",
-      "logoUrl": "./images/partners/stigal.png"
     }
   ]
 }

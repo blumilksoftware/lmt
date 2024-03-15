@@ -14,6 +14,7 @@ $formInput = [
     "name" => strip_tags(trim($_POST["name"])) ?? "",
     "surname" => strip_tags(trim($_POST["surname"])) ?? "",
     "company" => strip_tags(trim($_POST["company"])) ?? "",
+    "consent" => isset($_POST['consent']) ?? "",
 ];
 
 $errors = FormValidator::validateRegistrationFormInput($formInput);
