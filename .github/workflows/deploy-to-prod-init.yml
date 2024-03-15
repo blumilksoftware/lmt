@@ -15,7 +15,6 @@ jobs:
     name: Deploy to production
     env:
       DOCKER_REGISTRY: ghcr.io
-      DOCKER_REGISTRY_USER_NAME: blumilkbot
       REPO_NAME: ${{ github.event.repository.name }}
       REPO_OWNER: ${{ github.repository_owner }}
       TARGET_DIR_ON_SERVER: /blumilk/production
@@ -83,7 +82,5 @@ jobs:
           script_stop: true
           script: |
             cd ${{ env.TARGET_DIR_ON_SERVER }}/${{ env.REPO_NAME }}/environment/prod/deployment/prod
-            echo ${{secrets.PACKAGES_READ_TOKEN}} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
             make prod-deploy SOPS_AGE_KEY=${{ secrets.SOPS_AGE_PROD_SECRET_KEY }}
             docker images --filter dangling=true | grep "${{ env.DOCKER_REGISTRY }}/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi
-            docker logout ${{ env.DOCKER_REGISTRY }}
