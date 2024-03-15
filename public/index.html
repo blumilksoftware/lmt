@@ -397,11 +397,11 @@
               <span class="pl-8 text-white font-bold text-5xl">Partnerzy</span>
             </div>
             <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
-            <div class="mx-auto sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16">
+            <div class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center justify-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16 text-center">
               <template x-for="partner in meetup.partners">
                 <div class="flex-1 z-10 lg:px-8">
                   <a class="mx-auto" :href="partner.website" target="_blank">
-                    <img :src="partner.logoUrl" :alt="partner.name" class="w-48 lg:w-64 lg:w-auto">
+                    <img :src="partner.logoUrl" :alt="partner.name" class="w-48 lg:w-64 mx-auto">
                   </a>
                 </div>
               </template>
