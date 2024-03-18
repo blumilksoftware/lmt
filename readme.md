@@ -9,7 +9,7 @@ Copy `.env.example` to `.env` and set your environment variables:
 cp .env.example .env
 ```
 
-Build APP containers:
+Build app containers:
 ```
 make build
 ```
@@ -19,7 +19,7 @@ Run containers:
 make run
 ```
 
-Enter the APP container with `make shell`, then install php, node dependencies and compile css:
+Enter the app container with `make shell`, then install php and node dependencies:
 ```
 composer install
 npm install
