@@ -98,7 +98,7 @@
           </div>
         </div>
 
-        <div id="event" class="-mt-16 px-2 sm:pl-0 lg:w-full leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesne technologie</div>
+        <div id="event" class="-mt-16 px-2 sm:pl-0 lg:w-full text-center lg:text-left leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesne technologie</div>
         <div class="mt-8 text-2xl sm:text-4xl flex items-center">
           <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście</span>
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
@@ -130,7 +130,7 @@
             </div>
           </div>
         </div>
-        <div class="flex sm:hidden flex-wrap justify-center items-center flex-col gap-4 mt-20 px-4 py-6 rounded-2xl">
+        <div class="flex sm:hidden flex-wrap justify-center items-center mx-auto flex-col gap-4 mt-20 px-4 py-6 rounded-2xl">
           <div class="flex flex-col items-center px-4">
             <div class="text-5xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
             <div class="flex text-sm py-2">
@@ -162,10 +162,10 @@
     </div>
 
     <template x-if="meetup">
-      <section class="mt-12">
+      <section class="mt-12 p-4 lg:p-0">
         <div class="mx-auto max-w-7xl text-white flex-col">
           <div class="hidden lg:block absolute right-0 -mt-[12em] md:-mr-[36em] xl:-mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
-          <div class="flex flex-col gap-6 ml-4 sm:ml-36 font-bold">
+          <div class="flex flex-col gap-6 ml-0 sm:ml-36 font-bold text-center lg:text-left">
             <div class="relative text-5xl sm:text-6xl xl:text-9xl">
               <span x-text="meetup.date"></span>
               <div class="lg:hidden" x-text="meetup.year"></div>
@@ -174,7 +174,7 @@
               </div>
             </div>
             <div class="text-3xl sm:text-5xl text-[#01FF6B]">
-              <a :href="meetup.localization" x-text="meetup.place"></a>
+              <a :href="meetup.localization" x-text="meetup.place" target="_blank"></a>
             </div>
             <div class="text-3xl sm:text-5xl">start <span x-text="meetup.time"></span></div>
             <div class="hidden lg:block absolute -mt-4 left-0 rotate-180">
@@ -183,15 +183,15 @@
           </div>
 
           <div class="mt-32 grid grid-cols-1 lg:grid-cols-3 gap-16 text-lg text-[#231769]">
-          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+          <div class="p-8 lg:p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">LMT</h2>
             <p class="tracking-tight">Legnicki Meetup Technologiczny – inicjatywa, gdzie technologia łączy pasjonatów i profesjonalistów programowania! Chcesz rozwijać swoje umiejętności programistyczne, dzielić się pomysłami lub poszerzać horyzonty? To wydarzenie jest dla Ciebie!</p>
           </div>
-          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+          <div class="p-8 lg:p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">O czym?</h2>
             <p class="tracking-tight">Podczas LMT tworzymy otwartą przestrzeń do nauki, wymiany doświadczeń i budowania relacji. Spotkanie backendowych programistów pracujących w różnych językach, frontendowców, testerów aplikacji i wszystkich, których interesuje świat technologii.</p>
           </div>
-          <div class="p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
+          <div class="p-8 lg:p-16 bg-neutral-200 rounded-3xl box-shadow z-10">
             <h2 class="text-4xl font-bold mb-8">Dla kogo?</h2>
             <p class="tracking-tight">Dla programistów, specjalistów IT, badaczy, przedsiębiorców, studentów i każdego, kto chce poszerzyć swoje horyzonty w dziedzinie technologii. Bez względu na Twój poziom zaawansowania czy specjalizację – znajdziesz coś dla siebie!</p>
           </div>
@@ -205,7 +205,7 @@
         <div class="hidden lg:block absolute w-24">
           <img class="size-24 absolute left-0 top-0 ml-40 mt-20" src="./images/x.svg" alt="Krzyżyk">
         </div>
-        <div class="lg:hidden mt-20 text-6xl lg:text-8xl font-bold p-4">Lineup</div>
+        <div class="lg:hidden mt-20 text-6xl lg:text-8xl font-bold p-4 text-center lg:text-left">Lineup</div>
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
         <template x-if="meetup">
           <div class="w-full lg:-mt-48">
@@ -297,11 +297,11 @@
         </div>
 
         <div class="flex flex-col lg:flex-row" id="agenda">
-          <div class="w-full lg:w-[40%] flex flex-col gap-12 px-4 lg:px-0">
+          <div class="w-full lg:w-[40%] flex flex-col gap-12 px-4 lg:px-0 text-center lg:text-left">
             <div class="lg:mt-8 text-6xl lg:text-8xl font-bold">
               Agenda
             </div>
-            <div class="w-2/3 text-xl">Każda prezentacja trwa 30 min + 15 min sesja Q&A</div>
+            <div class="w-2/3 mx-auto text-xl">Każda prezentacja trwa 30 min + 15 min sesja Q&A</div>
           </div>
           <div class="flex-1">
             <template x-if="meetup">
@@ -310,15 +310,23 @@
                   <div class="flex flex-col">
                     <div class="flex items-center py-8">
                       <div class="w-[100px] text-4xl font-bold" :class="index !== 0 || 'text-[#01FF6B]'" x-text="lecture.start">18:15</div>
-                      <div>
+                      <div class="flex flex-col gap-2">
                         <div class="px-8" x-text="lecture.title"></div>
-                        <div class="px-8 pt-2 text-sm" x-text="lecture.speaker"></div>
+                        <div class="px-8 text-sm" x-show="lecture.speaker" x-text="lecture.speaker"></div>
                       </div>
                       <template x-if="lecture.description && lecture.expanded === false">
-                        <div class="flex-grow text-right text-5xl cursor-pointer -mt-6" @click="lecture.expanded = true">&#8964;</div>
+                        <div class="flex-grow flex justify-end cursor-pointer" @click="lecture.expanded = true">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                          </svg>
+                        </div>
                       </template>
                       <template x-if="lecture.description && lecture.expanded === true">
-                        <div class="flex-grow text-right text-5xl cursor-pointer mt-6" @click="lecture.expanded = false">&#8963;</div>
+                        <div class="flex-grow flex justify-end cursor-pointer" @click="lecture.expanded = false">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                          </svg>
+                        </div>
                       </template>
                     </div>
                     <template x-if="lecture.description && lecture.expanded === true">
@@ -365,7 +373,9 @@
       <div class="mx-auto max-w-5xl text-white flex flex-col relative">
         <div class="flex items-center flex-row">
           <div class="rotate-90 origin-center lg:mr-8 -mx-8 lg:mx-0">
-            <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class=" w-[28em] lg:w-[32em] rotate-180 lg:-mt-32">
+            <a href="https://blumilk.pl/" target="_blank">
+              <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class=" w-[28em] lg:w-[32em] rotate-180 lg:-mt-32">
+            </a>
           </div>
           <div class="lg:w-3/4">
             <div class="font-bold text-4xl sm:text-6xl lg:text-left">Organizator</div>
@@ -378,8 +388,8 @@
       <template x-if="meetup">
         <div>
           <div class="mx-auto w-full text-white flex-col" id="sponsors">
-            <div class="lg:hidden my-24 lg:my-0">
-              <span class="pl-8 text-white font-bold text-6xl">Patronat</span>
+            <div class="lg:hidden my-24 lg:my-0 text-center lg:text-left">
+              <span class="lg:pl-8 text-white font-bold text-6xl">Patronat</span>
             </div>
             <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Patronat</div>
             <div class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center justify-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16 text-center">
@@ -393,8 +403,8 @@
             </div>
           </div>
           <div class="mx-auto w-full text-white flex-col" id="partners">
-            <div class="lg:hidden my-24 lg:my-0">
-              <span class="pl-8 text-white font-bold text-5xl">Partnerzy</span>
+            <div class="lg:hidden my-24 lg:my-0 text-center lg:text-left">
+              <span class="lg:pl-8 text-white font-bold text-5xl">Partnerzy</span>
             </div>
             <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">Partnerzy</div>
             <div class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center justify-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16 text-center">
