@@ -3,26 +3,34 @@
 
 ![./screenshot.png](./screenshot.png)
 
-### To run in docker environment:
-Copy `.env.example` to `.env` and set your environment variables
+### Docker environment:
+Copy `.env.example` to `.env` and set your environment variables:
+```
+cp .env.example .env
+```
 
-    cp .env.example .env
+Build app containers:
+```
+make build
+```
 
-- build APP containers:
+Run containers:
+```
+make run
+```
 
-      make build
+Enter the app container with `make shell`, then install php and node dependencies:
+```
+composer install
+npm install
+```
 
-- run containers:
+Run `make tailwind` to build stylesheets:
+```
+  make tailwind
+```
 
-      make run
-
-- enter the APP container with `make shell`, then install php, node dependencies and compile css:
-
-      composer install
-      npm install
-      make tailwind
-
-- The website should be available at `localhost:8051` and `lmt.blumilk.localhost` if we use a Blumilk local traefik proxy
+The website should be available at [localhost:8051](localhost:8051) and [lmt.blumilk.localhost](lmt.blumilk.localhost) if we use a Blumilk local traefik proxy.
 
 | service           | container name            | default external port |
 |-------------------|---------------------------|-----------------------|
