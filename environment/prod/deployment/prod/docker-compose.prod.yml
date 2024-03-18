@@ -21,7 +21,6 @@ services:
         limits:
           memory: 1GB
     labels:
-      - "io.portainer.accesscontrol.teams=LMT"
       - "traefik.enable=true"
       - "traefik.http.routers.lmt-prod-app.rule=Host(`${LMT_HOST_NAME}`)"
       - "traefik.http.routers.lmt-prod-app.entrypoints=websecure"
