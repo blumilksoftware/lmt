@@ -6,7 +6,7 @@ networks:
 
 services:
   lmt-prod-app:
-    image: ghcr.io/blumilksoftware/lmt:prod
+    image: ghcr.io/blumilksoftware/lmt:latest
     container_name: lmt-prod-app-container
     pull_policy: always
     logging:
