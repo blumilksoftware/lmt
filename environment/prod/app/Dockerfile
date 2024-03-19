@@ -21,6 +21,8 @@ COPY package.json package-lock.json styles.css tailwind.config.js ./
 
 RUN npm clean-install
 
+COPY ./public/index.html ./public/index.html
+
 RUN npx tailwindcss -i ./styles.css -o ./public/output.css
 
 ### APPLICATION ###
