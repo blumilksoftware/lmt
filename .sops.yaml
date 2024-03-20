@@ -1,0 +1,6 @@
+creation_rules:
+
+  - name: prod
+    path_regex: \.env\.prod\.secrets.*$
+    age: >-
+      age1ys9k3fkd2cxzkpllfe75gagjrfks45r6x9rhllr4lqvfxx520qaqxtj697
