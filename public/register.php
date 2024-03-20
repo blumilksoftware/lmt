@@ -6,6 +6,7 @@ use Blumilksoftware\Lmt\RegistrationEmailHandler;
 use Blumilksoftware\Lmt\TemplateRenderer;
 use Symfony\Component\Dotenv\Dotenv;
 
+date_default_timezone_set('Europe/Warsaw');
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__."/../.env");
 
