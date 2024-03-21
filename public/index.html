@@ -85,7 +85,7 @@
         </nav>
       </div>
 
-      <div class="h-full mx-auto max-w-7xl flex flex-col justify-center items-start text-white relative">
+      <div class="h-full mx-auto max-w-7xl flex flex-col justify-center items-start text-white relative px-8">
         <div class="hidden lg:block absolute top-0 right-0">
           <img class="mt-36 size-16 mx-auto" src="./images/x.svg" alt="Krzyżyk">
           <div class="mt-32 flex flex-col items-center gap-8">
@@ -105,7 +105,7 @@
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
 
-        <div class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
+        <div class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 ml-4 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
           <div class="flex px-4">
             <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
             <div class="rotate-180 text-sm py-2">
@@ -163,11 +163,11 @@
     </div>
 
     <template x-if="meetup">
-      <section class="mt-12 p-4 lg:p-0">
+      <section class="mt-12 p-4">
         <div class="mx-auto max-w-7xl text-white flex-col">
           <div class="hidden lg:block absolute right-0 -mt-[12em] md:-mr-[36em] xl:-mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
           <div class="flex flex-col gap-6 ml-0 sm:ml-36 font-bold text-center lg:text-left">
-            <div class="relative text-5xl sm:text-6xl xl:text-9xl lg:mt-6 2xl:mt-0">
+            <div class="relative text-5xl sm:text-6xl xl:text-9xl lg:mt-6">
               <span x-text="meetup.date"></span>
               <div class="lg:hidden" x-text="meetup.year"></div>
               <div class="absolute">
@@ -298,7 +298,7 @@
         </div>
 
         <div class="flex flex-col lg:flex-row" id="agenda">
-          <div class="w-full lg:w-[40%] flex flex-col gap-12 px-4 lg:px-0 text-center lg:text-left">
+          <div class="w-full lg:w-[40%] flex flex-col gap-12 ml-4 text-center lg:text-left">
             <div class="lg:mt-8 text-6xl lg:text-8xl font-bold">
               Agenda
             </div>
@@ -355,7 +355,7 @@
               <div>Dołącz do grupy na Facebooku</div>
               <div>i bądź na bieżąco!</div>
             </div>
-            <div class="relative mt-8 -mr-4 cursor-pointer">
+            <div class="relative mt-8 -mr-8 cursor-pointer">
               <div class="relative px-12 py-4 text-2xl text-[#231769] bg-neutral-200 rounded-full z-10 mr-4">
                 <a href="https://www.facebook.com/groups/webdevlegnica/" target=”_blank”>
                   Dołącz do grupy
@@ -430,7 +430,7 @@
           <form data-loading-class="hidden" id="registration-form">
             <div id="registration-errors"></div>
             <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
-              <p class="text-center mb-4">Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczna miejsc jest ograniczona. Zarejestruj się już teraz, aby zapewnić sobie miejsce na wydarzeniu!</p>
+              <p class="text-center mb-4">Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczba miejsc jest ograniczona. Zarejestruj się już teraz, aby zapewnić sobie miejsce na wydarzeniu!</p>
               <div class="relative">
                 <label for="name" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Imię *</label>
                 <input type="text" name="name" id="name" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
