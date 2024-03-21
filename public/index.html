@@ -167,7 +167,7 @@
         <div class="mx-auto max-w-7xl text-white flex-col">
           <div class="hidden lg:block absolute right-0 -mt-[12em] md:-mr-[36em] xl:-mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
           <div class="flex flex-col gap-6 ml-0 sm:ml-36 font-bold text-center lg:text-left">
-            <div class="relative text-5xl sm:text-6xl xl:text-9xl">
+            <div class="relative text-5xl sm:text-6xl xl:text-9xl lg:mt-6 2xl:mt-0">
               <span x-text="meetup.date"></span>
               <div class="lg:hidden" x-text="meetup.year"></div>
               <div class="absolute">
@@ -210,7 +210,7 @@
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
         <template x-if="meetup">
           <div class="w-full lg:-mt-48">
-            <div class="lg:flex lg:h-[550px]">
+            <div class="lg:flex lg:h-[560px]">
               <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl ">
                 <div class="flex-1">
                   <img :src="selectedSpeaker.avatarUrl" class="mx-auto size-64 mr-24 rounded-full" :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname">
@@ -228,7 +228,7 @@
                         </div>
                     </template>
                   </div>
-                  <div class="mt-12 pr-24 flex flex-col gap-2 text-gray-300 text-lg">
+                  <div class="mt-6 2xl:mt-12  pr-0 2xl:pr-24 flex flex-col gap-2 text-gray-300 text-lg">
                     <p x-text="selectedSpeaker.about"></p>
                   </div>
                 </div>
@@ -430,6 +430,7 @@
           <form data-loading-class="hidden" id="registration-form">
             <div id="registration-errors"></div>
             <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
+              <p class="text-center mb-4">Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczna miejsc jest ograniczona. Zarejestruj się już teraz, aby zapewnić sobie miejsce na wydarzeniu!</p>
               <div class="relative">
                 <label for="name" class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Imię *</label>
                 <input type="text" name="name" id="name" class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6">
