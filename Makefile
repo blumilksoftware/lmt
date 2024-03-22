@@ -47,4 +47,4 @@ encrypt-secrets:
 			&& sops --encrypt --input-type=dotenv --output-type=dotenv --output .env.${SECRETS_ENV}.secrets .env.${SECRETS_ENV}.secrets.decrypted \
 			&& echo 'Done'"
 
-.PHONY:  build run tailwind stop restart shell
+.PHONY:  build run tailwind stop restart shell encrypt-prod-secrets decrypt-prod-secrets decrypt-secrets encrypt-secrets
