@@ -29,7 +29,7 @@
           <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
               <div class="flex items-center">
-                <div class="shrink-0">
+                <div class="shrink-0 pl-2">
                   <a href="/">
                     <img class="h-8 w-auto w-[250px]" src="./images/logo.png" alt="Legnicki meetup technologiczny">
                   </a>
@@ -165,7 +165,7 @@
     <template x-if="meetup">
       <section class="mt-12 p-4">
         <div class="mx-auto max-w-7xl text-white flex-col">
-          <div class="hidden lg:block absolute right-0 -mt-[12em] md:-mr-[36em] xl:-mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
+          <div class="hidden lg:block absolute right-0 -mt-[12em] md:-mr-[40em] xl:-mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
           <div class="flex flex-col gap-6 ml-0 sm:ml-36 font-bold text-center lg:text-left">
             <div class="relative text-5xl sm:text-6xl xl:text-9xl lg:mt-6">
               <span x-text="meetup.date"></span>
@@ -210,10 +210,10 @@
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
         <template x-if="meetup">
           <div class="w-full lg:-mt-48">
-            <div class="lg:flex lg:h-[560px]">
+            <div class="lg:flex lg:min-h-[560px] h-fit">
               <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl ">
                 <div class="flex-1">
-                  <img :src="selectedSpeaker.avatarUrl" class="mx-auto size-64 mr-24 rounded-full" :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname">
+                  <img :src="selectedSpeaker.avatarUrl" class="mx-auto size-auto p-[1.5rem] xl:p-0 xl:size-64 mr-24 rounded-full" :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname">
                 </div>
                 <div class="flex flex-col flex-1">
                   <div class="font-bold">
