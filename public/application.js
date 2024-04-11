@@ -43,8 +43,6 @@ function initialize() {
                 const diff = moment(this.meetup.datetime).diff(now)
                 this.active = diff > 0
 
-                console.log(diff)
-
                 this.counters.days = String(Math.floor(moment.duration(diff).asDays())).padStart(2, "0")
                 this.counters.hours = String(moment.duration(diff).hours()).padStart(2, "0")
                 this.counters.minutes = String(moment.duration(diff).minutes()).padStart(2, "0")
