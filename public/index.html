@@ -112,8 +112,7 @@
           <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście</span>
           <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
         </div>
-
-        <div class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
+        <div x-show="active" class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
           <div class="flex px-4">
             <div class="text-7xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
             <div class="rotate-180 text-sm py-2">
@@ -139,7 +138,7 @@
             </div>
           </div>
         </div>
-        <div class="flex sm:hidden flex-wrap justify-center items-center mx-auto flex-col gap-4 mt-20 px-4 py-6 rounded-2xl">
+        <div x-show="active" class="flex sm:hidden flex-wrap justify-center items-center mx-auto flex-col gap-4 mt-20 px-4 py-6 rounded-2xl">
           <div class="flex flex-col items-center px-4">
             <div class="text-5xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
             <div class="flex text-sm py-2">
