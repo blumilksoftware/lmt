@@ -2,6 +2,7 @@ function initialize() {
     return {
         meetups: [],
         meetup: null,
+        active: false,
         selectedSpeaker: null,
         counters: {
             days: "00",
@@ -40,6 +41,9 @@ function initialize() {
             if (this.meetup) {
                 const now = moment()
                 const diff = moment(this.meetup.datetime).diff(now)
+                this.active = diff > 0
+
+                console.log(diff)
 
                 this.counters.days = String(Math.floor(moment.duration(diff).asDays())).padStart(2, "0")
                 this.counters.hours = String(moment.duration(diff).hours()).padStart(2, "0")
