@@ -24,8 +24,7 @@
     <div class="landing relative top-0 w-full h-screen bg-cover">
       <div class="w-full h-full flex justify-center items-center backdrop-blur-sm">
         <div class="absolute top-0 w-full h-[360px] bg-gradient-to-b from-black"></div>
-        <div class="absolute bottom-0 w-full h-[240px] bg-gradient-to-t from-secondary"></div>
-        <img class="hidden size-48 lg:block absolute left-0 -ml-24 top-0 mt-48" src="./images/x.svg" alt="Krzyżyk">
+        <div class="absolute bottom-0 w-full h-[240px] bg-gradient-to-t from-secondary"></div> 
         <img class="hidden size-8 lg:block absolute right-0 mr-64 top-0 mt-80" src="./images/x-white.svg" alt="Krzyżyk">
       </div>
     </div>
@@ -67,7 +66,7 @@
         </nav>
 
         <nav class="hidden xl:block text-white">
-          <div class="max-w-7xl mx-auto px-2 xl:px-6 lg:px-8">
+          <div class="max-w-screen-2xl mx-auto px-2 xl:px-6 lg:px-12">
             <div class="flex items-center justify-between h-32">
               <div class="flex items-center">
                 <div class="shrink-0">
@@ -96,21 +95,17 @@
       <div class="h-full mx-auto max-w-7xl flex flex-col justify-center items-start text-white relative px-8">
         <div class="hidden lg:block absolute top-0 right-0">
           <img class="mt-36 size-16 mx-auto" src="./images/x.svg" alt="Krzyżyk">
-          <div class="mt-32 flex flex-col items-center gap-8">
-            <img class="size-5" src="./images/o.svg" alt="Kółko">
-            <img class="size-5" src="./images/o.svg" alt="Kółko">
-            <img class="size-5" src="./images/o.svg" alt="Kółko">
-            <img class="size-5" src="./images/o.svg" alt="Kółko">
-            <img class="size-5" src="./images/o.svg" alt="Kółko">
-            <img class="size-5" src="./images/o.svg" alt="Kółko">
-            <img class="size-5" src="./images/o.svg" alt="Kółko">
-          </div>
         </div>
 
-        <div id="event" class="-mt-16 px-2 sm:pl-0 lg:w-full text-center lg:text-left leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesne technologie</div>
+        <div id="event" class="-mt-16 px-2 sm:pl-0 lg:w-full text-center lg:text-left leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesssne technologie</div>
         <div class="mt-8 text-2xl sm:text-4xl flex items-center">
           <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście</span>
-          <div class="ml-20 bg-[#01FF6B] h-3 w-20"></div>
+        </div>
+        <div x-show="active" class="divide-x divide-slate-100/25 flex flex-row "> 
+          <div class="text-xl flex" x-text="meetup"></div>
+          <div class="text-xl flex">
+            <a :href="meetup.localization" x-text="meetup.place" target="_blank"></a>
+          </div>
         </div>
         <div x-show="active" class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75 mt-20 px-4 py-6 rounded-2xl sm:flex divide-x divide-slate-100/25">
           <div class="flex px-4">
@@ -172,7 +167,6 @@
     <template x-if="meetup">
       <section class="mt-12 p-4">
         <div class="mx-auto max-w-7xl text-white flex-col">
-          <div class="hidden lg:block absolute right-0 -mt-[12em] md:-mr-[40em] xl:-mr-[24em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
           <div class="flex flex-col gap-6 ml-0 sm:ml-36 font-bold text-center lg:text-left">
             <div class="relative text-5xl sm:text-6xl xl:text-9xl lg:mt-6">
               <span x-text="meetup.date"></span>
@@ -185,9 +179,6 @@
               <a :href="meetup.localization" x-text="meetup.place" target="_blank"></a>
             </div>
             <div class="text-3xl sm:text-5xl">start <span x-text="meetup.time"></span></div>
-            <div class="hidden lg:block absolute -mt-4 left-0 rotate-180">
-              <div class="opacity-10 text-[16em] rotate-90" x-text="meetup.year"></div>
-            </div>
           </div>
 
           <div class="mt-32 grid grid-cols-1 lg:grid-cols-3 gap-16 text-lg text-[#231769]">
@@ -289,20 +280,9 @@
     </section>
 
     <section class="mt-32 mb-52 lg:mb-0 relative">
-      <div class="hidden lg:block absolute left-0 mt-[24em] lg:-ml-[32rem] xl:-ml-[16em] border border-[84px] border-[#01FF6B] size-[56em] rounded-full z-0"></div>
+     
 
       <div class="mx-auto max-w-7xl text-white flex-col relative">
-        <div class="absolute top-0 left-0 -ml-32 -mt-[22em]">
-          <div class="flex flex-col items-center gap-12">
-            <img class="size-6" src="./images/o.svg" alt="Kółko">
-            <img class="size-6" src="./images/o.svg" alt="Kółko">
-            <img class="size-6" src="./images/o.svg" alt="Kółko">
-            <img class="size-6" src="./images/o.svg" alt="Kółko">
-            <img class="size-6" src="./images/o.svg" alt="Kółko">
-            <img class="size-6" src="./images/o.svg" alt="Kółko">
-            <img class="size-6" src="./images/o.svg" alt="Kółko">
-          </div>
-        </div>
 
         <div class="flex flex-col lg:flex-row" id="agenda">
           <div class="w-full lg:w-[40%] flex flex-col gap-12 ml-4 text-center lg:text-left">
