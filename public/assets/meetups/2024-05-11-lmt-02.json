@@ -1,0 +1,98 @@
+{
+    "title": "I legnicki meetup technologiczny",
+    "datetime": "2024-09-11 18:00:00",
+    "place": "Legnicki Browar Książęcy",
+    "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
+    "lineup": [
+      {
+        "name": "Adam",
+        "surname": "Marszowski",
+        "role": "Software Developer",
+        "companies": [
+          {
+            "name": "Softiq sp. z o.o.",
+            "url": "https://softiq.pl/"
+          }
+        ],
+        "avatarUrl": "./images/speakers/adam-marszowski.jpeg",
+        "about": "Adam specjalizuje się w programowaniu w React i Java. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI."
+      },
+      {
+        "name": "Joanna",
+        "surname": "Rewak",
+        "role": "radca prawny",
+        "companies": [
+          {
+            "name": "Blumilk sp. z o.o.",
+            "url": "https://www.blumilk.pl/"
+          },
+          {
+            "name": "Kancelaria radcy prawnego Joanny Rewak",
+            "url": "https://kancelaria.rewak.pl/"
+          }
+        ],
+        "avatarUrl": "./images/speakers/joanna-rewak.png",
+        "about": "Asia jest radcą prawnym pasjonującym się prawem nowych technologii. Specjalizuje się w tworzeniu umów, regulaminów oraz dokumentów dotyczących ochrony danych dla podmiotów z branży technologicznej. Ciekawostkami prawnymi dzieli się w social mediach."
+      },
+      {
+        "name": "Jacek",
+        "surname": "Sawoszczuk",
+        "role": "inżynier oprogramowania",
+        "companies": [
+          {
+            "name": "Blumilk sp. z o.o.",
+            "url": "https://www.blumilk.pl/"
+          }
+          ],
+        "avatarUrl": "./images/speakers/jacek-sawoszczuk.jpeg",
+        "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie, gdzie specjalizuje się w Vue.js i Tailwindzie. Entuzjasta oprogramowania open-source, Linuksa i całej społeczności powstałej wokół otwartego oprogramowania."
+      }
+    ],
+    "agenda": [
+      {
+        "start": "18:00",
+        "title": "Krótka opowieść o LMT i przywitanie gości"
+      },
+      {
+        "start": "18:15",
+        "title": "Łącząc teraźniejszość z przyszłością: Praktyczne zastosowania AI",
+        "speaker": "Adam Marszowski, SOFTIQ",
+        "description": "Podczas prezentacji Adama przyjrzymy się praktycznemu zastosowaniu modeli językowych (LLMs) do rozwiązywania rzeczywistych problemów biznesowych. Skupiając się na konkretnym case study, Adam pokaże jak technologie AI mogą transformować tradycyjne procesy i przyczyniać się do efektywniejszego funkcjonowania firm."
+      },
+      {
+        "start": "19:00",
+        "title": "Uwarunkowania prawne dotyczące wykorzystywania narzędzi AI w programowaniu",
+        "speaker": "Joanna Rewak, radca prawny",
+        "description": "Narzędzia AI pracę programistów mają ułatwiać, a prawnicy jak powszechnie wiadomo utrudniać. Z prezentacji Asi dowiecie się dlaczego w software house potrzebny jest regulamin korzystania z rozwiązań sztucznej inteligencji i jakie ryzyka niesie za sobą jego brak."
+      },
+      {
+        "start": "19:45",
+        "title": "Przerwa"
+      },
+      {
+        "start": "20:00",
+        "title": "HTMX - Czy frontend musi być skomplikowany?",
+        "speaker": "Jacek Sawoszczuk, Blumilk",
+        "description": "Ekosystem javascriptowy z roku na rok rośnie, a nasze frontendy stają się coraz bardziej skomplikowane. HTMX proponuje odważne podejście do uproszczenia aplikacji webowych poprzez powrót do korzeni tej dziedziny. W tej prezentacji przyjrzymy się czym konkretnie jest HTMX i czy faktycznie może spełnić te obietnice."
+      },
+      {
+        "start": "20:45",
+        "title": "Networking"
+      }
+    ],
+    "sponsors": [
+      {
+        "name": "Collegium Witelona Uczelnia Państwowa",
+        "website": "https://collegiumwitelona.pl/",
+        "logoUrl": "./images/partners/cwup.png"
+      }
+    ],
+    "partners": [
+      {
+        "name": "Softiq",
+        "website": "https://softiq.pl/",
+        "logoUrl": "./images/partners/softiq.png"
+      }
+    ]
+  }
+  

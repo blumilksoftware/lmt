@@ -233,16 +233,16 @@
             <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Organizator</p>
           </div>
         </div>
-          <template x-for="partner in meetup.partners">
-            <div class="flex flex-col  ">
-              <a :href="partner.website" target="_blank">
-                <img :src="partner.logoUrl" :alt="partner.name " class="h-[71px]" />
-              </a>
-              <div class="justify-end flex pt-2">
-                <p class="text-white text-center bg-slate-900 rounded-md w-[111px] ">Partner</p>
-              </div>
+        <template x-for="partner in meetup.partners">
+          <div class="flex flex-col  ">
+            <a :href="partner.website" target="_blank">
+              <img :src="partner.logoUrl" :alt="partner.name " class="h-[71px]" />
+            </a>
+            <div class="justify-end flex pt-2">
+              <p class="text-white text-center bg-slate-900 rounded-md w-[111px] ">Partner</p>
             </div>
-          </template>
+          </div>
+        </template>
         <template x-for="sponsor in meetup.sponsors">
           <div class="flex flex-col  ">
             <a :href="sponsor.website" target="_blank">
@@ -304,13 +304,15 @@
                 <p x-text="selectedSpeaker.about"></p>
               </div>
               <div class="flex flex-row gap-2 items-end h-full pb-14 pt-4">
-              <div class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center" @click="selectPreviousSpeaker">
-                <img src="./images/arrow.svg" class="rotate-180 w-[24px] h-[20px]">
+                <div class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center"
+                  @click="selectPreviousSpeaker">
+                  <img src="./images/arrow.svg" class="rotate-180 w-[24px] h-[20px]">
+                </div>
+                <div class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center"
+                  @click="selectNextSpeaker">
+                  <img src="./images/arrow.svg" class="w-[24px] h-[20px]">
+                </div>
               </div>
-              <div class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center" @click="selectNextSpeaker">
-                <img src="./images/arrow.svg" class="w-[24px] h-[20px]">
-              </div>
-            </div>
             </div>
           </div>
           <div class="lg:hidden">
@@ -362,8 +364,7 @@
               <template x-for="(lecture, index) in meetup.agenda">
                 <div class="flex flex-col">
                   <div class="flex items-center py-8">
-                    <div class="w-[100px] text-4xl font-bold"
-                      x-text="lecture.start">
+                    <div class="w-[100px] text-4xl font-bold" x-text="lecture.start">
                       18:15
                     </div>
                     <div class="flex flex-col gap-2">
@@ -403,107 +404,32 @@
   </section>
 
   <section>
-    <div class="mx-auto max-w-7xl text-white flex relative">
-      <div class="w-0 lg:w-1/3"></div>
-      <div class="w-full lg:w-2/3">
-        <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-10">
-          Media
-        </div>
-        <div class="w-full -mt-48 px-4 flex flex-col font-bold items-start lg:items-end justify-content gap-2">
-          <div class="text-4xl sm:text-6xl text-white">Zainteresowany?</div>
-          <div class="text-2xl sm:text-4xl text-[#01FF6B] flex flex-col">
-            <div>Dołącz do grupy na Facebooku</div>
-            <div>i bądź na bieżąco!</div>
-          </div>
-          <div class="relative mt-8 -mr-4 cursor-pointer pr-4">
-            <div class="relative px-12 py-4 text-2xl text-[#231769] bg-neutral-200 rounded-full z-10 mr-4">
-              <a href="https://www.facebook.com/groups/webdevlegnica/" target="”_blank”">
-                Dołącz do grupy
-              </a>
-            </div>
-            <div
-              class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent bg-[#231769] border-2 border-[#01FF6B] rounded-full z-0">
-              Dołącz do grupy
-            </div>
-          </div>
-        </div>
-      </div>
+    <template>
+    <div class="mx-auto max-w-7xl text-white flex flex-col font-bold text-center mb-32 mt-[190px]">
+      <div class="text-white  text-6xl ">Zainteresowany?</div>
+      <div class="text-green-500 text-4xl pt-3 ">Dołącz do naszej grupy i bądź na bieżąco!</div>
+      <button
+        class="text-lg font-bold text-neutral-200 uppercase align-middle w-[304px] h-[68px] self-center bg-violet-700 rounded-md mt-16"  @click="window.open('https://www.facebook.com/groups/webdevlegnica/', '_blank')">
+        Dołącz do grupy</button>
     </div>
+  </template>
   </section>
 
-  <section class="mt-32 lg:mt-48 mb-12">
-    <div class="mx-auto max-w-5xl text-white flex flex-col relative">
-      <div class="flex items-center flex-row">
-        <div class="rotate-90 origin-center lg:mr-8 -mx-8 lg:mx-0">
-          <a href="https://blumilk.pl/" target="_blank">
-            <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o."
-              class="w-[28em] lg:w-[32em] rotate-180 lg:-mt-32" />
-          </a>
-        </div>
-        <div class="lg:w-3/4">
-          <div class="font-bold text-4xl sm:text-6xl lg:text-left">
-            Organizator
-          </div>
-          <div class="mt-4 font-bold text-6xl sm:text-7xl text-[#01FF6B] lg:text-left">
-            Blumilk sp. o.o.
-          </div>
-          <div class="mt-12 max-w-lg lg:text-left">
-            Blumilk to pasjonaci z Legnicy tworzący oprogramowanie szyte na
-            miarę. Software house specjalizujący się w tworzeniu aplikacji
-            web/mobile, zaawansowanych projektach B+R oraz transformacji
-            cyfrowej.
+  <section>
+    <div class="mx-auto max-w-7xl text-white flex-col relative">
+      <div class="flex flex-col" id="previousEditions">
+        <div class="w-full  flex flex-col gap-12 ml-4 text-center lg:text-left">
+          <div class="lg:mt-8 text-5xl font-bold">Poprzednie Edycje</div>
+          <div class="text-md w-3/4 px-2 lg:px-0 mx-auto lg:w-full lg:text-base">
+            Sprawdź czy nic Cię nie ominęło
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+        </div>
+      
 
-    <template x-if="meetup">
-      <div>
-        <div class="mx-auto w-full text-white flex-col" id="sponsors">
-          <div class="lg:hidden my-24 lg:my-0 text-center lg:text-left">
-            <span class="lg:pl-8 text-white font-bold text-6xl">Patronat</span>
-          </div>
-          <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">
-            Patronat
-          </div>
-          <div
-            class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center justify-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16 text-center">
-            <template x-for="sponsor in meetup.sponsors">
-              <div class="flex-1 z-10 px-4">
-                <a :href="sponsor.website" target="_blank">
-                  <img :src="sponsor.logoUrl" :alt="sponsor.name" class="w-64 lg:w-96 mx-auto" />
-                </a>
-              </div>
-            </template>
-          </div>
-        </div>
-        <div class="mx-auto w-full text-white flex-col" id="partners">
-          <div class="lg:hidden my-24 lg:my-0 text-center lg:text-left">
-            <span class="lg:pl-8 text-white font-bold text-5xl">Partnerzy</span>
-          </div>
-          <div class="hidden lg:block w-full text-center opacity-5 text-white font-bold text-[18em] z-0">
-            Partnerzy
-          </div>
-          <div
-            class="mx-auto max-w-2xl sm:max-w-7xl mt-8 lg:-mt-[7em] flex flex-col items-center justify-center lg:flex-row gap-2 gap-y-32 lg:gap-y-0 lg:gap-16 text-center">
-            <template x-for="partner in meetup.partners">
-              <div class="flex-1 z-10 lg:px-8">
-                <a class="mx-auto" :href="partner.website" target="_blank">
-                  <img :src="partner.logoUrl" :alt="partner.name" class="w-48 lg:w-64 mx-auto" />
-                </a>
-              </div>
-            </template>
-          </div>
-        </div>
-      </div>
-    </template>
   </section>
-
-  <section class="mt-64 lg:mt-32 relative">
-    <div class="hidden lg:block mx-auto text-white text-center opacity-5 text-white font-bold text-[18em]"
-      id="register">
-      Rejestracja
-    </div>
+  <section class="mt-64  relative">
     <div class="relative mx-auto max-w-7xl z-10 -m-36">
       <div hx-ext="loading-states" data-loading-delay="300"
         class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
@@ -573,8 +499,7 @@
         </p>
       </div>
     </div>
-    <div class="-mt-24 bg-[#01FF6B] h-[160px] lg:h-[320px] z-0"></div>
-    <div class="bg-white p-8">
+    <div class="bg-white p-8 lg:mt-[200px]">
       <div class="mx-auto max-w-7xl opacity-50 flex items-center relative z-20">
         <div class="flex-grow">
           2024 legnicki meetup technologiczny powered by
@@ -628,7 +553,7 @@
           </a>
         </div>
       </div>
-      <div class="hidden lg:block absolute right-0 bottom-0 -mr-[4em] h-[24em] overflow-hidden z-10">
+      <div class="hidden lg:block absolute right-0 bottom-0 -mr-[30em] h-[30em] overflow-hidden z-10">
         <div class="border border-[96px] border-[#231769] size-[64em] rounded-full"></div>
       </div>
     </div>
