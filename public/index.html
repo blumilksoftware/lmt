@@ -223,16 +223,43 @@
 
 
   <section>
-    <div class="w-full h-[330px] bg-[#6C1DF2]">
-      <div></div>
+    <div class="w-full h-[330px] bg-[#6C1DF2] flex justify-center">
+      <div class="flex flex-row items-center gap-16 ">
+        <div class="flex flex-col ">
+          <a href="https://blumilk.pl/" target="_blank">
+            <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class="h-[71px]" />
+          </a>
+          <div class="justify-end flex pt-2">
+            <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Organizator</p>
+          </div>
+        </div>
+          <template x-for="partner in meetup.partners">
+            <div class="flex flex-col  ">
+              <a :href="partner.website" target="_blank">
+                <img :src="partner.logoUrl" :alt="partner.name " class="h-[71px]" />
+              </a>
+              <div class="justify-end flex pt-2">
+                <p class="text-white text-center bg-slate-900 rounded-md w-[111px] ">Partner</p>
+              </div>
+            </div>
+          </template>
+        <template x-for="sponsor in meetup.sponsors">
+          <div class="flex flex-col  ">
+            <a :href="sponsor.website" target="_blank">
+              <img :src="sponsor.logoUrl" :alt="sponsor.name" class="h-[71px]" />
+            </a>
+            <div class="justify-end flex">
+              <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Sponsor</p>
+            </div>
+          </div>
+        </template>
+      </div>
     </div>
   </section>
 
+
   <section class="my-6">
     <div class="mx-auto w-full text-white static" id="speakers">
-      <div class="hidden lg:block absolute w-24">
-        <img class="size-24 absolute left-0 top-0 ml-40 mt-20" src="./images/x.svg" alt="Krzyżyk" />
-      </div>
       <div class="lg:hidden mt-20 text-6xl lg:text-8xl font-bold p-4 text-center lg:text-left">
         Lineup
       </div>
@@ -240,53 +267,50 @@
         Lineup
       </div>
       <template x-if="meetup">
-        <div class="w-full lg:-mt-48">
-          <div class="lg:flex lg:min-h-[560px] h-fit">
-            <div class="w-3/4 hidden lg:flex bg-black bg-opacity-50 p-16 rounded-r-2xl">
-              <div class="flex-1">
-                <img :src="selectedSpeaker.avatarUrl"
-                  class="mx-auto size-auto p-[1.5rem] xl:p-0 xl:size-64 mr-24 rounded-full"
-                  :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname" />
-              </div>
-              <div class="flex flex-col flex-1">
-                <div class="font-bold">
-                  <div class="text-6xl" x-text="selectedSpeaker.name"></div>
-                  <div class="text-6xl text-[#01FF6B]" x-text="selectedSpeaker.surname"></div>
-                </div>
-                <div class="mt-4 text-2xl text-gray-300">
-                  <span x-text="selectedSpeaker.role"></span>
-                  <template x-for="company in selectedSpeaker.companies">
-                    <div class="font-bold text-[#01FF6B]">
-                      <a :href="company.url" target="_blank" x-text="company.name"></a>
+        <div class="w-full lg:-mt-48 h-[650px]">
+          <div class="lg:flex h-full w-full">
+            <div class="w-full hidden lg:flex bg-black bg-opacity-50 rounded-r-2xl z-10 h-full overflow-hidden">
+              <div class="w-3/5 flex  h-full overflow-hidden">
+                <template x-for="speaker in meetup.lineup">
+                  <template x-if="speaker !== selectedSpeaker">
+                    <div class="w-1/2 overflow-hidden">
+                      <img :src="speaker.avatarUrl" @click="selectedSpeaker = speaker"
+                        class="w-full h-full object-cover cursor-pointer" :alt="speaker.name + ' ' + speaker.surname" />
                     </div>
                   </template>
-                </div>
-                <div class="mt-6 2xl:mt-12 pr-0 2xl:pr-24 flex flex-col gap-2 text-gray-300 text-lg">
-                  <p x-text="selectedSpeaker.about"></p>
-                </div>
+                </template>
+              </div>
+              <div class="w-2/5 h-full overflow-hidden ">
+                <img :src="selectedSpeaker.avatarUrl" class="w-full h-full object-cover"
+                  :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname" />
               </div>
             </div>
-            <div class="hidden lg:flex flex-1 flex-row px-12 gap-12 mr-24">
-              <template x-for="speaker in meetup.lineup">
-                <template x-if="speaker !== selectedSpeaker">
-                  <div
-                    class="flex-1 flex flex-col items-center rounded-2xl bg-gradient-to-b from-[#01FF6B]/70 to-black/70 cursor-pointer"
-                    @click="selectedSpeaker = speaker">
-                    <div
-                      class="rotate-180 [writing-mode:vertical-lr] origin-top-center flex items-center justify-start py-16 gap-8">
-                      <p class="text-nowrap whitespace-nowrap rotate-180">
-                        <span x-text="speaker.name"></span>
-                        <span x-text="speaker.surname"></span>,
-                        <span x-text="speaker.role"></span>
-                      </p>
-                      <div>
-                        <img class="mx-auto rotate-180 w-20 rounded-full" :src="speaker.avatarUrl"
-                          :alt="speaker.name + ' ' + speaker.surname" />
-                      </div>
-                    </div>
+
+            <div class="w-[40%]  flex-col pt-[70px] pl-[4%] h-full hidden lg:flex">
+
+              <div class="text-white text-base text-center bg-violet-700 rounded-md w-[111px]">Prelegenci</div>
+              <div class="font-bold pt-6">
+                <div class="text-4xl" x-text="selectedSpeaker.name"></div>
+                <div class="text-4xl" x-text="selectedSpeaker.surname"></div>
+              </div>
+              <div class="pt-4 text-base text-gray-300">
+                <template x-for="company in selectedSpeaker.companies">
+                  <div class="font-bold text-violet-700">
+                    <a :href="company.url" target="_blank" x-text="company.name"></a>
                   </div>
                 </template>
-              </template>
+              </div>
+              <div class="pt-6 flex w-3/4  text-gray-300 text-base">
+                <p x-text="selectedSpeaker.about"></p>
+              </div>
+              <div class="flex flex-row gap-2 items-end h-full pb-14 pt-4">
+              <div class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center" @click="selectPreviousSpeaker">
+                <img src="./images/arrow.svg" class="rotate-180 w-[24px] h-[20px]">
+              </div>
+              <div class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center" @click="selectNextSpeaker">
+                <img src="./images/arrow.svg" class="w-[24px] h-[20px]">
+              </div>
+            </div>
             </div>
           </div>
           <div class="lg:hidden">
@@ -315,17 +339,20 @@
               </div>
             </template>
           </div>
+
         </div>
+
+
       </template>
     </div>
   </section>
 
   <section class="mt-32 mb-52 lg:mb-0 relative">
     <div class="mx-auto max-w-7xl text-white flex-col relative">
-      <div class="flex flex-col lg:flex-row" id="agenda">
-        <div class="w-full lg:w-[40%] flex flex-col gap-12 ml-4 text-center lg:text-left">
-          <div class="lg:mt-8 text-6xl lg:text-8xl font-bold">Agenda</div>
-          <div class="text-md w-3/4 px-2 lg:px-0 mx-auto lg:w-full lg:text-xl">
+      <div class="flex flex-col" id="agenda">
+        <div class="w-full  flex flex-col gap-12 ml-4 text-center lg:text-left">
+          <div class="lg:mt-8 text-5xl font-bold">Agenda</div>
+          <div class="text-md w-3/4 px-2 lg:px-0 mx-auto lg:w-full lg:text-base">
             Każda prezentacja trwa 30 min + 15 min sesja Q&A
           </div>
         </div>
@@ -335,7 +362,7 @@
               <template x-for="(lecture, index) in meetup.agenda">
                 <div class="flex flex-col">
                   <div class="flex items-center py-8">
-                    <div class="w-[100px] text-4xl font-bold" :class="index !== 0 || 'text-[#01FF6B]'"
+                    <div class="w-[100px] text-4xl font-bold"
                       x-text="lecture.start">
                       18:15
                     </div>

@@ -49,5 +49,15 @@ function initialize() {
                 this.counters.seconds = String(moment.duration(diff).seconds()).padStart(2, "0")
             }
         },
+        selectPreviousSpeaker: function () {
+            const currentIndex = this.meetup.lineup.findIndex((speaker) => speaker === this.selectedSpeaker);
+            const previousIndex = (currentIndex - 1 + this.meetup.lineup.length) % this.meetup.lineup.length;
+            this.selectedSpeaker = this.meetup.lineup[previousIndex];
+          },
+          selectNextSpeaker: function () {
+            const currentIndex = this.meetup.lineup.findIndex((speaker) => speaker === this.selectedSpeaker);
+            const nextIndex = (currentIndex + 1) % this.meetup.lineup.length;
+            this.selectedSpeaker = this.meetup.lineup[nextIndex];
+          },
     }
 }
