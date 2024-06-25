@@ -108,6 +108,7 @@
         <div class="pt-9 text-[40px]  flex items-center">
           <span class="flex-grow px-2">Inteligentne rozwiązania, lokalne podejście</span>
         </div>
+        <template x-if="meetup">
         <div x-show="active" class="divide-x divide-slate-100/25 flex flex-row  h-[35px] mt-12">
           <div class="flex flex-row items-center pr-8">
             <image src="./images/calendar.svg" class="size-4 self-center"></image>
@@ -119,6 +120,7 @@
               class="hover:underline text-xl pl-3"></a>
           </div>
         </div>
+        </template>
         <div class="mt-10">
           <div x-show="active"
             class="hidden flex-shrink w-max-2xl bg-black bg-opacity-75  px-4 py-6 rounded-[33px] sm:flex divide-x divide-slate-100/25 ">
@@ -223,6 +225,7 @@
 
 
   <section>
+    <template x-if="meetup">
     <div class="w-full h-[330px] bg-[#6C1DF2] flex justify-center">
       <div class="flex flex-row items-center gap-16 ">
         <div class="flex flex-col ">
@@ -255,6 +258,7 @@
         </template>
       </div>
     </div>
+  </template>
   </section>
 
 
@@ -365,7 +369,6 @@
                 <div class="flex flex-col">
                   <div class="flex items-center py-8">
                     <div class="w-[100px] text-4xl font-bold" x-text="lecture.start">
-                      18:15
                     </div>
                     <div class="flex flex-col gap-2">
                       <div class="px-8" x-text="lecture.title"></div>
@@ -404,93 +407,94 @@
   </section>
 
   <section>
-    <template>
-    <div class="mx-auto max-w-7xl text-white flex flex-col font-bold text-center mb-32 mt-[190px]">
+
+    <div class="mx-auto max-w-7xl text-white relative flex-col font-bold text-center mb-32 mt-40 h-fit">
       <div class="text-white  text-6xl ">Zainteresowany?</div>
       <div class="text-green-500 text-4xl pt-3 ">Dołącz do naszej grupy i bądź na bieżąco!</div>
       <button
-        class="text-lg font-bold text-neutral-200 uppercase align-middle w-[304px] h-[68px] self-center bg-violet-700 rounded-md mt-16"  @click="window.open('https://www.facebook.com/groups/webdevlegnica/', '_blank')">
+        class="text-lg font-bold text-neutral-200 uppercase align-middle w-[304px] h-[68px] self-center bg-violet-700 rounded-md mt-16"
+        @click="window.open('https://www.facebook.com/groups/webdevlegnica/', '_blank')">
         Dołącz do grupy</button>
     </div>
-  </template>
   </section>
-
   <section>
-    <div class="mx-auto max-w-7xl text-white flex-col relative">
-      <div class="flex flex-col" id="previousEditions">
-        <div class="w-full  flex flex-col gap-12 ml-4 text-center lg:text-left">
-          <div class="lg:mt-8 text-5xl font-bold">Poprzednie Edycje</div>
-          <div class="text-md w-3/4 px-2 lg:px-0 mx-auto lg:w-full lg:text-base">
-            Sprawdź czy nic Cię nie ominęło
+    <template x-if="pastMeetups.length > 0">
+      <div class="mx-auto max-w-7xl text-white flex-col relative">
+        <div class="flex flex-col" id="previousEditions">
+          <div class="w-full  flex flex-col ml-4 text-center lg:text-left">
+            <div class="lg:mt-8 text-5xl font-bold">Poprzednie Edycje</div>
+            <div class="text-md w-3/4 px-2 lg:px-0 mx-auto lg:w-full lg:text-base pt-6">
+              Sprawdź czy nic Cię nie ominęło
+            </div>
+          </div>
+
+          <div class="shrink w-max-2xl px-4  rounded-2xl flex flex-col divide-y divide-y-reverse divide-slate-100/25">
+            <template x-for="meetup in pastMeetups">
+              <div class="flex flex-row items-center py-10">
+                <div class=" text-4xl font-bold" x-text="formatDate(meetup.datetime)">
+                </div>
+                <div class="px-8" x-text="meetup.title"></div>
+              </div>
+
+            </template>
           </div>
         </div>
-        </div>
-        </div>
-      
+      </div>
 
+    </template>
   </section>
-  <section class="mt-64  relative">
-    <div class="relative mx-auto max-w-7xl z-10 -m-36">
+  <section class="mt-48  relative">
+    <div class="relative mx-auto max-w-6xl z-10 ">
       <div hx-ext="loading-states" data-loading-delay="300"
-        class="p-8 lg:p-16 bg-neutral-200 rounded-3xl text-[#231769]">
-        <h2 class="text-center text-5xl font-bold mb-8">Rejestracja</h2>
+        class="p-8 lg:p-16 bg-neutral-200 rounded-[90px] text-gray-950">
+        <h2 class="text-center text-6xl font-bold  pt-4">Rejestracja</h2>
         <form data-loading-class="hidden" id="registration-form">
           <div id="registration-errors"></div>
-          <div class="mx-auto max-w-2xl my-12 flex flex-col gap-8">
+          <div class="mx-auto max-w-2xl my-5 flex flex-col gap-5">
             <p class="text-center mb-4">
               Legnicki Meetup Technologiczny to spotkanie stacjonarne.
               Pamiętaj, że liczba miejsc jest ograniczona. Zarejestruj się już
               teraz, aby zapewnić sobie miejsce na wydarzeniu!
             </p>
             <div class="relative">
-              <label for="name"
-                class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Imię
-                *</label>
               <input type="text" name="name" id="name"
-                class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6" />
+                class="block w-full bg-zinc-300  py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6 "
+                placeholder="Imię" />
             </div>
             <div class="relative">
-              <label for="surname"
-                class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Nazwisko
-                *</label>
               <input type="text" name="surname" id="surname"
-                class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6" />
+                class="block w-full bg-zinc-300  py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6 "
+                placeholder="Nazwisko" />
             </div>
             <div class="relative">
-              <label for="company"
-                class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Firma</label>
               <input type="text" name="company" id="company"
-                class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6" />
+                class="block w-full bg-zinc-300  py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6 "
+                placeholder="Nazwa Firmy" />
             </div>
             <div class="relative">
-              <label for="email"
-                class="absolute -top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">Adres
-                e-mail *</label>
               <input type="email" name="email" id="email"
-                class="block w-full bg-neutral-200 border-0 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 border-[#231769] sm:leading-6" />
+                class="block w-full bg-zinc-300  py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6 "
+                placeholder="Adres e-mail" />
             </div>
             <div class="relative">
-              <label for="consent" class="-top-3 left-3 bg-neutral-200 inline-block px-2 font-medium text-[#231769]">
-                <input type="checkbox" name="consent" id="consent" required />
-                Wyrażam zgodę na przetwarzanie moich danych osobowych podanych
-                w powyższym formularzu w celach marketingowych przez
-                organizatora Legnickiego Meetupu Technologicznego, firmę
-                Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5, 59-220
-                Legnica oraz przez podmioty trzecie odpowiedzialne za
-                organizację Legnickiego Meetupu Technologicznego.
+              <label for="consent" class=" bg-neutral-200  px-2 font-normal text-sm text-black flex flex-row">
+                <input type="checkbox" name="consent" id="consent" required class="self-start mt-2" />
+                <p class="pl-5">Wyrażam zgodę na przetwarzanie moich danych osobowych podanych
+                  w powyższym formularzu w celach marketingowych przez
+                  organizatora Legnickiego Meetupu Technologicznego, firmę
+                  Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5, 59-220
+                  Legnica oraz przez podmioty trzecie odpowiedzialne za
+                  organizację Legnickiego Meetupu Technologicznego.</p>
+
               </label>
             </div>
 
-            <div class="relative w-full flex justify-center -mr-4 cursor-pointer">
+            <div class="relative w-full flex justify-center  cursor-pointer">
               <button data-loading-disable hx-post="register.php" hx-target="#registration-form"
                 hx-swap="innerHTML show:top"
-                class="relative px-12 py-4 text-2xl text-white text-center font-bold bg-[#231769] rounded-full z-10 mr-4">
+                class="text-lg font-bold text-neutral-200 uppercase align-middle px-20 py-6 self-center bg-violet-700 rounded-md mt-4 ">
                 Zarejestruj się
               </button>
-              <div
-                class="absolute top-0 mt-3 ml-3 px-12 py-4 text-2xl text-transparent border-2 border-[#01FF6B] rounded-full z-0">
-                Zarejestruj się
-              </div>
             </div>
           </div>
         </form>
@@ -499,7 +503,7 @@
         </p>
       </div>
     </div>
-    <div class="bg-white p-8 lg:mt-[200px]">
+    <div class="bg-white p-8 lg:mt-[74px]">
       <div class="mx-auto max-w-7xl opacity-50 flex items-center relative z-20">
         <div class="flex-grow">
           2024 legnicki meetup technologiczny powered by
@@ -553,8 +557,8 @@
           </a>
         </div>
       </div>
-      <div class="hidden lg:block absolute right-0 bottom-0 -mr-[30em] h-[30em] overflow-hidden z-10">
-        <div class="border border-[96px] border-[#231769] size-[64em] rounded-full"></div>
+      <div class="hidden lg:block absolute right-0 bottom-0 -mr-[31em] h-[24em] overflow-hidden z-10">
+        <div class=" border-[96px] border-violet-700 size-[64em] rounded-full"></div>
       </div>
     </div>
   </section>
