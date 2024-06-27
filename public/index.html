@@ -59,10 +59,9 @@
         <div :class="{ 'block': open, 'hidden': !open }" class="xl:hidden" id="mobile-menu">
           <div class="px-2 pt-2 pb-3 space-y-1 text-gray-300 rounded-md text-base font-medium">
             <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
+            <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
             <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
             <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
-            <a href="#sponsors" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Patronat</a>
-            <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
             <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
           </div>
         </div>
@@ -81,12 +80,12 @@
             <div class="flex items-center">
               <div class="hidden xl:block xl:ml-6">
                 <div class="flex justify-end space-x-4 rounded-md text-md font-medium text-gray-300">
-                  <a href="#event" class="hover:bg-gray-700 hover:text-white px-3 py-2">Wydarzenie</a>
-                  <a href="#speakers" class="hover:bg-gray-700 hover:text-white px-3 py-2">Prelegenci</a>
-                  <a href="#agenda" class="hover:bg-gray-700 hover:text-white px-3 py-2">Agenda</a>
-                  <a href="#sponsors" class="hover:bg-gray-700 hover:text-white px-3 py-2">Patronat</a>
-                  <a href="#partners" class="hover:bg-gray-700 hover:text-white px-3 py-2">Partnerzy</a>
-                  <a href="#register" class="hover:bg-gray-700 hover:text-white px-3 py-2">Rejestracja</a>
+                  <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
+                  <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
+                  <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
+                  <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
+                  <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
+                  <a href="./pastMeetup.html" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Test</a>
                 </div>
               </div>
             </div>
@@ -100,7 +99,10 @@
         <div class="hidden lg:block absolute top-0 right-0">
           <img class="mt-36 size-16 mx-auto" src="./images/x.svg" alt="Krzyżyk" />
         </div>
-
+        <div class="w-24 h-24 hidden lg:block absolute top-0 right-0">
+          <div class="w-6 h-28 left-0 top-[18.38px] absolute origin-top-left -rotate-45 bg-green-500"></div>
+          <div class="w-6 h-28 left-[77.16px] top-0 absolute origin-top-left rotate-45 bg-green-500"></div>
+        </div>
         <div id="event"
           class=" px-4 sm:pl-0 lg:w-full text-left leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">
           Nowoczesne technologie
@@ -115,7 +117,7 @@
               <image src="./images/calendar.svg" class="lg:size-4 size-6 self-center"></image>
               <span x-text="`${meetup.date} ${meetup.year}`" class="text-xl pl-3 "></span>
             </div>
-            <div class="flex flex-row items-center md:pl-8 pt-4 lg:pt-2 md:pt-0">
+            <div class="flex flex-row items-center md:pl-8 pt-4  md:pt-0">
               <image src="./images/location.svg" class="lg:size-4 size-6 self-center"></image>
               <a :href="meetup.localization" x-text="meetup.place" target="_blank"
                 class="hover:underline text-xl pl-3"></a>
@@ -153,9 +155,9 @@
         </div>
       </div>
       <div
-        class=" grid grid-cols-1 lg:grid-cols-3 gap-7  text-white md:mx-auto mx-9  max-w-screen-2xl mt-[90px] md:mt-44 mb-32">
+        class=" grid grid-cols-1 lg:grid-cols-3 gap-7  text-white 2xl:mx-auto mx-9 lg:mx-3  xl:px-14 2xl:px-0 max-w-screen-2xl mt-[90px] md:mt-44 mb-32">
 
-        <div class="p-8   bg-[#2B086D] border rounded-3xl ">
+        <div class="p-8   bg-[#2B086D] rounded-3xl border ">
           <div class="hidden lg:flex flex-row ">
             <img src="./images/question.svg" class="size-9 self-start"> </img>
             <div class="flex-col pl-8">
@@ -237,7 +239,7 @@
   <section>
     <template x-if="meetup">
       <div
-        class="w-full lg:h-[330px] lg:bg-[#6C1DF2] bg-slate-950 flex lg:justify-center justify-start pl-14 lg:pl-0  py-10 lg:py-0">
+        class="w-full lg:h-[330px] lg:bg-[#6C1DF2] bg-slate-950 flex lg:justify-center justify-start pl-14 lg:pl-0  py-10 lg:py-0" id="partners">
         <div class="flex flex-col lg:flex-row items-center gap-16 ">
           <div class="flex flex-col ">
             <div class="justify-start flex lg:hidden  pb-2 pl-2">
@@ -328,11 +330,11 @@
                 <p x-text="selectedSpeaker.about"></p>
               </div>
               <div class="flex flex-row gap-2 items-end h-full pb-14 pt-4">
-                <div class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center"
+                <div class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center cursor-pointer"
                   @click="selectPreviousSpeaker">
                   <img src="./images/arrow.svg" class="rotate-180 w-[24px] h-[20px]">
                 </div>
-                <div class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center"
+                <div class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center cursor-pointer"
                   @click="selectNextSpeaker">
                   <img src="./images/arrow.svg" class="w-[24px] h-[20px]">
                 </div>
@@ -371,7 +373,7 @@
   </section>
 
   <section class="lg:mt-32 mt-20  lg:mb-0 relative">
-    <div class="mx-auto max-w-7xl text-white flex-col relative">
+    <div class="mx-auto max-w-screen-2xl text-white flex-col relative">
       <div class="flex flex-col" id="agenda">
         <div class="lg:w-full  flex flex-col lg:gap-6 gap-3 lg:ml-4 text-left ml-4">
           <div class="text-5xl font-bold ">Agenda</div>
@@ -437,7 +439,7 @@
   </section>
   <section>
     <template x-if="pastMeetups.length > 0">
-      <div class="lg:mx-auto max-w-7xl text-white flex-col relative">
+      <div class="lg:mx-auto max-w-screen-2xl text-white flex-col relative">
         <div class="flex flex-col" id="previousEditions">
           <div class="lg:w-full  flex flex-col lg:ml-4 text-left px-4">
             <div class="lg:mt-8 text-5xl font-bold">Poprzednie edycje</div>
@@ -445,25 +447,29 @@
               Sprawdź czy nic Cię nie ominęło
             </div>
           </div>
-
+  
           <div
             class="shrink w-max-2xl px-4  rounded-2xl flex flex-col divide-y divide-y-reverse divide-slate-100/25 pt-2">
             <template x-for="meetup in pastMeetups">
-              <div class="flex flex-row items-center lg:py-10 py-4">
-                <div class=" lg:text-4xl text-2xl font-bold" x-text="formatDate(meetup.datetime)">
+              <div class="flex flex-row items-center lg:py-10 py-4 ">
+                <div class="lg:text-4xl text-2xl font-bold" x-text="meetup.formattedDate">
                 </div>
                 <div class="lg:px-8 pl-4 text-base" x-text="meetup.title"></div>
+                <div class="flex-grow flex justify-end cursor-pointer pr-4" >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 -rotate-90">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </div>
               </div>
-
             </template>
           </div>
         </div>
       </div>
-
     </template>
   </section>
   <section class="lg:mt-48 mt-[110px] relative">
-    <div class="relative mx-auto max-w-6xl z-10 ">
+    <div class="relative mx-auto max-w-6xl z-10 " id="register">
       <div hx-ext="loading-states" data-loading-delay="300"
         class="p-8 lg:p-16 bg-neutral-200 lg:rounded-[90px] rounded-t-[90px] text-gray-950">
         <h2 class="text-center text-6xl font-bold  pt-4">Rejestracja</h2>
@@ -522,7 +528,7 @@
         </p>
       </div>
     </div>
-    <div class="bg-white lg:p-8 px-4 py-4 lg:mt-[74px]">
+    <div class="bg-white lg:p-8 px-4 py-4  lg:mt-[74px]">
       <div class="mx-auto max-w-7xl opacity-50 flex items-center relative z-20">
         <div class="flex-grow">
           2024 legnicki meetup technologiczny powered by
