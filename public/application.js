@@ -27,6 +27,7 @@ function initialize() {
                 const meetupData = await response.json()
                 
                 const meetupFolder = meetupUrl.substring(0, meetupUrl.lastIndexOf('/'))
+                const meetupId = meetupFolder.split('/').pop()
                 meetupData.lineup = meetupData.lineup.map(speaker => ({
                     ...speaker,
                     avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`
@@ -39,6 +40,8 @@ function initialize() {
                     ...partner,
                     logoUrl: `${meetupFolder}/images/partners/${partner.logoUrl}`
                 }))
+
+                meetupData.gallery = await this.loadGalleryImages(meetupId, meetupFolder)
 
                 return meetupData
             }))
@@ -59,6 +62,23 @@ function initialize() {
 
                 this.selectedSpeaker = upcomingMeetup.lineup[0] ?? null
                 this.meetup = upcomingMeetup
+            }
+        },
+        loadGalleryImages: async function (meetupId, meetupFolder) {
+            try {
+                const galleryResponse = await fetch(`./gallery.php?meetupId=${meetupId}`)
+                if (!galleryResponse.ok) {
+                    return []
+                }
+                const galleryData = await galleryResponse.json()
+                return galleryData.images.map(image => ({
+                    id: image,
+                    url: `${meetupFolder}/images/gallery/${image}`,
+                    alt: `Gallery image ${image}`
+                }))
+            } catch (error) {
+                console.error("Error loading gallery images:", error)
+                return []
             }
         },
         processPastMeetups: function () {

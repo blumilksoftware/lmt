@@ -23,7 +23,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
-<body class="bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()" @meetup-changed.window="$refresh">
+<body class="bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()">
   <section class="relative w-full">
     <div x-data="{ open: false }">
       <nav class="xl:hidden bg-transparent">
@@ -282,36 +282,36 @@
       </button>
     </div>
   </section>
-  <section>
-    <div class="text-white flex flex-col relative">
-      <div class=" max-w-screen-2xl text-white flex flex-col relative px-4">
-        <h2 class="text-5xl font-bold">Galeria</h2>
-        <p class="text-base text-neutral-200 pt-4">Autor zdjęć: Piotr Kowalski, Jolanta Druga</p>
+  <section x-data="{ selectedImage: null }">
+    <template x-if="meetup">
+      <div class="text-white flex flex-col relative">
+        <div class="max-w-screen-2xl text-white flex flex-col relative px-4">
+          <h2 class="text-5xl font-bold">Galeria</h2>
+          <p class="text-base text-neutral-200 pt-4">Autor zdjęć: Piotr Kowalski, Jolanta Druga</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-screen overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"">
+          <template x-for="image in meetup.gallery" :key="image.id">
+            <div class="aspect-square overflow-hidden">
+              <img :src="image.url" :alt="image.alt"
+                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+                @click="selectedImage = image">
+            </div>
+          </template>
+        </div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 overflow-y-auto">
-        <div class="aspect-[3/4] md:row-span-2 overflow-hidden">
-          <img src="./images/test/vertical.jpeg" alt="Vertical Image 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="aspect-[4/3] md:col-span-2 overflow-hidden">
-          <img src="./images/test/horizontal.jpeg" alt="Horizontal Image 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="aspect-square overflow-hidden">
-          <img src="./images/test/horizontal.jpeg" alt="Regular Image 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="aspect-[3/4] md:row-span-2 overflow-hidden">
-          <img src="./images/test/vertical.jpeg" alt="Vertical Image 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="aspect-square overflow-hidden">
-          <img src="./images/test/horizontal.jpeg" alt="Regular Image 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
-        <div class="aspect-[4/3] md:col-span-2 overflow-hidden">
-          <img src="./images/test/horizontal.jpeg" alt="Horizontal Image 2" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-        </div>
+    </template>
+    <div x-show="selectedImage" x-transition
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" @click="selectedImage = null">
+      <div class="relative max-w-3xl w-full p-4" @click.stop>
+        <button @click="selectedImage = null" class="absolute top-4 right-4 text-white text-5xl">&times;</button>
+        <img :src="selectedImage?.url" :alt="selectedImage?.alt" class="w-full h-auto object-contain">
       </div>
     </div>
   </section>
+
+
   <section class="lg:mt-[400px] relative">
-    
+
     <div class="bg-white lg:p-8 px-4 py-4 lg:mt-[74px]">
       <div class="mx-auto max-w-7xl opacity-50 flex items-center relative z-20">
         <div class="flex-grow">
