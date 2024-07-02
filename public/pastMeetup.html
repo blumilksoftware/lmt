@@ -23,7 +23,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
-<body class="bg-[#231769] overflow-x-hidden" x-data="initialize()" x-init="start()" @meetup-changed.window="$refresh">
+<body class="bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()" @meetup-changed.window="$refresh">
   <section class="relative w-full">
     <div x-data="{ open: false }">
       <nav class="xl:hidden bg-transparent">
@@ -88,6 +88,7 @@
   </section>
   <section class="w-full">
     <div class="mx-auto max-w-7xl flex items-start text-white relative px-4 lg:px-8 mt-40">
+      <div class="w-56 h-3 bg-green-500 self-center absolute 2xl:-ml-20 hidden lg:flex"></div>
       <template x-if="meetup">
         <div id="event" class="px-4 sm:pl-0 lg:w-full text-center text-5xl lg:text-7xl font-bold capitalize"
           x-text="meetup.title"></div>
@@ -287,7 +288,7 @@
         <h2 class="text-5xl font-bold">Galeria</h2>
         <p class="text-base text-neutral-200 pt-4">Autor zdjęć: Piotr Kowalski, Jolanta Druga</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 overflow-y-auto">
         <div class="aspect-[3/4] md:row-span-2 overflow-hidden">
           <img src="./images/test/vertical.jpeg" alt="Vertical Image 1" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
         </div>
