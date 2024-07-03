@@ -316,32 +316,32 @@
         <div class="lg:hidden my-16 text-5xl font-bold p-4 text-center">Prelegenci</div>
         <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
         <template x-if="meetup">
-          <div class="w-full lg:-mt-48 lg:h-[650px]">
+          <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
             <div class="hidden lg:flex h-full w-full">
-              <div class="w-full hidden lg:flex bg-black bg-opacity-50 rounded-r-2xl z-10 h-full overflow-hidden">
-                <div class="w-3/5 flex h-full overflow-hidden">
+              <div class="w-fit hidden lg:flex bg-black bg-opacity-50 rounded-r-2xl z-10 h-full overflow-hidden">
+                <div class="w-[55%] flex h-full overflow-hidden">
                   <template x-for="speaker in meetup.lineup">
                     <template x-if="speaker !== selectedSpeaker">
                       <div class="w-1/2 overflow-hidden">
                         <img
                           :src="speaker.avatarUrl"
                           @click="selectedSpeaker = speaker"
-                          class="w-full h-full object-cover cursor-pointer"
+                          class="w-full h-full object-cover object-center cursor-pointer"
                           :alt="speaker.name + ' ' + speaker.surname"
                         />
                       </div>
                     </template>
                   </template>
                 </div>
-                <div class="w-2/5 h-full overflow-hidden">
+                <div class="w-[45%] h-full overflow-hidden">
                   <img
                     :src="selectedSpeaker.avatarUrl"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover object-center"
                     :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname"
                   />
                 </div>
               </div>
-              <div class="w-[40%] flex-col pt-[70px] pl-[4%] h-full hidden lg:flex">
+              <div class="w-[40%] flex-col pt-[70px] pl-[3%] h-full hidden lg:flex">
                 <div class="text-white text-base text-center bg-violet-700 rounded-md w-[111px]">Prelegenci</div>
                 <div class="font-bold pt-6">
                   <div class="text-4xl" x-text="selectedSpeaker.name"></div>
@@ -372,6 +372,9 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="lg:hidden flex absolute right-0 pointer-events-none -z-10">
+              <img class="w-[1800px] h-[1560px]" src="./images/gradient-mobile.svg" alt="Gradient" />
             </div>
             <div class="lg:hidden">
               <template x-for="speaker in meetup.lineup">

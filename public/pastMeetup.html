@@ -293,10 +293,21 @@
   <section x-data="{ selectedImage: null }">
     <template x-if="meetup">
       <div class="text-white flex flex-col relative mx-auto">
-        <div class="max-w-screen-2xl 2xl:min-w-[1536px] text-white flex flex-col relative px-4 lg:mx-auto">
+        <div class="max-w-screen-2xl 2xl:min-w-[1536px] text-white flex flex-row relative px-4 lg:mx-auto justify-between">
+          <div class="flex-col">
           <h2 class="text-5xl font-bold">Galeria</h2>
           <p class="text-base text-neutral-200 pt-4">Autor zdjęć: Piotr Kowalski, Jolanta Druga</p>
         </div>
+        <div class="hidden lg:flex flex-row gap-10 justify-end">
+          <img src="./images/o.svg" alt="Kółko" class="size-7">
+          <img src="./images/o.svg" alt="Kółko" class="size-7">
+          <img src="./images/o.svg" alt="Kółko" class="size-7">
+          <img src="./images/o.svg" alt="Kółko" class="size-7">
+          <img src="./images/o.svg" alt="Kółko" class="size-7">
+          <img src="./images/o.svg" alt="Kółko" class="size-7">
+          <img src="./images/o.svg" alt="Kółko" class="size-7">
+        </div>
+      </div>
         <div
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-screen overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] mt-5 lg:mt-20">
           <template x-for="image in meetup.gallery" :key="image.id">
