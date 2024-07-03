@@ -101,8 +101,7 @@
       <img class="w-[1800px] h-[1560px]" src="./images/gradient-violet.svg" alt="Gradient" />
     </div>
     <template x-if="meetup">
-      <div
-        class="w-full lg:h-60 lg:bg-[#6C1DF2] bg-slate-950 flex justify-center   lg:pl-0 py-10 lg:py-0 mt-48"
+      <div class="w-full lg:h-60 lg:bg-[#6C1DF2] bg-slate-950 flex justify-center   lg:pl-0 py-10 lg:py-0 mt-48"
         id="partners">
         <div class="flex flex-col lg:flex-row items-center gap-16">
           <div class="flex flex-col">
@@ -146,98 +145,89 @@
       </div>
     </template>
   </section>
-  <section class="my-6" x-data="{ transition: false }">
-    <div class="mx-auto w-full text-white static" id="speakers">
-        <div class="lg:hidden my-16 text-5xl font-bold p-4 text-center">Prelegenci</div>
-        <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
-        <template x-if="meetup">
-            <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
-                <div class="hidden lg:flex h-full w-full">
-                    <div class="w-fit hidden lg:flex bg-black bg-opacity-50 rounded-r-2xl z-10 h-full overflow-hidden">
-                        <div class="w-[55%] flex h-full overflow-hidden">
-                            <template x-for="(speaker, index) in meetup.lineup" :key="index">
-                                <template x-if="index !== selectedSpeakerIndex">
-                                    <div class="w-1/2 overflow-hidden">
-                                        <img
-                                            :src="speaker.avatarUrl"
-                                            @click="selectedSpeakerIndex = index; selectedSpeaker = speaker"
-                                            class="w-full h-full object-cover object-center cursor-pointer"
-                                            :alt="speaker.name + ' ' + speaker.surname"
-                                        />
-                                    </div>
-                                </template>
-                            </template>
-                        </div>
-                        <div class="w-[45%] h-full overflow-hidden">
-                            <img
-                                :src="selectedSpeaker.avatarUrl"
-                                class="w-full h-full object-cover object-center transition-opacity duration-300"
-                                :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname"
-                            />
-                        </div>
-                    </div>
-                    <div class="w-[40%] flex-col pt-[70px] pl-[3%] h-full hidden lg:flex">
-                        <div class="text-white text-base text-center bg-violet-700 rounded-md w-[111px]">Prelegenci</div>
-                        <div class="font-bold pt-6">
-                            <div class="text-4xl" x-text="selectedSpeaker.name"></div>
-                            <div class="text-4xl" x-text="selectedSpeaker.surname"></div>
-                        </div>
-                        <div class="pt-4 text-base text-gray-300">
-                            <template x-for="company in selectedSpeaker.companies">
-                                <div class="font-bold text-violet-700">
-                                    <a :href="company.url" target="_blank" x-text="company.name"></a>
-                                </div>
-                            </template>
-                        </div>
-                        <div class="pt-6 flex w-3/4 text-gray-300 text-base">
-                            <p x-text="selectedSpeaker.about"></p>
-                        </div>
-                        <div class="flex flex-row gap-2 items-end h-full pb-14 pt-4">
-                            <div
-                                class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center cursor-pointer"
-                                @click="selectPreviousSpeaker()"
-                            >
-                                <img src="./images/icons/arrow.svg" class="rotate-180 w-[24px] h-[20px]" />
-                            </div>
-                            <div
-                                class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center cursor-pointer"
-                                @click="selectNextSpeaker()"
-                            >
-                                <img src="./images/icons/arrow.svg" class="w-[24px] h-[20px]" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:hidden flex absolute right-0 pointer-events-none -z-10">
-                    <img class="w-[1800px] h-[1560px]" src="./images/gradient-mobile.svg" alt="Gradient" />
-                </div>
-                <div class="lg:hidden">
-                    <template x-for="speaker in meetup.lineup">
-                        <div class="flex flex-col w-full">
-                            <div>
-                                <img :src="speaker.avatarUrl" class="w-full h-full" :alt="speaker.name + ' ' + speaker.surname" />
-                            </div>
-                            <div class="font-bold pt-12 px-14">
-                                <div class="text-4xl" x-text="speaker.name"></div>
-                                <div class="text-4xl" x-text="speaker.surname"></div>
-                            </div>
-                            <div class="pt-4 text-base px-14">
-                                <template x-for="company in speaker.companies">
-                                    <div class="font-bold text-violet-700">
-                                        <a :href="company.url" target="_blank" x-text="company.name"></a>
-                                    </div>
-                                </template>
-                            </div>
-                            <div class="pt-4 flex px-14 text-neutral-200 text-base pb-14">
-                                <p x-text="speaker.about"></p>
-                            </div>
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </template>
+  <section class="my-6">
+    <div class="hidden lg:flex absolute right-0 pointer-events-none">
+      <img class="w-[1800px] h-[1560px]" src="./images/gradient-violet.svg" alt="Gradient" />
     </div>
-</section>
+    <div class="mx-auto w-full text-white static" id="speakers">
+      <div class="lg:hidden my-16 text-5xl font-bold p-4 text-center">Prelegenci</div>
+      <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup
+      </div>
+      <template x-if="meetup">
+        <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
+          <div class="hidden lg:flex h-full w-full">
+            <div class="w-fit hidden lg:flex bg-black bg-opacity-50 rounded-r-2xl z-10 h-full overflow-hidden">
+              <div class="w-full flex h-full overflow-hidden">
+                <template x-for="(speaker, index) in meetup.lineup" :key="index">
+                  <div :class="{'w-[45%]': index === selectedSpeakerIndex, 'w-[27.5%]': index !== selectedSpeakerIndex}"
+                    class="h-full overflow-hidden">
+                    <img :src="speaker.avatarUrl" @click="selectedSpeakerIndex = index"
+                      class="w-full h-full object-cover object-center cursor-pointer"
+                      :alt="speaker.name + ' ' + speaker.surname" />
+                  </div>
+                </template>
+              </div>
+            </div>
+            <div class="w-[40%] flex-col pt-[70px] pl-[3%] h-full hidden lg:flex">
+              <div class="text-white text-base text-center bg-violet-700 rounded-md w-[111px]">Prelegenci</div>
+              <div class="font-bold pt-6">
+                <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].name"></div>
+                <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].surname"></div>
+              </div>
+              <div class="pt-4 text-base text-gray-300">
+                <template x-for="company in meetup.lineup[selectedSpeakerIndex].companies">
+                  <div class="font-bold text-violet-700">
+                    <a :href="company.url" target="_blank" x-text="company.name"></a>
+                  </div>
+                </template>
+              </div>
+              <div class="pt-6 flex w-3/4 text-gray-300 text-base">
+                <p x-text="meetup.lineup[selectedSpeakerIndex].about"></p>
+              </div>
+              <div class="flex flex-row gap-2 items-end h-full pb-14 pt-4">
+                <div
+                  class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center cursor-pointer"
+                  @click="selectPreviousSpeaker">
+                  <img src="./images/icons/arrow.svg" class="rotate-180 w-[24px] h-[20px]" />
+                </div>
+                <div
+                  class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center cursor-pointer"
+                  @click="selectNextSpeaker">
+                  <img src="./images/icons/arrow.svg" class="w-[24px] h-[20px]" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:hidden flex absolute right-0 pointer-events-none -z-10">
+            <img class="w-[1800px] h-[1560px]" src="./images/gradient-mobile.svg" alt="Gradient" />
+          </div>
+          <div class="lg:hidden">
+            <template x-for="speaker in meetup.lineup">
+              <div class="flex flex-col w-full">
+                <div>
+                  <img :src="speaker.avatarUrl" class="w-full h-full" :alt="speaker.name + ' ' + speaker.surname" />
+                </div>
+                <div class="font-bold pt-12 px-14">
+                  <div class="text-4xl" x-text="speaker.name"></div>
+                  <div class="text-4xl" x-text="speaker.surname"></div>
+                </div>
+                <div class="pt-4 text-base px-14">
+                  <template x-for="company in speaker.companies">
+                    <div class="font-bold text-violet-700">
+                      <a :href="company.url" target="_blank" x-text="company.name"></a>
+                    </div>
+                  </template>
+                </div>
+                <div class="pt-4 flex px-14 text-neutral-200 text-base pb-14">
+                  <p x-text="speaker.about"></p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
   <section class="lg:mt-32 mt-20 lg:mb-0 relative">
     <div class="hidden lg:flex  absolute right-0 pointer-events-none">
       <img class="w-[1800px] h-[1560px]" src="./images/gradient-green.svg" alt="Gradient" />
@@ -305,31 +295,33 @@
   <section x-data="{ selectedImage: null }">
     <template x-if="meetup">
       <div class="text-white flex flex-col relative mx-auto">
-        <div class="max-w-screen-2xl 2xl:min-w-[1536px] text-white flex flex-row relative px-4 lg:mx-auto justify-between">
-          <div class="flex-col">
-          <h2 class="text-5xl font-bold">Galeria</h2>
-          <p class="text-base text-neutral-200 pt-4">Autor zdjęć: Piotr Kowalski, Jolanta Druga</p>
-        </div>
-        <div class="hidden lg:flex flex-row gap-10 justify-end">
-          <img src="./images/o.svg" alt="Kółko" class="size-7">
-          <img src="./images/o.svg" alt="Kółko" class="size-7">
-          <img src="./images/o.svg" alt="Kółko" class="size-7">
-          <img src="./images/o.svg" alt="Kółko" class="size-7">
-          <img src="./images/o.svg" alt="Kółko" class="size-7">
-          <img src="./images/o.svg" alt="Kółko" class="size-7">
-          <img src="./images/o.svg" alt="Kółko" class="size-7">
-        </div>
-      </div>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-screen overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] mt-5 lg:mt-20">
+          class="max-w-screen-2xl 2xl:min-w-[1536px] text-white flex flex-row relative px-4 2xl:mx-auto justify-between">
+          <div class="flex-col">
+            <h2 class="text-5xl font-bold">Galeria</h2>
+            <p class="text-base text-neutral-200 pt-4">Autor zdjęć: Piotr Kowalski, Jolanta Druga</p>
+          </div>
+          <div class="hidden lg:flex flex-row gap-10 justify-end">
+            <img src="./images/o.svg" alt="Kółko" class="size-7">
+            <img src="./images/o.svg" alt="Kółko" class="size-7">
+            <img src="./images/o.svg" alt="Kółko" class="size-7">
+            <img src="./images/o.svg" alt="Kółko" class="size-7">
+            <img src="./images/o.svg" alt="Kółko" class="size-7">
+            <img src="./images/o.svg" alt="Kółko" class="size-7">
+            <img src="./images/o.svg" alt="Kółko" class="size-7">
+          </div>
+        </div>
+        <div
+          class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-screen overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] mt-5 lg:mt-20 px-4">
           <template x-for="image in meetup.gallery" :key="image.id">
-            <div class="aspect-square overflow-hidden">
+            <div class="aspect-[4/3] overflow-hidden">
               <img :src="image.url" :alt="image.alt"
                 class="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
                 @click="selectedImage = image">
             </div>
           </template>
         </div>
+      </div>
     </template>
     <div x-show="selectedImage" x-transition
       class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" @click="selectedImage = null">

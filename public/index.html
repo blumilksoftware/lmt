@@ -1,666 +1,581 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Legnicki Meetup Technologiczny - Weź udział!" />
-    <meta
-      property="og:description"
-      content="Otwarte spotkanie dla programistów, specjalistów IT, przedsiębiorców, badaczy, studentów i wszystkich, którzy chcą poszerzyć swoje horyzonty w dziedzinie programowania, technologii i designu."
-    />
-    <meta property="og:image" content="https://meetup.legnica.pl/images/fb_image.jpg" />
-    <meta property="og:url" content="https://meetup.legnica.pl/" />
 
-    <meta
-      property="”description”"
-      content="”Otwarte"
-      spotkanie
-      dla
-      programistów,
-      specjalistów
-      IT,
-      przedsiębiorców,
-      badaczy,
-      studentów
-      i
-      wszystkich,
-      którzy
-      chcą
-      poszerzyć
-      swoje
-      horyzonty
-      w
-      dziedzinie
-      programowania,
-      technologii
-      i
-      designu.”
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Legnicki Meetup Technologiczny - Weź udział!" />
+  <meta property="og:description"
+    content="Otwarte spotkanie dla programistów, specjalistów IT, przedsiębiorców, badaczy, studentów i wszystkich, którzy chcą poszerzyć swoje horyzonty w dziedzinie programowania, technologii i designu." />
+  <meta property="og:image" content="https://meetup.legnica.pl/images/fb_image.jpg" />
+  <meta property="og:url" content="https://meetup.legnica.pl/" />
 
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
-    <title>Legnicki meetup technologiczny</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <meta property="”description”" content="”Otwarte" spotkanie dla programistów, specjalistów IT, przedsiębiorców,
+    badaczy, studentów i wszystkich, którzy chcą poszerzyć swoje horyzonty w dziedzinie programowania, technologii i
+    designu.” />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
+  <title>Legnicki meetup technologiczny</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="output.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  </head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
 
-  <body class="bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()">
-    <section class="w-full">
-      <div x-data="{ open: false }">
-        <nav class="xl:hidden bg-transparent">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 pt-12">
-              <div class="flex items-center">
-                <div class="shrink-0 pl-2">
-                  <a href="/">
-                    <img class="h-10 w-auto pl-3" src="./images/logo.png" alt="Legnicki meetup technologiczny" />
-                  </a>
-                </div>
-              </div>
-              <div class="block xl:hidden">
-                <button
-                  @click="open = !open"
-                  class="text-white hover:text-gray-300 focus:outline-none focus:text-gray-300"
-                  aria-controls="mobile-menu"
-                  aria-expanded="false"
-                >
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                    <path
-                      :class="{ 'hidden': open, 'inline-flex': !open }"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    ></path>
-                    <path
-                      :class="{ 'hidden': !open, 'inline-flex': open }"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </button>
+  <link href="output.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body class="bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()">
+  <section class="w-full">
+    <div x-data="{ open: false }">
+      <nav class="xl:hidden bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-20 pt-12">
+            <div class="flex items-center">
+              <div class="shrink-0 pl-2">
+                <a href="/">
+                  <img class="h-10 w-auto pl-3" src="./images/logo.png" alt="Legnicki meetup technologiczny" />
+                </a>
               </div>
             </div>
-          </div>
-
-          <div :class="{ 'block': open, 'hidden': !open }" class="xl:hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 text-gray-300 rounded-md text-base font-medium">
-              <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
-              <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
-              <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
-              <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
-              <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
+            <div class="block xl:hidden">
+              <button @click="open = !open"
+                class="text-white hover:text-gray-300 focus:outline-none focus:text-gray-300"
+                aria-controls="mobile-menu" aria-expanded="false">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                  <path :class="{ 'hidden': open, 'inline-flex': !open }" strokeLinecap="round" strokeLinejoin="round"
+                    strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  <path :class="{ 'hidden': !open, 'inline-flex': open }" strokeLinecap="round" strokeLinejoin="round"
+                    strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
             </div>
           </div>
-        </nav>
+        </div>
 
-        <nav class="hidden xl:block text-white">
-          <div class="max-w-screen-2xl mx-auto px-2 xl:px-6 lg:px-12">
-            <div class="flex items-center justify-between h-32">
-              <div class="flex items-center">
-                <div class="shrink-0">
-                  <a href="/">
-                    <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny" />
-                  </a>
-                </div>
+        <div :class="{ 'block': open, 'hidden': !open }" class="xl:hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1 text-gray-300 rounded-md text-base font-medium">
+            <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
+            <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
+            <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
+            <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
+            <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="hidden xl:block text-white">
+        <div class="max-w-screen-2xl mx-auto px-2 xl:px-6 lg:px-12">
+          <div class="flex items-center justify-between h-32">
+            <div class="flex items-center">
+              <div class="shrink-0">
+                <a href="/">
+                  <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny" />
+                </a>
               </div>
-              <div class="flex items-center">
-                <div class="hidden xl:block xl:ml-6">
-                  <div class="flex justify-end space-x-4 rounded-md text-md font-medium text-gray-300">
-                    <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
-                    <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
-                    <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
-                    <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
-                    <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
-                  </div>
+            </div>
+            <div class="flex items-center">
+              <div class="hidden xl:block xl:ml-6">
+                <div class="flex justify-end space-x-4 rounded-md text-md font-medium text-gray-300">
+                  <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
+                  <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
+                  <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
+                  <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
+                  <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
                 </div>
               </div>
             </div>
           </div>
-        </nav>
+        </div>
+      </nav>
+    </div>
+  </section>
+  <section class="w-full">
+    <div class="mx-auto max-w-7xl flex flex-col items-start text-white relative px-4 lg:px-8 pt-[74px] md:pt-36">
+      <div class="hidden lg:block absolute top-0 2xl:right-0 lg:right-40 right-10">
+        <img class="mt-12 size-24" src="./images/x.svg" alt="Krzyżyk" />
       </div>
-    </section>
-    <section class="w-full">
-      <div class="mx-auto max-w-7xl flex flex-col items-start text-white relative px-4 lg:px-8 pt-[74px] md:pt-36">
-        <div class="hidden lg:block absolute top-0 2xl:right-0 lg:right-40 right-10">
-          <img class="mt-12 size-24" src="./images/x.svg" alt="Krzyżyk" />
-        </div>
-        <div class="w-24 h-24 hidden lg:block absolute top-10 right-0 2xl:right-10">
-          <img class="mt-36 2xl:ml-40 size-12" src="./images/x-white.svg" alt="Krzyżyk" />
-        </div>
-        <div id="event" class="px-4 sm:pl-0 lg:w-full text-left leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">Nowoczesne technologie</div>
-        <div class="pt-6 md:pt-9 text-2xl md:text-[40px] flex items-center">
-          <span class="flex-grow px-4 md:px-2">Inteligentne rozwiązania, lokalne podejście</span>
-        </div>
-        <template x-if="meetup">
-          <div x-show="active" class="md:divide-x md:divide-slate-100/25 flex md:flex-row flex-col h-[35px] mt-8 md:mt-12 pl-3">
-            <div class="flex flex-row items-center md:pr-8">
-              <image src="./images/icons/calendar.svg" class="lg:size-4 size-6 self-center"></image>
-              <span x-text="`${meetup.date} ${meetup.year}`" class="text-xl pl-3"></span>
-            </div>
-            <div class="flex flex-row items-center md:pl-8 pt-4 md:pt-0">
-              <image src="./images/icons/location.svg" class="lg:size-4 size-6 self-center"></image>
-              <a :href="meetup.localization" x-text="meetup.place" target="_blank" class="hover:underline text-xl pl-3"></a>
-            </div>
-          </div>
-        </template>
-        <div class="lg:mt-10 mt-20 mx-auto lg:mx-0">
-          <div
-            x-show="active"
-            class="flex-shrink w-max-2xl bg-stone-900 bg-opacity-75 px-10 md:px-4 py-6 rounded-[13px] md:rounded-[33px] flex divide-x divide-slate-100/25"
-          >
-            <div class="flex px-4">
-              <div class="sm:text-8xl text-5xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
-              <div class="rotate-180 text-sm py-2">
-                <div class="rotate-90 px-1">dni</div>
-              </div>
-            </div>
-            <div class="flex px-4">
-              <div class="text-5xl sm:text-8xl font-bold" x-text="counters.hours"></div>
-              <div class="rotate-180 text-sm py-4">
-                <div class="rotate-90 px-1">godzin</div>
-              </div>
-            </div>
-            <div class="hidden lg:flex px-4">
-              <div class="text-8xl font-bold" x-text="counters.minutes"></div>
-              <div class="rotate-180 text-sm py-4">
-                <div class="rotate-90 px-1">minut</div>
-              </div>
-            </div>
-            <div class="hidden lg:flex px-4">
-              <div class="text-8xl font-bold" x-text="counters.seconds"></div>
-              <div class="rotate-180 text-sm py-4">
-                <div class="rotate-90 px-1">sekund</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="w-24 h-24 hidden lg:block absolute top-10 right-0 2xl:right-10">
+        <img class="mt-36 2xl:ml-40 size-12" src="./images/x-white.svg" alt="Krzyżyk" />
       </div>
-      <div
-        class="grid grid-cols-1 lg:grid-cols-3 gap-7 text-white 2xl:mx-auto mx-9 lg:mx-3 xl:px-14 2xl:px-0 max-w-screen-2xl mt-[90px] md:mt-44 mb-32"
-      >
-        <div class="p-8 mix-blend-luminosity rounded-3xl border border-green-500">
-          <div class="hidden lg:flex flex-row">
-            <img src="./images/icons/question.svg" class="size-9 self-start mix-blend-normal" />
-            <div class="flex-col pl-8">
-              <h2 class="text-2xl font-bold">O co chodzi?</h2>
-              <p class="tracking-tight text-base mt-5 max-h-[114px] leading-5">
-                Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i przemyślenia w
-                dziedzinie programowania aplikacji internetowych.
-              </p>
-            </div>
-          </div>
-          <div class="flex lg:hidden flex-col">
-            <div class="flex flex-row items-center">
-              <img src="./images/icons/question.svg" class="size-9 self-start" />
-              <h2 class="text-2xl font-bold pl-4">O co chodzi?</h2>
-            </div>
-            <div class="flex-col md:pl-8 pt-4">
-              <p class="tracking-tight font-normal text-sm max-h-[114px] leading-5">
-                Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i przemyślenia w
-                dziedzinie programowania aplikacji internetowych.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="p-8 mix-blend-luminosity rounded-3xl border border-green-500">
-          <div class="hidden lg:flex flex-row">
-            <img src="./images/icons/user.svg" class="size-9 self-start" />
-
-            <div class="flex-col md:pl-8">
-              <h2 class="text-2xl font-bold">Dla kogo?</h2>
-              <p class="tracking-tight text-base mt-5 max-h-[114px] leading-5">
-                Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Zapraszamy
-                programistów grafików, administratorów, devopsów oraz pasjonatów i hobbystów.
-              </p>
-            </div>
-          </div>
-          <div class="flex lg:hidden flex-col">
-            <div class="flex flex-row items-center">
-              <img src="./images/icons/user.svg" class="size-9 self-start" />
-              <h2 class="text-2xl font-bold pl-4">Dla kogo?</h2>
-            </div>
-            <div class="flex-col md:pl-8 pt-4">
-              <p class="tracking-tight font-normal text-sm max-h-[114px] leading-5">
-                Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię. Zapraszamy
-                programistów grafików, administratorów, devopsów oraz pasjonatów i hobbystów.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="p-8 mix-blend-luminosity rounded-3xl border border-green-500">
-          <div class="hidden lg:flex flex-row">
-            <img src="./images/icons/bulb.svg" class="size-9 self-start" />
-            <div class="flex-col md:pl-8">
-              <h2 class="text-2xl font-bold">O czym?</h2>
-              <p class="tracking-tight text-base mt-5 leading-5">
-                Od programowania backendu i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany
-                devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.
-              </p>
-            </div>
-          </div>
-          <div class="flex lg:hidden flex-col">
-            <div class="flex flex-row items-center">
-              <img src="./images/icons/bulb.svg" class="size-9 self-start" />
-              <h2 class="text-2xl font-bold pl-4">O czym?</h2>
-            </div>
-            <div class="flex-col md:pl-8 pt-4">
-              <p class="tracking-tight font-normal text-sm leading-5">
-                Od programowania backendu i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko rozumiany
-                devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div id="event" class="px-4 sm:pl-0 lg:w-full text-left leading-none text-5xl sm:text-7xl lg:text-9xl font-bold">
+        Nowoczesne technologie</div>
+      <div class="pt-6 md:pt-9 text-2xl md:text-[40px] flex items-center">
+        <span class="flex-grow px-4 md:px-2">Inteligentne rozwiązania, lokalne podejście</span>
       </div>
-    </section>
-    <section>
       <template x-if="meetup">
-        <div class="w-full lg:h-[330px] lg:bg-[#6C1DF2] bg-slate-950 flex justify-center  py-10 lg:py-0" id="partners">
-          <div class="flex flex-col lg:flex-row items-center gap-16">
-            <div class="flex flex-col">
-              <div class="justify-start flex lg:hidden pb-2 pl-2">
-                <p class="text-white text-center bg-violet-700 rounded-md px-5 py-1">Organizator</p>
-              </div>
-              <a href="https://blumilk.pl/" target="_blank">
-                <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class="h-[71px]" />
-              </a>
-              <div class="justify-end lg:flex hidden pt-2">
-                <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Organizator</p>
-              </div>
-            </div>
-            <template x-for="partner in meetup.partners">
-              <div class="flex flex-col">
-                <div class="justify-start flex lg:hidden pb-2">
-                  <p class="text-white text-center bg-violet-700 rounded-md px-5 py-1">Partner</p>
-                </div>
-                <a :href="partner.website" target="_blank">
-                  <img :src="partner.logoUrl" :alt="partner.name " class="h-[71px]" />
-                </a>
-                <div class="justify-end hidden lg:flex pt-2">
-                  <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Partner</p>
-                </div>
-              </div>
-            </template>
-            <template x-for="sponsor in meetup.sponsors">
-              <div class="flex flex-col">
-                <div class="justify-start flex lg:hidden pb-2">
-                  <p class="text-white text-center bg-violet-700 rounded-md px-5 py-1">Sponsor</p>
-                </div>
-                <a :href="sponsor.website" target="_blank">
-                  <img :src="sponsor.logoUrl" :alt="sponsor.name" class="h-[71px]" />
-                </a>
-                <div class="justify-end hidden lg:flex">
-                  <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Sponsor</p>
-                </div>
-              </div>
-            </template>
+        <div x-show="active"
+          class="md:divide-x md:divide-slate-100/25 flex md:flex-row flex-col h-[35px] mt-8 md:mt-12 pl-3">
+          <div class="flex flex-row items-center md:pr-8">
+            <image src="./images/icons/calendar.svg" class="lg:size-4 size-6 self-center"></image>
+            <span x-text="`${meetup.date} ${meetup.year}`" class="text-xl pl-3"></span>
+          </div>
+          <div class="flex flex-row items-center md:pl-8 pt-4 md:pt-0">
+            <image src="./images/icons/location.svg" class="lg:size-4 size-6 self-center"></image>
+            <a :href="meetup.localization" x-text="meetup.place" target="_blank"
+              class="hover:underline text-xl pl-3"></a>
           </div>
         </div>
       </template>
-    </section>
-    <section class="my-6">
-      <div class="hidden lg:flex absolute right-0 pointer-events-none">
-        <img class="w-[1800px] h-[1560px]" src="./images/gradient-violet.svg" alt="Gradient" />
+      <div class="lg:mt-10 mt-20 mx-auto lg:mx-0">
+        <div x-show="active"
+          class="flex-shrink w-max-2xl bg-stone-900 bg-opacity-75 px-10 md:px-4 py-6 rounded-[13px] md:rounded-[33px] flex divide-x divide-slate-100/25">
+          <div class="flex px-4">
+            <div class="sm:text-8xl text-5xl font-bold text-[#01FF6B]" x-text="counters.days"></div>
+            <div class="rotate-180 text-sm py-2">
+              <div class="rotate-90 px-1">dni</div>
+            </div>
+          </div>
+          <div class="flex px-4">
+            <div class="text-5xl sm:text-8xl font-bold" x-text="counters.hours"></div>
+            <div class="rotate-180 text-sm py-4">
+              <div class="rotate-90 px-1">godzin</div>
+            </div>
+          </div>
+          <div class="hidden lg:flex px-4">
+            <div class="text-8xl font-bold" x-text="counters.minutes"></div>
+            <div class="rotate-180 text-sm py-4">
+              <div class="rotate-90 px-1">minut</div>
+            </div>
+          </div>
+          <div class="hidden lg:flex px-4">
+            <div class="text-8xl font-bold" x-text="counters.seconds"></div>
+            <div class="rotate-180 text-sm py-4">
+              <div class="rotate-90 px-1">sekund</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="mx-auto w-full text-white static" id="speakers">
-        <div class="lg:hidden my-16 text-5xl font-bold p-4 text-center">Prelegenci</div>
-        <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup</div>
-        <template x-if="meetup">
-          <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
-            <div class="hidden lg:flex h-full w-full">
-              <div class="w-fit hidden lg:flex bg-black bg-opacity-50 rounded-r-2xl z-10 h-full overflow-hidden">
-                <div class="w-[55%] flex h-full overflow-hidden">
-                  <template x-for="speaker in meetup.lineup">
-                    <template x-if="speaker !== selectedSpeaker">
-                      <div class="w-1/2 overflow-hidden">
-                        <img
-                          :src="speaker.avatarUrl"
-                          @click="selectedSpeaker = speaker"
-                          class="w-full h-full object-cover object-center cursor-pointer"
-                          :alt="speaker.name + ' ' + speaker.surname"
-                        />
-                      </div>
-                    </template>
-                  </template>
+    </div>
+    <div
+      class="grid grid-cols-1 lg:grid-cols-3 gap-7 text-white 2xl:mx-auto mx-9 lg:mx-3 xl:px-14 2xl:px-0 max-w-screen-2xl mt-[90px] md:mt-44 mb-32">
+      <div class="p-8 mix-blend-luminosity rounded-3xl border border-green-500">
+        <div class="hidden lg:flex flex-row">
+          <img src="./images/icons/question.svg" class="size-9 self-start mix-blend-normal" />
+          <div class="flex-col pl-8">
+            <h2 class="text-2xl font-bold">O co chodzi?</h2>
+            <p class="tracking-tight text-base mt-5 max-h-[114px] leading-5">
+              Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje
+              doświadczenia i przemyślenia w
+              dziedzinie programowania aplikacji internetowych.
+            </p>
+          </div>
+        </div>
+        <div class="flex lg:hidden flex-col">
+          <div class="flex flex-row items-center">
+            <img src="./images/icons/question.svg" class="size-9 self-start" />
+            <h2 class="text-2xl font-bold pl-4">O co chodzi?</h2>
+          </div>
+          <div class="flex-col md:pl-8 pt-4">
+            <p class="tracking-tight font-normal text-sm max-h-[114px] leading-5">
+              Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje
+              doświadczenia i przemyślenia w
+              dziedzinie programowania aplikacji internetowych.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="p-8 mix-blend-luminosity rounded-3xl border border-green-500">
+        <div class="hidden lg:flex flex-row">
+          <img src="./images/icons/user.svg" class="size-9 self-start" />
+
+          <div class="flex-col md:pl-8">
+            <h2 class="text-2xl font-bold">Dla kogo?</h2>
+            <p class="tracking-tight text-base mt-5 max-h-[114px] leading-5">
+              Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną
+              technologię. Zapraszamy
+              programistów grafików, administratorów, devopsów oraz pasjonatów i hobbystów.
+            </p>
+          </div>
+        </div>
+        <div class="flex lg:hidden flex-col">
+          <div class="flex flex-row items-center">
+            <img src="./images/icons/user.svg" class="size-9 self-start" />
+            <h2 class="text-2xl font-bold pl-4">Dla kogo?</h2>
+          </div>
+          <div class="flex-col md:pl-8 pt-4">
+            <p class="tracking-tight font-normal text-sm max-h-[114px] leading-5">
+              Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną
+              technologię. Zapraszamy
+              programistów grafików, administratorów, devopsów oraz pasjonatów i hobbystów.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="p-8 mix-blend-luminosity rounded-3xl border border-green-500">
+        <div class="hidden lg:flex flex-row">
+          <img src="./images/icons/bulb.svg" class="size-9 self-start" />
+          <div class="flex-col md:pl-8">
+            <h2 class="text-2xl font-bold">O czym?</h2>
+            <p class="tracking-tight text-base mt-5 leading-5">
+              Od programowania backendu i projektowania frontendu, przez testowanie aplikacji, ciekawostki
+              technologiczne czy szeroko rozumiany
+              devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.
+            </p>
+          </div>
+        </div>
+        <div class="flex lg:hidden flex-col">
+          <div class="flex flex-row items-center">
+            <img src="./images/icons/bulb.svg" class="size-9 self-start" />
+            <h2 class="text-2xl font-bold pl-4">O czym?</h2>
+          </div>
+          <div class="flex-col md:pl-8 pt-4">
+            <p class="tracking-tight font-normal text-sm leading-5">
+              Od programowania backendu i projektowania frontendu, przez testowanie aplikacji, ciekawostki
+              technologiczne czy szeroko rozumiany
+              devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <template x-if="meetup">
+      <div class="w-full lg:h-[330px] lg:bg-[#6C1DF2] bg-slate-950 flex justify-center py-10 lg:py-0" id="partners">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+          <div class="flex flex-col">
+            <div class="justify-start flex lg:hidden pb-2 pl-2">
+              <p class="text-white text-center bg-violet-700 rounded-md px-5 py-1">Organizator</p>
+            </div>
+            <a href="https://blumilk.pl/" target="_blank">
+              <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class="h-[71px]" />
+            </a>
+            <div class="justify-end lg:flex hidden pt-2">
+              <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Organizator</p>
+            </div>
+          </div>
+          <template x-for="partner in meetup.partners">
+            <div class="flex flex-col">
+              <div class="justify-start flex lg:hidden pb-2">
+                <p class="text-white text-center bg-violet-700 rounded-md px-5 py-1">Partner</p>
+              </div>
+              <a :href="partner.website" target="_blank">
+                <img :src="partner.logoUrl" :alt="partner.name " class="h-[71px]" />
+              </a>
+              <div class="justify-end hidden lg:flex pt-2">
+                <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Partner</p>
+              </div>
+            </div>
+          </template>
+          <template x-for="sponsor in meetup.sponsors">
+            <div class="flex flex-col">
+              <div class="justify-start flex lg:hidden pb-2">
+                <p class="text-white text-center bg-violet-700 rounded-md px-5 py-1">Sponsor</p>
+              </div>
+              <a :href="sponsor.website" target="_blank">
+                <img :src="sponsor.logoUrl" :alt="sponsor.name" class="h-[71px]" />
+              </a>
+              <div class="justify-end hidden lg:flex">
+                <p class="text-white text-center bg-slate-900 rounded-md w-[111px]">Sponsor</p>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </template>
+  </section>
+  <section class="my-6">
+    <div class="hidden lg:flex absolute right-0 pointer-events-none">
+      <img class="w-[1800px] h-[1560px]" src="./images/gradient-violet.svg" alt="Gradient" />
+    </div>
+    <div class="mx-auto w-full text-white static" id="speakers">
+      <div class="lg:hidden my-16 text-5xl font-bold p-4 text-center">Prelegenci</div>
+      <div class="hidden lg:block mx-auto max-w-7xl text-center opacity-5 text-white font-bold text-[18em] -my-8">Lineup
+      </div>
+      <template x-if="meetup">
+        <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
+          <div class="hidden lg:flex h-full w-full">
+            <div class="w-fit hidden lg:flex bg-black bg-opacity-50 rounded-r-2xl z-10 h-full overflow-hidden">
+              <div class="w-full flex h-full overflow-hidden">
+                <template x-for="(speaker, index) in meetup.lineup" :key="index">
+                  <div :class="{'w-[45%]': index === selectedSpeakerIndex, 'w-[27.5%]': index !== selectedSpeakerIndex}"
+                    class="h-full overflow-hidden">
+                    <img :src="speaker.avatarUrl" @click="selectedSpeakerIndex = index"
+                      class="w-full h-full object-cover object-center cursor-pointer"
+                      :alt="speaker.name + ' ' + speaker.surname" />
+                  </div>
+                </template>
+              </div>
+            </div>
+            <div class="w-[40%] flex-col pt-[70px] pl-[3%] h-full hidden lg:flex">
+              <div class="text-white text-base text-center bg-violet-700 rounded-md w-[111px]">Prelegenci</div>
+              <div class="font-bold pt-6">
+                <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].name"></div>
+                <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].surname"></div>
+              </div>
+              <div class="pt-4 text-base text-gray-300">
+                <template x-for="company in meetup.lineup[selectedSpeakerIndex].companies">
+                  <div class="font-bold text-violet-700">
+                    <a :href="company.url" target="_blank" x-text="company.name"></a>
+                  </div>
+                </template>
+              </div>
+              <div class="pt-6 flex w-3/4 text-gray-300 text-base">
+                <p x-text="meetup.lineup[selectedSpeakerIndex].about"></p>
+              </div>
+              <div class="flex flex-row gap-2 items-end h-full pb-14 pt-4">
+                <div
+                  class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center cursor-pointer"
+                  @click="selectPreviousSpeaker">
+                  <img src="./images/icons/arrow.svg" class="rotate-180 w-[24px] h-[20px]" />
                 </div>
-                <div class="w-[45%] h-full overflow-hidden">
-                  <img
-                    :src="selectedSpeaker.avatarUrl"
-                    class="w-full h-full object-cover object-center"
-                    :alt="selectedSpeaker.name + ' ' + selectedSpeaker.surname"
-                  />
+                <div
+                  class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center cursor-pointer"
+                  @click="selectNextSpeaker">
+                  <img src="./images/icons/arrow.svg" class="w-[24px] h-[20px]" />
                 </div>
               </div>
-              <div class="w-[40%] flex-col pt-[70px] pl-[3%] h-full hidden lg:flex">
-                <div class="text-white text-base text-center bg-violet-700 rounded-md w-[111px]">Prelegenci</div>
-                <div class="font-bold pt-6">
-                  <div class="text-4xl" x-text="selectedSpeaker.name"></div>
-                  <div class="text-4xl" x-text="selectedSpeaker.surname"></div>
+            </div>
+          </div>
+          <div class="lg:hidden flex absolute right-0 pointer-events-none -z-10">
+            <img class="w-[1800px] h-[1560px]" src="./images/gradient-mobile.svg" alt="Gradient" />
+          </div>
+          <div class="lg:hidden">
+            <template x-for="speaker in meetup.lineup">
+              <div class="flex flex-col w-full">
+                <div>
+                  <img :src="speaker.avatarUrl" class="w-full h-full" :alt="speaker.name + ' ' + speaker.surname" />
                 </div>
-                <div class="pt-4 text-base text-gray-300">
-                  <template x-for="company in selectedSpeaker.companies">
+                <div class="font-bold pt-12 px-14">
+                  <div class="text-4xl" x-text="speaker.name"></div>
+                  <div class="text-4xl" x-text="speaker.surname"></div>
+                </div>
+                <div class="pt-4 text-base px-14">
+                  <template x-for="company in speaker.companies">
                     <div class="font-bold text-violet-700">
                       <a :href="company.url" target="_blank" x-text="company.name"></a>
                     </div>
                   </template>
                 </div>
-                <div class="pt-6 flex w-3/4 text-gray-300 text-base">
-                  <p x-text="selectedSpeaker.about"></p>
-                </div>
-                <div class="flex flex-row gap-2 items-end h-full pb-14 pt-4">
-                  <div
-                    class="w-[68px] h-[68px] rounded-[5px] border border-violet-700 flex justify-center items-center cursor-pointer"
-                    @click="selectPreviousSpeaker"
-                  >
-                    <img src="./images/icons/arrow.svg" class="rotate-180 w-[24px] h-[20px]" />
-                  </div>
-                  <div
-                    class="w-[68px] h-[68px] bg-violet-700 rounded-[5px] flex justify-center items-center cursor-pointer"
-                    @click="selectNextSpeaker"
-                  >
-                    <img src="./images/icons/arrow.svg" class="w-[24px] h-[20px]" />
-                  </div>
+                <div class="pt-4 flex px-14 text-neutral-200 text-base pb-14">
+                  <p x-text="speaker.about"></p>
                 </div>
               </div>
-            </div>
-            <div class="lg:hidden flex absolute right-0 pointer-events-none -z-10">
-              <img class="w-[1800px] h-[1560px]" src="./images/gradient-mobile.svg" alt="Gradient" />
-            </div>
-            <div class="lg:hidden">
-              <template x-for="speaker in meetup.lineup">
-                <div class="flex flex-col w-full">
-                  <div>
-                    <img :src="speaker.avatarUrl" class="w-full h-full" :alt="speaker.name + ' ' + speaker.surname" />
-                  </div>
-                  <div class="font-bold pt-12 px-14">
-                    <div class="text-4xl" x-text="speaker.name"></div>
-                    <div class="text-4xl" x-text="speaker.surname"></div>
-                  </div>
-                  <div class="pt-4 text-base px-14">
-                    <template x-for="company in speaker.companies">
-                      <div class="font-bold text-violet-700">
-                        <a :href="company.url" target="_blank" x-text="company.name"></a>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
+  <section class="lg:mt-32 mt-20 lg:mb-0 relative">
+    <div class="mx-auto max-w-screen-2xl text-white flex-col relative">
+      <div class="flex flex-col" id="agenda">
+        <div class="lg:w-full flex flex-col lg:gap-6 gap-3 lg:ml-4 text-left ml-4">
+          <div class="text-5xl font-bold">Agenda</div>
+          <div class="text-md w-3/4 lg:w-full lg:text-base">Każda prezentacja trwa 30 min + 15 min sesja Q&A</div>
+        </div>
+        <div class="flex-1">
+          <template x-if="meetup">
+            <div class="shrink w-max-2xl px-4 py-6 rounded-2xl flex flex-col divide-y divide-slate-100/25">
+              <template x-for="(lecture, index) in meetup.agenda">
+                <div class="flex flex-col">
+                  <div class="flex items-center py-8">
+                    <div class="w-[100px] text-4xl font-bold" x-text="lecture.start"></div>
+                    <div class="flex flex-col gap-2">
+                      <div class="px-8" x-text="lecture.title"></div>
+                      <div class="px-8 text-sm" x-show="lecture.speaker" x-text="lecture.speaker"></div>
+                    </div>
+                    <template x-if="lecture.description && lecture.expanded === false">
+                      <div class="flex-grow flex justify-end cursor-pointer" @click="lecture.expanded = true">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                      </div>
+                    </template>
+                    <template x-if="lecture.description && lecture.expanded === true">
+                      <div class="flex-grow flex justify-end cursor-pointer" @click="lecture.expanded = false">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                        </svg>
                       </div>
                     </template>
                   </div>
-                  <div class="pt-4 flex px-14 text-neutral-200 text-base pb-14">
-                    <p x-text="speaker.about"></p>
-                  </div>
+                  <template x-if="lecture.description && lecture.expanded === true">
+                    <div class="-mt-12 flex items-center py-8">
+                      <p x-text="lecture.description"></p>
+                    </div>
+                  </template>
                 </div>
               </template>
             </div>
-          </div>
-        </template>
+          </template>
+        </div>
       </div>
-    </section>
-    <section class="lg:mt-32 mt-20 lg:mb-0 relative">
-      <div class="mx-auto max-w-screen-2xl text-white flex-col relative">
-        <div class="flex flex-col" id="agenda">
-          <div class="lg:w-full flex flex-col lg:gap-6 gap-3 lg:ml-4 text-left ml-4">
-            <div class="text-5xl font-bold">Agenda</div>
-            <div class="text-md w-3/4 lg:w-full lg:text-base">Każda prezentacja trwa 30 min + 15 min sesja Q&A</div>
+    </div>
+  </section>
+  <section>
+    <div class="hidden lg:flex absolute right-0 pointer-events-none">
+      <img class="w-[1800px] h-[1560px]" src="./images/gradient-green.svg" alt="Gradient" />
+    </div>
+    <div
+      class="lg:mx-auto mx-12 max-w-7xl text-white relative flex-col font-bold text-center mb-14 lg:mb-32 mt-14 lg:mt-40 h-fit">
+      <div class="text-white lg:text-6xl text-4xl">Zainteresowany?</div>
+      <div class="text-green-500 lg:text-4xl text-xl pt-3 px-6">Dołącz do naszej grupy i bądź na bieżąco!</div>
+      <button
+        class="text-lg font-bold text-neutral-200 uppercase align-middle lg:px-16 lg:py-5 py-3 px-11 self-center bg-violet-700 rounded-md lg:mt-16 mt-8"
+        @click="window.open('https://www.facebook.com/groups/webdevlegnica/', '_blank')">
+        Dołącz do grupy
+      </button>
+    </div>
+  </section>
+  <section x-data="{ selectedImage: null, navigateToPastMeetup(meetupId) {
+    window.location.href = `pastMeetup.html?meetupId=${meetupId}`;
+  }}">
+    <template x-if="pastMeetups.length > 0">
+      <div class="lg:mx-auto max-w-screen-2xl text-white flex-col relative">
+        <div class="flex flex-col" id="previousEditions">
+          <div class="lg:w-full flex flex-col lg:ml-4 text-left px-4">
+            <div class="lg:mt-8 text-5xl font-bold">Poprzednie edycje</div>
+            <div class="text-md w-3/4 lg:px-0 lg:mx-auto lg:w-full lg:text-base pt-6">Sprawdź czy nic Cię nie ominęło
+            </div>
           </div>
-          <div class="flex-1">
-            <template x-if="meetup">
-              <div class="shrink w-max-2xl px-4 py-6 rounded-2xl flex flex-col divide-y divide-slate-100/25">
-                <template x-for="(lecture, index) in meetup.agenda">
-                  <div class="flex flex-col">
-                    <div class="flex items-center py-8">
-                      <div class="w-[100px] text-4xl font-bold" x-text="lecture.start"></div>
-                      <div class="flex flex-col gap-2">
-                        <div class="px-8" x-text="lecture.title"></div>
-                        <div class="px-8 text-sm" x-show="lecture.speaker" x-text="lecture.speaker"></div>
-                      </div>
-                      <template x-if="lecture.description && lecture.expanded === false">
-                        <div class="flex-grow flex justify-end cursor-pointer" @click="lecture.expanded = true">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="w-6 h-6"
-                          >
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                          </svg>
-                        </div>
-                      </template>
-                      <template x-if="lecture.description && lecture.expanded === true">
-                        <div class="flex-grow flex justify-end cursor-pointer" @click="lecture.expanded = false">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="w-6 h-6"
-                          >
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                          </svg>
-                        </div>
-                      </template>
-                    </div>
-                    <template x-if="lecture.description && lecture.expanded === true">
-                      <div class="-mt-12 flex items-center py-8">
-                        <p x-text="lecture.description"></p>
-                      </div>
-                    </template>
-                  </div>
-                </template>
+
+          <div
+            class="shrink w-max-2xl px-4 rounded-2xl flex flex-col divide-y divide-y-reverse divide-slate-100/25 pt-2">
+            <template x-for="meetup in pastMeetups">
+              <div class="flex flex-row items-center lg:py-10 py-4 cursor-pointer"
+                @click="navigateToPastMeetup(meetup.id)">
+                <div class="lg:text-4xl text-2xl font-bold" x-text="meetup.formattedDate"></div>
+                <div class="lg:px-8 pl-4 text-base" x-text="meetup.title"></div>
+                <div class="flex-grow flex justify-end pr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 -rotate-90">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </div>
               </div>
             </template>
           </div>
         </div>
       </div>
-    </section>
-    <section>
-      <div class="hidden lg:flex absolute right-0 pointer-events-none">
-        <img class="w-[1800px] h-[1560px]" src="./images/gradient-green.svg" alt="Gradient" />
-      </div>
-      <div class="lg:mx-auto mx-12 max-w-7xl text-white relative flex-col font-bold text-center mb-14 lg:mb-32 mt-14 lg:mt-40 h-fit">
-        <div class="text-white lg:text-6xl text-4xl">Zainteresowany?</div>
-        <div class="text-green-500 lg:text-4xl text-xl pt-3 px-6">Dołącz do naszej grupy i bądź na bieżąco!</div>
-        <button
-          class="text-lg font-bold text-neutral-200 uppercase align-middle lg:px-16 lg:py-5 py-3 px-11 self-center bg-violet-700 rounded-md lg:mt-16 mt-8"
-          @click="window.open('https://www.facebook.com/groups/webdevlegnica/', '_blank')"
-        >
-          Dołącz do grupy
-        </button>
-      </div>
-    </section>
-    <section
-      x-data="{ selectedImage: null, navigateToPastMeetup(meetupId) {
-    window.location.href = `pastMeetup.html?meetupId=${meetupId}`;
-  }}"
-    >
-      <template x-if="pastMeetups.length > 0">
-        <div class="lg:mx-auto max-w-screen-2xl text-white flex-col relative">
-          <div class="flex flex-col" id="previousEditions">
-            <div class="lg:w-full flex flex-col lg:ml-4 text-left px-4">
-              <div class="lg:mt-8 text-5xl font-bold">Poprzednie edycje</div>
-              <div class="text-md w-3/4 lg:px-0 lg:mx-auto lg:w-full lg:text-base pt-6">Sprawdź czy nic Cię nie ominęło</div>
+    </template>
+  </section>
+  <section class="lg:mt-48 mt-[110px] relative">
+    <div class="relative mx-auto max-w-6xl z-10" id="register">
+      <div hx-ext="loading-states" data-loading-delay="300"
+        class="p-8 lg:p-16 bg-neutral-200 lg:rounded-[90px] rounded-t-[90px] text-gray-950">
+        <h2 class="text-center text-6xl font-bold pt-4">Rejestracja</h2>
+        <form data-loading-class="hidden" id="registration-form">
+          <div id="registration-errors"></div>
+          <div class="mx-auto max-w-2xl my-5 flex flex-col gap-5">
+            <p class="text-center mb-4">
+              Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczba miejsc jest ograniczona.
+              Zarejestruj się już teraz, aby
+              zapewnić sobie miejsce na wydarzeniu!
+            </p>
+            <div class="relative">
+              <input type="text" name="name" id="name"
+                class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
+                placeholder="Imię" />
+            </div>
+            <div class="relative">
+              <input type="text" name="surname" id="surname"
+                class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
+                placeholder="Nazwisko" />
+            </div>
+            <div class="relative">
+              <input type="text" name="company" id="company"
+                class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
+                placeholder="Nazwa Firmy" />
+            </div>
+            <div class="relative">
+              <input type="email" name="email" id="email"
+                class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
+                placeholder="Adres e-mail" />
+            </div>
+            <div class="relative">
+              <label for="consent" class="bg-neutral-200 px-2 font-normal text-sm text-black flex flex-row">
+                <input type="checkbox" name="consent" id="consent" required class="self-start mt-2" />
+                <p class="pl-5">
+                  Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu w celach
+                  marketingowych przez organizatora
+                  Legnickiego Meetupu Technologicznego, firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5,
+                  59-220 Legnica oraz przez
+                  podmioty trzecie odpowiedzialne za organizację Legnickiego Meetupu Technologicznego.
+                </p>
+              </label>
             </div>
 
-            <div class="shrink w-max-2xl px-4 rounded-2xl flex flex-col divide-y divide-y-reverse divide-slate-100/25 pt-2">
-              <template x-for="meetup in pastMeetups">
-                <div class="flex flex-row items-center lg:py-10 py-4 cursor-pointer" @click="navigateToPastMeetup(meetup.id)">
-                  <div class="lg:text-4xl text-2xl font-bold" x-text="meetup.formattedDate"></div>
-                  <div class="lg:px-8 pl-4 text-base" x-text="meetup.title"></div>
-                  <div class="flex-grow flex justify-end pr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6 -rotate-90"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </div>
-                </div>
-              </template>
+            <div class="relative w-full flex justify-center cursor-pointer">
+              <button data-loading-disable hx-post="register.php" hx-target="#registration-form"
+                hx-swap="innerHTML show:top"
+                class="text-lg font-bold text-neutral-200 uppercase align-middle lg:px-20 lg:py-6 px-16 py-3 self-center bg-violet-700 rounded-md mt-4">
+                Zarejestruj się
+              </button>
             </div>
           </div>
+        </form>
+        <p data-loading class="text-xl mt-8 mb-32 text-center w-full">Trwa wysyłanie...</p>
+      </div>
+    </div>
+    <div class="bg-white lg:p-8 px-4 py-4 lg:mt-[74px]">
+      <div class="mx-auto max-w-7xl opacity-50 flex items-center relative z-20">
+        <div class="flex-grow">
+          2024 legnicki meetup technologiczny powered by
+          <a href="https://blumilk.pl/" class="font-bold" target="_blank">Blumilk</a>
         </div>
-      </template>
-    </section>
-    <section class="lg:mt-48 mt-[110px] relative">
-      <div class="relative mx-auto max-w-6xl z-10" id="register">
-        <div hx-ext="loading-states" data-loading-delay="300" class="p-8 lg:p-16 bg-neutral-200 lg:rounded-[90px] rounded-t-[90px] text-gray-950">
-          <h2 class="text-center text-6xl font-bold pt-4">Rejestracja</h2>
-          <form data-loading-class="hidden" id="registration-form">
-            <div id="registration-errors"></div>
-            <div class="mx-auto max-w-2xl my-5 flex flex-col gap-5">
-              <p class="text-center mb-4">
-                Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczba miejsc jest ograniczona. Zarejestruj się już teraz, aby
-                zapewnić sobie miejsce na wydarzeniu!
-              </p>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
-                  placeholder="Imię"
-                />
-              </div>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="surname"
-                  id="surname"
-                  class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
-                  placeholder="Nazwisko"
-                />
-              </div>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="company"
-                  id="company"
-                  class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
-                  placeholder="Nazwa Firmy"
-                />
-              </div>
-              <div class="relative">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="block w-full bg-zinc-300 py-3 px-4 text-gray-900 shadow-sm placeholder:text-gray-400 border-2 rounded-md sm:leading-6"
-                  placeholder="Adres e-mail"
-                />
-              </div>
-              <div class="relative">
-                <label for="consent" class="bg-neutral-200 px-2 font-normal text-sm text-black flex flex-row">
-                  <input type="checkbox" name="consent" id="consent" required class="self-start mt-2" />
-                  <p class="pl-5">
-                    Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu w celach marketingowych przez organizatora
-                    Legnickiego Meetupu Technologicznego, firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5, 59-220 Legnica oraz przez
-                    podmioty trzecie odpowiedzialne za organizację Legnickiego Meetupu Technologicznego.
-                  </p>
-                </label>
-              </div>
+        <div class="flex gap-4">
+          <a href="https://github.com/blumilksoftware/" target="_blank">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M4.0744 2.9938C4.13263 1.96371 4.37869 1.51577 5.08432 1.15606C5.84357 0.768899 7.04106 0.949072 8.45014 1.66261C9.05706 1.97009 9.11886 1.97635 10.1825 1.83998C11.5963 1.65865 13.4164 1.65929 14.7213 1.84164C15.7081 1.97954 15.7729 1.97265 16.3813 1.66453C18.3814 0.651679 19.9605 0.71795 20.5323 1.8387C20.8177 2.39812 20.8707 3.84971 20.6494 5.04695C20.5267 5.71069 20.5397 5.79356 20.8353 6.22912C22.915 9.29385 21.4165 14.2616 17.8528 16.1155C17.5801 16.2574 17.3503 16.3452 17.163 16.4167C16.5879 16.6363 16.4133 16.703 16.6247 17.7138C16.7265 18.2 16.8491 19.4088 16.8973 20.4002C16.9844 22.1922 16.9831 22.2047 16.6688 22.5703C16.241 23.0676 15.6244 23.076 15.2066 22.5902C14.9341 22.2734 14.9075 22.1238 14.9075 20.9015C14.9075 19.0952 14.7095 17.8946 14.2417 16.8658C13.6854 15.6415 14.0978 15.185 15.37 14.9114C17.1383 14.531 18.5194 13.4397 19.2892 11.8146C20.0211 10.2698 20.1314 8.13501 18.8082 6.83668C18.4319 6.3895 18.4057 5.98446 18.6744 4.76309C18.7748 4.3066 18.859 3.71768 18.8615 3.45425C18.8653 3.03823 18.8274 2.97541 18.5719 2.97541C18.4102 2.97541 17.7924 3.21062 17.1992 3.49805L16.2524 3.95695C16.1663 3.99866 16.07 4.0147 15.975 4.0038C13.5675 3.72746 11.2799 3.72319 8.86062 4.00488C8.76526 4.01598 8.66853 3.99994 8.58215 3.95802L7.63585 3.49882C7.04259 3.21087 6.42482 2.97541 6.26317 2.97541C5.88941 2.97541 5.88379 3.25135 6.22447 4.89078C6.43258 5.89203 6.57262 6.11513 5.97101 6.91572C5.06925 8.11576 4.844 9.60592 5.32757 11.1716C5.93704 13.1446 7.4295 14.4775 9.52773 14.9222C10.7926 15.1903 11.1232 15.5401 10.6402 16.9905C10.26 18.1319 10.0196 18.4261 9.46707 18.4261C8.72365 18.4261 8.25796 17.7821 8.51424 17.1082C8.62712 16.8112 8.59354 16.7795 7.89711 16.5255C5.77117 15.7504 4.14514 14.0131 3.40172 11.7223C2.82711 9.95184 3.07994 7.64739 4.00175 6.25453C4.31561 5.78028 4.32047 5.74006 4.174 4.83217C4.09113 4.31822 4.04631 3.49103 4.0744 2.9938Z"
+                  fill="#0F0F0F"></path>
+                <path
+                  d="M3.33203 15.9454C3.02568 15.4859 2.40481 15.3617 1.94528 15.6681C1.48576 15.9744 1.36158 16.5953 1.66793 17.0548C1.8941 17.3941 2.16467 17.6728 2.39444 17.9025C2.4368 17.9449 2.47796 17.9858 2.51815 18.0257C2.71062 18.2169 2.88056 18.3857 3.05124 18.5861C3.42875 19.0292 3.80536 19.626 4.0194 20.6962C4.11474 21.1729 4.45739 21.4297 4.64725 21.5419C4.85315 21.6635 5.07812 21.7352 5.26325 21.7819C5.64196 21.8774 6.10169 21.927 6.53799 21.9559C7.01695 21.9877 7.53592 21.998 7.99999 22.0008C8.00033 22.5527 8.44791 23.0001 8.99998 23.0001C9.55227 23.0001 9.99998 22.5524 9.99998 22.0001V21.0001C9.99998 20.4478 9.55227 20.0001 8.99998 20.0001C8.90571 20.0001 8.80372 20.0004 8.69569 20.0008C8.10883 20.0026 7.34388 20.0049 6.67018 19.9603C6.34531 19.9388 6.07825 19.9083 5.88241 19.871C5.58083 18.6871 5.09362 17.8994 4.57373 17.2891C4.34391 17.0194 4.10593 16.7834 3.91236 16.5914C3.87612 16.5555 3.84144 16.5211 3.80865 16.4883C3.5853 16.265 3.4392 16.1062 3.33203 15.9454Z"
+                  fill="#0F0F0F"></path>
+              </g>
+            </svg>
+          </a>
+          <a href="https://facebook.com/blumilksoftware/" target="”_blank”">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15V13.9999H17.0762C17.5066 13.9999 17.8887 13.7245 18.0249 13.3161L18.4679 11.9871C18.6298 11.5014 18.2683 10.9999 17.7564 10.9999H15V8.99992C15 8.49992 15.5 7.99992 16 7.99992H18C18.5523 7.99992 19 7.5522 19 6.99992V6.31393C19 5.99091 18.7937 5.7013 18.4813 5.61887C17.1705 5.27295 16 5.27295 16 5.27295C13.5 5.27295 12 6.99992 12 8.49992V10.9999H10C9.44772 10.9999 9 11.4476 9 11.9999V12.9999C9 13.5522 9.44771 13.9999 10 13.9999H12V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"
+                  fill="#0F0F0F"></path>
+              </g>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/company/blumilksoftware/" target="”_blank”">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z"
+                  fill="#0F0F0F"></path>
+                <path
+                  d="M5 10C5 9.44772 5.44772 9 6 9H7C7.55228 9 8 9.44771 8 10V18C8 18.5523 7.55228 19 7 19H6C5.44772 19 5 18.5523 5 18V10Z"
+                  fill="#0F0F0F"></path>
+                <path
+                  d="M11 19H12C12.5523 19 13 18.5523 13 18V13.5C13 12 16 11 16 13V18.0004C16 18.5527 16.4477 19 17 19H18C18.5523 19 19 18.5523 19 18V12C19 10 17.5 9 15.5 9C13.5 9 13 10.5 13 10.5V10C13 9.44771 12.5523 9 12 9H11C10.4477 9 10 9.44772 10 10V18C10 18.5523 10.4477 19 11 19Z"
+                  fill="#0F0F0F"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"
+                  fill="#0F0F0F"></path>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="hidden lg:block absolute right-0 bottom-0 -mr-[25em] h-[24em] overflow-hidden z-10">
+        <div class="border-[96px] border-violet-700 size-[64em] rounded-full"></div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/pl.min.js"></script>
+<script src="./application.js"></script>
 
-              <div class="relative w-full flex justify-center cursor-pointer">
-                <button
-                  data-loading-disable
-                  hx-post="register.php"
-                  hx-target="#registration-form"
-                  hx-swap="innerHTML show:top"
-                  class="text-lg font-bold text-neutral-200 uppercase align-middle lg:px-20 lg:py-6 px-16 py-3 self-center bg-violet-700 rounded-md mt-4"
-                >
-                  Zarejestruj się
-                </button>
-              </div>
-            </div>
-          </form>
-          <p data-loading class="text-xl mt-8 mb-32 text-center w-full">Trwa wysyłanie...</p>
-        </div>
-      </div>
-      <div class="bg-white lg:p-8 px-4 py-4 lg:mt-[74px]">
-        <div class="mx-auto max-w-7xl opacity-50 flex items-center relative z-20">
-          <div class="flex-grow">
-            2024 legnicki meetup technologiczny powered by
-            <a href="https://blumilk.pl/" class="font-bold" target="_blank">Blumilk</a>
-          </div>
-          <div class="flex gap-4">
-            <a href="https://github.com/blumilksoftware/" target="_blank">
-              <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    d="M4.0744 2.9938C4.13263 1.96371 4.37869 1.51577 5.08432 1.15606C5.84357 0.768899 7.04106 0.949072 8.45014 1.66261C9.05706 1.97009 9.11886 1.97635 10.1825 1.83998C11.5963 1.65865 13.4164 1.65929 14.7213 1.84164C15.7081 1.97954 15.7729 1.97265 16.3813 1.66453C18.3814 0.651679 19.9605 0.71795 20.5323 1.8387C20.8177 2.39812 20.8707 3.84971 20.6494 5.04695C20.5267 5.71069 20.5397 5.79356 20.8353 6.22912C22.915 9.29385 21.4165 14.2616 17.8528 16.1155C17.5801 16.2574 17.3503 16.3452 17.163 16.4167C16.5879 16.6363 16.4133 16.703 16.6247 17.7138C16.7265 18.2 16.8491 19.4088 16.8973 20.4002C16.9844 22.1922 16.9831 22.2047 16.6688 22.5703C16.241 23.0676 15.6244 23.076 15.2066 22.5902C14.9341 22.2734 14.9075 22.1238 14.9075 20.9015C14.9075 19.0952 14.7095 17.8946 14.2417 16.8658C13.6854 15.6415 14.0978 15.185 15.37 14.9114C17.1383 14.531 18.5194 13.4397 19.2892 11.8146C20.0211 10.2698 20.1314 8.13501 18.8082 6.83668C18.4319 6.3895 18.4057 5.98446 18.6744 4.76309C18.7748 4.3066 18.859 3.71768 18.8615 3.45425C18.8653 3.03823 18.8274 2.97541 18.5719 2.97541C18.4102 2.97541 17.7924 3.21062 17.1992 3.49805L16.2524 3.95695C16.1663 3.99866 16.07 4.0147 15.975 4.0038C13.5675 3.72746 11.2799 3.72319 8.86062 4.00488C8.76526 4.01598 8.66853 3.99994 8.58215 3.95802L7.63585 3.49882C7.04259 3.21087 6.42482 2.97541 6.26317 2.97541C5.88941 2.97541 5.88379 3.25135 6.22447 4.89078C6.43258 5.89203 6.57262 6.11513 5.97101 6.91572C5.06925 8.11576 4.844 9.60592 5.32757 11.1716C5.93704 13.1446 7.4295 14.4775 9.52773 14.9222C10.7926 15.1903 11.1232 15.5401 10.6402 16.9905C10.26 18.1319 10.0196 18.4261 9.46707 18.4261C8.72365 18.4261 8.25796 17.7821 8.51424 17.1082C8.62712 16.8112 8.59354 16.7795 7.89711 16.5255C5.77117 15.7504 4.14514 14.0131 3.40172 11.7223C2.82711 9.95184 3.07994 7.64739 4.00175 6.25453C4.31561 5.78028 4.32047 5.74006 4.174 4.83217C4.09113 4.31822 4.04631 3.49103 4.0744 2.9938Z"
-                    fill="#0F0F0F"
-                  ></path>
-                  <path
-                    d="M3.33203 15.9454C3.02568 15.4859 2.40481 15.3617 1.94528 15.6681C1.48576 15.9744 1.36158 16.5953 1.66793 17.0548C1.8941 17.3941 2.16467 17.6728 2.39444 17.9025C2.4368 17.9449 2.47796 17.9858 2.51815 18.0257C2.71062 18.2169 2.88056 18.3857 3.05124 18.5861C3.42875 19.0292 3.80536 19.626 4.0194 20.6962C4.11474 21.1729 4.45739 21.4297 4.64725 21.5419C4.85315 21.6635 5.07812 21.7352 5.26325 21.7819C5.64196 21.8774 6.10169 21.927 6.53799 21.9559C7.01695 21.9877 7.53592 21.998 7.99999 22.0008C8.00033 22.5527 8.44791 23.0001 8.99998 23.0001C9.55227 23.0001 9.99998 22.5524 9.99998 22.0001V21.0001C9.99998 20.4478 9.55227 20.0001 8.99998 20.0001C8.90571 20.0001 8.80372 20.0004 8.69569 20.0008C8.10883 20.0026 7.34388 20.0049 6.67018 19.9603C6.34531 19.9388 6.07825 19.9083 5.88241 19.871C5.58083 18.6871 5.09362 17.8994 4.57373 17.2891C4.34391 17.0194 4.10593 16.7834 3.91236 16.5914C3.87612 16.5555 3.84144 16.5211 3.80865 16.4883C3.5853 16.265 3.4392 16.1062 3.33203 15.9454Z"
-                    fill="#0F0F0F"
-                  ></path>
-                </g>
-              </svg>
-            </a>
-            <a href="https://facebook.com/blumilksoftware/" target="”_blank”">
-              <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H15V13.9999H17.0762C17.5066 13.9999 17.8887 13.7245 18.0249 13.3161L18.4679 11.9871C18.6298 11.5014 18.2683 10.9999 17.7564 10.9999H15V8.99992C15 8.49992 15.5 7.99992 16 7.99992H18C18.5523 7.99992 19 7.5522 19 6.99992V6.31393C19 5.99091 18.7937 5.7013 18.4813 5.61887C17.1705 5.27295 16 5.27295 16 5.27295C13.5 5.27295 12 6.99992 12 8.49992V10.9999H10C9.44772 10.9999 9 11.4476 9 11.9999V12.9999C9 13.5522 9.44771 13.9999 10 13.9999H12V21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"
-                    fill="#0F0F0F"
-                  ></path>
-                </g>
-              </svg>
-            </a>
-            <a href="https://linkedin.com/company/blumilksoftware/" target="”_blank”">
-              <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z"
-                    fill="#0F0F0F"
-                  ></path>
-                  <path
-                    d="M5 10C5 9.44772 5.44772 9 6 9H7C7.55228 9 8 9.44771 8 10V18C8 18.5523 7.55228 19 7 19H6C5.44772 19 5 18.5523 5 18V10Z"
-                    fill="#0F0F0F"
-                  ></path>
-                  <path
-                    d="M11 19H12C12.5523 19 13 18.5523 13 18V13.5C13 12 16 11 16 13V18.0004C16 18.5527 16.4477 19 17 19H18C18.5523 19 19 18.5523 19 18V12C19 10 17.5 9 15.5 9C13.5 9 13 10.5 13 10.5V10C13 9.44771 12.5523 9 12 9H11C10.4477 9 10 9.44772 10 10V18C10 18.5523 10.4477 19 11 19Z"
-                    fill="#0F0F0F"
-                  ></path>
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z"
-                    fill="#0F0F0F"
-                  ></path>
-                </g>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="hidden lg:block absolute right-0 bottom-0 -mr-[25em] h-[24em] overflow-hidden z-10">
-          <div class="border-[96px] border-violet-700 size-[64em] rounded-full"></div>
-        </div>
-      </div>
-    </section>
-  </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/pl.min.js"></script>
-  <script src="./application.js"></script>
 </html>
