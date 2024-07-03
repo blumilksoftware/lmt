@@ -23,7 +23,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
-<body class="bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()">
+<body class="bg-slate-950 overflow-x-hidden z-0" x-data="initialize()" x-init="start()">
   <section class="relative w-full">
     <div x-data="{ open: false }">
       <nav class="xl:hidden bg-transparent">
@@ -86,16 +86,20 @@
       </nav>
     </div>
   </section>
-  <section class="w-full">
+  <section class="w-full z-10">
     <div class="mx-auto max-w-7xl flex items-start text-white relative px-4 lg:px-8 mt-40">
       <div class="w-56 h-3 bg-green-500 self-center absolute 2xl:-ml-20 hidden lg:flex"></div>
       <template x-if="meetup">
-        <div id="event" class="px-4 sm:pl-0 lg:w-full text-center text-5xl lg:text-7xl font-bold capitalize"
+        <div id="event"
+          class="px-4 sm:pl-0 lg:w-full text-center text-5xl lg:text-7xl font-bold capitalize max-w-4xl mx-auto"
           x-text="meetup.title"></div>
       </template>
     </div>
   </section>
-  <section>
+  <section class="z-10">
+    <div class="hidden lg:flex  absolute right-0 z-0 pointer-events-none">
+      <img class="w-[1800px] h-[1560px]" src="./images/gradient-violet.svg" alt="Gradient" />
+    </div>
     <template x-if="meetup">
       <div
         class="w-full lg:h-60 lg:bg-[#6C1DF2] bg-slate-950 flex lg:justify-center justify-start pl-14 lg:pl-0 py-10 lg:py-0 mt-48"
@@ -223,6 +227,9 @@
     </div>
   </section>
   <section class="lg:mt-32 mt-20 lg:mb-0 relative">
+    <div class="hidden lg:flex  absolute right-0 pointer-events-none">
+      <img class="w-[1800px] h-[1560px]" src="./images/gradient-green.svg" alt="Gradient" />
+    </div>
     <div class="mx-auto max-w-screen-2xl text-white flex-col relative">
       <div class="flex flex-col" id="agenda">
         <div class="lg:w-full flex flex-col lg:gap-6 gap-3 lg:ml-4 text-left ml-4">
@@ -271,6 +278,7 @@
     </div>
   </section>
   <section>
+
     <div
       class="lg:mx-auto mx-12 max-w-7xl text-white relative flex-col font-bold text-center mb-14 lg:mb-32 mt-14 lg:mt-40 h-fit">
       <div class="text-white lg:text-6xl text-4xl">Zainteresowany?</div>
@@ -284,12 +292,13 @@
   </section>
   <section x-data="{ selectedImage: null }">
     <template x-if="meetup">
-      <div class="text-white flex flex-col relative">
-        <div class="max-w-screen-2xl text-white flex flex-col relative px-4">
+      <div class="text-white flex flex-col relative mx-auto">
+        <div class="max-w-screen-2xl 2xl:min-w-[1536px] text-white flex flex-col relative px-4 lg:mx-auto">
           <h2 class="text-5xl font-bold">Galeria</h2>
           <p class="text-base text-neutral-200 pt-4">Autor zdjęć: Piotr Kowalski, Jolanta Druga</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-screen overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-h-screen overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] mt-5 lg:mt-20">
           <template x-for="image in meetup.gallery" :key="image.id">
             <div class="aspect-square overflow-hidden">
               <img :src="image.url" :alt="image.alt"
@@ -298,7 +307,6 @@
             </div>
           </template>
         </div>
-      </div>
     </template>
     <div x-show="selectedImage" x-transition
       class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" @click="selectedImage = null">
