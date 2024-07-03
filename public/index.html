@@ -28,7 +28,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 
-<body class="bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()">
+<body class="bg-[url('./images/background.png')] bg-cover bg-slate-950 overflow-x-hidden" x-data="initialize()" x-init="start()">
   <section class="w-full">
     <div x-data="{ open: false }">
       <nav class="xl:hidden bg-transparent">
@@ -154,10 +154,10 @@
       class="grid grid-cols-1 lg:grid-cols-3 gap-7 text-white 2xl:mx-auto mx-9 lg:mx-3 xl:px-14 2xl:px-0 max-w-screen-2xl mt-[90px] md:mt-44 mb-32">
       <div class="p-8 mix-blend-luminosity rounded-3xl border border-green-500">
         <div class="hidden lg:flex flex-row">
-          <img src="./images/icons/question.svg" class="size-9 self-start mix-blend-normal" />
+          <img src="./images/icons/question.svg" class="size-9 self-start " />
           <div class="flex-col pl-8">
             <h2 class="text-2xl font-bold">O co chodzi?</h2>
-            <p class="tracking-tight text-base mt-5 max-h-[114px] leading-5">
+            <p class="tracking-tight text-base mt-5  leading-5">
               Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje
               doświadczenia i przemyślenia w
               dziedzinie programowania aplikacji internetowych.
@@ -170,7 +170,7 @@
             <h2 class="text-2xl font-bold pl-4">O co chodzi?</h2>
           </div>
           <div class="flex-col md:pl-8 pt-4">
-            <p class="tracking-tight font-normal text-sm max-h-[114px] leading-5">
+            <p class="tracking-tight font-normal text-sm  leading-5">
               Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje
               doświadczenia i przemyślenia w
               dziedzinie programowania aplikacji internetowych.
@@ -197,7 +197,7 @@
             <h2 class="text-2xl font-bold pl-4">Dla kogo?</h2>
           </div>
           <div class="flex-col md:pl-8 pt-4">
-            <p class="tracking-tight font-normal text-sm max-h-[114px] leading-5">
+            <p class="tracking-tight font-normal text-sm leading-5">
               Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną
               technologię. Zapraszamy
               programistów grafików, administratorów, devopsów oraz pasjonatów i hobbystów.
