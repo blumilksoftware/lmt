@@ -18,6 +18,7 @@ function initialize() {
       setInterval(() => {
         this.calculateCounters()
       }, 1000)
+      this.setupKeyboardListeners()
     },
     fetchData: async function () {
       const meetupsResponse = await fetch('./assets/meetups.json?timestamp=' + Date.now())
