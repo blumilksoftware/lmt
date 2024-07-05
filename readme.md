@@ -27,15 +27,15 @@ npm install
 
 Run `make tailwind` to build stylesheets:
 ```
-  make tailwind
+make tailwind
 ```
 Run `make lint` to check for lint issues:
 ```
-  make lint
+make lint
 ```
 Run `make lintf` to fix lint issues:
 ```
-  make tailwind
+make lintf
 ```
 The website should be available at [localhost:8051](localhost:8051) and [lmt.blumilk.localhost](lmt.blumilk.localhost) if we use a Blumilk local traefik proxy.
 
