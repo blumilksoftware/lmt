@@ -27,6 +27,12 @@ stop:
 
 restart: stop run
 
+lint:
+	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx prettier . --check
+
+lintf:
+	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx prettier . --write
+
 shell:
 	@docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} bash
 

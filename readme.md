@@ -29,7 +29,14 @@ Run `make tailwind` to build stylesheets:
 ```
   make tailwind
 ```
-
+Run `make lint` to check for lint issues:
+```
+  make lint
+```
+Run `make lintf` to fix lint issues:
+```
+  make tailwind
+```
 The website should be available at [localhost:8051](localhost:8051) and [lmt.blumilk.localhost](lmt.blumilk.localhost) if we use a Blumilk local traefik proxy.
 
 | service           | container name            | default external port |
