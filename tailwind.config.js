@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./public/index.html', './public/pastMeetup.html' ],
+  content: ['./public/index.html', './public/pastMeetup.html'],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        '3xl': '1920px',
+      },
+    },
   },
   plugins: [],
 }
-

@@ -124,17 +124,17 @@
         </div>
         <template x-if="meetup">
           <div x-show="active" class="md:divide-x md:divide-slate-100/25 flex md:flex-row flex-col h-[35px] mt-8 md:mt-12 pl-3">
-            <div class="flex flex-row items-center md:pr-8">
+            <div class="flex flex-row items-center md:pr-8 pl-2 lg:pl-0">
               <image src="./images/icons/calendar.svg" class="lg:size-4 size-6 self-center"></image>
               <span x-text="`${meetup.date} ${meetup.year}`" class="text-xl pl-3"></span>
             </div>
-            <div class="flex flex-row items-center md:pl-8 pt-4 md:pt-0">
+            <div class="flex flex-row items-center md:pl-8 pt-4 md:pt-0 pl-2">
               <image src="./images/icons/location.svg" class="lg:size-4 size-6 self-center"></image>
               <a :href="meetup.localization" x-text="meetup.place" target="_blank" class="hover:underline text-xl pl-3"></a>
             </div>
           </div>
         </template>
-        <div class="lg:mt-10 mt-20 mx-auto lg:mx-0">
+        <div class="mt-10 mx-0 hidden lg:flex">
           <div
             x-show="active"
             class="flex-shrink w-max-2xl bg-stone-900 bg-opacity-75 px-10 md:px-4 py-6 rounded-[13px] md:rounded-[33px] flex divide-x divide-slate-100/25"
@@ -151,13 +151,13 @@
                 <div class="rotate-90 px-1">godzin</div>
               </div>
             </div>
-            <div class="hidden lg:flex px-4">
+            <div class="flex px-4">
               <div class="text-8xl font-bold" x-text="counters.minutes"></div>
               <div class="rotate-180 text-sm py-4">
                 <div class="rotate-90 px-1">minut</div>
               </div>
             </div>
-            <div class="hidden lg:flex px-4">
+            <div class="flex px-4">
               <div class="text-8xl font-bold" x-text="counters.seconds"></div>
               <div class="rotate-180 text-sm py-4">
                 <div class="rotate-90 px-1">sekund</div>
@@ -461,7 +461,7 @@
       <template x-if="pastMeetups.length > 0">
         <div class="lg:mx-auto max-w-screen-2xl text-white flex-col relative">
           <div class="flex flex-col" id="previousEditions">
-            <div class="lg:w-full flex flex-col lg:ml-4 text-left px-4">
+            <div class="lg:w-full flex flex-col text-left px-4">
               <div class="lg:mt-8 text-5xl font-bold">Poprzednie edycje</div>
               <div class="text-md w-3/4 lg:px-0 lg:mx-auto lg:w-full lg:text-base pt-6">Sprawdź czy nic Cię nie ominęło</div>
             </div>
@@ -629,8 +629,8 @@
             </a>
           </div>
         </div>
-        <div class="hidden lg:block absolute right-0 bottom-0 -mr-[25em] h-[24em] overflow-hidden z-10">
-          <div class="border-[96px] border-violet-700 size-[64em] rounded-full"></div>
+        <div class="hidden lg:block absolute right-0 bottom-0 -mr-[25em] h-[24em] 3xl:-mr-[15em] overflow-hidden z-10">
+          <div class="border-[96px] border-violet-700 size-[64em] 3xl:size-[74em] rounded-full"></div>
         </div>
       </div>
     </section>
