@@ -26,13 +26,20 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
     <link href="output.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
 
-  <body class="overflow-x-hidden bg-slate-950 bg-[url('./images/background.png')] bg-cover" x-data="initialize()" x-init="start()">
+  <body
+    class="overflow-x-hidden bg-slate-950 bg-[url('./images/background.png')] bg-cover"
+    x-data="initialize()"
+    x-init="start()"
+  >
     <section class="w-full">
       <div x-data="{ open: false }">
         <nav class="bg-transparent xl:hidden">
@@ -41,7 +48,11 @@
               <div class="flex items-center">
                 <div class="shrink-0 pl-2">
                   <a href="/">
-                    <img class="h-10 w-auto pl-3" src="./images/logo.png" alt="Legnicki meetup technologiczny" />
+                    <img
+                      class="h-10 w-auto pl-3"
+                      src="./images/logo.png"
+                      alt="Legnicki meetup technologiczny"
+                    />
                   </a>
                 </div>
               </div>
@@ -75,11 +86,21 @@
 
           <div :class="{ 'block': open, 'hidden': !open }" class="xl:hidden" id="mobile-menu">
             <div class="space-y-1 rounded-md px-2 pb-3 pt-2 text-base font-medium text-gray-300">
-              <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
-              <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
-              <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
-              <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
-              <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
+              <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                >Wydarzenie</a
+              >
+              <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                >Partnerzy</a
+              >
+              <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                >Prelegenci</a
+              >
+              <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                >Agenda</a
+              >
+              <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                >Rejestracja</a
+              >
             </div>
           </div>
         </nav>
@@ -90,18 +111,34 @@
               <div class="flex items-center">
                 <div class="shrink-0">
                   <a href="/">
-                    <img class="h-12" src="./images/logo.png" alt="Legnicki meetup technologiczny" />
+                    <img
+                      class="h-12"
+                      src="./images/logo.png"
+                      alt="Legnicki meetup technologiczny"
+                    />
                   </a>
                 </div>
               </div>
               <div class="flex items-center">
                 <div class="hidden xl:ml-6 xl:block">
-                  <div class="text-md flex justify-end space-x-4 rounded-md font-medium text-gray-300">
-                    <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Wydarzenie</a>
-                    <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Partnerzy</a>
-                    <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Prelegenci</a>
-                    <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Agenda</a>
-                    <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">Rejestracja</a>
+                  <div
+                    class="text-md flex justify-end space-x-4 rounded-md font-medium text-gray-300"
+                  >
+                    <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                      >Wydarzenie</a
+                    >
+                    <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                      >Partnerzy</a
+                    >
+                    <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                      >Prelegenci</a
+                    >
+                    <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                      >Agenda</a
+                    >
+                    <a href="#register" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                      >Rejestracja</a
+                    >
                   </div>
                 </div>
               </div>
@@ -111,28 +148,41 @@
       </div>
     </section>
     <section class="w-full">
-      <div class="relative mx-auto flex max-w-7xl flex-col items-start px-4 pt-[74px] text-white md:pt-36 lg:px-8">
+      <div
+        class="relative mx-auto flex max-w-7xl flex-col items-start px-4 pt-[74px] text-white md:pt-36 lg:px-8"
+      >
         <div class="absolute right-10 top-0 hidden lg:right-40 lg:block 2xl:right-0">
           <img class="mt-12 size-24" src="./images/x.svg" alt="Krzyżyk" />
         </div>
         <div class="absolute right-0 top-10 hidden h-24 w-24 lg:block 2xl:right-10">
           <img class="mt-36 size-12 2xl:ml-40" src="./images/x-white.svg" alt="Krzyżyk" />
         </div>
-        <div id="event" class="px-4 text-left text-5xl font-bold leading-none sm:pl-0 sm:text-7xl lg:w-full lg:text-9xl">
+        <div
+          id="event"
+          class="px-4 text-left text-5xl font-bold leading-none sm:pl-0 sm:text-7xl lg:w-full lg:text-9xl"
+        >
           Nowoczesne technologie
         </div>
         <div class="flex items-center pt-6 text-2xl md:pt-9 md:text-[40px]">
           <span class="flex-grow px-4 md:px-2">Inteligentne rozwiązania, lokalne podejście</span>
         </div>
         <template x-if="meetup">
-          <div x-show="active" class="mt-8 flex h-[35px] flex-col pl-3 md:mt-12 md:flex-row md:divide-x md:divide-slate-100/25">
+          <div
+            x-show="active"
+            class="mt-8 flex h-[35px] flex-col pl-3 md:mt-12 md:flex-row md:divide-x md:divide-slate-100/25"
+          >
             <div class="flex flex-row items-center pl-2 md:pr-8 lg:pl-0">
               <image src="./images/icons/calendar.svg" class="size-6 self-center lg:size-4"></image>
               <span x-text="`${meetup.date} ${meetup.year}`" class="pl-3 text-xl"></span>
             </div>
             <div class="flex flex-row items-center pl-2 pt-4 md:pl-8 md:pt-0">
               <image src="./images/icons/location.svg" class="size-6 self-center lg:size-4"></image>
-              <a :href="meetup.localization" x-text="meetup.place" target="_blank" class="pl-3 text-xl hover:underline"></a>
+              <a
+                :href="meetup.localization"
+                x-text="meetup.place"
+                target="_blank"
+                class="pl-3 text-xl hover:underline"
+              ></a>
             </div>
           </div>
         </template>
@@ -142,7 +192,10 @@
             class="w-max-2xl flex flex-shrink divide-x divide-slate-100/25 rounded-[13px] bg-stone-900 bg-opacity-75 px-10 py-6 md:rounded-[33px] md:px-4"
           >
             <div class="flex px-4">
-              <div class="text-5xl font-bold text-[#01FF6B] sm:text-8xl" x-text="counters.days"></div>
+              <div
+                class="text-5xl font-bold text-[#01FF6B] sm:text-8xl"
+                x-text="counters.days"
+              ></div>
               <div class="rotate-180 py-2 text-sm">
                 <div class="rotate-90 px-1">dni</div>
               </div>
@@ -177,8 +230,9 @@
             <div class="flex-col pl-8">
               <h2 class="text-2xl font-bold">O co chodzi?</h2>
               <p class="mt-5 text-base leading-5 tracking-tight">
-                Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i
-                przemyślenia w dziedzinie programowania aplikacji internetowych.
+                Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w
+                dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania
+                aplikacji internetowych.
               </p>
             </div>
           </div>
@@ -189,8 +243,9 @@
             </div>
             <div class="flex-col pt-4 md:pl-8">
               <p class="text-sm font-normal leading-5 tracking-tight">
-                Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w dowolnej formie swoje doświadczenia i
-                przemyślenia w dziedzinie programowania aplikacji internetowych.
+                Organizujemy cykliczne spotkania w Legnicy, na których chętne osoby prezentują w
+                dowolnej formie swoje doświadczenia i przemyślenia w dziedzinie programowania
+                aplikacji internetowych.
               </p>
             </div>
           </div>
@@ -202,8 +257,9 @@
             <div class="flex-col md:pl-8">
               <h2 class="text-2xl font-bold">Dla kogo?</h2>
               <p class="mt-5 max-h-[114px] text-base leading-5 tracking-tight">
-                Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię.
-                Zapraszamy programistów grafików, administratorów, devopsów oraz pasjonatów i hobbystów.
+                Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego
+                czy wykorzystywaną technologię. Zapraszamy programistów grafików, administratorów,
+                devopsów oraz pasjonatów i hobbystów.
               </p>
             </div>
           </div>
@@ -214,8 +270,9 @@
             </div>
             <div class="flex-col pt-4 md:pl-8">
               <p class="text-sm font-normal leading-5 tracking-tight">
-                Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego czy wykorzystywaną technologię.
-                Zapraszamy programistów grafików, administratorów, devopsów oraz pasjonatów i hobbystów.
+                Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego
+                czy wykorzystywaną technologię. Zapraszamy programistów grafików, administratorów,
+                devopsów oraz pasjonatów i hobbystów.
               </p>
             </div>
           </div>
@@ -226,8 +283,9 @@
             <div class="flex-col md:pl-8">
               <h2 class="text-2xl font-bold">O czym?</h2>
               <p class="mt-5 text-base leading-5 tracking-tight">
-                Od programowania backendu i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko
-                rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.
+                Od programowania backendu i projektowania frontendu, przez testowanie aplikacji,
+                ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach
+                okołoprogramistycznych i umiejętnościach miękkich skończywszy.
               </p>
             </div>
           </div>
@@ -238,8 +296,9 @@
             </div>
             <div class="flex-col pt-4 md:pl-8">
               <p class="text-sm font-normal leading-5 tracking-tight">
-                Od programowania backendu i projektowania frontendu, przez testowanie aplikacji, ciekawostki technologiczne czy szeroko
-                rozumiany devops, a na sprawach okołoprogramistycznych i umiejętnościach miękkich skończywszy.
+                Od programowania backendu i projektowania frontendu, przez testowanie aplikacji,
+                ciekawostki technologiczne czy szeroko rozumiany devops, a na sprawach
+                okołoprogramistycznych i umiejętnościach miękkich skończywszy.
               </p>
             </div>
           </div>
@@ -248,7 +307,10 @@
     </section>
     <section>
       <template x-if="meetup">
-        <div class="flex w-full justify-center bg-slate-950 py-10 lg:h-[330px] lg:bg-[#6C1DF2] lg:py-0" id="partners">
+        <div
+          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[330px] lg:bg-[#6C1DF2] lg:py-0"
+          id="partners"
+        >
           <div class="flex flex-col items-center gap-16 lg:flex-row">
             <div class="flex flex-col">
               <div class="flex justify-start pb-2 pl-2 lg:hidden">
@@ -297,11 +359,17 @@
       </div>
       <div class="static mx-auto w-full text-white" id="speakers">
         <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">Prelegenci</div>
-        <div class="-my-8 mx-auto hidden max-w-7xl text-center text-[18em] font-bold text-white opacity-5 lg:block">Lineup</div>
+        <div
+          class="-my-8 mx-auto hidden max-w-7xl text-center text-[18em] font-bold text-white opacity-5 lg:block"
+        >
+          Lineup
+        </div>
         <template x-if="meetup">
           <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
             <div class="hidden h-full w-full lg:flex">
-              <div class="z-10 hidden h-full w-fit overflow-hidden rounded-r-2xl bg-black bg-opacity-50 lg:flex">
+              <div
+                class="z-10 hidden h-full w-fit overflow-hidden rounded-r-2xl bg-black bg-opacity-50 lg:flex"
+              >
                 <div class="flex h-full w-full overflow-hidden">
                   <template x-for="(speaker, index) in meetup.lineup" :key="index">
                     <div
@@ -319,7 +387,9 @@
                 </div>
               </div>
               <div class="hidden h-full w-[40%] flex-col pl-[3%] pt-[70px] lg:flex">
-                <div class="w-[111px] rounded-md bg-violet-700 text-center text-base text-white">Prelegenci</div>
+                <div class="w-[111px] rounded-md bg-violet-700 text-center text-base text-white">
+                  Prelegenci
+                </div>
                 <div class="pt-6 font-bold">
                   <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].name"></div>
                   <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].surname"></div>
@@ -351,13 +421,21 @@
               </div>
             </div>
             <div class="pointer-events-none absolute right-0 -z-10 flex lg:hidden">
-              <img class="h-[1560px] w-[1800px]" src="./images/gradient-mobile.svg" alt="Gradient" />
+              <img
+                class="h-[1560px] w-[1800px]"
+                src="./images/gradient-mobile.svg"
+                alt="Gradient"
+              />
             </div>
             <div class="lg:hidden">
               <template x-for="speaker in meetup.lineup">
                 <div class="flex w-full flex-col">
                   <div>
-                    <img :src="speaker.avatarUrl" class="h-full w-full" :alt="speaker.name + ' ' + speaker.surname" />
+                    <img
+                      :src="speaker.avatarUrl"
+                      class="h-full w-full"
+                      :alt="speaker.name + ' ' + speaker.surname"
+                    />
                   </div>
                   <div class="px-14 pt-12 font-bold">
                     <div class="text-4xl" x-text="speaker.name"></div>
@@ -385,21 +463,32 @@
         <div class="flex flex-col" id="agenda">
           <div class="ml-4 flex flex-col gap-3 text-left lg:ml-4 lg:w-full lg:gap-6">
             <div class="text-5xl font-bold">Agenda</div>
-            <div class="text-md w-3/4 lg:w-full lg:text-base">Każda prezentacja trwa 30 min + 15 min sesja Q&A</div>
+            <div class="text-md w-3/4 lg:w-full lg:text-base">
+              Każda prezentacja trwa 30 min + 15 min sesja Q&A
+            </div>
           </div>
           <div class="flex-1">
             <template x-if="meetup">
-              <div class="w-max-2xl flex shrink flex-col divide-y divide-slate-100/25 rounded-2xl px-4 py-6">
+              <div
+                class="w-max-2xl flex shrink flex-col divide-y divide-slate-100/25 rounded-2xl px-4 py-6"
+              >
                 <template x-for="(lecture, index) in meetup.agenda">
                   <div class="flex flex-col">
                     <div class="flex items-center py-8">
                       <div class="w-[100px] text-4xl font-bold" x-text="lecture.start"></div>
                       <div class="flex flex-col gap-2">
                         <div class="px-8" x-text="lecture.title"></div>
-                        <div class="px-8 text-sm" x-show="lecture.speaker" x-text="lecture.speaker"></div>
+                        <div
+                          class="px-8 text-sm"
+                          x-show="lecture.speaker"
+                          x-text="lecture.speaker"
+                        ></div>
                       </div>
                       <template x-if="lecture.description && lecture.expanded === false">
-                        <div class="flex flex-grow cursor-pointer justify-end" @click="lecture.expanded = true">
+                        <div
+                          class="flex flex-grow cursor-pointer justify-end"
+                          @click="lecture.expanded = true"
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -408,12 +497,19 @@
                             stroke="currentColor"
                             class="h-6 w-6"
                           >
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                            />
                           </svg>
                         </div>
                       </template>
                       <template x-if="lecture.description && lecture.expanded === true">
-                        <div class="flex flex-grow cursor-pointer justify-end" @click="lecture.expanded = false">
+                        <div
+                          class="flex flex-grow cursor-pointer justify-end"
+                          @click="lecture.expanded = false"
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -422,7 +518,11 @@
                             stroke="currentColor"
                             class="h-6 w-6"
                           >
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m4.5 15.75 7.5-7.5 7.5 7.5"
+                            />
                           </svg>
                         </div>
                       </template>
@@ -444,9 +544,13 @@
       <div class="pointer-events-none absolute right-0 hidden lg:flex">
         <img class="h-[1560px] w-[1800px]" src="./images/gradient-green.svg" alt="Gradient" />
       </div>
-      <div class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40">
+      <div
+        class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40"
+      >
         <div class="text-4xl text-white lg:text-6xl">Zainteresowany?</div>
-        <div class="px-6 pt-3 text-xl text-green-500 lg:text-4xl">Dołącz do naszej grupy i bądź na bieżąco!</div>
+        <div class="px-6 pt-3 text-xl text-green-500 lg:text-4xl">
+          Dołącz do naszej grupy i bądź na bieżąco!
+        </div>
         <button
           class="mt-8 self-center rounded-md bg-violet-700 px-11 py-3 align-middle text-lg font-bold uppercase text-neutral-200 lg:mt-16 lg:px-16 lg:py-5"
           @click="window.open('https://www.facebook.com/groups/webdevlegnica/', '_blank')"
@@ -465,12 +569,19 @@
           <div class="flex flex-col" id="previousEditions">
             <div class="flex flex-col px-4 text-left lg:w-full">
               <div class="text-5xl font-bold lg:mt-8">Poprzednie edycje</div>
-              <div class="text-md w-3/4 pt-6 lg:mx-auto lg:w-full lg:px-0 lg:text-base">Sprawdź czy nic Cię nie ominęło</div>
+              <div class="text-md w-3/4 pt-6 lg:mx-auto lg:w-full lg:px-0 lg:text-base">
+                Sprawdź czy nic Cię nie ominęło
+              </div>
             </div>
 
-            <div class="w-max-2xl flex shrink flex-col divide-y divide-y-reverse divide-slate-100/25 rounded-2xl px-4 pt-2">
+            <div
+              class="w-max-2xl flex shrink flex-col divide-y divide-y-reverse divide-slate-100/25 rounded-2xl px-4 pt-2"
+            >
               <template x-for="meetup in pastMeetups">
-                <div class="flex cursor-pointer flex-row items-center py-4 lg:py-10" @click="navigateToPastMeetup(meetup.id)">
+                <div
+                  class="flex cursor-pointer flex-row items-center py-4 lg:py-10"
+                  @click="navigateToPastMeetup(meetup.id)"
+                >
                   <div class="text-2xl font-bold lg:text-4xl" x-text="meetup.formattedDate"></div>
                   <div class="pl-4 text-base lg:px-8" x-text="meetup.title"></div>
                   <div class="flex flex-grow justify-end pr-4">
@@ -482,7 +593,11 @@
                       stroke="currentColor"
                       class="h-6 w-6 -rotate-90"
                     >
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -504,8 +619,9 @@
             <div id="registration-errors"></div>
             <div class="mx-auto my-5 flex max-w-2xl flex-col gap-5">
               <p class="mb-4 text-center">
-                Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczba miejsc jest ograniczona. Zarejestruj się już
-                teraz, aby zapewnić sobie miejsce na wydarzeniu!
+                Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczba miejsc
+                jest ograniczona. Zarejestruj się już teraz, aby zapewnić sobie miejsce na
+                wydarzeniu!
               </p>
               <div class="relative">
                 <input
@@ -544,12 +660,23 @@
                 />
               </div>
               <div class="relative">
-                <label for="consent" class="flex flex-row bg-neutral-200 px-2 text-sm font-normal text-black">
-                  <input type="checkbox" name="consent" id="consent" required class="mt-2 self-start" />
+                <label
+                  for="consent"
+                  class="flex flex-row bg-neutral-200 px-2 text-sm font-normal text-black"
+                >
+                  <input
+                    type="checkbox"
+                    name="consent"
+                    id="consent"
+                    required
+                    class="mt-2 self-start"
+                  />
                   <p class="pl-5">
-                    Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym formularzu w celach marketingowych przez
-                    organizatora Legnickiego Meetupu Technologicznego, firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5, 59-220
-                    Legnica oraz przez podmioty trzecie odpowiedzialne za organizację Legnickiego Meetupu Technologicznego.
+                    Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym
+                    formularzu w celach marketingowych przez organizatora Legnickiego Meetupu
+                    Technologicznego, firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5,
+                    59-220 Legnica oraz przez podmioty trzecie odpowiedzialne za organizację
+                    Legnickiego Meetupu Technologicznego.
                   </p>
                 </label>
               </div>
@@ -578,7 +705,12 @@
           </div>
           <div class="flex gap-4">
             <a href="https://github.com/blumilksoftware/" target="_blank">
-              <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -594,7 +726,12 @@
               </svg>
             </a>
             <a href="https://facebook.com/blumilksoftware/" target="”_blank”">
-              <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -608,7 +745,12 @@
               </svg>
             </a>
             <a href="https://linkedin.com/company/blumilksoftware/" target="”_blank”">
-              <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -635,8 +777,12 @@
             </a>
           </div>
         </div>
-        <div class="absolute bottom-0 right-0 z-10 -mr-[25em] hidden h-[24em] overflow-hidden lg:block 3xl:-mr-[15em]">
-          <div class="size-[64em] rounded-full border-[96px] border-violet-700 3xl:size-[74em]"></div>
+        <div
+          class="absolute bottom-0 right-0 z-10 -mr-[25em] hidden h-[24em] overflow-hidden lg:block 3xl:-mr-[15em]"
+        >
+          <div
+            class="size-[64em] rounded-full border-[96px] border-violet-700 3xl:size-[74em]"
+          ></div>
         </div>
       </div>
     </section>
