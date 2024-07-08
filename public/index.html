@@ -224,9 +224,9 @@
       <div
         class="mx-9 mb-32 mt-[90px] grid max-w-screen-2xl grid-cols-1 gap-7 text-white md:mt-44 lg:mx-3 lg:grid-cols-3 xl:px-14 2xl:mx-auto 2xl:px-0"
       >
-        <div class="rounded-3xl border border-[#ad92e0] p-8">
+        <div class="rounded-3xl border border-violetb p-8">
           <div class="hidden flex-row lg:flex">
-            <img src="./images/icons/question.svg" class="size-9 self-start" />
+            <img src="./images/icons/question.svg" class="size-9 self-start" alt="Znak zapytania" />
             <div class="flex-col pl-8">
               <h2 class="text-2xl font-bold">O co chodzi?</h2>
               <p class="mt-5 text-base leading-5 tracking-tight">
@@ -238,7 +238,11 @@
           </div>
           <div class="flex flex-col lg:hidden">
             <div class="flex flex-row items-center">
-              <img src="./images/icons/question.svg" class="size-9 self-start" />
+              <img
+                src="./images/icons/question.svg"
+                class="size-9 self-start"
+                alt="Znak zapytania"
+              />
               <h2 class="pl-4 text-2xl font-bold">O co chodzi?</h2>
             </div>
             <div class="flex-col pt-4 md:pl-8">
@@ -250,9 +254,9 @@
             </div>
           </div>
         </div>
-        <div class="rounded-3xl border border-[#ad92e0] p-8">
+        <div class="rounded-3xl border border-violetb p-8">
           <div class="hidden flex-row lg:flex">
-            <img src="./images/icons/user.svg" class="size-9 self-start" />
+            <img src="./images/icons/user.svg" class="size-9 self-start" alt="Ikona użytkownika" />
 
             <div class="flex-col md:pl-8">
               <h2 class="text-2xl font-bold">Dla kogo?</h2>
@@ -265,7 +269,11 @@
           </div>
           <div class="flex flex-col lg:hidden">
             <div class="flex flex-row items-center">
-              <img src="./images/icons/user.svg" class="size-9 self-start" />
+              <img
+                src="./images/icons/user.svg"
+                class="size-9 self-start"
+                alt="Ikona użytkownika"
+              />
               <h2 class="pl-4 text-2xl font-bold">Dla kogo?</h2>
             </div>
             <div class="flex-col pt-4 md:pl-8">
@@ -277,9 +285,9 @@
             </div>
           </div>
         </div>
-        <div class="rounded-3xl border border-[#ad92e0] p-8">
+        <div class="rounded-3xl border border-violetb p-8">
           <div class="hidden flex-row lg:flex">
-            <img src="./images/icons/bulb.svg" class="size-9 self-start" />
+            <img src="./images/icons/bulb.svg" class="size-9 self-start" alt="Ikona żarówki" />
             <div class="flex-col md:pl-8">
               <h2 class="text-2xl font-bold">O czym?</h2>
               <p class="mt-5 text-base leading-5 tracking-tight">
@@ -291,7 +299,7 @@
           </div>
           <div class="flex flex-col lg:hidden">
             <div class="flex flex-row items-center">
-              <img src="./images/icons/bulb.svg" class="size-9 self-start" />
+              <img src="./images/icons/bulb.svg" class="size-9 self-start" alt="Ikona żarówki" />
               <h2 class="pl-4 text-2xl font-bold">O czym?</h2>
             </div>
             <div class="flex-col pt-4 md:pl-8">
@@ -409,13 +417,17 @@
                     class="flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-[5px] border border-violet-700"
                     @click="selectPreviousSpeaker"
                   >
-                    <img src="./images/icons/arrow.svg" class="h-[20px] w-[24px] rotate-180" />
+                    <img
+                      src="./images/icons/arrow.svg"
+                      class="h-[20px] w-[24px] rotate-180"
+                      alt="Strzałka"
+                    />
                   </div>
                   <div
                     class="flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-[5px] bg-violet-700"
                     @click="selectNextSpeaker"
                   >
-                    <img src="./images/icons/arrow.svg" class="h-[20px] w-[24px]" />
+                    <img src="./images/icons/arrow.svg" class="h-[20px] w-[24px]" alt="Strzałka" />
                   </div>
                 </div>
               </div>
@@ -616,8 +628,8 @@
         >
           <h2 class="pt-10 text-center text-5xl font-bold lg:text-6xl">Rejestracja</h2>
           <form data-loading-class="hidden" id="registration-form">
-            <div id="registration-errors"></div>
-            <div class="mx-auto my-5 flex max-w-2xl flex-col gap-5">
+            <div id="registration-errors" class="text-red-600 text-center"></div>
+            <div class="mx-auto my-5 flex max-w-2xl flex-col gap-6">
               <p class="my-7 text-center text-sm lg:text-base">
                 Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczba miejsc
                 jest ograniczona. Zarejestruj się już teraz, aby zapewnić sobie miejsce na
@@ -628,36 +640,56 @@
                   type="text"
                   name="name"
                   id="name"
-                  class="block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:leading-6"
+                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
                   placeholder="Imię"
                 />
+                <label
+                  for="name"
+                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                  >Imię</label
+                >
               </div>
               <div class="relative">
                 <input
                   type="text"
                   name="surname"
                   id="surname"
-                  class="block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:leading-6"
+                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
                   placeholder="Nazwisko"
                 />
+                <label
+                  for="surname"
+                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                  >Nazwisko</label
+                >
               </div>
               <div class="relative">
                 <input
                   type="text"
                   name="company"
                   id="company"
-                  class="block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:leading-6"
+                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
                   placeholder="Nazwa firmy"
                 />
+                <label
+                  for="company"
+                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                  >Nazwa firmy</label
+                >
               </div>
               <div class="relative">
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  class="block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:leading-6"
+                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
                   placeholder="Adres e-mail"
                 />
+                <label
+                  for="email"
+                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                  >Adres e-mail</label
+                >
               </div>
               <div class="relative">
                 <label
