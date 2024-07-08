@@ -159,7 +159,7 @@
         </div>
         <div
           id="event"
-          class="px-4 text-left text-5xl font-bold leading-none sm:pl-0 sm:text-7xl lg:w-full lg:text-9xl"
+          class="px-4 text-left text-[42px] font-bold leading-none sm:pl-0 sm:text-7xl lg:w-full lg:text-9xl"
         >
           Nowoczesne technologie
         </div>
@@ -196,7 +196,7 @@
                 class="text-5xl font-bold text-[#01FF6B] sm:text-8xl"
                 x-text="counters.days"
               ></div>
-              <div class="rotate-180 py-2 text-sm">
+              <div class="rotate-180 py-1 text-sm">
                 <div class="rotate-90 px-1">dni</div>
               </div>
             </div>
@@ -208,13 +208,13 @@
             </div>
             <div class="flex px-4">
               <div class="text-8xl font-bold" x-text="counters.minutes"></div>
-              <div class="rotate-180 py-4 text-sm">
+              <div class="rotate-180 py-3 text-sm">
                 <div class="rotate-90 px-1">minut</div>
               </div>
             </div>
             <div class="flex px-4">
               <div class="text-8xl font-bold" x-text="counters.seconds"></div>
-              <div class="rotate-180 py-4 text-sm">
+              <div class="rotate-180 py-5 text-sm">
                 <div class="rotate-90 px-1">sekund</div>
               </div>
             </div>
@@ -258,7 +258,7 @@
               <h2 class="text-2xl font-bold">Dla kogo?</h2>
               <p class="mt-5 max-h-[114px] text-base leading-5 tracking-tight">
                 Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego
-                czy wykorzystywaną technologię. Zapraszamy programistów grafików, administratorów,
+                czy wykorzystywaną technologię. Zapraszamy programistów, grafików, administratorów,
                 devopsów oraz pasjonatów i hobbystów.
               </p>
             </div>
@@ -271,7 +271,7 @@
             <div class="flex-col pt-4 md:pl-8">
               <p class="text-sm font-normal leading-5 tracking-tight">
                 Spotkania są dostępne dla każdego, bez względu na stopień doświadczenia zawodowego
-                czy wykorzystywaną technologię. Zapraszamy programistów grafików, administratorów,
+                czy wykorzystywaną technologię. Zapraszamy programistów, grafików, administratorów,
                 devopsów oraz pasjonatów i hobbystów.
               </p>
             </div>
@@ -313,39 +313,39 @@
         >
           <div class="flex flex-col items-center gap-16 lg:flex-row">
             <div class="flex flex-col">
-              <div class="flex justify-start pb-2 pl-2 lg:hidden">
+              <div class="flex justify-start pb-5 pl-2 lg:hidden">
                 <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white">Organizator</p>
               </div>
               <a href="https://blumilk.pl/" target="_blank">
                 <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class="h-[71px]" />
               </a>
-              <div class="hidden justify-end pt-2 lg:flex">
+              <div class="hidden justify-end pt-6 lg:flex">
                 <p class="w-[111px] rounded-md bg-slate-900 text-center text-white">Organizator</p>
               </div>
             </div>
             <template x-for="partner in meetup.partners">
               <div class="flex flex-col">
-                <div class="flex justify-start pb-2 lg:hidden">
+                <div class="flex justify-start pb-5 lg:hidden">
                   <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white">Partner</p>
                 </div>
                 <a :href="partner.website" target="_blank">
                   <img :src="partner.logoUrl" :alt="partner.name " class="h-[71px]" />
                 </a>
-                <div class="hidden justify-end pt-2 lg:flex">
+                <div class="hidden justify-end pt-6 lg:flex">
                   <p class="w-[111px] rounded-md bg-slate-900 text-center text-white">Partner</p>
                 </div>
               </div>
             </template>
             <template x-for="sponsor in meetup.sponsors">
               <div class="flex flex-col">
-                <div class="flex justify-start pb-2 lg:hidden">
-                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white">Sponsor</p>
+                <div class="flex justify-start pb-5 lg:hidden">
+                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white">Patronat</p>
                 </div>
                 <a :href="sponsor.website" target="_blank">
                   <img :src="sponsor.logoUrl" :alt="sponsor.name" class="h-[71px]" />
                 </a>
-                <div class="hidden justify-end lg:flex">
-                  <p class="w-[111px] rounded-md bg-slate-900 text-center text-white">Sponsor</p>
+                <div class="hidden justify-end pt-6 lg:flex">
+                  <p class="w-[111px] rounded-md bg-slate-900 text-center text-white">Patronat</p>
                 </div>
               </div>
             </template>
@@ -547,12 +547,12 @@
       <div
         class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40"
       >
-        <div class="text-4xl text-white lg:text-6xl">Zainteresowany?</div>
+        <div class="text-[28px] text-white xs:text-[34px] lg:text-6xl">Zainteresowany?</div>
         <div class="px-6 pt-3 text-xl text-green-500 lg:text-4xl">
           Dołącz do naszej grupy i bądź na bieżąco!
         </div>
         <button
-          class="mt-8 self-center rounded-md bg-violet-700 px-11 py-3 align-middle text-lg font-bold uppercase text-neutral-200 lg:mt-16 lg:px-16 lg:py-5"
+          class="mt-8 self-center rounded-md bg-violet-700 px-7 py-3 align-middle text-base font-bold uppercase text-neutral-200 xs:px-11 xs:text-lg lg:mt-16 lg:px-16 lg:py-5"
           @click="window.open('https://www.facebook.com/groups/webdevlegnica/', '_blank')"
         >
           Dołącz do grupy
@@ -570,7 +570,7 @@
             <div class="flex flex-col px-4 text-left lg:w-full">
               <div class="text-5xl font-bold lg:mt-8">Poprzednie edycje</div>
               <div class="text-md w-3/4 pt-6 lg:mx-auto lg:w-full lg:px-0 lg:text-base">
-                Sprawdź czy nic Cię nie ominęło
+                Sprawdź, czy nic Cię nie ominęło
               </div>
             </div>
 
@@ -614,11 +614,11 @@
           data-loading-delay="300"
           class="rounded-t-[90px] bg-neutral-200 p-8 text-gray-950 lg:rounded-[90px] lg:p-16"
         >
-          <h2 class="pt-4 text-center text-6xl font-bold">Rejestracja</h2>
+          <h2 class="pt-10 text-center text-5xl font-bold lg:text-6xl">Rejestracja</h2>
           <form data-loading-class="hidden" id="registration-form">
             <div id="registration-errors"></div>
             <div class="mx-auto my-5 flex max-w-2xl flex-col gap-5">
-              <p class="mb-4 text-center">
+              <p class="my-7 text-center text-sm lg:text-base">
                 Legnicki Meetup Technologiczny to spotkanie stacjonarne. Pamiętaj, że liczba miejsc
                 jest ograniczona. Zarejestruj się już teraz, aby zapewnić sobie miejsce na
                 wydarzeniu!
@@ -647,7 +647,7 @@
                   name="company"
                   id="company"
                   class="block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 text-gray-900 shadow-sm placeholder:text-gray-400 sm:leading-6"
-                  placeholder="Nazwa Firmy"
+                  placeholder="Nazwa firmy"
                 />
               </div>
               <div class="relative">
@@ -671,7 +671,7 @@
                     required
                     class="mt-2 self-start"
                   />
-                  <p class="pl-5">
+                  <p class="pl-5 text-xs lg:text-sm">
                     Wyrażam zgodę na przetwarzanie moich danych osobowych podanych w powyższym
                     formularzu w celach marketingowych przez organizatora Legnickiego Meetupu
                     Technologicznego, firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5,
@@ -687,7 +687,7 @@
                   hx-post="register.php"
                   hx-target="#registration-form"
                   hx-swap="innerHTML show:top"
-                  class="mt-4 self-center rounded-md bg-violet-700 px-16 py-3 align-middle text-lg font-bold uppercase text-neutral-200 lg:px-20 lg:py-6"
+                  class="mt-4 self-center rounded-md bg-violet-700 px-7 py-3 align-middle text-lg font-bold uppercase text-neutral-200 xs:px-10 md:px-16 lg:px-20 lg:py-6"
                 >
                   Zarejestruj się
                 </button>
@@ -697,13 +697,13 @@
           <p data-loading class="mb-32 mt-8 w-full text-center text-xl">Trwa wysyłanie...</p>
         </div>
       </div>
-      <div class="bg-white px-4 py-4 lg:mt-[74px] lg:p-8">
+      <div class="bg-white px-2 py-4 xs:px-4 lg:mt-[74px] lg:p-8">
         <div class="relative z-20 mx-auto flex max-w-7xl items-center opacity-50">
-          <div class="flex-grow">
+          <div class="flex-grow text-xs lg:text-base">
             2024 legnicki meetup technologiczny powered by
             <a href="https://blumilk.pl/" class="font-bold" target="_blank">Blumilk</a>
           </div>
-          <div class="flex gap-4">
+          <div class="flex gap-3 sm:gap-4">
             <a href="https://github.com/blumilksoftware/" target="_blank">
               <svg
                 class="size-6"
