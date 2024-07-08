@@ -172,11 +172,19 @@
             class="mt-8 flex h-[35px] flex-col pl-3 md:mt-12 md:flex-row md:divide-x md:divide-slate-100/25"
           >
             <div class="flex flex-row items-center pl-2 md:pr-8 lg:pl-0">
-              <image src="./images/icons/calendar.svg" class="size-6 self-center lg:size-4"></image>
+              <img
+                src="./images/icons/calendar.svg"
+                class="size-6 self-center lg:size-4"
+                alt="Ikona kalendarzu"
+              />
               <span x-text="`${meetup.date} ${meetup.year}`" class="pl-3 text-xl"></span>
             </div>
             <div class="flex flex-row items-center pl-2 pt-4 md:pl-8 md:pt-0">
-              <image src="./images/icons/location.svg" class="size-6 self-center lg:size-4"></image>
+              <img
+                src="./images/icons/location.svg"
+                class="size-6 self-center lg:size-4"
+                alt="Ikona lokalizacji"
+              />
               <a
                 :href="meetup.localization"
                 x-text="meetup.place"
@@ -733,10 +741,20 @@
         <div class="relative z-20 mx-auto flex max-w-7xl items-center opacity-50">
           <div class="flex-grow text-xs lg:text-base">
             2024 legnicki meetup technologiczny powered by
-            <a href="https://blumilk.pl/" class="font-bold" target="_blank">Blumilk</a>
+            <a
+              href="https://blumilk.pl/"
+              class="font-bold"
+              target="_blank"
+              aria-label="Przejdź do strony firmowej Blumilk"
+              >Blumilk</a
+            >
           </div>
           <div class="flex gap-3 sm:gap-4">
-            <a href="https://github.com/blumilksoftware/" target="_blank">
+            <a
+              href="https://github.com/blumilksoftware/"
+              target="_blank"
+              aria-label="Przejdź do GitHub Blumilk"
+            >
               <svg
                 class="size-6"
                 viewBox="0 0 24 24"
@@ -757,7 +775,11 @@
                 </g>
               </svg>
             </a>
-            <a href="https://facebook.com/blumilksoftware/" target="”_blank”">
+            <a
+              href="https://facebook.com/blumilksoftware/"
+              target="”_blank”"
+              aria-label="Przejdź do profilu Facebook Blumilk"
+            >
               <svg
                 class="size-6"
                 viewBox="0 0 24 24"
@@ -776,7 +798,11 @@
                 </g>
               </svg>
             </a>
-            <a href="https://linkedin.com/company/blumilksoftware/" target="”_blank”">
+            <a
+              href="https://linkedin.com/company/blumilksoftware/"
+              target="_blank"
+              aria-label="Przejdź do profilu LinkedIn Blumilk"
+            >
               <svg
                 class="size-6"
                 viewBox="0 0 24 24"
