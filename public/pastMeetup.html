@@ -3,12 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Legnicki Meetup Technologiczny - Weź udział!" />
+    <meta
+      property="og:title"
+      content="Legnicki Meetup Technologiczny - Weź udział!"
+    />
     <meta
       property="og:description"
       content="Otwarte spotkanie dla programistów, specjalistów IT, przedsiębiorców, badaczy, studentów i wszystkich, którzy chcą poszerzyć swoje horyzonty w dziedzinie programowania, technologii i designu."
     />
-    <meta property="og:image" content="https://meetup.legnica.pl/images/fb_image.jpg" />
+    <meta
+      property="og:image"
+      content="https://meetup.legnica.pl/images/fb_image.jpg"
+    />
     <meta property="og:url" content="https://meetup.legnica.pl/" />
     <meta
       property="”description”"
@@ -56,7 +62,12 @@
                   aria-controls="mobile-menu"
                   aria-expanded="false"
                 >
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="h-6 w-6"
+                  >
                     <path
                       :class="{ 'hidden': open, 'inline-flex': !open }"
                       strokeLinecap="round"
@@ -76,21 +87,37 @@
               </div>
             </div>
           </div>
-          <div :class="{ 'block': open, 'hidden': !open }" class="mt-5 xl:hidden" id="mobile-menu">
-            <div class="space-y-1 rounded-md px-2 pb-3 pt-2 text-base font-medium text-gray-300">
-              <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+          <div
+            :class="{ 'block': open, 'hidden': !open }"
+            class="mt-5 xl:hidden"
+            id="mobile-menu"
+          >
+            <div
+              class="space-y-1 rounded-md px-2 pb-3 pt-2 text-base font-medium text-gray-300"
+            >
+              <a
+                href="#event"
+                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Wydarzenie</a
               >
-              <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+              <a
+                href="#partners"
+                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Partnerzy</a
               >
-              <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+              <a
+                href="#speakers"
+                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Prelegenci</a
               >
-              <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+              <a
+                href="#agenda"
+                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Agenda</a
               >
-              <a href="#gallery" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+              <a
+                href="#gallery"
+                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Galeria</a
               >
             </div>
@@ -115,19 +142,29 @@
                   <div
                     class="text-md flex justify-end space-x-4 rounded-md font-medium text-gray-300"
                   >
-                    <a href="#event" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                    <a
+                      href="#event"
+                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Wydarzenie</a
                     >
-                    <a href="#partners" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                    <a
+                      href="#partners"
+                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Partnerzy</a
                     >
-                    <a href="#speakers" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                    <a
+                      href="#speakers"
+                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Prelegenci</a
                     >
-                    <a href="#agenda" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                    <a
+                      href="#agenda"
+                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Agenda</a
                     >
-                    <a href="#gallery" class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                    <a
+                      href="#gallery"
+                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Galeria</a
                     >
                   </div>
@@ -139,8 +176,12 @@
       </div>
     </section>
     <section class="z-10 w-full">
-      <div class="relative mx-auto mt-40 flex max-w-7xl items-start px-4 text-white lg:px-8">
-        <div class="absolute hidden h-3 w-56 self-center bg-green-500 lg:flex 2xl:-ml-20"></div>
+      <div
+        class="relative mx-auto mt-40 flex max-w-7xl items-start px-4 text-white lg:px-8"
+      >
+        <div
+          class="absolute hidden h-3 w-56 self-center bg-green-500 lg:flex 2xl:-ml-20"
+        ></div>
         <template x-if="meetup">
           <div
             id="event"
@@ -152,7 +193,11 @@
     </section>
     <section class="z-10">
       <div class="pointer-events-none absolute right-0 z-0 hidden lg:flex">
-        <img class="h-[1560px] w-[1800px]" src="./images/gradient-violet.svg" alt="Gradient" />
+        <img
+          class="h-[1560px] w-[1800px]"
+          src="./images/gradient-violet.svg"
+          alt="Gradient"
+        />
       </div>
       <template x-if="meetup">
         <div
@@ -162,38 +207,74 @@
           <div class="flex flex-col items-center gap-16 lg:flex-row">
             <div class="flex flex-col">
               <div class="flex justify-start pb-5 pl-2 lg:hidden">
-                <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white">Organizator</p>
+                <p
+                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                >
+                  Organizator
+                </p>
               </div>
               <a href="https://blumilk.pl/" target="_blank">
-                <img src="./images/blumilk-white.png" alt="Blumilk sp. z o.o." class="h-[71px]" />
+                <img
+                  src="./images/blumilk-white.png"
+                  alt="Blumilk sp. z o.o."
+                  class="h-[71px]"
+                />
               </a>
               <div class="hidden justify-end pt-6 lg:flex">
-                <p class="w-[111px] rounded-md bg-slate-900 text-center text-white">Organizator</p>
+                <p
+                  class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                >
+                  Organizator
+                </p>
               </div>
             </div>
             <template x-for="partner in meetup.partners">
               <div class="flex flex-col">
                 <div class="flex justify-start pb-5 lg:hidden">
-                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white">Partner</p>
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                  >
+                    Partner
+                  </p>
                 </div>
                 <a :href="partner.website" target="_blank">
-                  <img :src="partner.logoUrl" :alt="partner.name " class="h-[71px]" />
+                  <img
+                    :src="partner.logoUrl"
+                    :alt="partner.name "
+                    class="h-[71px]"
+                  />
                 </a>
                 <div class="hidden justify-end pt-6 lg:flex">
-                  <p class="w-[111px] rounded-md bg-slate-900 text-center text-white">Partner</p>
+                  <p
+                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                  >
+                    Partner
+                  </p>
                 </div>
               </div>
             </template>
             <template x-for="sponsor in meetup.sponsors">
               <div class="flex flex-col">
                 <div class="flex justify-start pb-5 lg:hidden">
-                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white">Patronat</p>
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                  >
+                    Patronat
+                  </p>
                 </div>
                 <a :href="sponsor.website" target="_blank">
-                  <img :src="sponsor.logoUrl" :alt="sponsor.name" class="h-[71px]" />
+                  <img
+                    :src="sponsor.logoUrl"
+                    :alt="sponsor.name"
+                    class="h-[71px]"
+                  />
                 </a>
                 <div class="hidden justify-end pt-6 lg:flex">
-                  <p class="w-[111px] rounded-md bg-slate-900 text-center text-white">Patronat</p>
+                  <p
+                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                  >
+                    Patronat
+                  </p>
                 </div>
               </div>
             </template>
@@ -203,10 +284,16 @@
     </section>
     <section class="my-6">
       <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img class="h-[1560px] w-[1800px]" src="./images/gradient-violet.svg" alt="Gradient" />
+        <img
+          class="h-[1560px] w-[1800px]"
+          src="./images/gradient-violet.svg"
+          alt="Gradient"
+        />
       </div>
       <div class="static mx-auto w-full text-white lg:mt-64" id="speakers">
-        <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">Prelegenci</div>
+        <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
+          Prelegenci
+        </div>
         <template x-if="meetup">
           <div class="w-full lg:h-[650px] 2xl:h-[750px]">
             <div class="hidden h-full w-full lg:flex">
@@ -214,7 +301,10 @@
                 class="z-10 hidden h-full w-fit overflow-hidden rounded-r-2xl bg-black bg-opacity-50 lg:flex"
               >
                 <div class="flex h-full w-full overflow-hidden">
-                  <template x-for="(speaker, index) in meetup.lineup" :key="index">
+                  <template
+                    x-for="(speaker, index) in meetup.lineup"
+                    :key="index"
+                  >
                     <div
                       :class="{'w-[45%]': index === selectedSpeakerIndex, 'w-[27.5%]': index !== selectedSpeakerIndex}"
                       class="h-full overflow-hidden"
@@ -229,18 +319,34 @@
                   </template>
                 </div>
               </div>
-              <div class="hidden h-full w-[40%] flex-col pl-[3%] pt-[70px] lg:flex">
-                <div class="w-[111px] rounded-md bg-violet-700 text-center text-base text-white">
+              <div
+                class="hidden h-full w-[40%] flex-col pl-[3%] pt-[70px] lg:flex"
+              >
+                <div
+                  class="w-[111px] rounded-md bg-violet-700 text-center text-base text-white"
+                >
                   Prelegenci
                 </div>
                 <div class="pt-6 font-bold">
-                  <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].name"></div>
-                  <div class="text-4xl" x-text="meetup.lineup[selectedSpeakerIndex].surname"></div>
+                  <div
+                    class="text-4xl"
+                    x-text="meetup.lineup[selectedSpeakerIndex].name"
+                  ></div>
+                  <div
+                    class="text-4xl"
+                    x-text="meetup.lineup[selectedSpeakerIndex].surname"
+                  ></div>
                 </div>
                 <div class="pt-4 text-base text-gray-300">
-                  <template x-for="company in meetup.lineup[selectedSpeakerIndex].companies">
+                  <template
+                    x-for="company in meetup.lineup[selectedSpeakerIndex].companies"
+                  >
                     <div class="font-bold text-violet-700">
-                      <a :href="company.url" target="_blank" x-text="company.name"></a>
+                      <a
+                        :href="company.url"
+                        target="_blank"
+                        x-text="company.name"
+                      ></a>
                     </div>
                   </template>
                 </div>
@@ -262,12 +368,18 @@
                     class="flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-[5px] bg-violet-700"
                     @click="selectNextSpeaker"
                   >
-                    <img src="./images/icons/arrow.svg" class="h-[20px] w-[24px]" alt="Strzałka" />
+                    <img
+                      src="./images/icons/arrow.svg"
+                      class="h-[20px] w-[24px]"
+                      alt="Strzałka"
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="pointer-events-none absolute right-0 -z-10 flex lg:hidden">
+            <div
+              class="pointer-events-none absolute right-0 -z-10 flex lg:hidden"
+            >
               <img
                 class="h-[1560px] w-[1800px]"
                 src="./images/gradient-mobile.svg"
@@ -291,7 +403,11 @@
                   <div class="px-14 pt-4 text-base">
                     <template x-for="company in speaker.companies">
                       <div class="font-bold text-violet-700">
-                        <a :href="company.url" target="_blank" x-text="company.name"></a>
+                        <a
+                          :href="company.url"
+                          target="_blank"
+                          x-text="company.name"
+                        ></a>
                       </div>
                     </template>
                   </div>
@@ -307,11 +423,17 @@
     </section>
     <section class="relative mt-20 lg:mb-0 lg:mt-32">
       <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img class="h-[1560px] w-[1800px]" src="./images/gradient-green.svg" alt="Gradient" />
+        <img
+          class="h-[1560px] w-[1800px]"
+          src="./images/gradient-green.svg"
+          alt="Gradient"
+        />
       </div>
       <div class="relative mx-auto max-w-screen-2xl flex-col text-white">
         <div class="flex flex-col" id="agenda">
-          <div class="ml-4 flex flex-col gap-3 text-left lg:ml-4 lg:w-full lg:gap-6">
+          <div
+            class="ml-4 flex flex-col gap-3 text-left lg:ml-4 lg:w-full lg:gap-6"
+          >
             <div class="text-5xl font-bold">Agenda</div>
             <div class="text-md w-3/4 lg:w-full lg:text-base">
               Każda prezentacja trwa 30 min + 15 min sesja Q&A
@@ -325,7 +447,10 @@
                 <template x-for="(lecture, index) in meetup.agenda">
                   <div class="flex flex-col">
                     <div class="flex items-center py-8">
-                      <div class="w-[100px] text-4xl font-bold" x-text="lecture.start"></div>
+                      <div
+                        class="w-[100px] text-4xl font-bold"
+                        x-text="lecture.start"
+                      ></div>
                       <div class="flex flex-col gap-2">
                         <div class="px-8" x-text="lecture.title"></div>
                         <div
@@ -334,7 +459,9 @@
                           x-text="lecture.speaker"
                         ></div>
                       </div>
-                      <template x-if="lecture.description && lecture.expanded === false">
+                      <template
+                        x-if="lecture.description && lecture.expanded === false"
+                      >
                         <div
                           class="flex flex-grow cursor-pointer justify-end"
                           @click="lecture.expanded = true"
@@ -355,7 +482,9 @@
                           </svg>
                         </div>
                       </template>
-                      <template x-if="lecture.description && lecture.expanded === true">
+                      <template
+                        x-if="lecture.description && lecture.expanded === true"
+                      >
                         <div
                           class="flex flex-grow cursor-pointer justify-end"
                           @click="lecture.expanded = false"
@@ -377,7 +506,9 @@
                         </div>
                       </template>
                     </div>
-                    <template x-if="lecture.description && lecture.expanded === true">
+                    <template
+                      x-if="lecture.description && lecture.expanded === true"
+                    >
                       <div class="-mt-12 flex items-center py-8">
                         <p x-text="lecture.description"></p>
                       </div>
@@ -392,12 +523,18 @@
     </section>
     <section>
       <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img class="h-[1560px] w-[1800px]" src="./images/gradient-green.svg" alt="Gradient" />
+        <img
+          class="h-[1560px] w-[1800px]"
+          src="./images/gradient-green.svg"
+          alt="Gradient"
+        />
       </div>
       <div
         class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40"
       >
-        <div class="text-[28px] text-white xs:text-[34px] lg:text-6xl">Zainteresowany?</div>
+        <div class="text-[28px] text-white xs:text-[34px] lg:text-6xl">
+          Zainteresowany?
+        </div>
         <div class="px-6 pt-3 text-xl text-green-500 lg:text-4xl">
           Dołącz do naszej grupy i bądź na bieżąco!
         </div>
@@ -504,7 +641,9 @@
     </section>
     <section class="relative mt-10 lg:mt-[400px]">
       <div class="bg-white px-2 py-4 xs:px-4 lg:mt-[74px] lg:p-8">
-        <div class="relative z-20 mx-auto flex max-w-7xl items-center opacity-50">
+        <div
+          class="relative z-20 mx-auto flex max-w-7xl items-center opacity-50"
+        >
           <div class="flex-grow text-xs lg:text-base">
             2024 legnicki meetup technologiczny powered by
             <a
@@ -528,7 +667,11 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
                 <g id="SVGRepo_iconCarrier">
                   <path
                     d="M4.0744 2.9938C4.13263 1.96371 4.37869 1.51577 5.08432 1.15606C5.84357 0.768899 7.04106 0.949072 8.45014 1.66261C9.05706 1.97009 9.11886 1.97635 10.1825 1.83998C11.5963 1.65865 13.4164 1.65929 14.7213 1.84164C15.7081 1.97954 15.7729 1.97265 16.3813 1.66453C18.3814 0.651679 19.9605 0.71795 20.5323 1.8387C20.8177 2.39812 20.8707 3.84971 20.6494 5.04695C20.5267 5.71069 20.5397 5.79356 20.8353 6.22912C22.915 9.29385 21.4165 14.2616 17.8528 16.1155C17.5801 16.2574 17.3503 16.3452 17.163 16.4167C16.5879 16.6363 16.4133 16.703 16.6247 17.7138C16.7265 18.2 16.8491 19.4088 16.8973 20.4002C16.9844 22.1922 16.9831 22.2047 16.6688 22.5703C16.241 23.0676 15.6244 23.076 15.2066 22.5902C14.9341 22.2734 14.9075 22.1238 14.9075 20.9015C14.9075 19.0952 14.7095 17.8946 14.2417 16.8658C13.6854 15.6415 14.0978 15.185 15.37 14.9114C17.1383 14.531 18.5194 13.4397 19.2892 11.8146C20.0211 10.2698 20.1314 8.13501 18.8082 6.83668C18.4319 6.3895 18.4057 5.98446 18.6744 4.76309C18.7748 4.3066 18.859 3.71768 18.8615 3.45425C18.8653 3.03823 18.8274 2.97541 18.5719 2.97541C18.4102 2.97541 17.7924 3.21062 17.1992 3.49805L16.2524 3.95695C16.1663 3.99866 16.07 4.0147 15.975 4.0038C13.5675 3.72746 11.2799 3.72319 8.86062 4.00488C8.76526 4.01598 8.66853 3.99994 8.58215 3.95802L7.63585 3.49882C7.04259 3.21087 6.42482 2.97541 6.26317 2.97541C5.88941 2.97541 5.88379 3.25135 6.22447 4.89078C6.43258 5.89203 6.57262 6.11513 5.97101 6.91572C5.06925 8.11576 4.844 9.60592 5.32757 11.1716C5.93704 13.1446 7.4295 14.4775 9.52773 14.9222C10.7926 15.1903 11.1232 15.5401 10.6402 16.9905C10.26 18.1319 10.0196 18.4261 9.46707 18.4261C8.72365 18.4261 8.25796 17.7821 8.51424 17.1082C8.62712 16.8112 8.59354 16.7795 7.89711 16.5255C5.77117 15.7504 4.14514 14.0131 3.40172 11.7223C2.82711 9.95184 3.07994 7.64739 4.00175 6.25453C4.31561 5.78028 4.32047 5.74006 4.174 4.83217C4.09113 4.31822 4.04631 3.49103 4.0744 2.9938Z"
@@ -553,7 +696,11 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
                 <g id="SVGRepo_iconCarrier">
                   <path
                     fill-rule="evenodd"
@@ -576,7 +723,11 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
                 <g id="SVGRepo_iconCarrier">
                   <path
                     d="M6.5 8C7.32843 8 8 7.32843 8 6.5C8 5.67157 7.32843 5 6.5 5C5.67157 5 5 5.67157 5 6.5C5 7.32843 5.67157 8 6.5 8Z"

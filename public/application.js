@@ -25,14 +25,19 @@ function initialize() {
       this.setupKeyboardListeners()
     },
     fetchData: async function () {
-      const meetupsResponse = await fetch('./assets/meetups.json?timestamp=' + Date.now())
+      const meetupsResponse = await fetch(
+        './assets/meetups.json?timestamp=' + Date.now()
+      )
       const meetupsData = await meetupsResponse.json()
       this.meetups = await Promise.all(
         meetupsData.map(async (meetupUrl) => {
           const response = await fetch(meetupUrl + '?timestamp=' + Date.now())
           const meetupData = await response.json()
 
-          const meetupFolder = meetupUrl.substring(0, meetupUrl.lastIndexOf('/'))
+          const meetupFolder = meetupUrl.substring(
+            0,
+            meetupUrl.lastIndexOf('/')
+          )
           const meetupId = meetupFolder.split('/').pop()
           meetupData.id = meetupId
           meetupData.lineup = meetupData.lineup.map((speaker) => ({
@@ -48,7 +53,10 @@ function initialize() {
             logoUrl: `${meetupFolder}/images/partners/${partner.logoUrl}`,
           }))
 
-          meetupData.gallery = await this.loadGalleryImages(meetupId, meetupFolder)
+          meetupData.gallery = await this.loadGalleryImages(
+            meetupId,
+            meetupFolder
+          )
 
           return meetupData
         })
@@ -65,13 +73,17 @@ function initialize() {
       }
     },
     loadUpcomingMeetup: function () {
-      const upcomingMeetup = this.meetups.find((meetup) => new Date(meetup.datetime) > new Date())
+      const upcomingMeetup = this.meetups.find(
+        (meetup) => new Date(meetup.datetime) > new Date()
+      )
       if (upcomingMeetup) {
         this.processMeetup(upcomingMeetup)
       }
     },
     loadSpecificMeetup: function (meetupId) {
-      const specificMeetup = this.meetups.find((meetup) => meetup.id === meetupId)
+      const specificMeetup = this.meetups.find(
+        (meetup) => meetup.id === meetupId
+      )
       if (specificMeetup) {
         this.processMeetup(specificMeetup)
       } else {
@@ -99,7 +111,9 @@ function initialize() {
     },
     loadGalleryImages: async function (meetupId, meetupFolder) {
       try {
-        const galleryResponse = await fetch(`./gallery.php?meetupId=${meetupId}`)
+        const galleryResponse = await fetch(
+          `./gallery.php?meetupId=${meetupId}`
+        )
         if (!galleryResponse.ok) {
           return []
         }
@@ -139,10 +153,19 @@ function initialize() {
         const diff = moment(this.meetup.datetime).diff(now)
         this.active = diff > 0
 
-        this.counters.days = String(Math.floor(moment.duration(diff).asDays())).padStart(2, '0')
-        this.counters.hours = String(moment.duration(diff).hours()).padStart(2, '0')
-        this.counters.minutes = String(moment.duration(diff).minutes()).padStart(2, '0')
-        this.counters.seconds = String(moment.duration(diff).seconds()).padStart(2, '0')
+        this.counters.days = String(
+          Math.floor(moment.duration(diff).asDays())
+        ).padStart(2, '0')
+        this.counters.hours = String(moment.duration(diff).hours()).padStart(
+          2,
+          '0'
+        )
+        this.counters.minutes = String(
+          moment.duration(diff).minutes()
+        ).padStart(2, '0')
+        this.counters.seconds = String(
+          moment.duration(diff).seconds()
+        ).padStart(2, '0')
       }
     },
     initializeSpeakers: function () {
@@ -153,12 +176,14 @@ function initialize() {
     selectPreviousSpeaker: function () {
       if (this.meetup && this.meetup.lineup) {
         this.selectedSpeakerIndex =
-          (this.selectedSpeakerIndex - 1 + this.meetup.lineup.length) % this.meetup.lineup.length
+          (this.selectedSpeakerIndex - 1 + this.meetup.lineup.length) %
+          this.meetup.lineup.length
       }
     },
     selectNextSpeaker: function () {
       if (this.meetup && this.meetup.lineup) {
-        this.selectedSpeakerIndex = (this.selectedSpeakerIndex + 1) % this.meetup.lineup.length
+        this.selectedSpeakerIndex =
+          (this.selectedSpeakerIndex + 1) % this.meetup.lineup.length
       }
     },
     openLightbox(imageIndex) {
@@ -172,7 +197,8 @@ function initialize() {
       if (this.meetup && this.meetup.gallery) {
         const galleryLength = this.meetup.gallery.length
         this.lightbox.currentImageIndex =
-          (this.lightbox.currentImageIndex + direction + galleryLength) % galleryLength
+          (this.lightbox.currentImageIndex + direction + galleryLength) %
+          galleryLength
       }
     },
     setupKeyboardListeners() {
