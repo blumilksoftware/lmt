@@ -124,6 +124,11 @@
                 >Agenda</a
               >
               <a
+                href="#pastMeetups"
+                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                >Poprzednie edycje</a
+              >
+              <a
                 href="#register"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Rejestracja</a
@@ -170,6 +175,11 @@
                       href="#agenda"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Agenda</a
+                    >
+                    <a
+                      href="#pastMeetups"
+                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                      >Poprzednie edycje</a
                     >
                     <a
                       href="#register"
@@ -744,6 +754,7 @@
       x-data="{ selectedImage: null, navigateToPastMeetup(meetupId) {
     window.location.href = `pastMeetup.html?meetupId=${meetupId}`;
   }}"
+      id="pastMeetups"
     >
       <template x-if="pastMeetups.length > 0">
         <div class="relative max-w-screen-2xl flex-col text-white lg:mx-auto">
