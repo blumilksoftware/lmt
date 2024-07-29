@@ -1,0 +1,69 @@
+{
+  "title": "II legnicki meetup technologiczny",
+  "datetime": "2024-09-12 18:00:00",
+  "place": "Browar Książęcy",
+  "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
+  "lineup": [
+    {
+      "name": "Pierwszy",
+      "surname": "Prelegent",
+      "role": "programista",
+      "companies": [],
+      "avatarUrl": "no-photo-man.png",
+      "about": "TBA"
+    },
+    {
+      "name": "Drugi",
+      "surname": "Prelegent",
+      "role": "programista",
+      "companies": [],
+      "avatarUrl": "no-photo-woman.png",
+      "about": "TBA"
+    },
+    {
+      "name": "Trzeci",
+      "surname": "Prelegent",
+      "role": "programista",
+      "companies": [],
+      "avatarUrl": "no-photo-man.png",
+      "about": "TBA"
+    }
+  ],
+  "agenda": [
+    {
+      "start": "18:00",
+      "title": "Krótka opowieść o LMT i przywitanie gości"
+    },
+    {
+      "start": "18:15",
+      "title": "Pierwsza prezentacja",
+      "speaker": "Pierwszy Prelegent",
+      "description": "TBA"
+    },
+    {
+      "start": "19:00",
+      "title": "Druga prezentacja",
+      "speaker": "Drugi Prelegent",
+      "description": "TBA"
+    },
+    {
+      "start": "19:45",
+      "title": "Przerwa"
+    },
+    {
+      "start": "20:00",
+      "title": "Trzecia prezentacja",
+      "speaker": "Trzeci Prelegent",
+      "description": "TBA"
+    },
+    {
+      "start": "20:45",
+      "title": "Networking"
+    }
+  ],
+  "sponsors": [
+  ],
+  "partners": [
+  ],
+  "gallery": []
+}
