@@ -23,7 +23,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
-    <title>Legnicki meetup technologiczny</title>
+    <title>Legnicki Meetup Technologiczny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,7 +50,7 @@
                     <img
                       class="h-10 w-auto pl-3"
                       src="./images/logo.png"
-                      alt="Legnicki meetup technologiczny"
+                      alt="Legnicki Meetup Technologiczny"
                     />
                   </a>
                 </div>
@@ -132,7 +132,7 @@
                     <img
                       class="h-12"
                       src="./images/logo.png"
-                      alt="Legnicki meetup technologiczny"
+                      alt="Legnicki Meetup Technologiczny"
                     />
                   </a>
                 </div>
@@ -554,9 +554,12 @@
           >
             <div class="flex-col">
               <h2 class="text-5xl font-bold">Galeria</h2>
-              <p class="pt-4 text-base text-neutral-200">
-                Autorzy zdjęć: Piotr Kowalski, Jolanta Druga
-              </p>
+
+              <div class="pt-4 text-base text-neutral-200">
+                Autorzy zdjęć:
+                <span x-text="meetup.photographers">
+                </span>
+              </div>
             </div>
             <div class="hidden flex-row justify-end gap-10 lg:flex">
               <img src="./images/o.svg" alt="Kółko" class="size-7" />
@@ -645,7 +648,7 @@
           class="relative z-20 mx-auto flex max-w-7xl items-center opacity-50"
         >
           <div class="flex-grow text-xs lg:text-base">
-            2024 legnicki meetup technologiczny powered by
+            2024 Legnicki Meetup Technologiczny powered by
             <a
               href="https://blumilk.pl/"
               class="font-bold"
