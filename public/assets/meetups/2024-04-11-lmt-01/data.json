@@ -1,5 +1,5 @@
 {
-  "title": "I legnicki meetup technologiczny",
+  "title": "Legnicki Meetup Technologiczny #1",
   "datetime": "2024-04-11 18:00:00",
   "place": "Legnicki Browar Książęcy",
   "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
@@ -94,5 +94,6 @@
       "logoUrl": "softiq.png"
     }
   ],
+  "photographers": "Paweł Dancewicz",
   "gallery": []
 }

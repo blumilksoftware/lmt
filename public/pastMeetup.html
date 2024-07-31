@@ -554,9 +554,12 @@
           >
             <div class="flex-col">
               <h2 class="text-5xl font-bold">Galeria</h2>
-              <p class="pt-4 text-base text-neutral-200">
-                Autorzy zdjęć: Piotr Kowalski, Jolanta Druga
-              </p>
+
+              <div class="pt-4 text-base text-neutral-200">
+                Autorzy zdjęć:
+                <span x-text="meetup.photographers">
+                </span>
+              </div>
             </div>
             <div class="hidden flex-row justify-end gap-10 lg:flex">
               <img src="./images/o.svg" alt="Kółko" class="size-7" />
