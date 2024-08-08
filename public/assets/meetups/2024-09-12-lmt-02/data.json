@@ -5,12 +5,17 @@
   "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
   "lineup": [
     {
-      "name": "Pierwszy",
-      "surname": "Prelegent",
-      "role": "programista",
-      "companies": [],
-      "avatarUrl": "no-photo-man.png",
-      "about": "TBA"
+      "name": "Przemysław",
+      "surname": "Sokołowski",
+      "role": "software engineer i tech lead",
+      "companies": [
+        {
+          "name": "Synergy Codes",
+          "url": "https://www.synergycodes.com/"
+        }
+      ],
+      "avatarUrl": "przemyslaw-sokolowski.jpg",
+      "about": "Przemek to software engineer i tech lead w Synergy Codes. Na co dzień pracuje z różnorodnymi technologiami, takimi jak .NET, NestJS, Vue, Angular i React. Kluczowe dla niego jest dostosowanie technologii do konkretnego rozwiązania, ponieważ nie każde narzędzie pasuje do każdego przypadku. Przemek wierzy, że elastyczność w doborze technologii jest niezbędna do tworzenia efektywnych i skalowalnych rozwiązań. Po godzinach Przemek zajmuje się gamedevem, co pozwala mu na połączenie miłości do gier i programowania."
     },
     {
       "name": "Drugi",
@@ -36,8 +41,8 @@
     },
     {
       "start": "18:15",
-      "title": "Pierwsza prezentacja",
-      "speaker": "Pierwszy Prelegent",
+      "title": "HDD, czyli jak można zgubić się w projekcie",
+      "speaker": "Przemysław Sokołowski",
       "description": "TBA"
     },
     {
