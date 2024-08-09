@@ -5,12 +5,17 @@
   "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
   "lineup": [
     {
-      "name": "Pierwszy",
-      "surname": "Prelegent",
-      "role": "programista",
-      "companies": [],
-      "avatarUrl": "no-photo-man.png",
-      "about": "TBA"
+      "name": "Przemysław",
+      "surname": "Sokołowski",
+      "role": "software engineer i tech lead",
+      "companies": [
+        {
+          "name": "Synergy Codes",
+          "url": "https://www.synergycodes.com/"
+        }
+      ],
+      "avatarUrl": "przemyslaw-sokolowski.jpg",
+      "about": "Przemek to software engineer i tech lead w Synergy Codes. Na co dzień pracuje z różnorodnymi technologiami, takimi jak .NET, NestJS, Vue, Angular i React. Kluczowe dla niego jest dostosowanie technologii do konkretnego rozwiązania, ponieważ nie każde narzędzie pasuje do każdego przypadku. Przemek wierzy, że elastyczność w doborze technologii jest niezbędna do tworzenia efektywnych i skalowalnych rozwiązań."
     },
     {
       "name": "Drugi",
@@ -36,9 +41,9 @@
     },
     {
       "start": "18:15",
-      "title": "Pierwsza prezentacja",
-      "speaker": "Pierwszy Prelegent",
-      "description": "TBA"
+      "title": "HDD, czyli jak można zgubić się w projekcie",
+      "speaker": "Przemysław Sokołowski",
+      "description": "W mojej prezentacji przedstawię prawdziwe przykłady sytuacji, gdzie decyzje pod wpływem HDD prowadziły do tworzenia długu technologicznego i spadku jakości projektów. Zobaczymy, jak takie wybory wpływają na wydajność zespołu, stabilność systemu i długoterminowe utrzymanie kodu.\nDodatkowo, podzielę się praktycznymi wskazówkami, jak unikać pułapek HDD i podejmować bardziej świadome decyzje technologiczne. Pokażę, jak znaleźć równowagę między nowinkami a stabilnością, żeby tworzyć trwałe i efektywne rozwiązania."
     },
     {
       "start": "19:00",
