@@ -18,12 +18,17 @@
       "about": "Przemek to software engineer i tech lead w Synergy Codes. Na co dzień pracuje z różnorodnymi technologiami, takimi jak .NET, NestJS, Vue, Angular i React. Kluczowe dla niego jest dostosowanie technologii do konkretnego rozwiązania, ponieważ nie każde narzędzie pasuje do każdego przypadku. Przemek wierzy, że elastyczność w doborze technologii jest niezbędna do tworzenia efektywnych i skalowalnych rozwiązań."
     },
     {
-      "name": "Drugi",
-      "surname": "Prelegent",
-      "role": "programista",
-      "companies": [],
-      "avatarUrl": "no-photo-woman.png",
-      "about": "TBA"
+      "name": "Piotr",
+      "surname": "Dobrowolski",
+      "role": "lider zespołu .NET",
+      "companies": [
+        {
+          "name": "Softiq sp. z o.o.",
+          "url": "https://softiq.pl/"
+        }
+      ],
+      "avatarUrl": "piotr-dobrowolski.jpeg",
+      "about": "Dzięki dogłębnej wiedzy w zakresie technologii .NET oraz umiejętnościom zarządzania zespołem, Piotr potrafi skutecznie kierować projektami, dbając o terminowość i efektywność realizacji zadań. Jego zaangażowanie w rozwój zespołu i chęć dzielenia się wiedzą sprawiają, że jest cenionym mentorem, który inspiruje innych do osiągania coraz wyższych standardów w pracy."
     },
     {
       "name": "Trzeci",
@@ -47,9 +52,9 @@
     },
     {
       "start": "19:00",
-      "title": "Druga prezentacja",
-      "speaker": "Drugi Prelegent",
-      "description": "TBA"
+      "title": "Wprowadzenie do generatorów kodu źródłowego w C#",
+      "speaker": "Piotr Dobrowolski",
+      "description": "W swojej prezentacji opowiem o roli generatorów kodów w C#. Pokażę zaawansowane techniki i wzorce, które łatwo i przyjemnie zastosujecie w realnych projektach. Pokażę przykłady z rzeczywistych aplikacji, gdzie generatory kodu mogą przyspieszyć rozwój."
     },
     {
       "start": "19:45",
