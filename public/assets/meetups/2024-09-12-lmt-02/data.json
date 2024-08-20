@@ -31,12 +31,17 @@
       "about": "Dzięki dogłębnej wiedzy w zakresie technologii .NET oraz umiejętnościom zarządzania zespołem, Piotr potrafi skutecznie kierować projektami, dbając o terminowość i efektywność realizacji zadań. Jego zaangażowanie w rozwój zespołu i chęć dzielenia się wiedzą sprawiają, że jest cenionym mentorem, który inspiruje innych do osiągania coraz wyższych standardów w pracy."
     },
     {
-      "name": "Trzeci",
-      "surname": "Prelegent",
-      "role": "programista",
-      "companies": [],
-      "avatarUrl": "no-photo-man.png",
-      "about": "TBA"
+      "name": "Patryk",
+      "surname": "Mauer",
+      "role": "",
+      "companies": [
+        {
+        "name": "Blumilk sp. z o.o.",
+        "url": "https://www.blumilk.pl/"
+        }
+      ],
+      "avatarUrl": "patryk-mauer.jpg",
+      "about": "Doktorant na Politechnice Opolskiej w dyscyplinie Informatyka Techniczna i Telekomunikacja, współwłaściciel Epicentrum Art Gallery w Opolu oraz firmy informatycznej IT Goal sp. z o.o. Jego zainteresowania to automatyzacja i robotyzacja procesów biznesowych, w tym z wykorzystaniem uczenia maszynowego."
     }
   ],
   "agenda": [
@@ -62,9 +67,9 @@
     },
     {
       "start": "20:00",
-      "title": "Trzecia prezentacja",
-      "speaker": "Trzeci Prelegent",
-      "description": "TBA"
+      "title": "Przewidywanie wyników aukcyjnych dzieł sztuki",
+      "speaker": "Patryk Mauer",
+      "description": " Patryk w swojej prezentacji skupi się na omówieniu kluczowych cech i zmiennych, które najbardziej wpływają na trafność prognoz przyszłych wyników aukcyjnych oraz na przedstawieniu najskuteczniejszych modeli uczenia maszynowego stosowanych w tym kontekście. Wskaże również, jakie strategie można przyjąć, aby maksymalizować precyzję przewidywań. Dzięki zastosowaniu nowoczesnych technologii i podejść analitycznych, uczestnicy prezentacji zdobędą wiedzę niezbędną do lepszego zrozumienia mechanizmów rządzących rynkiem sztuki i podejmowania bardziej świadomych, data-driven decyzji."
     },
     {
       "start": "20:45",
