@@ -44,13 +44,17 @@ function initialize() {
             ...speaker,
             avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`,
           }))
-          meetupData.sponsors = meetupData.sponsors.map((sponsor) => ({
-            ...sponsor,
-            logoUrl: `${meetupFolder}/images/partners/${sponsor.logoUrl}`,
+          meetupData.patrons = meetupData.patrons.map((patron) => ({
+            ...patron,
+            logoUrl: `${meetupFolder}/images/partners/${patron.logoUrl}`,
           }))
           meetupData.partners = meetupData.partners.map((partner) => ({
             ...partner,
             logoUrl: `${meetupFolder}/images/partners/${partner.logoUrl}`,
+          }))
+          meetupData.sponsors = meetupData.sponsors.map((sponsor) => ({
+            ...sponsor,
+            logoUrl: `${meetupFolder}/images/partners/${sponsor.logoUrl}`,
           }))
 
           meetupData.gallery = await this.loadGalleryImages(

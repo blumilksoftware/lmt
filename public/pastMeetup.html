@@ -259,13 +259,38 @@
                   <p
                     class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
                   >
-                    Patronat
+                    Sponsor
                   </p>
                 </div>
                 <a :href="sponsor.website" target="_blank">
                   <img
                     :src="sponsor.logoUrl"
                     :alt="sponsor.name"
+                    class="h-[71px]"
+                  />
+                </a>
+                <div class="hidden justify-end pt-6 lg:flex">
+                  <p
+                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                  >
+                    Sponsor
+                  </p>
+                </div>
+              </div>
+            </template>
+            <template x-for="patron in meetup.patrons">
+              <div class="flex flex-col">
+                <div class="flex justify-start pb-5 lg:hidden">
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                  >
+                    Patronat
+                  </p>
+                </div>
+                <a :href="patron.website" target="_blank">
+                  <img
+                    :src="patron.logoUrl"
+                    :alt="patron.name"
                     class="h-[71px]"
                   />
                 </a>
@@ -557,8 +582,7 @@
 
               <div class="pt-4 text-base text-neutral-200">
                 Autorzy zdjęć:
-                <span x-text="meetup.photographers">
-                </span>
+                <span x-text="meetup.photographers"> </span>
               </div>
             </div>
             <div class="hidden flex-row justify-end gap-10 lg:flex">

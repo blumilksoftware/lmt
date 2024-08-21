@@ -465,13 +465,38 @@
                   <p
                     class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
                   >
-                    Patronat
+                    Sponsor
                   </p>
                 </div>
                 <a :href="sponsor.website" target="_blank">
                   <img
                     :src="sponsor.logoUrl"
                     :alt="sponsor.name"
+                    class="h-[71px]"
+                  />
+                </a>
+                <div class="hidden justify-end pt-6 lg:flex">
+                  <p
+                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                  >
+                    Sponsor
+                  </p>
+                </div>
+              </div>
+            </template>
+            <template x-for="patron in meetup.patrons">
+              <div class="flex flex-col">
+                <div class="flex justify-start pb-5 lg:hidden">
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                  >
+                    Patronat
+                  </p>
+                </div>
+                <a :href="patron.website" target="_blank">
+                  <img
+                    :src="patron.logoUrl"
+                    :alt="patron.name"
                     class="h-[71px]"
                   />
                 </a>
@@ -777,11 +802,11 @@
                   @click="navigateToPastMeetup(meetup.id)"
                 >
                   <div
-                    class="text-2xl font-bold lg:text-4xl text-green-500"
+                    class="text-2xl font-bold text-green-500 lg:text-4xl"
                     x-text="meetup.formattedDate"
                   ></div>
                   <div
-                    class="pl-4 text-base lg:px-8 font-bold"
+                    class="pl-4 text-base font-bold lg:px-8"
                     x-text="meetup.title"
                   ></div>
                   <div class="flex flex-grow justify-end pr-4">
