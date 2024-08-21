@@ -36,8 +36,8 @@
       "role": "",
       "companies": [
         {
-        "name": "Blumilk sp. z o.o.",
-        "url": "https://www.blumilk.pl/"
+          "name": "Blumilk sp. z o.o.",
+          "url": "https://www.blumilk.pl/"
         }
       ],
       "avatarUrl": "patryk-mauer.jpg",
@@ -76,7 +76,26 @@
       "title": "Networking"
     }
   ],
-  "sponsors": [],
-  "partners": [],
+  "patrons": [
+    {
+      "name": "Collegium Witelona Uczelnia Państwowa",
+      "website": "https://collegiumwitelona.pl/",
+      "logoUrl": "cwup.png"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Synergy Codes",
+      "url": "https://www.synergycodes.com/",
+      "logoUrl": "synergy-codes.png"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Softiq",
+      "website": "https://softiq.pl/",
+      "logoUrl": "softiq.png"
+    }
+  ],
   "gallery": []
 }

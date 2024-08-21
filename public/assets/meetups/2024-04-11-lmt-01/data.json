@@ -80,7 +80,7 @@
       "title": "Networking"
     }
   ],
-  "sponsors": [
+  "patrons": [
     {
       "name": "Collegium Witelona Uczelnia Państwowa",
       "website": "https://collegiumwitelona.pl/",
@@ -94,6 +94,7 @@
       "logoUrl": "softiq.png"
     }
   ],
+  "sponsors": [],
   "photographers": "Paweł Dancewicz",
   "gallery": []
 }
