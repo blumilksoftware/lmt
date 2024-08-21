@@ -220,7 +220,7 @@
                   class="h-[71px]"
                 />
               </a>
-              <div class="hidden justify-end pt-6 lg:flex">
+              <div class="hidden justify-center pt-6 lg:flex">
                 <p
                   class="w-[111px] rounded-md bg-slate-900 text-center text-white"
                 >
@@ -228,27 +228,27 @@
                 </p>
               </div>
             </div>
-            <template x-for="partner in meetup.partners">
+            <template x-for="patron in meetup.patrons">
               <div class="flex flex-col">
                 <div class="flex justify-start pb-5 lg:hidden">
                   <p
                     class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
                   >
-                    Partner
+                    Patronat
                   </p>
                 </div>
-                <a :href="partner.website" target="_blank">
+                <a :href="patron.website" target="_blank">
                   <img
-                    :src="partner.logoUrl"
-                    :alt="partner.name "
+                    :src="patron.logoUrl"
+                    :alt="patron.name"
                     class="h-[71px]"
                   />
                 </a>
-                <div class="hidden justify-end pt-6 lg:flex">
+                <div class="hidden justify-center pt-6 lg:flex">
                   <p
                     class="w-[111px] rounded-md bg-slate-900 text-center text-white"
                   >
-                    Partner
+                    Patronat
                   </p>
                 </div>
               </div>
@@ -269,7 +269,7 @@
                     class="h-[71px]"
                   />
                 </a>
-                <div class="hidden justify-end pt-6 lg:flex">
+                <div class="hidden justify-center pt-6 lg:flex">
                   <p
                     class="w-[111px] rounded-md bg-slate-900 text-center text-white"
                   >
@@ -278,27 +278,27 @@
                 </div>
               </div>
             </template>
-            <template x-for="patron in meetup.patrons">
+            <template x-for="partner in meetup.partners">
               <div class="flex flex-col">
                 <div class="flex justify-start pb-5 lg:hidden">
                   <p
                     class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
                   >
-                    Patronat
+                    Partner
                   </p>
                 </div>
-                <a :href="patron.website" target="_blank">
+                <a :href="partner.website" target="_blank">
                   <img
-                    :src="patron.logoUrl"
-                    :alt="patron.name"
+                    :src="partner.logoUrl"
+                    :alt="partner.name "
                     class="h-[71px]"
                   />
                 </a>
-                <div class="hidden justify-end pt-6 lg:flex">
+                <div class="hidden justify-center pt-6 lg:flex">
                   <p
                     class="w-[111px] rounded-md bg-slate-900 text-center text-white"
                   >
-                    Patronat
+                    Partner
                   </p>
                 </div>
               </div>
