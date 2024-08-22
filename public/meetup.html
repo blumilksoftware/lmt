@@ -543,7 +543,7 @@
                     :key="index"
                   >
                     <div
-                      :class="{'w-[45%]': index === selectedSpeakerIndex, 'w-[27.5%]': index !== selectedSpeakerIndex}"
+                      :class="{'w-[45%] order-last': index === selectedSpeakerIndex, 'w-[27.5%]': index !== selectedSpeakerIndex}"
                       class="h-full overflow-hidden"
                     >
                       <img
