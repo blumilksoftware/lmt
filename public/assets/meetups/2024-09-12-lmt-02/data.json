@@ -52,13 +52,13 @@
     {
       "start": "18:15",
       "title": "HDD, czyli jak można zgubić się w projekcie",
-      "speaker": "Przemysław Sokołowski",
+      "speaker": "Przemysław Sokołowski, Synergy Codes",
       "description": "W mojej prezentacji przedstawię prawdziwe przykłady sytuacji, gdzie decyzje pod wpływem HDD prowadziły do tworzenia długu technologicznego i spadku jakości projektów. Zobaczymy, jak takie wybory wpływają na wydajność zespołu, stabilność systemu i długoterminowe utrzymanie kodu.\nDodatkowo, podzielę się praktycznymi wskazówkami, jak unikać pułapek HDD i podejmować bardziej świadome decyzje technologiczne. Pokażę, jak znaleźć równowagę między nowinkami a stabilnością, żeby tworzyć trwałe i efektywne rozwiązania."
     },
     {
       "start": "19:00",
       "title": "Wprowadzenie do generatorów kodu źródłowego w C#",
-      "speaker": "Piotr Dobrowolski",
+      "speaker": "Piotr Dobrowolski, SOFTIQ",
       "description": "W swojej prezentacji opowiem o roli generatorów kodów w C#. Pokażę zaawansowane techniki i wzorce, które łatwo i przyjemnie zastosujecie w realnych projektach. Pokażę przykłady z rzeczywistych aplikacji, gdzie generatory kodu mogą przyspieszyć rozwój."
     },
     {
@@ -68,7 +68,7 @@
     {
       "start": "20:00",
       "title": "Przewidywanie wyników aukcyjnych dzieł sztuki",
-      "speaker": "Patryk Mauer",
+      "speaker": "Patryk Mauer, Blumilk",
       "description": " Patryk w swojej prezentacji skupi się na omówieniu kluczowych cech i zmiennych, które najbardziej wpływają na trafność prognoz przyszłych wyników aukcyjnych oraz na przedstawieniu najskuteczniejszych modeli uczenia maszynowego stosowanych w tym kontekście. Wskaże również, jakie strategie można przyjąć, aby maksymalizować precyzję przewidywań. Dzięki zastosowaniu nowoczesnych technologii i podejść analitycznych, uczestnicy prezentacji zdobędą wiedzę niezbędną do lepszego zrozumienia mechanizmów rządzących rynkiem sztuki i podejmowania bardziej świadomych, data-driven decyzji."
     },
     {
