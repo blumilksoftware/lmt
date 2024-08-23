@@ -407,109 +407,117 @@
     <section>
       <template x-if="meetup">
         <div
-          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[330px] lg:bg-[#6C1DF2] lg:py-0"
+          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[400px] lg:bg-[#6C1DF2] lg:py-0"
           id="partners"
         >
-          <div class="flex flex-col items-center gap-16 lg:flex-row">
-            <div class="flex flex-col">
-              <div class="flex justify-start pb-5 pl-2 lg:hidden">
-                <p
-                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
-                >
-                  Organizator
-                </p>
-              </div>
-              <a href="https://blumilk.pl/" target="_blank">
-                <img
-                  src="./images/blumilk-white.png"
-                  alt="Blumilk sp. z o.o."
-                  class="h-[71px]"
-                />
-              </a>
-              <div class="hidden justify-center pt-6 lg:flex">
-                <p
-                  class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                >
-                  Organizator
-                </p>
+          <div
+            class="lg:gab-y-0 flex flex-col items-center lg:grid lg:grid-cols-1 lg:gap-8"
+          >
+            <div class="col-span-4">
+              <div class="flex flex-col">
+                <div class="flex justify-start pb-5 pl-2 lg:hidden">
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                  >
+                    Organizator
+                  </p>
+                </div>
+                <a href="https://blumilk.pl/" target="_blank">
+                  <img
+                    src="./images/blumilk-white.png"
+                    alt="Blumilk sp. z o.o."
+                    class="m-auto h-[71px]"
+                  />
+                </a>
+                <div class="hidden justify-center pt-6 lg:flex">
+                  <p
+                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                  >
+                    Organizator
+                  </p>
+                </div>
               </div>
             </div>
 
-            <template x-for="patron in meetup.patrons">
-              <div class="flex flex-col">
-                <div class="flex justify-start pb-5 lg:hidden">
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
-                  >
-                    Patronat
-                  </p>
+            <div
+              class="lg:gab-y-0 lg:col-span-4 lg:grid lg:grid-cols-subgrid lg:gap-16"
+            >
+              <template x-for="patron in meetup.patrons">
+                <div class="mt-10 flex flex-col lg:mt-0">
+                  <div class="flex justify-start pb-5 lg:hidden">
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    >
+                      Patronat
+                    </p>
+                  </div>
+                  <a :href="patron.website" target="_blank">
+                    <img
+                      :src="patron.logoUrl"
+                      :alt="patron.name"
+                      class="h-[71px]"
+                    />
+                  </a>
+                  <div class="hidden justify-center pt-6 lg:flex">
+                    <p
+                      class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                    >
+                      Patronat
+                    </p>
+                  </div>
                 </div>
-                <a :href="patron.website" target="_blank">
-                  <img
-                    :src="patron.logoUrl"
-                    :alt="patron.name"
-                    class="h-[71px]"
-                  />
-                </a>
-                <div class="hidden justify-center pt-6 lg:flex">
-                  <p
-                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                  >
-                    Patronat
-                  </p>
+              </template>
+              <template x-for="sponsor in meetup.sponsors">
+                <div class="mt-10 flex flex-col lg:mt-0">
+                  <div class="flex justify-start pb-5 lg:hidden">
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    >
+                      Sponsor
+                    </p>
+                  </div>
+                  <a :href="sponsor.website" target="_blank">
+                    <img
+                      :src="sponsor.logoUrl"
+                      :alt="sponsor.name"
+                      class="h-[71px]"
+                    />
+                  </a>
+                  <div class="hidden justify-center pt-6 lg:flex">
+                    <p
+                      class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                    >
+                      Sponsor
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </template>
-            <template x-for="sponsor in meetup.sponsors">
-              <div class="flex flex-col">
-                <div class="flex justify-start pb-5 lg:hidden">
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
-                  >
-                    Sponsor
-                  </p>
+              </template>
+              <template x-for="partner in meetup.partners">
+                <div class="mt-10 flex flex-col lg:mt-0">
+                  <div class="flex justify-start pb-5 lg:hidden">
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    >
+                      Partner
+                    </p>
+                  </div>
+                  <a :href="partner.website" target="_blank">
+                    <img
+                      :src="partner.logoUrl"
+                      :alt="partner.name"
+                      class="h-[71px]"
+                    />
+                  </a>
+                  <div class="hidden justify-center pt-6 lg:flex">
+                    <p
+                      class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                    >
+                      Partner
+                    </p>
+                  </div>
                 </div>
-                <a :href="sponsor.website" target="_blank">
-                  <img
-                    :src="sponsor.logoUrl"
-                    :alt="sponsor.name"
-                    class="h-[71px]"
-                  />
-                </a>
-                <div class="hidden justify-center pt-6 lg:flex">
-                  <p
-                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                  >
-                    Sponsor
-                  </p>
-                </div>
-              </div>
-            </template>
-            <template x-for="partner in meetup.partners">
-              <div class="flex flex-col">
-                <div class="flex justify-start pb-5 lg:hidden">
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
-                  >
-                    Partner
-                  </p>
-                </div>
-                <a :href="partner.website" target="_blank">
-                  <img
-                    :src="partner.logoUrl"
-                    :alt="partner.name"
-                    class="h-[71px]"
-                  />
-                </a>
-                <div class="hidden justify-center pt-6 lg:flex">
-                  <p
-                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                  >
-                    Partner
-                  </p>
-                </div>
-              </div>
-            </template>
+              </template>
+            </div>
           </div>
         </div>
       </template>
