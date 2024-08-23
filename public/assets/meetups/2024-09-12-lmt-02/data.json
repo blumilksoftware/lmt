@@ -81,6 +81,11 @@
       "name": "Collegium Witelona Uczelnia Państwowa",
       "website": "https://collegiumwitelona.pl/",
       "logoUrl": "cwup.png"
+    },
+    {
+      "name": "Legnicka Specjalna Strefa Ekonomiczna S.A.",
+      "website": "https://lsse.eu/",
+      "logoUrl": "lsse.png"
     }
   ],
   "partners": [
