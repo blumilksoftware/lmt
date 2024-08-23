@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./public/meetup.html', './public/pastMeetup.html'],
+  content: ['./public/index.html', './public/meetup.html'],
   theme: {
     extend: {
       screens: {
