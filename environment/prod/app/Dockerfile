@@ -1,5 +1,5 @@
 ### PHP DEPENDENCIES ###
-FROM composer:2.7.2 as vendor
+FROM composer:2.7.2 AS vendor
 
 WORKDIR /app_composer_dependencies
 
@@ -13,7 +13,7 @@ RUN composer install \
     --ignore-platform-reqs
 
 ### FRONTEND ###
-FROM node:21.7.1-bookworm-slim as frontend
+FROM node:21.7.1-bookworm-slim AS frontend
 
 WORKDIR /app_frontend_dependencies
 
@@ -27,7 +27,7 @@ COPY ./public/pastMeetup.html ./public/pastMeetup.html
 RUN npx tailwindcss -i ./styles.css -o ./public/output.css
 
 ### APPLICATION ###
-FROM php:8.3.3-fpm-bookworm as app
+FROM php:8.3.3-fpm-bookworm AS app
 
 COPY --from=vendor /usr/bin/composer /usr/local/bin/composer
 
