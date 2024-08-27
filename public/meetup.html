@@ -16,27 +16,20 @@
       content="https://meetup.legnica.pl/images/fb_image.jpg"
     />
     <meta property="og:url" content="https://meetup.legnica.pl/" />
-
     <meta
       property="”description”"
-      content="Otwarte spotkanie dla programistów, specjalistów IT, przedsiębiorców,
-    badaczy, studentów i wszystkich, którzy chcą poszerzyć swoje horyzonty w dziedzinie programowania, technologii i
-    designu."
+      content="Otwarte spotkanie dla programistów, specjalistów IT, przedsiębiorców, badaczy, studentów i wszystkich, którzy chcą poszerzyć swoje horyzonty w dziedzinie programowania, technologii i designu."
     />
-
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
     <title>Legnicki Meetup Technologiczny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
-
     <link href="output.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
@@ -46,7 +39,7 @@
     x-data="initialize()"
     x-init="start()"
   >
-    <section class="w-full">
+    <section class="relative w-full">
       <div x-data="{ open: false }">
         <nav class="bg-transparent xl:hidden">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -94,7 +87,6 @@
               </div>
             </div>
           </div>
-
           <div
             :class="{ 'block': open, 'hidden': !open }"
             class="mt-5 xl:hidden"
@@ -124,19 +116,13 @@
                 >Agenda</a
               >
               <a
-                href="#pastMeetups"
+                href="#gallery"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                >Poprzednie edycje</a
-              >
-              <a
-                href="#register"
-                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                >Rejestracja</a
+                >Galeria</a
               >
             </div>
           </div>
         </nav>
-
         <nav class="hidden text-white xl:block">
           <div class="mx-auto max-w-screen-2xl px-2 lg:px-12 xl:px-6">
             <div class="flex h-32 items-center justify-between">
@@ -177,14 +163,9 @@
                       >Agenda</a
                     >
                     <a
-                      href="#pastMeetups"
+                      href="#gallery"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                      >Poprzednie edycje</a
-                    >
-                    <a
-                      href="#register"
-                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                      >Rejestracja</a
+                      >Galeria</a
                     >
                   </div>
                 </div>
@@ -194,217 +175,30 @@
         </nav>
       </div>
     </section>
-    <section class="w-full">
+    <section class="z-10 w-full">
       <div
-        class="relative mx-auto flex max-w-7xl flex-col items-start px-4 pt-[74px] text-white md:pt-36 lg:px-8"
+        class="relative mx-auto mt-40 flex max-w-7xl items-start px-4 text-white lg:px-8"
       >
         <div
-          class="absolute right-10 top-0 hidden lg:right-40 lg:block 2xl:right-0"
-        >
-          <img class="mt-12 size-24" src="./images/x.svg" alt="Krzyżyk" />
-        </div>
-        <div
-          class="absolute right-0 top-10 hidden h-24 w-24 lg:block 2xl:right-10"
-        >
-          <img
-            class="mt-36 size-12 2xl:ml-40"
-            src="./images/x-white.svg"
-            alt="Krzyżyk"
-          />
-        </div>
-        <div
-          id="event"
-          class="px-4 text-left text-[42px] font-bold leading-none sm:pl-0 sm:text-7xl lg:w-full lg:text-9xl"
-        >
-          Nowoczesne technologie
-        </div>
-        <div class="flex items-center pt-6 text-2xl md:pt-9 md:text-[40px]">
-          <span class="flex-grow px-4 md:px-2"
-            >Inteligentne rozwiązania, lokalne podejście</span
-          >
-        </div>
+          class="absolute hidden h-3 w-56 self-center bg-green-500 lg:flex 2xl:-ml-20"
+        ></div>
         <template x-if="meetup">
           <div
-            x-show="active"
-            class="mt-8 flex h-[35px] flex-col pl-3 md:mt-12 md:flex-row md:divide-x md:divide-slate-100/25"
-          >
-            <div class="flex flex-row items-center pl-2 md:pr-8 lg:pl-0">
-              <img
-                src="./images/icons/calendar.svg"
-                class="size-6 self-center lg:size-4"
-                alt="Ikona kalendarza"
-              />
-              <span
-                x-text="`${meetup.date} ${meetup.year}`"
-                class="pl-3 text-xl"
-              ></span>
-            </div>
-            <div class="flex flex-row items-center pl-2 pt-4 md:pl-8 md:pt-0">
-              <img
-                src="./images/icons/location.svg"
-                class="size-6 self-center lg:size-4"
-                alt="Ikona lokalizacji"
-              />
-              <a
-                :href="meetup.localization"
-                x-text="meetup.place"
-                target="_blank"
-                class="pl-3 text-xl hover:underline"
-              ></a>
-            </div>
-          </div>
+            id="event"
+            class="mx-auto max-w-4xl px-4 text-center text-[34px] font-bold capitalize xs:text-[40px] sm:pl-0 lg:w-full lg:text-7xl"
+            x-text="meetup.title"
+          ></div>
         </template>
-        <div class="mx-0 mt-10 hidden lg:flex">
-          <div
-            x-show="active"
-            class="w-max-2xl flex flex-shrink divide-x divide-slate-100/25 rounded-[13px] bg-stone-900 bg-opacity-75 px-10 py-6 md:rounded-[33px] md:px-4"
-          >
-            <div class="flex px-4">
-              <div
-                class="text-5xl font-bold text-[#01FF6B] sm:text-8xl"
-                x-text="counters.days"
-              ></div>
-              <div class="rotate-180 py-1 text-sm">
-                <div class="rotate-90 px-1">dni</div>
-              </div>
-            </div>
-            <div class="flex px-4">
-              <div
-                class="text-5xl font-bold sm:text-8xl"
-                x-text="counters.hours"
-              ></div>
-              <div class="rotate-180 py-4 text-sm">
-                <div class="rotate-90 px-1">godzin</div>
-              </div>
-            </div>
-            <div class="flex px-4">
-              <div class="text-8xl font-bold" x-text="counters.minutes"></div>
-              <div class="rotate-180 py-3 text-sm">
-                <div class="rotate-90 px-1">minut</div>
-              </div>
-            </div>
-            <div class="flex px-4">
-              <div class="text-8xl font-bold" x-text="counters.seconds"></div>
-              <div class="rotate-180 py-5 text-sm">
-                <div class="rotate-90 px-1">sekund</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="mx-9 mb-32 mt-[90px] grid max-w-screen-2xl grid-cols-1 gap-7 text-white md:mt-44 lg:mx-3 lg:grid-cols-3 xl:px-14 2xl:mx-auto 2xl:px-0"
-      >
-        <div class="rounded-3xl border border-violetb p-8">
-          <div class="hidden flex-row lg:flex">
-            <img
-              src="./images/icons/question.svg"
-              class="size-9 self-start"
-              alt="Znak zapytania"
-            />
-            <div class="flex-col pl-8">
-              <h2 class="text-2xl font-bold">O co chodzi?</h2>
-              <p class="mt-5 text-base leading-5 tracking-tight">
-                Organizujemy cykliczne spotkania w Legnicy, na których chętne
-                osoby prezentują w dowolnej formie swoje doświadczenia i
-                przemyślenia w dziedzinie programowania aplikacji internetowych.
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col lg:hidden">
-            <div class="flex flex-row items-center">
-              <img
-                src="./images/icons/question.svg"
-                class="size-9 self-start"
-                alt="Znak zapytania"
-              />
-              <h2 class="pl-4 text-2xl font-bold">O co chodzi?</h2>
-            </div>
-            <div class="flex-col pt-4 md:pl-8">
-              <p class="text-sm font-normal leading-5 tracking-tight">
-                Organizujemy cykliczne spotkania w Legnicy, na których chętne
-                osoby prezentują w dowolnej formie swoje doświadczenia i
-                przemyślenia w dziedzinie programowania aplikacji internetowych.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="rounded-3xl border border-violetb p-8">
-          <div class="hidden flex-row lg:flex">
-            <img
-              src="./images/icons/user.svg"
-              class="size-9 self-start"
-              alt="Ikona użytkownika"
-            />
-
-            <div class="flex-col md:pl-8">
-              <h2 class="text-2xl font-bold">Dla kogo?</h2>
-              <p class="mt-5 max-h-[114px] text-base leading-5 tracking-tight">
-                Spotkania są dostępne dla każdego, bez względu na stopień
-                doświadczenia zawodowego czy wykorzystywaną technologię.
-                Zapraszamy programistów, grafików, administratorów, devopsów
-                oraz pasjonatów i hobbystów.
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col lg:hidden">
-            <div class="flex flex-row items-center">
-              <img
-                src="./images/icons/user.svg"
-                class="size-9 self-start"
-                alt="Ikona użytkownika"
-              />
-              <h2 class="pl-4 text-2xl font-bold">Dla kogo?</h2>
-            </div>
-            <div class="flex-col pt-4 md:pl-8">
-              <p class="text-sm font-normal leading-5 tracking-tight">
-                Spotkania są dostępne dla każdego, bez względu na stopień
-                doświadczenia zawodowego czy wykorzystywaną technologię.
-                Zapraszamy programistów, grafików, administratorów, devopsów
-                oraz pasjonatów i hobbystów.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="rounded-3xl border border-violetb p-8">
-          <div class="hidden flex-row lg:flex">
-            <img
-              src="./images/icons/bulb.svg"
-              class="size-9 self-start"
-              alt="Ikona żarówki"
-            />
-            <div class="flex-col md:pl-8">
-              <h2 class="text-2xl font-bold">O czym?</h2>
-              <p class="mt-5 text-base leading-5 tracking-tight">
-                Od programowania backendu i projektowania frontendu, przez
-                testowanie aplikacji, ciekawostki technologiczne czy szeroko
-                rozumiany devops, a na sprawach okołoprogramistycznych i
-                umiejętnościach miękkich skończywszy.
-              </p>
-            </div>
-          </div>
-          <div class="flex flex-col lg:hidden">
-            <div class="flex flex-row items-center">
-              <img
-                src="./images/icons/bulb.svg"
-                class="size-9 self-start"
-                alt="Ikona żarówki"
-              />
-              <h2 class="pl-4 text-2xl font-bold">O czym?</h2>
-            </div>
-            <div class="flex-col pt-4 md:pl-8">
-              <p class="text-sm font-normal leading-5 tracking-tight">
-                Od programowania backendu i projektowania frontendu, przez
-                testowanie aplikacji, ciekawostki technologiczne czy szeroko
-                rozumiany devops, a na sprawach okołoprogramistycznych i
-                umiejętnościach miękkich skończywszy.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
-    <section>
+    <section class="z-10">
+      <div class="pointer-events-none absolute right-0 z-0 hidden lg:flex">
+        <img
+          class="h-[1560px] w-[1800px]"
+          src="./images/gradient-violet.svg"
+          alt="Gradient"
+        />
+      </div>
       <template x-if="meetup">
         <div
           class="flex w-full justify-center bg-slate-950 py-10 lg:h-[400px] lg:bg-[#6C1DF2] lg:py-0"
@@ -525,17 +319,12 @@
           alt="Gradient"
         />
       </div>
-      <div class="static mx-auto w-full text-white" id="speakers">
+      <div class="static mx-auto w-full text-white lg:mt-64" id="speakers">
         <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
           Prelegenci
         </div>
-        <div
-          class="-my-8 mx-auto hidden max-w-7xl text-center text-[18em] font-bold text-white opacity-5 lg:block"
-        >
-          Lineup
-        </div>
         <template x-if="meetup">
-          <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
+          <div class="w-full lg:h-[650px] 2xl:h-[750px]">
             <div class="hidden h-full w-full lg:flex">
               <div
                 class="z-10 hidden h-full w-fit overflow-hidden rounded-r-2xl bg-black bg-opacity-50 lg:flex"
@@ -662,6 +451,13 @@
       </div>
     </section>
     <section class="relative mt-20 lg:mb-0 lg:mt-32">
+      <div class="pointer-events-none absolute right-0 hidden lg:flex">
+        <img
+          class="h-[1560px] w-[1800px]"
+          src="./images/gradient-green.svg"
+          alt="Gradient"
+        />
+      </div>
       <div class="relative mx-auto max-w-screen-2xl flex-col text-white">
         <div class="flex flex-col" id="agenda">
           <div
@@ -779,181 +575,102 @@
         </button>
       </div>
     </section>
-    <section
-      x-data="{ selectedImage: null, navigateToPastMeetup(meetupId) {
-    window.location.href = `pastMeetup.html?meetupId=${meetupId}`;
-  }}"
-      id="pastMeetups"
-    >
-      <template x-if="pastMeetups.length > 0">
-        <div class="relative max-w-screen-2xl flex-col text-white lg:mx-auto">
-          <div class="flex flex-col" id="previousEditions">
-            <div class="flex flex-col px-4 text-left lg:w-full">
-              <div class="text-5xl font-bold lg:mt-8">Poprzednie edycje</div>
-              <div
-                class="text-md w-3/4 pt-6 lg:mx-auto lg:w-full lg:px-0 lg:text-base"
-              >
-                Sprawdź, czy nic Cię nie ominęło
+    <section x-data="{ selectedImage: null }" id="gallery">
+      <template x-if="meetup">
+        <div class="relative mx-auto flex flex-col text-white">
+          <div
+            class="relative flex max-w-screen-2xl flex-row justify-between px-4 text-white 2xl:mx-auto 2xl:min-w-[1536px]"
+          >
+            <div class="flex-col">
+              <h2 class="text-5xl font-bold">Galeria</h2>
+
+              <div class="pt-4 text-base text-neutral-200">
+                Autorzy zdjęć:
+                <span x-text="meetup.photographers"> </span>
               </div>
             </div>
-
-            <div
-              class="w-max-2xl flex shrink flex-col divide-y divide-y-reverse divide-slate-100/25 rounded-2xl px-4 pt-2"
+            <div class="hidden flex-row justify-end gap-10 lg:flex">
+              <img src="./images/o.svg" alt="Kółko" class="size-7" />
+              <img src="./images/o.svg" alt="Kółko" class="size-7" />
+              <img src="./images/o.svg" alt="Kółko" class="size-7" />
+              <img src="./images/o.svg" alt="Kółko" class="size-7" />
+              <img src="./images/o.svg" alt="Kółko" class="size-7" />
+              <img src="./images/o.svg" alt="Kółko" class="size-7" />
+              <img src="./images/o.svg" alt="Kółko" class="size-7" />
+            </div>
+          </div>
+          <div
+            class="mt-5 grid max-h-screen grid-cols-1 gap-4 overflow-y-scroll px-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid-cols-2 md:grid-cols-3 lg:mt-20 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+          >
+            <template
+              x-for="columnIndex in Math.ceil(meetup.gallery.length / 3)"
+              :key="columnIndex"
             >
-              <template x-for="meetup in pastMeetups">
-                <div
-                  class="flex cursor-pointer flex-row items-center py-4 lg:py-10"
-                  @click="navigateToPastMeetup(meetup.id)"
-                >
+              <div
+                :class="{
+              'grid gap-4': true,
+              'grid-rows-[40fr_25fr_35fr]': (columnIndex - 1) % 4 === 0,
+              'grid-rows-[30fr_45fr_25fr]': (columnIndex - 1) % 4 === 1,
+              'grid-rows-[45fr_25fr_30fr]': (columnIndex - 1) % 4 === 2,
+              'grid-rows-[25fr_55fr_20fr]': (columnIndex - 1) % 4 === 3
+            }"
+              >
+                <template x-for="rowIndex in 3" :key="rowIndex">
                   <div
-                    class="text-2xl font-bold text-green-500 lg:text-4xl"
-                    x-text="meetup.formattedDate"
-                  ></div>
-                  <div
-                    class="pl-4 text-base font-bold lg:px-8"
-                    x-text="meetup.title"
-                  ></div>
-                  <div class="flex flex-grow justify-end pr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-6 w-6 -rotate-90"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                      />
-                    </svg>
+                    x-show="getImageAtIndex(columnIndex, rowIndex)"
+                    class="overflow-hidden rounded-md"
+                  >
+                    <img
+                      :src="getImageAtIndex(columnIndex, rowIndex)?.url"
+                      :alt="getImageAtIndex(columnIndex, rowIndex)?.alt"
+                      class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
+                      @click="openLightbox(getImageIndex(columnIndex, rowIndex))"
+                    />
                   </div>
-                </div>
+                </template>
+              </div>
+            </template>
+          </div>
+          <div
+            x-show="lightbox.visible"
+            x-transition
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+          >
+            <button
+              @click="closeLightbox()"
+              class="absolute right-4 top-4 z-20 text-5xl text-white"
+            >
+              &times;
+            </button>
+            <button
+              @click.prevent="changeImage(-1)"
+              class="absolute left-4 top-1/2 z-10 -translate-y-1/2 transform text-5xl text-white"
+            >
+              &lt;
+            </button>
+            <button
+              @click.prevent="changeImage(1)"
+              class="absolute right-4 top-1/2 z-10 -translate-y-1/2 transform text-5xl text-white"
+            >
+              &gt;
+            </button>
+            <div
+              class="relative flex h-full w-full max-w-screen-2xl items-center justify-center"
+              @click.self="closeLightbox()"
+            >
+              <template x-if="meetup.gallery[lightbox.currentImageIndex]">
+                <img
+                  :src="meetup.gallery[lightbox.currentImageIndex].url"
+                  :alt="meetup.gallery[lightbox.currentImageIndex].alt"
+                  class="max-h-full max-w-full object-contain"
+                />
               </template>
             </div>
           </div>
         </div>
       </template>
     </section>
-    <section class="relative mt-[110px] lg:mt-48">
-      <div class="relative z-10 mx-auto max-w-6xl" id="register">
-        <div
-          hx-ext="loading-states"
-          data-loading-delay="300"
-          class="rounded-t-[90px] bg-neutral-200 p-8 text-gray-950 lg:rounded-[90px] lg:p-16"
-        >
-          <h2 class="pt-10 text-center text-5xl font-bold lg:text-6xl">
-            Rejestracja
-          </h2>
-          <form data-loading-class="hidden" id="registration-form">
-            <div
-              id="registration-errors"
-              class="text-center text-red-600"
-            ></div>
-            <div class="mx-auto my-5 flex max-w-2xl flex-col gap-8">
-              <p class="my-7 text-center text-sm lg:text-base">
-                Legnicki Meetup Technologiczny to spotkanie stacjonarne.
-                Pamiętaj, że liczba miejsc jest ograniczona. Zarejestruj się już
-                teraz, aby zapewnić sobie miejsce na wydarzeniu!
-              </p>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Imię"
-                />
-                <label
-                  for="name"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Imię</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="surname"
-                  id="surname"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Nazwisko"
-                />
-                <label
-                  for="surname"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Nazwisko</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="company"
-                  id="company"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Nazwa firmy"
-                />
-                <label
-                  for="company"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Nazwa firmy</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Adres e-mail"
-                />
-                <label
-                  for="email"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Adres e-mail</label
-                >
-              </div>
-              <div class="relative">
-                <label
-                  for="consent"
-                  class="flex flex-row bg-neutral-200 px-2 text-sm font-normal text-black"
-                >
-                  <input
-                    type="checkbox"
-                    name="consent"
-                    id="consent"
-                    required
-                    class="mt-2 self-start"
-                  />
-                  <p class="pl-5 text-xs lg:text-sm">
-                    Wyrażam zgodę na przetwarzanie moich danych osobowych
-                    podanych w powyższym formularzu w celach marketingowych
-                    przez organizatora Legnickiego Meetupu Technologicznego,
-                    firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5,
-                    59-220 Legnica oraz przez podmioty trzecie odpowiedzialne za
-                    organizację Legnickiego Meetupu Technologicznego.
-                  </p>
-                </label>
-              </div>
-
-              <div class="relative flex w-full cursor-pointer justify-center">
-                <button
-                  data-loading-disable
-                  hx-post="register.php"
-                  hx-target="#registration-form"
-                  hx-swap="innerHTML show:top"
-                  class="mt-4 self-center rounded-md bg-violet-700 px-7 py-3 align-middle text-lg font-bold uppercase text-neutral-200 xs:px-10 md:px-16 lg:px-20 lg:py-6"
-                >
-                  Zarejestruj się
-                </button>
-              </div>
-            </div>
-          </form>
-          <p data-loading class="mb-32 mt-8 w-full text-center text-xl">
-            Trwa wysyłanie...
-          </p>
-        </div>
-      </div>
+    <section class="relative mt-10 lg:mt-[400px]">
       <div class="bg-white px-2 py-4 xs:px-4 lg:mt-[74px] lg:p-8">
         <div
           class="relative z-20 mx-auto flex max-w-7xl items-center opacity-50"
