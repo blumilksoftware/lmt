@@ -296,17 +296,32 @@
         class="mx-9 mb-32 mt-[90px] grid max-w-screen-2xl grid-cols-1 gap-7 text-white md:mt-44 lg:mx-3 lg:grid-cols-3 xl:px-14 2xl:mx-auto 2xl:px-0"
       >
         <div class="rounded-3xl border border-violetb p-8">
-          <div class="flex flex-row items-start lg:items-center">
+          <div class="hidden flex-row lg:flex">
             <img
               src="./images/icons/question.svg"
               class="size-9 self-start"
-              alt="Ikona żarówki"
+              alt="Znak zapytania"
             />
-            <div class="flex-col pl-4 md:pl-8">
+            <div class="flex-col pl-8">
               <h2 class="text-2xl font-bold">O co chodzi?</h2>
-              <p
-                class="-ml-12 mt-5 text-sm leading-5 tracking-tight lg:ml-0 lg:mt-0 lg:text-base"
-              >
+              <p class="mt-5 text-base leading-5 tracking-tight">
+                Organizujemy cykliczne spotkania w Legnicy, na których chętne
+                osoby prezentują w dowolnej formie swoje doświadczenia i
+                przemyślenia w dziedzinie programowania aplikacji internetowych.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col lg:hidden">
+            <div class="flex flex-row items-center">
+              <img
+                src="./images/icons/question.svg"
+                class="size-9 self-start"
+                alt="Znak zapytania"
+              />
+              <h2 class="pl-4 text-2xl font-bold">O co chodzi?</h2>
+            </div>
+            <div class="flex-col pt-4 md:pl-8">
+              <p class="text-sm font-normal leading-5 tracking-tight">
                 Organizujemy cykliczne spotkania w Legnicy, na których chętne
                 osoby prezentują w dowolnej formie swoje doświadczenia i
                 przemyślenia w dziedzinie programowania aplikacji internetowych.
@@ -315,17 +330,34 @@
           </div>
         </div>
         <div class="rounded-3xl border border-violetb p-8">
-          <div class="flex flex-row items-start lg:items-center">
+          <div class="hidden flex-row lg:flex">
             <img
               src="./images/icons/user.svg"
               class="size-9 self-start"
-              alt="Ikona żarówki"
+              alt="Ikona użytkownika"
             />
-            <div class="flex-col pl-4 md:pl-8">
+
+            <div class="flex-col md:pl-8">
               <h2 class="text-2xl font-bold">Dla kogo?</h2>
-              <p
-                class="-ml-12 mt-5 text-sm leading-5 tracking-tight lg:ml-0 lg:mt-0 lg:text-base"
-              >
+              <p class="mt-5 max-h-[114px] text-base leading-5 tracking-tight">
+                Spotkania są dostępne dla każdego, bez względu na stopień
+                doświadczenia zawodowego czy wykorzystywaną technologię.
+                Zapraszamy programistów, grafików, administratorów, devopsów
+                oraz pasjonatów i hobbystów.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col lg:hidden">
+            <div class="flex flex-row items-center">
+              <img
+                src="./images/icons/user.svg"
+                class="size-9 self-start"
+                alt="Ikona użytkownika"
+              />
+              <h2 class="pl-4 text-2xl font-bold">Dla kogo?</h2>
+            </div>
+            <div class="flex-col pt-4 md:pl-8">
+              <p class="text-sm font-normal leading-5 tracking-tight">
                 Spotkania są dostępne dla każdego, bez względu na stopień
                 doświadczenia zawodowego czy wykorzystywaną technologię.
                 Zapraszamy programistów, grafików, administratorów, devopsów
@@ -335,20 +367,37 @@
           </div>
         </div>
         <div class="rounded-3xl border border-violetb p-8">
-          <div class="flex flex-row items-start lg:items-center">
+          <div class="hidden flex-row lg:flex">
             <img
               src="./images/icons/bulb.svg"
               class="size-9 self-start"
               alt="Ikona żarówki"
             />
-            <div class="flex-col pl-4 md:pl-8">
+            <div class="flex-col md:pl-8">
               <h2 class="text-2xl font-bold">O czym?</h2>
-              <p
-                class="-ml-12 mt-5 text-sm leading-5 tracking-tight lg:ml-0 lg:mt-0 lg:text-base"
-              >
-                Organizujemy cykliczne spotkania w Legnicy, na których chętne
-                osoby prezentują w dowolnej formie swoje doświadczenia i
-                przemyślenia w dziedzinie programowania aplikacji internetowych.
+              <p class="mt-5 text-base leading-5 tracking-tight">
+                Od programowania backendu i projektowania frontendu, przez
+                testowanie aplikacji, ciekawostki technologiczne czy szeroko
+                rozumiany devops, a na sprawach okołoprogramistycznych i
+                umiejętnościach miękkich skończywszy.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-col lg:hidden">
+            <div class="flex flex-row items-center">
+              <img
+                src="./images/icons/bulb.svg"
+                class="size-9 self-start"
+                alt="Ikona żarówki"
+              />
+              <h2 class="pl-4 text-2xl font-bold">O czym?</h2>
+            </div>
+            <div class="flex-col pt-4 md:pl-8">
+              <p class="text-sm font-normal leading-5 tracking-tight">
+                Od programowania backendu i projektowania frontendu, przez
+                testowanie aplikacji, ciekawostki technologiczne czy szeroko
+                rozumiany devops, a na sprawach okołoprogramistycznych i
+                umiejętnościach miękkich skończywszy.
               </p>
             </div>
           </div>
@@ -358,16 +407,16 @@
     <section>
       <template x-if="meetup">
         <div
-          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[330px] lg:bg-[#6C1DF2] lg:py-0"
+          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[400px] lg:bg-[#6C1DF2] lg:py-0"
           id="partners"
         >
-          <div class="flex flex-col items-center gap-16 lg:flex-row">
-            <div class="flex flex-col lg:flex-col-reverse">
-              <div
-                class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-              >
+          <div
+            class="lg:gab-y-0 flex flex-col items-center lg:grid lg:grid-cols-3 lg:gap-8"
+          >
+            <div class="flex flex-col">
+              <div class="flex justify-start pb-5 pl-2 lg:hidden">
                 <p
-                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
                 >
                   Organizator
                 </p>
@@ -376,17 +425,22 @@
                 <img
                   src="./images/blumilk-white.png"
                   alt="Blumilk sp. z o.o."
-                  class="h-[71px]"
+                  class="m-auto h-[71px]"
                 />
               </a>
+              <div class="hidden justify-center pt-6 lg:flex">
+                <p
+                  class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                >
+                  Organizator
+                </p>
+              </div>
             </div>
             <template x-for="patron in meetup.patrons">
-              <div class="flex flex-col lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
+              <div class="mt-10 flex flex-col lg:mt-0">
+                <div class="flex justify-start pb-5 lg:hidden">
                   <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
                   >
                     Patronat
                   </p>
@@ -398,48 +452,69 @@
                     class="h-[71px]"
                   />
                 </a>
-              </div>
-            </template>
-            <template x-for="sponsor in meetup.sponsors">
-              <div class="flex flex-col lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
+                <div class="hidden justify-center pt-6 lg:flex">
                   <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
                   >
-                    Sponsor
+                    Patronat
                   </p>
                 </div>
-                <a :href="sponsor.website" target="_blank">
-                  <img
-                    :src="sponsor.logoUrl"
-                    :alt="sponsor.name"
-                    class="h-[71px]"
-                  />
-                </a>
               </div>
             </template>
-            <template x-for="partner in meetup.partners">
-              <div class="flex flex-col lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
-                  >
-                    Partner
-                  </p>
+            <div
+              class="lg:gab-y-0 lg:col-span-3 lg:grid lg:grid-cols-2 lg:grid-cols-subgrid lg:gap-16"
+            >
+              <template x-for="sponsor in meetup.sponsors">
+                <div class="mt-10 flex flex-col lg:mt-0">
+                  <div class="flex justify-start pb-5 lg:hidden">
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    >
+                      Sponsor
+                    </p>
+                  </div>
+                  <a :href="sponsor.website" target="_blank">
+                    <img
+                      :src="sponsor.logoUrl"
+                      :alt="sponsor.name"
+                      class="m-auto h-[71px]"
+                    />
+                  </a>
+                  <div class="hidden justify-center pt-6 lg:flex">
+                    <p
+                      class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                    >
+                      Sponsor
+                    </p>
+                  </div>
                 </div>
-                <a :href="partner.website" target="_blank">
-                  <img
-                    :src="partner.logoUrl"
-                    :alt="partner.name"
-                    class="h-[71px]"
-                  />
-                </a>
-              </div>
-            </template>
+              </template>
+              <template x-for="partner in meetup.partners">
+                <div class="mt-10 flex flex-col lg:mt-0">
+                  <div class="flex justify-start pb-5 lg:hidden">
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    >
+                      Partner
+                    </p>
+                  </div>
+                  <a :href="partner.website" target="_blank">
+                    <img
+                      :src="partner.logoUrl"
+                      :alt="partner.name"
+                      class="m-auto h-[71px]"
+                    />
+                  </a>
+                  <div class="hidden justify-center pt-6 lg:flex">
+                    <p
+                      class="w-[111px] rounded-md bg-slate-900 text-center text-white"
+                    >
+                      Partner
+                    </p>
+                  </div>
+                </div>
+              </template>
+            </div>
           </div>
         </div>
       </template>
