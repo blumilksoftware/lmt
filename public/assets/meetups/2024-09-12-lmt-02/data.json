@@ -110,6 +110,11 @@
       "name": "Softiq",
       "website": "https://softiq.pl/",
       "logoUrl": "softiq.png"
+    },
+    {
+      "name": "JetBrains",
+      "website": "https://www.jetbrains.com/",
+      "logoUrl": "jetbrains.png"
     }
   ],
   "gallery": []

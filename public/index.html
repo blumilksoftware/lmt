@@ -406,22 +406,15 @@
     </section>
     <section>
       <template x-if="meetup">
-        <div
-          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[310px] lg:bg-[#6C1DF2]"
-          id="partners"
-        >
-          <div class="flex flex-col items-center gap-16 lg:flex-row">
+        <div class="flex w-full justify-center bg-slate-950 py-10 px-6 lg:bg-[#6C1DF2]" id="partners">
+          <div class="grid lg:grid-cols-4 items-center gap-16 lg:flex-row">
             <div class="flex flex-col lg:flex-col-reverse">
-              <div
-                class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-              >
-                <p
-                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[140px] lg:bg-slate-900 lg:py-0"
-                >
+              <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
+                <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[140px] lg:bg-slate-900 lg:py-0">
                   Organizator
                 </p>
               </div>
-              <a href="https://blumilk.pl/" target="_blank">
+              <a href="https://blumilk.pl/" target="_blank" class="lg:mx-auto">
                 <img
                   src="./images/blumilk-white.png"
                   alt="Blumilk sp. z o.o."
@@ -431,12 +424,8 @@
             </div>
             <template x-for="patron in meetup.patrons">
               <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
-                  >
+                <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
+                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0">
                     Patronat
                   </p>
                 </div>
@@ -450,30 +439,26 @@
               </div>
             </template>
             <template x-for="sponsor in meetup.sponsors">
-              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
-                  >
+              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse h-[119px]">
+                <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
+                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0">
                     Sponsor
                   </p>
                 </div>
-                <a :href="sponsor.website" target="_blank">
-                  <img
-                    :src="sponsor.logoUrl"
-                    :alt="sponsor.name"
-                    class="h-[71px]"
-                  />
-                </a>
+                <div class="flex items-center h-full">
+                  <a :href="sponsor.website" target="_blank">
+                    <img
+                            :src="sponsor.logoUrl"
+                            :alt="sponsor.name"
+                            class="w-[215px]"
+                    />
+                  </a>
+                </div>
               </div>
             </template>
             <template x-for="partner in meetup.partners">
               <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
+                <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
                   <p
                     class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                   >
