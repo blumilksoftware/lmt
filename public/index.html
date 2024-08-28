@@ -407,18 +407,16 @@
     <section>
       <template x-if="meetup">
         <div
-          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[400px] lg:bg-[#6C1DF2] lg:py-0"
+          class="flex w-full justify-center bg-slate-950 py-10 lg:h-[380px] lg:bg-[#6C1DF2]"
           id="partners"
         >
-          <div
-            class="lg:gab-y-0 flex flex-col items-center gap-10 lg:grid lg:grid-cols-3 lg:gap-8"
-          >
+          <div class="flex flex-col items-center gap-16 lg:flex-row">
             <div class="flex flex-col lg:flex-col-reverse">
               <div
                 class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
               >
                 <p
-                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[121px] lg:bg-slate-900 lg:py-0"
+                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                 >
                   Organizator
                 </p>
@@ -432,7 +430,7 @@
               </a>
             </div>
             <template x-for="patron in meetup.patrons">
-              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
+              <div class="flex flex-col lg:flex-col-reverse">
                 <div
                   class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
                 >
@@ -451,50 +449,46 @@
                 </a>
               </div>
             </template>
-            <div
-              class="lg:gab-y-0 mr-auto lg:col-span-3 lg:m-auto lg:grid lg:grid-cols-2 lg:gap-16"
-            >
-              <template x-for="sponsor in meetup.sponsors">
-                <div class="mb-10 flex flex-col lg:mb-0 lg:flex-col-reverse">
-                  <div
-                    class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+            <template x-for="sponsor in meetup.sponsors">
+              <div class="flex flex-col lg:flex-col-reverse">
+                <div
+                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                >
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                   >
-                    <p
-                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
-                    >
-                      Sponsor
-                    </p>
-                  </div>
-                  <a :href="sponsor.website" target="_blank">
-                    <img
-                      :src="sponsor.logoUrl"
-                      :alt="sponsor.name"
-                      class="m-auto h-[71px]"
-                    />
-                  </a>
+                    Sponsor
+                  </p>
                 </div>
-              </template>
-              <template x-for="partner in meetup.partners">
-                <div class="flex flex-col lg:flex-col-reverse">
-                  <div
-                    class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                <a :href="sponsor.website" target="_blank">
+                  <img
+                    :src="sponsor.logoUrl"
+                    :alt="sponsor.name"
+                    class="h-[71px]"
+                  />
+                </a>
+              </div>
+            </template>
+            <template x-for="partner in meetup.partners">
+              <div class="flex flex-col lg:flex-col-reverse">
+                <div
+                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                >
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                   >
-                    <p
-                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
-                    >
-                      Partner
-                    </p>
-                  </div>
-                  <a :href="partner.website" target="_blank">
-                    <img
-                      :src="partner.logoUrl"
-                      :alt="partner.name"
-                      class="m-auto h-[71px]"
-                    />
-                  </a>
+                    Partner
+                  </p>
                 </div>
-              </template>
-            </div>
+                <a :href="partner.website" target="_blank">
+                  <img
+                    :src="partner.logoUrl"
+                    :alt="partner.name"
+                    class="h-[71px]"
+                  />
+                </a>
+              </div>
+            </template>
           </div>
         </div>
       </template>
