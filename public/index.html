@@ -440,12 +440,8 @@
             </template>
             <template x-for="sponsor in meetup.sponsors">
               <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
-                  >
+                <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
+                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0">
                     Sponsor
                   </p>
                 </div>
@@ -453,16 +449,14 @@
                   <img
                     :src="sponsor.logoUrl"
                     :alt="sponsor.name"
-                    class="h-[71px]"
+                    class="w-[215px]"
                   />
                 </a>
               </div>
             </template>
             <template x-for="partner in meetup.partners">
               <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
+                <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
                   <p
                     class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                   >
