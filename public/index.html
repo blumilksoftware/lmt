@@ -431,21 +431,17 @@
             </div>
             <template x-for="patron in meetup.patrons">
               <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
-                  >
+                <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
+                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0">
                     Patronat
                   </p>
                 </div>
-                <div class="mx-auto">
+                <div class="w-[215px]">
                   <a :href="patron.website" target="_blank">
                     <img
                             :src="patron.logoUrl"
                             :alt="patron.name"
-                            class="h-[71px]"
+                            class="max-h-[120px] mx-auto"
                     />
                   </a>
                 </div>
