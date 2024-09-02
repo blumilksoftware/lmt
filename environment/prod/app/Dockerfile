@@ -1,5 +1,5 @@
 ### PHP DEPENDENCIES ###
-FROM composer:2.7.2 AS vendor
+FROM composer:2.7.8@sha256:57000529b4609b66beeba3ebdd0ebb68b28be262c30669dfccb31003febb245a AS vendor
 
 WORKDIR /app_composer_dependencies
 
@@ -13,7 +13,7 @@ RUN composer install \
     --ignore-platform-reqs
 
 ### FRONTEND ###
-FROM node:21.7.1-bookworm-slim AS frontend
+FROM node:21.7.3-bookworm-slim@sha256:dfc05dee209a1d7adf2ef189bd97396daad4e97c6eaa85778d6f75205ba1b0fb AS frontend
 
 WORKDIR /app_frontend_dependencies
 
@@ -27,7 +27,7 @@ COPY ./public/index.html ./public/index.html
 RUN npx tailwindcss -i ./styles.css -o ./public/output.css
 
 ### APPLICATION ###
-FROM php:8.3.3-fpm-bookworm AS app
+FROM php:8.3.11-fpm-bookworm@sha256:cf6ebfc2ca6f69886fb9c13e1dc9f189d441eb0569f2e492c315d2009d694850 AS app
 
 COPY --from=vendor /usr/bin/composer /usr/local/bin/composer
 
