@@ -412,34 +412,44 @@
         >
           <div class="grid items-center gap-16 lg:grid-cols-4">
             <div class="flex flex-col lg:flex-col-reverse">
-              <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
-                <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[140px] lg:bg-slate-900 lg:py-0">
+              <div
+                class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+              >
+                <p
+                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[140px] lg:bg-slate-900 lg:py-0"
+                >
                   Organizator
                 </p>
               </div>
-              <div class="flex items-center lg:mx-auto h-[120px]">
+              <div class="flex h-[120px] items-center lg:mx-auto">
                 <a href="https://blumilk.pl/" target="_blank">
                   <img
-                          src="./images/blumilk-white.png"
-                          alt="Blumilk sp. z o.o."
-                          class="h-[71px]"
+                    src="./images/blumilk-white.png"
+                    alt="Blumilk sp. z o.o."
+                    class="h-[71px]"
                   />
                 </a>
               </div>
             </div>
             <template x-for="patron in meetup.patrons">
               <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6">
-                  <p class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0">
+                <div
+                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                >
+                  <p
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                  >
                     Patronat
                   </p>
                 </div>
-                <div class="flex w-[215px] h-[120px] items-center justify-center">
+                <div
+                  class="flex h-[120px] w-[215px] items-center justify-center"
+                >
                   <a :href="patron.website" target="_blank">
                     <img
-                            :src="patron.logoUrl"
-                            :alt="patron.name"
-                            class="max-h-[120px]"
+                      :src="patron.logoUrl"
+                      :alt="patron.name"
+                      class="max-h-[120px]"
                     />
                   </a>
                 </div>
