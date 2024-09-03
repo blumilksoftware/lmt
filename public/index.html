@@ -104,17 +104,17 @@
               class="space-y-1 rounded-md px-2 pb-3 pt-2 text-base font-medium text-gray-300"
             >
               <a
-                href="#event"
+                href="#wydarzenie"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Wydarzenie</a
               >
               <a
-                href="#partners"
+                href="#partnerzy"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Partnerzy</a
               >
               <a
-                href="#speakers"
+                href="#prelegenci"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Prelegenci</a
               >
@@ -124,12 +124,12 @@
                 >Agenda</a
               >
               <a
-                href="#pastMeetups"
+                href="#poprzednieMeetupy"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Poprzednie edycje</a
               >
               <a
-                href="#register"
+                href="#rejestracja"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Rejestracja</a
               >
@@ -157,17 +157,17 @@
                     class="text-md flex justify-end space-x-4 rounded-md font-medium text-gray-300"
                   >
                     <a
-                      href="#event"
+                      href="#wydarzenie"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Wydarzenie</a
                     >
                     <a
-                      href="#partners"
+                      href="#partnerzy"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Partnerzy</a
                     >
                     <a
-                      href="#speakers"
+                      href="#prelegenci"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Prelegenci</a
                     >
@@ -177,12 +177,12 @@
                       >Agenda</a
                     >
                     <a
-                      href="#pastMeetups"
+                      href="#poprzednieMeetupy"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Poprzednie edycje</a
                     >
                     <a
-                      href="#register"
+                      href="#rejestracja"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Rejestracja</a
                     >
@@ -213,7 +213,7 @@
           />
         </div>
         <div
-          id="event"
+          id="wydarzenie"
           class="px-4 text-left text-[42px] font-bold leading-none sm:pl-0 sm:text-7xl lg:w-full lg:text-9xl"
         >
           Nowoczesne technologie
@@ -408,7 +408,7 @@
       <template x-if="meetup">
         <div
           class="flex w-full justify-center bg-slate-950 px-6 py-10 lg:bg-[#6C1DF2]"
-          id="partners"
+          id="partnerzy"
         >
           <div class="grid items-center gap-16 lg:grid-cols-4">
             <div class="flex flex-col lg:flex-col-reverse">
@@ -511,7 +511,7 @@
           alt="Gradient"
         />
       </div>
-      <div class="static mx-auto w-full text-white" id="speakers">
+      <div class="static mx-auto w-full text-white" id="prelegenci">
         <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
           Prelegenci
         </div>
@@ -769,7 +769,7 @@
       x-data="{ selectedImage: null, navigateToPastMeetup(meetupId) {
     window.location.href = `meetup.html?meetupId=${meetupId}`;
   }}"
-      id="pastMeetups"
+      id="poprzednieMeetupy"
     >
       <template x-if="pastMeetups.length > 0">
         <div class="relative max-w-screen-2xl flex-col text-white lg:mx-auto">
@@ -823,7 +823,7 @@
       </template>
     </section>
     <section class="relative mt-[110px] lg:mt-48">
-      <div class="relative z-10 mx-auto max-w-6xl" id="register">
+      <div class="relative z-10 mx-auto max-w-6xl" id="rejestracja">
         <div
           hx-ext="loading-states"
           data-loading-delay="300"
