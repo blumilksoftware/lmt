@@ -96,17 +96,17 @@
               class="space-y-1 rounded-md px-2 pb-3 pt-2 text-base font-medium text-gray-300"
             >
               <a
-                href="#event"
+                href="#wydarzenie"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Wydarzenie</a
               >
               <a
-                href="#partners"
+                href="#partnerzy"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Partnerzy</a
               >
               <a
-                href="#speakers"
+                href="#prelegenci"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Prelegenci</a
               >
@@ -116,7 +116,7 @@
                 >Agenda</a
               >
               <a
-                href="#gallery"
+                href="#galeria"
                 class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                 >Galeria</a
               >
@@ -143,17 +143,17 @@
                     class="text-md flex justify-end space-x-4 rounded-md font-medium text-gray-300"
                   >
                     <a
-                      href="#event"
+                      href="#wydarzenie"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Wydarzenie</a
                     >
                     <a
-                      href="#partners"
+                      href="#partnerzy"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Partnerzy</a
                     >
                     <a
-                      href="#speakers"
+                      href="#prelegenci"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Prelegenci</a
                     >
@@ -163,7 +163,7 @@
                       >Agenda</a
                     >
                     <a
-                      href="#gallery"
+                      href="#galeria"
                       class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
                       >Galeria</a
                     >
@@ -184,7 +184,7 @@
         ></div>
         <template x-if="meetup">
           <div
-            id="event"
+            id="wydarzenie"
             class="mx-auto max-w-4xl px-4 text-center text-[34px] font-bold capitalize xs:text-[40px] sm:pl-0 lg:w-full lg:text-7xl"
             x-text="meetup.title"
           ></div>
@@ -202,7 +202,7 @@
       <template x-if="meetup">
         <div
           class="mt-40 flex w-full justify-center bg-slate-950 py-10 lg:mt-48 lg:h-60 lg:bg-[#6C1DF2] lg:py-0 lg:pl-0"
-          id="partners"
+          id="partnerzy"
         >
           <div class="flex flex-col items-center gap-16 lg:flex-row">
             <div class="flex flex-col">
@@ -315,7 +315,7 @@
           alt="Gradient"
         />
       </div>
-      <div class="static mx-auto w-full text-white lg:mt-64" id="speakers">
+      <div class="static mx-auto w-full text-white lg:mt-64" id="prelegenci">
         <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
           Prelegenci
         </div>
@@ -571,7 +571,7 @@
         </button>
       </div>
     </section>
-    <section x-data="{ selectedImage: null }" id="gallery">
+    <section x-data="{ selectedImage: null }" id="galeria">
       <template x-if="meetup">
         <div class="relative mx-auto flex flex-col text-white">
           <div
