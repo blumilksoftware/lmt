@@ -41,6 +41,40 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
 
+  <style>
+    .css-blurry-violet-gradient {
+      position: relative;
+      top: 0;
+      left: 50%;
+      width: 800px;
+      height: 700px;
+      border-radius: 80% 40% 80% 40%;
+      filter: blur(60px);
+      background: radial-gradient(
+        circle at 100% 80%,
+        rgba(76, 0, 255, 1),
+        rgba(76, 0, 255, 0)
+      );
+      opacity: 0.3;
+    }
+
+    .css-blurry-green-gradient {
+      position: relative;
+      top: 500px;
+      right: 0;
+      width: 800px;
+      height: 500px;
+      border-radius: 80% 40% 80% 40%;
+      filter: blur(60px);
+      background: radial-gradient(
+        circle at 100% 80%,
+        rgba(34, 197, 94, 1),
+        rgba(34, 197, 94, 0)
+      );
+      opacity: 0.3;
+    }
+  </style>
+
   <body
     class="overflow-x-hidden bg-slate-950 bg-[url('./images/background.png')] bg-cover"
     x-data="initialize()"
@@ -504,13 +538,6 @@
       </template>
     </section>
     <section class="my-6">
-      <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img
-          class="h-[1560px] w-[1800px]"
-          src="./images/gradient-violet.svg"
-          alt="Gradient"
-        />
-      </div>
       <template x-if="meetup">
         <div class="static mx-auto w-full text-white" id="prelegenci">
           <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
@@ -602,15 +629,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="pointer-events-none absolute right-0 -z-10 flex lg:hidden"
-            >
-              <img
-                class="h-[1560px] w-[1800px]"
-                src="./images/gradient-mobile.svg"
-                alt="Gradient"
-              />
             </div>
             <div class="lg:hidden">
               <template x-for="speaker in meetup.lineup">
@@ -742,11 +760,10 @@
     </section>
     <section>
       <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img
-          class="h-[1560px] w-[1800px]"
-          src="./images/gradient-green.svg"
-          alt="Gradient"
-        />
+        <div class="css-blurry-violet-gradient"></div>
+        <template x-if="meetup">
+          <div class="css-blurry-green-gradient"></div>
+        </template>
       </div>
       <div
         class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40"
@@ -959,11 +976,6 @@
                 aria-label="Przejdź do strony firmowej Blumilk"
                 >Blumilk</a
               >
-            </div>
-            <div>
-              <a href="/regulamin-konkursu.pdf" target="_blank">
-                <p>| Regulamin</p>
-              </a>
             </div>
           </div>
           <div class="flex gap-3 sm:gap-4">

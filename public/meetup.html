@@ -34,6 +34,40 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
 
+  <style>
+    .css-blurry-violet-gradient {
+      position: relative;
+      top: 0;
+      left: 50%;
+      width: 800px;
+      height: 700px;
+      border-radius: 80% 40% 80% 40%;
+      filter: blur(60px);
+      background: radial-gradient(
+        circle at 100% 80%,
+        rgba(76, 0, 255, 1),
+        rgba(76, 0, 255, 0)
+      );
+      opacity: 0.3;
+    }
+
+    .css-blurry-green-gradient {
+      position: relative;
+      top: 500px;
+      right: 0;
+      width: 800px;
+      height: 500px;
+      border-radius: 80% 40% 80% 40%;
+      filter: blur(60px);
+      background: radial-gradient(
+        circle at 100% 80%,
+        rgba(34, 197, 94, 1),
+        rgba(34, 197, 94, 0)
+      );
+      opacity: 0.3;
+    }
+  </style>
+
   <body
     class="overflow-x-hidden bg-slate-950 bg-[url('./images/background.png')] bg-cover"
     x-data="initialize()"
@@ -175,7 +209,7 @@
         </nav>
       </div>
     </section>
-    <section class="z-10 w-full">
+    <section class="z-10 mb-0 w-full lg:mb-32">
       <div
         class="relative mx-auto mt-40 flex max-w-7xl items-start px-4 text-white lg:px-8"
       >
@@ -191,98 +225,88 @@
         </template>
       </div>
     </section>
-    <section class="z-10">
-      <div class="pointer-events-none absolute right-0 z-0 hidden lg:flex">
-        <img
-          class="h-[1560px] w-[1800px]"
-          src="./images/gradient-violet.svg"
-          alt="Gradient"
-        />
-      </div>
+    <section>
       <template x-if="meetup">
         <div
-          class="mt-40 flex w-full justify-center bg-slate-950 py-10 lg:mt-48 lg:h-60 lg:bg-[#6C1DF2] lg:py-0 lg:pl-0"
+          class="flex w-full justify-center bg-slate-950 px-6 py-10 lg:bg-[#6C1DF2]"
           id="partnerzy"
         >
-          <div class="flex flex-col items-center gap-16 lg:flex-row">
-            <div class="flex flex-col">
-              <div class="flex justify-start pb-5 pl-2 lg:hidden">
+          <div class="grid items-center gap-16 lg:grid-cols-4">
+            <div class="flex flex-col lg:flex-col-reverse">
+              <div
+                class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+              >
                 <p
-                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                  class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[140px] lg:bg-slate-900 lg:py-0"
                 >
                   Organizator
                 </p>
               </div>
-              <a href="https://blumilk.pl/" target="_blank">
-                <img
-                  src="./images/blumilk-white.png"
-                  alt="Blumilk sp. z o.o."
-                  class="h-[71px]"
-                />
-              </a>
-              <div class="hidden justify-center pt-6 lg:flex">
-                <p
-                  class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                >
-                  Organizator
-                </p>
+              <div class="flex h-[120px] items-center lg:mx-auto">
+                <a href="https://blumilk.pl/" target="_blank">
+                  <img
+                    src="./images/blumilk-white.png"
+                    alt="Blumilk sp. z o.o."
+                    class="h-[71px]"
+                  />
+                </a>
               </div>
             </div>
             <template x-for="patron in meetup.patrons">
-              <div class="flex flex-col">
-                <div class="flex justify-start pb-5 lg:hidden">
+              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
+                <div
+                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                >
                   <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                   >
                     Patronat
                   </p>
                 </div>
-                <a :href="patron.website" target="_blank">
-                  <img
-                    :src="patron.logoUrl"
-                    :alt="patron.name"
-                    class="h-[71px]"
-                  />
-                </a>
-                <div class="hidden justify-center pt-6 lg:flex">
-                  <p
-                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                  >
-                    Patronat
-                  </p>
+                <div
+                  class="flex h-[120px] w-[215px] items-center justify-center"
+                >
+                  <a :href="patron.website" target="_blank">
+                    <img
+                      :src="patron.logoUrl"
+                      :alt="patron.name"
+                      class="max-h-[120px]"
+                    />
+                  </a>
                 </div>
               </div>
             </template>
             <template x-for="sponsor in meetup.sponsors">
-              <div class="flex flex-col">
-                <div class="flex justify-start pb-5 lg:hidden">
+              <div
+                class="mr-auto flex h-[119px] flex-col lg:m-auto lg:flex-col-reverse"
+              >
+                <div
+                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                >
                   <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                   >
                     Sponsor
                   </p>
                 </div>
-                <a :href="sponsor.website" target="_blank">
-                  <img
-                    :src="sponsor.logoUrl"
-                    :alt="sponsor.name"
-                    class="h-[71px]"
-                  />
-                </a>
-                <div class="hidden justify-center pt-6 lg:flex">
-                  <p
-                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                  >
-                    Sponsor
-                  </p>
+                <div class="flex h-full items-center">
+                  <a :href="sponsor.website" target="_blank">
+                    <img
+                      :src="sponsor.logoUrl"
+                      :alt="sponsor.name"
+                      class="w-[215px]"
+                    />
+                  </a>
                 </div>
               </div>
             </template>
             <template x-for="partner in meetup.partners">
-              <div class="flex flex-col">
-                <div class="flex justify-start pb-5 lg:hidden">
+              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
+                <div
+                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                >
                   <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white"
+                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
                   >
                     Partner
                   </p>
@@ -290,17 +314,10 @@
                 <a :href="partner.website" target="_blank">
                   <img
                     :src="partner.logoUrl"
-                    :alt="partner.name "
+                    :alt="partner.name"
                     class="h-[71px]"
                   />
                 </a>
-                <div class="hidden justify-center pt-6 lg:flex">
-                  <p
-                    class="w-[111px] rounded-md bg-slate-900 text-center text-white"
-                  >
-                    Partner
-                  </p>
-                </div>
               </div>
             </template>
           </div>
@@ -308,13 +325,6 @@
       </template>
     </section>
     <section class="my-6">
-      <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img
-          class="h-[1560px] w-[1800px]"
-          src="./images/gradient-violet.svg"
-          alt="Gradient"
-        />
-      </div>
       <div class="static mx-auto w-full text-white lg:mt-64" id="prelegenci">
         <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
           Prelegenci
@@ -402,15 +412,6 @@
                 </div>
               </div>
             </div>
-            <div
-              class="pointer-events-none absolute right-0 -z-10 flex lg:hidden"
-            >
-              <img
-                class="h-[1560px] w-[1800px]"
-                src="./images/gradient-mobile.svg"
-                alt="Gradient"
-              />
-            </div>
             <div class="lg:hidden">
               <template x-for="speaker in meetup.lineup">
                 <div class="flex w-full flex-col">
@@ -448,11 +449,7 @@
     </section>
     <section class="relative mt-20 lg:mb-0 lg:mt-32">
       <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img
-          class="h-[1560px] w-[1800px]"
-          src="./images/gradient-green.svg"
-          alt="Gradient"
-        />
+        <div class="css-blurry-green-gradient"></div>
       </div>
       <div class="relative mx-auto max-w-screen-2xl flex-col text-white">
         <div class="flex flex-col" id="agenda">
@@ -548,11 +545,7 @@
     </section>
     <section>
       <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <img
-          class="h-[1560px] w-[1800px]"
-          src="./images/gradient-green.svg"
-          alt="Gradient"
-        />
+        <div class="css-blurry-violet-gradient"></div>
       </div>
       <div
         class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40"
