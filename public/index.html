@@ -511,16 +511,16 @@
           alt="Gradient"
         />
       </div>
-      <div class="static mx-auto w-full text-white" id="prelegenci">
-        <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
-          Prelegenci
-        </div>
-        <div
-          class="-my-8 mx-auto hidden max-w-7xl text-center text-[18em] font-bold text-white opacity-5 lg:block"
-        >
-          Lineup
-        </div>
-        <template x-if="meetup">
+      <template x-if="meetup">
+        <div class="static mx-auto w-full text-white" id="prelegenci">
+          <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
+            Prelegenci
+          </div>
+          <div
+            class="-my-8 mx-auto hidden max-w-7xl text-center text-[18em] font-bold text-white opacity-5 lg:block"
+          >
+            Lineup
+          </div>
           <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]">
             <div class="hidden h-full w-full lg:flex">
               <div
@@ -644,22 +644,22 @@
               </template>
             </div>
           </div>
-        </template>
-      </div>
+        </div>
+      </template>
     </section>
     <section class="relative mt-20 lg:mb-0 lg:mt-32">
       <div class="relative mx-auto max-w-screen-2xl flex-col text-white">
-        <div class="flex flex-col" id="agenda">
-          <div
-            class="ml-4 flex flex-col gap-3 text-left lg:ml-4 lg:w-full lg:gap-6"
-          >
-            <div class="text-5xl font-bold">Agenda</div>
-            <div class="text-md w-3/4 lg:w-full lg:text-base">
-              Każda prezentacja trwa 30 min + 15 min sesja Q&A
-            </div>
-          </div>
-          <div class="flex-1">
-            <template x-if="meetup">
+        <template x-if="meetup">
+          <div class="flex flex-col" id="agenda">
+            <div class="flex-1">
+              <div
+                class="ml-4 flex flex-col gap-3 text-left lg:ml-4 lg:w-full lg:gap-6"
+              >
+                <div class="text-5xl font-bold">Agenda</div>
+                <div class="text-md w-3/4 lg:w-full lg:text-base">
+                  Każda prezentacja trwa 30 min + 15 min sesja Q&A
+                </div>
+              </div>
               <div
                 class="w-max-2xl flex shrink flex-col divide-y divide-slate-100/25 rounded-2xl px-4 py-6"
               >
@@ -735,9 +735,9 @@
                   </div>
                 </template>
               </div>
-            </template>
+            </div>
           </div>
-        </div>
+        </template>
       </div>
     </section>
     <section>
@@ -823,123 +823,126 @@
       </template>
     </section>
     <section class="relative mt-[110px] lg:mt-48">
-      <div class="relative z-10 mx-auto max-w-6xl" id="rejestracja">
-        <div
-          hx-ext="loading-states"
-          data-loading-delay="300"
-          class="rounded-t-[90px] bg-neutral-200 p-8 text-gray-950 lg:rounded-[90px] lg:p-16"
-        >
-          <h2 class="pt-10 text-center text-5xl font-bold lg:text-6xl">
-            Rejestracja
-          </h2>
-          <form data-loading-class="hidden" id="registration-form">
-            <div
-              id="registration-errors"
-              class="text-center text-red-600"
-            ></div>
-            <div class="mx-auto my-5 flex max-w-2xl flex-col gap-8">
-              <p class="my-7 text-center text-sm lg:text-base">
-                Legnicki Meetup Technologiczny to spotkanie stacjonarne.
-                Pamiętaj, że liczba miejsc jest ograniczona. Zarejestruj się już
-                teraz, aby zapewnić sobie miejsce na wydarzeniu!
-              </p>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Imię"
-                />
-                <label
-                  for="name"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Imię</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="surname"
-                  id="surname"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Nazwisko"
-                />
-                <label
-                  for="surname"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Nazwisko</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  type="text"
-                  name="company"
-                  id="company"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Nazwa firmy"
-                />
-                <label
-                  for="company"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Nazwa firmy</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
-                  placeholder="Adres e-mail"
-                />
-                <label
-                  for="email"
-                  class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
-                  >Adres e-mail</label
-                >
-              </div>
-              <div class="relative">
-                <label
-                  for="consent"
-                  class="flex flex-row bg-neutral-200 px-2 text-sm font-normal text-black"
-                >
+      <template x-if="meetup">
+        <div class="relative z-10 mx-auto max-w-6xl" id="rejestracja">
+          <div
+            hx-ext="loading-states"
+            data-loading-delay="300"
+            class="rounded-t-[90px] bg-neutral-200 p-8 text-gray-950 lg:rounded-[90px] lg:p-16"
+          >
+            <h2 class="pt-10 text-center text-5xl font-bold lg:text-6xl">
+              Rejestracja
+            </h2>
+            <form data-loading-class="hidden" id="registration-form">
+              <div
+                id="registration-errors"
+                class="text-center text-red-600"
+              ></div>
+              <div class="mx-auto my-5 flex max-w-2xl flex-col gap-8">
+                <p class="my-7 text-center text-sm lg:text-base">
+                  Legnicki Meetup Technologiczny to spotkanie stacjonarne.
+                  Pamiętaj, że liczba miejsc jest ograniczona. Zarejestruj się
+                  już teraz, aby zapewnić sobie miejsce na wydarzeniu!
+                </p>
+                <div class="relative">
                   <input
-                    type="checkbox"
-                    name="consent"
-                    id="consent"
-                    required
-                    class="mt-2 self-start"
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
+                    placeholder="Imię"
                   />
-                  <p class="pl-5 text-xs lg:text-sm">
-                    Wyrażam zgodę na przetwarzanie moich danych osobowych
-                    podanych w powyższym formularzu w celach marketingowych
-                    przez organizatora Legnickiego Meetupu Technologicznego,
-                    firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny 5F/5,
-                    59-220 Legnica oraz przez podmioty trzecie odpowiedzialne za
-                    organizację Legnickiego Meetupu Technologicznego.
-                  </p>
-                </label>
-              </div>
+                  <label
+                    for="name"
+                    class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                    >Imię</label
+                  >
+                </div>
+                <div class="relative">
+                  <input
+                    type="text"
+                    name="surname"
+                    id="surname"
+                    class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
+                    placeholder="Nazwisko"
+                  />
+                  <label
+                    for="surname"
+                    class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                    >Nazwisko</label
+                  >
+                </div>
+                <div class="relative">
+                  <input
+                    type="text"
+                    name="company"
+                    id="company"
+                    class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
+                    placeholder="Nazwa firmy"
+                  />
+                  <label
+                    for="company"
+                    class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                    >Nazwa firmy</label
+                  >
+                </div>
+                <div class="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="peer block w-full rounded-md border-2 bg-zinc-300 px-4 py-3 placeholder-transparent shadow-sm focus:border-violet-500 focus:outline-none sm:leading-6"
+                    placeholder="Adres e-mail"
+                  />
+                  <label
+                    for="email"
+                    class="absolute -top-6 left-2 text-base text-gray-900 transition-all peer-placeholder-shown:left-4 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-6 peer-focus:left-2 peer-focus:text-base peer-focus:text-gray-900"
+                    >Adres e-mail</label
+                  >
+                </div>
+                <div class="relative">
+                  <label
+                    for="consent"
+                    class="flex flex-row bg-neutral-200 px-2 text-sm font-normal text-black"
+                  >
+                    <input
+                      type="checkbox"
+                      name="consent"
+                      id="consent"
+                      required
+                      class="mt-2 self-start"
+                    />
+                    <p class="pl-5 text-xs lg:text-sm">
+                      Wyrażam zgodę na przetwarzanie moich danych osobowych
+                      podanych w powyższym formularzu w celach marketingowych
+                      przez organizatora Legnickiego Meetupu Technologicznego,
+                      firmę Blumilk sp. z o.o. ul. Najświętszej Marii Panny
+                      5F/5, 59-220 Legnica oraz przez podmioty trzecie
+                      odpowiedzialne za organizację Legnickiego Meetupu
+                      Technologicznego.
+                    </p>
+                  </label>
+                </div>
 
-              <div class="relative flex w-full cursor-pointer justify-center">
-                <button
-                  data-loading-disable
-                  hx-post="register.php"
-                  hx-target="#registration-form"
-                  hx-swap="innerHTML show:top"
-                  class="mt-4 self-center rounded-md bg-violet-700 px-7 py-3 align-middle text-lg font-bold uppercase text-neutral-200 xs:px-10 md:px-16 lg:px-20 lg:py-6"
-                >
-                  Zarejestruj się
-                </button>
+                <div class="relative flex w-full cursor-pointer justify-center">
+                  <button
+                    data-loading-disable
+                    hx-post="register.php"
+                    hx-target="#registration-form"
+                    hx-swap="innerHTML show:top"
+                    class="mt-4 self-center rounded-md bg-violet-700 px-7 py-3 align-middle text-lg font-bold uppercase text-neutral-200 xs:px-10 md:px-16 lg:px-20 lg:py-6"
+                  >
+                    Zarejestruj się
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
-          <p data-loading class="mb-32 mt-8 w-full text-center text-xl">
-            Trwa wysyłanie...
-          </p>
+            </form>
+            <p data-loading class="mb-32 mt-8 w-full text-center text-xl">
+              Trwa wysyłanie...
+            </p>
+          </div>
         </div>
-      </div>
+      </template>
       <div class="bg-white px-2 py-4 xs:px-4 lg:mt-[74px] lg:p-8">
         <div
           class="relative z-20 mx-auto flex max-w-7xl items-center opacity-50"
