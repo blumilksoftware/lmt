@@ -143,25 +143,25 @@
                 >Wydarzenie</a
               >
               <template x-if="meetup">
-              <a
-                href="#partnerzy"
-                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                >Partnerzy</a
-              >
+                <a
+                  href="#partnerzy"
+                  class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                  >Partnerzy</a
+                >
               </template>
               <template x-if="meetup">
-              <a
-                href="#prelegenci"
-                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                >Prelegenci</a
-              >
+                <a
+                  href="#prelegenci"
+                  class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                  >Prelegenci</a
+                >
               </template>
               <template x-if="meetup">
-              <a
-                href="#agenda"
-                class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                >Agenda</a
-              >
+                <a
+                  href="#agenda"
+                  class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                  >Agenda</a
+                >
               </template>
               <a
                 href="#poprzednieMeetupy"
@@ -170,9 +170,9 @@
               >
               <template x-if="meetup">
                 <a
-                        href="#rejestracja"
-                        class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                >Rejestracja</a
+                  href="#rejestracja"
+                  class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                  >Rejestracja</a
                 >
               </template>
             </div>
@@ -204,25 +204,25 @@
                       >Wydarzenie</a
                     >
                     <template x-if="meetup">
-                    <a
-                      href="#partnerzy"
-                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                      >Partnerzy</a
-                    >
+                      <a
+                        href="#partnerzy"
+                        class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                        >Partnerzy</a
+                      >
                     </template>
                     <template x-if="meetup">
-                    <a
-                      href="#prelegenci"
-                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                      >Prelegenci</a
-                    >
+                      <a
+                        href="#prelegenci"
+                        class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                        >Prelegenci</a
+                      >
                     </template>
                     <template x-if="meetup">
-                    <a
-                      href="#agenda"
-                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                      >Agenda</a
-                    >
+                      <a
+                        href="#agenda"
+                        class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                        >Agenda</a
+                      >
                     </template>
                     <a
                       href="#poprzednieMeetupy"
@@ -230,11 +230,11 @@
                       >Poprzednie edycje</a
                     >
                     <template x-if="meetup">
-                    <a
-                      href="#rejestracja"
-                      class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
-                      >Rejestracja</a
-                    >
+                      <a
+                        href="#rejestracja"
+                        class="block px-3 py-2 hover:bg-gray-700 hover:text-white"
+                        >Rejestracja</a
+                      >
                     </template>
                   </div>
                 </div>
@@ -506,9 +506,7 @@
               </div>
             </template>
             <template x-for="sponsor in meetup.sponsors">
-              <div
-                class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse"
-              >
+              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
                 <div
                   class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
                 >
@@ -518,7 +516,9 @@
                     Sponsor
                   </p>
                 </div>
-                <div class="flex h-[120px] w-[215px] items-center justify-center">
+                <div
+                  class="flex h-[120px] w-[215px] items-center justify-center"
+                >
                   <a :href="sponsor.website" target="_blank">
                     <img
                       :src="sponsor.logoUrl"
@@ -540,7 +540,9 @@
                     Partner
                   </p>
                 </div>
-                <div class="flex h-[120px] w-[215px] items-center justify-center">
+                <div
+                  class="flex h-[120px] w-[215px] items-center justify-center"
+                >
                   <a :href="partner.website" target="_blank">
                     <img
                       :src="partner.logoUrl"
@@ -802,7 +804,7 @@
     </section>
     <section
       x-data="{ selectedImage: null, navigateToPastMeetup(meetupId) {
-    window.location.href = `meetup.html?meetupId=${meetupId}`;
+    window.open(`meetup.html?meetupId=${meetupId}`, '_blank');
   }}"
       id="poprzednieMeetupy"
     >
