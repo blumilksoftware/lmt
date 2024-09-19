@@ -1,0 +1,127 @@
+{
+  "title": "Legnicki Meetup Technologiczny #3",
+  "datetime": "2024-09-19 00:15:00",
+  "place": "Legnicki Browar Książęcy",
+  "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
+  "lineup": [
+    {
+      "name": "Pxdddddd",
+      "surname": "Sokołowski",
+      "role": "software engineer i tech lead",
+      "companies": [
+        {
+          "name": "Synergy Codes",
+          "url": "https://www.synergycodes.com/"
+        }
+      ],
+      "avatarUrl": "przemyslaw-sokolowski.jpg",
+      "about": "Przemek to software engineer i tech lead w Synergy Codes. Na co dzień pracuje z różnorodnymi technologiami, takimi jak .NET, NestJS, Vue, Angular i React. Kluczowe dla niego jest dostosowanie technologii do konkretnego rozwiązania, ponieważ nie każde narzędzie pasuje do każdego przypadku. Przemek wierzy, że elastyczność w doborze technologii jest niezbędna do tworzenia efektywnych i skalowalnych rozwiązań."
+    },
+    {
+      "name": "Piotr",
+      "surname": "Dobrowolski",
+      "role": "lider zespołu .NET",
+      "companies": [
+        {
+          "name": "Softiq sp. z o.o.",
+          "url": "https://softiq.pl/"
+        }
+      ],
+      "avatarUrl": "piotr-dobrowolski.jpeg",
+      "about": "Dzięki dogłębnej wiedzy w zakresie technologii .NET oraz umiejętnościom zarządzania zespołem, Piotr potrafi skutecznie kierować projektami, dbając o terminowość i efektywność realizacji zadań. Jego zaangażowanie w rozwój zespołu i chęć dzielenia się wiedzą sprawiają, że jest cenionym mentorem, który inspiruje innych do osiągania coraz wyższych standardów w pracy."
+    },
+    {
+      "name": "Patryk",
+      "surname": "Mauer",
+      "role": "",
+      "companies": [
+        {
+          "name": "Blumilk sp. z o.o.",
+          "url": "https://www.blumilk.pl/"
+        }
+      ],
+      "avatarUrl": "patryk-mauer.jpg",
+      "about": "Doktorant na Politechnice Opolskiej w dyscyplinie Informatyka Techniczna i Telekomunikacja, współwłaściciel Epicentrum Art Gallery w Opolu oraz firmy informatycznej IT Goal sp. z o.o. Jego zainteresowania to automatyzacja i robotyzacja procesów biznesowych, w tym z wykorzystaniem uczenia maszynowego."
+    }
+  ],
+  "agenda": [
+    {
+      "start": "18:00",
+      "title": "Otwarcie spotkania"
+    },
+    {
+      "start": "18:30",
+      "title": "HDD, czyli jak można zgubić się w projekcie",
+      "speaker": "Przemysław Sokołowski, Synergy Codes",
+      "description": "W mojej prezentacji przedstawię prawdziwe przykłady sytuacji, gdzie decyzje pod wpływem HDD prowadziły do tworzenia długu technologicznego i spadku jakości projektów. Zobaczymy, jak takie wybory wpływają na wydajność zespołu, stabilność systemu i długoterminowe utrzymanie kodu.\nDodatkowo, podzielę się praktycznymi wskazówkami, jak unikać pułapek HDD i podejmować bardziej świadome decyzje technologiczne. Pokażę, jak znaleźć równowagę między nowinkami a stabilnością, żeby tworzyć trwałe i efektywne rozwiązania."
+    },
+    {
+      "start": "19:15",
+      "title": "Przerwa"
+    },
+    {
+      "start": "19:30",
+      "title": "Wprowadzenie do generatorów kodu źródłowego w C#",
+      "speaker": "Piotr Dobrowolski, SOFTIQ",
+      "description": "W swojej prezentacji opowiem o roli generatorów kodów w C#. Pokażę zaawansowane techniki i wzorce, które łatwo i przyjemnie zastosujecie w realnych projektach. Pokażę przykłady z rzeczywistych aplikacji, gdzie generatory kodu mogą przyspieszyć rozwój."
+    },
+    {
+      "start": "20:15",
+      "title": "Przerwa"
+    },
+    {
+      "start": "20:30",
+      "title": "Przewidywanie wyników aukcyjnych dzieł sztuki",
+      "speaker": "Patryk Mauer, Blumilk",
+      "description": " Patryk w swojej prezentacji skupi się na omówieniu kluczowych cech i zmiennych, które najbardziej wpływają na trafność prognoz przyszłych wyników aukcyjnych oraz na przedstawieniu najskuteczniejszych modeli uczenia maszynowego stosowanych w tym kontekście. Wskaże również, jakie strategie można przyjąć, aby maksymalizować precyzję przewidywań. Dzięki zastosowaniu nowoczesnych technologii i podejść analitycznych, uczestnicy prezentacji zdobędą wiedzę niezbędną do lepszego zrozumienia mechanizmów rządzących rynkiem sztuki i podejmowania bardziej świadomych, data-driven decyzji."
+    },
+    {
+      "start": "21:15",
+      "title": "Networking"
+    }
+  ],
+  "patrons": [
+    {
+      "name": "Collegium Witelona Uczelnia Państwowa",
+      "website": "https://collegiumwitelona.pl/",
+      "logoUrl": "cwup.png"
+    },
+    {
+      "name": "Miasto Legnica",
+      "website": "https://prezydent.legnica.eu/",
+      "logoUrl": "legnica.png"
+    },
+    {
+      "name": "Legnicka Specjalna Strefa Ekonomiczna S.A.",
+      "website": "https://lsse.eu/",
+      "logoUrl": "lsse.png"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Synergy Codes",
+      "website": "https://www.synergycodes.com/",
+      "logoUrl": "synergy-codes.png"
+    },
+    {
+      "name": "Kancelaria radcy prawnego Joanna Rewak",
+      "website": "https://kancelaria.rewak.pl/",
+      "logoUrl": "kancelaria-joanna-rewak.png"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Softiq",
+      "website": "https://softiq.pl/",
+      "logoUrl": "softiq.png"
+    },
+    {
+      "name": "JetBrains",
+      "website": "https://www.jetbrains.com/",
+      "logoUrl": "jetbrains.png"
+    }
+  ],
+  "partnersGridCols": 4,
+  "gallery": [],
+  "photographers": "Paweł Dancewicz"
+}
