@@ -19,6 +19,7 @@ function initialize() {
       await this.fetchData()
       this.calculateCounters()
       this.processPastMeetups()
+      this.loadUpcomingMeetup()
       setInterval(() => {
         this.calculateCounters()
       }, 1000)
@@ -77,9 +78,19 @@ function initialize() {
       }
     },
     loadUpcomingMeetup: function () {
-      const upcomingMeetup = this.meetups.find(
-        (meetup) => new Date(meetup.datetime) > new Date()
-      )
+      const now = new Date()
+
+      const upcomingMeetup = this.meetups.find((meetup) => {
+        const meetupDate = new Date(meetup.datetime)
+        const twelveHoursAfter = new Date(
+          meetupDate.getTime() + 12 * 60 * 60 * 1000
+        )
+
+        return (
+          meetupDate > now || (now >= meetupDate && now <= twelveHoursAfter)
+        )
+      })
+
       if (upcomingMeetup) {
         this.processMeetup(upcomingMeetup)
       }
@@ -90,8 +101,6 @@ function initialize() {
       )
       if (specificMeetup) {
         this.processMeetup(specificMeetup)
-      } else {
-        console.error('Meetup not found')
       }
     },
     processMeetup: function (meetup) {
@@ -103,6 +112,11 @@ function initialize() {
         ...lecture,
         expanded: false,
       }))
+
+      const twelveHoursAfter = new Date(
+        new Date(meetup.datetime).getTime() + 12 * 60 * 60 * 1000
+      )
+      meetup.isPastTwelveHours = new Date() > twelveHoursAfter
 
       this.meetup = meetup
       this.initializeSpeakers()
@@ -135,7 +149,13 @@ function initialize() {
     processPastMeetups: function () {
       const now = new Date()
       this.pastMeetups = this.meetups
-        .filter((meetup) => new Date(meetup.datetime) < now)
+        .filter((meetup) => {
+          const meetupDate = new Date(meetup.datetime)
+          const twelveHoursAfter = new Date(
+            meetupDate.getTime() + 12 * 60 * 60 * 1000
+          )
+          return now > twelveHoursAfter
+        })
         .map((meetup) => ({
           ...meetup,
           formattedDate: this.formatDate(meetup.datetime),
@@ -170,11 +190,6 @@ function initialize() {
         this.counters.seconds = String(
           moment.duration(diff).seconds()
         ).padStart(2, '0')
-      }
-    },
-    initializeSpeakers: function () {
-      if (this.meetup && this.meetup.lineup && this.meetup.lineup.length > 0) {
-        this.selectedSpeakerIndex = 0
       }
     },
     selectPreviousSpeaker: function () {
