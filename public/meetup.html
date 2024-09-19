@@ -231,7 +231,10 @@
           class="flex w-full justify-center bg-slate-950 px-6 py-10 lg:bg-[#6C1DF2]"
           id="partnerzy"
         >
-          <div class="grid items-center gap-16 lg:grid-cols-4">
+          <div
+            class="grid items-center gap-16"
+            :class="`lg:grid-cols-${meetup.partnersGridCols}`"
+          >
             <div class="flex flex-col lg:flex-col-reverse">
               <div
                 class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
@@ -277,9 +280,7 @@
               </div>
             </template>
             <template x-for="sponsor in meetup.sponsors">
-              <div
-                class="mr-auto flex h-[119px] flex-col lg:m-auto lg:flex-col-reverse"
-              >
+              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
                 <div
                   class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
                 >
@@ -289,12 +290,14 @@
                     Sponsor
                   </p>
                 </div>
-                <div class="flex h-full items-center">
+                <div
+                  class="flex h-[120px] w-[215px] items-center justify-center"
+                >
                   <a :href="sponsor.website" target="_blank">
                     <img
                       :src="sponsor.logoUrl"
                       :alt="sponsor.name"
-                      class="w-[215px]"
+                      class="max-h-[120px]"
                     />
                   </a>
                 </div>
@@ -311,13 +314,17 @@
                     Partner
                   </p>
                 </div>
-                <a :href="partner.website" target="_blank">
-                  <img
-                    :src="partner.logoUrl"
-                    :alt="partner.name"
-                    class="h-[71px]"
-                  />
-                </a>
+                <div
+                  class="flex h-[120px] w-[215px] items-center justify-center"
+                >
+                  <a :href="partner.website" target="_blank">
+                    <img
+                      :src="partner.logoUrl"
+                      :alt="partner.name"
+                      class="max-h-[120px]"
+                    />
+                  </a>
+                </div>
               </div>
             </template>
           </div>
@@ -544,9 +551,6 @@
       </div>
     </section>
     <section>
-      <div class="pointer-events-none absolute right-0 hidden lg:flex">
-        <div class="css-blurry-violet-gradient"></div>
-      </div>
       <div
         class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40"
       >
@@ -589,7 +593,7 @@
             </div>
           </div>
           <div
-            class="mt-5 grid max-h-screen grid-cols-1 gap-4 overflow-y-scroll px-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid-cols-2 md:grid-cols-3 lg:mt-20 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden"
+            class="mt-5 grid grid-cols-1 gap-4 px-4 md:grid-cols-2 lg:mt-20 lg:grid-cols-4"
           >
             <template
               x-for="columnIndex in Math.ceil(meetup.gallery.length / 3)"
