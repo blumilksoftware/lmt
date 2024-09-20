@@ -82,13 +82,11 @@ function initialize() {
 
       const upcomingMeetup = this.meetups.find((meetup) => {
         const meetupDate = new Date(meetup.datetime)
-        const twelveHoursAfter = new Date(
-          meetupDate.getTime() + 12 * 60 * 60 * 1000
-        )
 
-        return (
-          meetupDate > now || (now >= meetupDate && now <= twelveHoursAfter)
-        )
+        const endOfDay = new Date(meetupDate)
+        endOfDay.setHours(23, 59, 59, 999)
+
+        return now <= endOfDay
       })
 
       if (upcomingMeetup) {
@@ -113,10 +111,10 @@ function initialize() {
         expanded: false,
       }))
 
-      const twelveHoursAfter = new Date(
-        new Date(meetup.datetime).getTime() + 12 * 60 * 60 * 1000
+      const endOfDay = new Date(
+        new Date(meetup.datetime).setHours(23, 59, 59, 999)
       )
-      meetup.isPastTwelveHours = new Date() > twelveHoursAfter
+      meetup.isPastEndOfDay = new Date() > endOfDay
 
       this.meetup = meetup
       this.initializeSpeakers()
@@ -151,10 +149,10 @@ function initialize() {
       this.pastMeetups = this.meetups
         .filter((meetup) => {
           const meetupDate = new Date(meetup.datetime)
-          const twelveHoursAfter = new Date(
-            meetupDate.getTime() + 12 * 60 * 60 * 1000
-          )
-          return now > twelveHoursAfter
+          const endOfDay = new Date(meetupDate)
+          endOfDay.setHours(23, 59, 59, 999)
+
+          return now > endOfDay
         })
         .map((meetup) => ({
           ...meetup,
