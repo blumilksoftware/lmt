@@ -153,7 +153,8 @@ function initialize() {
         .filter((meetup) => {
           const meetupDate = moment(meetup.datetime)
           return (
-            now.isSameOrBefore(meetupDate, 'day')
+              meetupDate.isBefore(now, 'day') ||
+              (meetupDate.isSame(now, 'day') && now.isAfter(endOfDay))
           )
         })
         .map((meetup) => ({
