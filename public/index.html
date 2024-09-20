@@ -997,6 +997,13 @@
                 >Blumilk</a
               >
             </div>
+            <template x-if="meetup && meetup.regulations">
+              <div>
+                <a :href="meetup.regulationsLink" target="_blank">
+                  <p>| Regulamin</p>
+                </a>
+              </div>
+            </template>
           </div>
           <div class="flex gap-3 sm:gap-4">
             <a
