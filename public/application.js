@@ -78,15 +78,16 @@ function initialize() {
       }
     },
     loadUpcomingMeetup: function () {
-      const now = new Date()
+      const now = moment()
+      const endOfDay = moment().endOf('day')
 
       const upcomingMeetup = this.meetups.find((meetup) => {
-        const meetupDate = new Date(meetup.datetime)
+        const meetupDate = moment(meetup.datetime)
 
-        const endOfDay = new Date(meetupDate)
-        endOfDay.setHours(23, 59, 59, 999)
-
-        return now <= endOfDay
+        return (
+          now.isSameOrBefore(endOfDay, 'day') &&
+          meetupDate.isSameOrAfter(now, 'day')
+        )
       })
 
       if (upcomingMeetup) {
@@ -106,15 +107,15 @@ function initialize() {
       meetup.date = time.format('DD MMMM')
       meetup.time = time.format('HH:mm')
       meetup.year = time.format('Y')
+      const meetupDate = moment(meetup.datetime)
+      const endOfMeetupDay = meetupDate.endOf('day')
+
+      meetup.isPastEndOfDay = moment().isAfter(endOfMeetupDay)
+
       meetup.agenda = meetup.agenda.map((lecture) => ({
         ...lecture,
         expanded: false,
       }))
-
-      const endOfDay = new Date(
-        new Date(meetup.datetime).setHours(23, 59, 59, 999)
-      )
-      meetup.isPastEndOfDay = new Date() > endOfDay
 
       this.meetup = meetup
       this.initializeSpeakers()
@@ -145,14 +146,16 @@ function initialize() {
       }
     },
     processPastMeetups: function () {
-      const now = new Date()
+      const now = moment()
+      const endOfDay = moment().endOf('day')
+
       this.pastMeetups = this.meetups
         .filter((meetup) => {
-          const meetupDate = new Date(meetup.datetime)
-          const endOfDay = new Date(meetupDate)
-          endOfDay.setHours(23, 59, 59, 999)
-
-          return now > endOfDay
+          const meetupDate = moment(meetup.datetime)
+          return (
+            meetupDate.isBefore(now, 'day') ||
+            (meetupDate.isSame(now, 'day') && now.isAfter(endOfDay))
+          )
         })
         .map((meetup) => ({
           ...meetup,
