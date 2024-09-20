@@ -62,6 +62,7 @@ function initialize() {
             meetupFolder
           )
 
+          meetupData.regulationsLink = `${meetupFolder}/${meetupData.regulations}`
           return meetupData
         })
       )
