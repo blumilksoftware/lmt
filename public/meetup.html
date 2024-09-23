@@ -392,52 +392,84 @@
                     </div>
                   </template>
                 </div>
-                <div class="flex flex-col w-3/4 pt-6 text-base text-gray-300">
-                  <div class="mb-4 lg:mb-8" x-text="meetup.lineup[selectedSpeakerIndex].about"></div>
-                  <template x-if="meetup.lineup[selectedSpeakerIndex].presentationTitle">
-                    <div class="mb-4 lg:mb-6 flex items-center">
+                <div class="flex w-3/4 flex-col pt-6 text-base text-gray-300">
+                  <div
+                    class="mb-4 lg:mb-8"
+                    x-text="meetup.lineup[selectedSpeakerIndex].about"
+                  ></div>
+                  <template
+                    x-if="meetup.lineup[selectedSpeakerIndex].presentationTitle"
+                  >
+                    <div class="mb-4 flex items-center lg:mb-6">
                       <div class="mr-2">
                         <svg
-                                class="size-5"
-                                viewBox="0 0 15 19"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                          class="size-5"
+                          viewBox="0 0 15 19"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <g id="SVGRepo_iconDocument">
-                            <path d="M9 1.5V5.05556C9 5.2913 9.09365 5.5174 9.26035 5.68409C9.42705 5.85079 9.65314 5.94444 9.88889 5.94444H13.4444M9 1.5H2.77778C2.30628 1.5 1.8541 1.6873 1.5207 2.0207C1.1873 2.3541 1 2.80628 1 3.27778V15.7222C1 16.1937 1.1873 16.6459 1.5207 16.9793C1.8541 17.3127 2.30628 17.5 2.77778 17.5H11.6667C12.1382 17.5 12.5903 17.3127 12.9237 16.9793C13.2571 16.6459 13.4444 16.1937 13.4444 15.7222V5.94444M9 1.5L13.4444 5.94444M7.22222 13.9444V8.61111M7.22222 13.9444L5 11.7222M7.22222 13.9444L9.44444 11.7222" stroke="#01FF6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path
+                              d="M9 1.5V5.05556C9 5.2913 9.09365 5.5174 9.26035 5.68409C9.42705 5.85079 9.65314 5.94444 9.88889 5.94444H13.4444M9 1.5H2.77778C2.30628 1.5 1.8541 1.6873 1.5207 2.0207C1.1873 2.3541 1 2.80628 1 3.27778V15.7222C1 16.1937 1.1873 16.6459 1.5207 16.9793C1.8541 17.3127 2.30628 17.5 2.77778 17.5H11.6667C12.1382 17.5 12.5903 17.3127 12.9237 16.9793C13.2571 16.6459 13.4444 16.1937 13.4444 15.7222V5.94444M9 1.5L13.4444 5.94444M7.22222 13.9444V8.61111M7.22222 13.9444L5 11.7222M7.22222 13.9444L9.44444 11.7222"
+                              stroke="#01FF6B"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
                           </g>
                         </svg>
                       </div>
                       <div>
                         <div>
-                          <a :href="meetup.lineup[selectedSpeakerIndex].presentationUrl" target="_blank">
-                            <p x-text="meetup.lineup[selectedSpeakerIndex].presentationTitle" class="font-semibold"></p>
+                          <a
+                            :href="meetup.lineup[selectedSpeakerIndex].presentationUrl"
+                            target="_blank"
+                          >
+                            <p
+                              x-text="meetup.lineup[selectedSpeakerIndex].presentationTitle"
+                              class="font-semibold"
+                            ></p>
                           </a>
                         </div>
                       </div>
                     </div>
                   </template>
                   <template x-if="meetup.lineup[selectedSpeakerIndex].videoUrl">
-                  <div class="mb-4 lg:mb-6 flex items-center">
-                    <div class="mr-2">
-                      <svg
-                              class="size-5"
-                              viewBox="0 0 18 15"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g id="SVGRepo_iconPlay">
-                          <path d="M1 4.29998C1 3.45128 1.33714 2.63735 1.93726 2.03723C2.53737 1.43712 3.35131 1.09998 4.2 1.09998H13.8C14.6487 1.09998 15.4626 1.43712 16.0627 2.03723C16.6629 2.63735 17 3.45128 17 4.29998V10.7C17 11.5487 16.6629 12.3626 16.0627 12.9627C15.4626 13.5628 14.6487 13.9 13.8 13.9H4.2C3.35131 13.9 2.53737 13.5628 1.93726 12.9627C1.33714 12.3626 1 11.5487 1 10.7V4.29998Z" stroke="#01FF6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M7.4 5.09998L11.4 7.49998L7.4 9.89998V5.09998Z" stroke="#01FF6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                      </svg>
+                    <div class="mb-4 flex items-center lg:mb-6">
+                      <div class="mr-2">
+                        <svg
+                          class="size-5"
+                          viewBox="0 0 18 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g id="SVGRepo_iconPlay">
+                            <path
+                              d="M1 4.29998C1 3.45128 1.33714 2.63735 1.93726 2.03723C2.53737 1.43712 3.35131 1.09998 4.2 1.09998H13.8C14.6487 1.09998 15.4626 1.43712 16.0627 2.03723C16.6629 2.63735 17 3.45128 17 4.29998V10.7C17 11.5487 16.6629 12.3626 16.0627 12.9627C15.4626 13.5628 14.6487 13.9 13.8 13.9H4.2C3.35131 13.9 2.53737 13.5628 1.93726 12.9627C1.33714 12.3626 1 11.5487 1 10.7V4.29998Z"
+                              stroke="#01FF6B"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M7.4 5.09998L11.4 7.49998L7.4 9.89998V5.09998Z"
+                              stroke="#01FF6B"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                      <div>
+                        <a
+                          :href="meetup.lineup[selectedSpeakerIndex].videoUrl"
+                          target="_blank"
+                        >
+                          <p class="font-semibold">Obejrzyj na YouTube</p>
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <a :href="meetup.lineup[selectedSpeakerIndex].videoUrl" target="_blank" >
-                        <p class="font-semibold">Obejrzyj na YouTube</p>
-                      </a>
-                    </div>
-                  </div>
                   </template>
                 </div>
                 <div class="flex h-full flex-row items-end gap-2 pb-14 pt-4">
