@@ -15,7 +15,10 @@
         }
       ],
       "avatarUrl": "adam-marszowski.jpeg",
-      "about": "Adam specjalizuje się w programowaniu w React i Java. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI."
+      "about": "Adam specjalizuje się w programowaniu w React i Java. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI.",
+      "presentationTitle": "",
+      "presentationUrl": "",
+      "videoUrl": ""
     },
     {
       "name": "Joanna",
@@ -32,7 +35,10 @@
         }
       ],
       "avatarUrl": "joanna-rewak.png",
-      "about": "Asia jest radcą prawnym pasjonującym się prawem nowych technologii. Specjalizuje się w tworzeniu umów, regulaminów oraz dokumentów dotyczących ochrony danych dla podmiotów z branży technologicznej. Ciekawostkami prawnymi dzieli się w social mediach."
+      "about": "Asia jest radcą prawnym pasjonującym się prawem nowych technologii. Specjalizuje się w tworzeniu umów, regulaminów oraz dokumentów dotyczących ochrony danych dla podmiotów z branży technologicznej. Ciekawostkami prawnymi dzieli się w social mediach.",
+      "presentationTitle": "",
+      "presentationUrl": "",
+      "videoUrl": ""
     },
     {
       "name": "Jacek",
@@ -45,7 +51,10 @@
         }
       ],
       "avatarUrl": "jacek-sawoszczuk.jpeg",
-      "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie, gdzie specjalizuje się w Vue.js i Tailwindzie. Entuzjasta oprogramowania open-source, Linuksa i całej społeczności powstałej wokół otwartego oprogramowania."
+      "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie, gdzie specjalizuje się w Vue.js i Tailwindzie. Entuzjasta oprogramowania open-source, Linuksa i całej społeczności powstałej wokół otwartego oprogramowania.",
+      "presentationTitle": "",
+      "presentationUrl": "",
+      "videoUrl": ""
     }
   ],
   "agenda": [

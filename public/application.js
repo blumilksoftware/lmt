@@ -42,7 +42,8 @@ function initialize() {
           meetupData.id = meetupId
           meetupData.lineup = meetupData.lineup.map((speaker) => ({
             ...speaker,
-            avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`,
+           avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`,
+           presentationUrl: `${meetupFolder}/presentations/${speaker.presentationUrl}`,
           }))
           meetupData.patrons = meetupData.patrons.map((patron) => ({
             ...patron,
