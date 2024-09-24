@@ -819,11 +819,7 @@
               class="w-max-2xl flex shrink flex-col divide-y divide-y-reverse divide-slate-100/25 rounded-2xl px-4 pt-2"
             >
               <template x-for="meetup in pastMeetups">
-                <a
-                  :href="`meetup.html?meetupId"
-                  ="${meetup.id}`"
-                  target="_blank"
-                >
+                <a :href="`meetup.html?meetupId=${meetup.id}`" target="_blank">
                   <div
                     class="grid grid-cols-[180px,1fr,auto] items-center py-4 lg:py-10"
                   >
