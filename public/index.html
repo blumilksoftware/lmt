@@ -802,10 +802,7 @@
         </button>
       </div>
     </section>
-    <section
-      x-data="{ selectedImage: null }"
-      id="poprzednieMeetupy"
-    >
+    <section x-data="{ selectedImage: null }" id="poprzednieMeetupy">
       <template x-if="pastMeetups.length > 0">
         <div class="relative max-w-screen-2xl flex-col text-white lg:mx-auto">
           <div class="flex flex-col" id="previousEditions">
@@ -822,31 +819,35 @@
               class="w-max-2xl flex shrink flex-col divide-y divide-y-reverse divide-slate-100/25 rounded-2xl px-4 pt-2"
             >
               <template x-for="meetup in pastMeetups">
-                <a :href=`meetup.html?meetupId=${meetup.id}` target="_blank">
+                <a
+                  :href="`meetup.html?meetupId"
+                  ="${meetup.id}`"
+                  target="_blank"
+                >
                   <div
-                          class="flex cursor-pointer flex-row items-center py-4 lg:py-10"
+                    class="grid grid-cols-[180px,1fr,auto] items-center py-4 lg:py-10"
                   >
                     <div
-                            class="text-2xl font-bold text-green-500 lg:text-4xl"
-                            x-text="meetup.formattedDate"
+                      class="text-2xl font-bold text-green-500 lg:text-4xl"
+                      x-text="meetup.formattedDate"
                     ></div>
                     <div
-                            class="pl-4 text-base font-bold lg:px-8"
-                            x-text="meetup.title"
+                      class="pl-4 text-base font-bold lg:px-8"
+                      x-text="meetup.title"
                     ></div>
-                    <div class="flex flex-grow justify-end pr-4">
+                    <div class="flex justify-end pr-4">
                       <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              class="h-6 w-6 -rotate-90"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="h-6 w-6 -rotate-90"
                       >
                         <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m19.5 8.25-7.5 7.5-7.5-7.5"
                         />
                       </svg>
                     </div>
@@ -1103,10 +1104,10 @@
           </div>
         </div>
         <div
-          class="absolute bottom-0 right-0 z-10 -mr-[25em] hidden h-[24em] overflow-hidden lg:block 3xl:-mr-[20em] 4xl:-mr-[15em]"
+          class="absolute bottom-0 right-0 z-10 -mr-[15em] hidden h-[16em] overflow-hidden lg:block 3xl:-mr-[10em] 4xl:-mr-[5em]"
         >
           <div
-            class="size-[56em] rounded-full border-[96px] border-violet-700 4xl:size-[74em]"
+            class="size-[56em] rounded-full border-[86px] border-violet-700 4xl:size-[74em]"
           ></div>
         </div>
       </div>
