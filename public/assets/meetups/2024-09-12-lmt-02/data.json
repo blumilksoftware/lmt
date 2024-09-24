@@ -15,7 +15,10 @@
         }
       ],
       "avatarUrl": "przemyslaw-sokolowski.jpg",
-      "about": "Przemek to software engineer i tech lead w Synergy Codes. Na co dzień pracuje z różnorodnymi technologiami, takimi jak .NET, NestJS, Vue, Angular i React. Kluczowe dla niego jest dostosowanie technologii do konkretnego rozwiązania, ponieważ nie każde narzędzie pasuje do każdego przypadku. Przemek wierzy, że elastyczność w doborze technologii jest niezbędna do tworzenia efektywnych i skalowalnych rozwiązań."
+      "about": "Przemek to software engineer i tech lead w Synergy Codes. Na co dzień pracuje z różnorodnymi technologiami, takimi jak .NET, NestJS, Vue, Angular i React. Kluczowe dla niego jest dostosowanie technologii do konkretnego rozwiązania, ponieważ nie każde narzędzie pasuje do każdego przypadku. Przemek wierzy, że elastyczność w doborze technologii jest niezbędna do tworzenia efektywnych i skalowalnych rozwiązań.",
+      "presentationTitle": "HDD, czyli jak można zgubić się w projekcie",
+      "presentationUrl": "przemyslaw-sokolowski.pdf",
+      "videoUrl": "https://www.youtube.com/watch?v=cK0yEiwg6_s"
     },
     {
       "name": "Piotr",
@@ -28,7 +31,10 @@
         }
       ],
       "avatarUrl": "piotr-dobrowolski.jpeg",
-      "about": "Dzięki dogłębnej wiedzy w zakresie technologii .NET oraz umiejętnościom zarządzania zespołem, Piotr potrafi skutecznie kierować projektami, dbając o terminowość i efektywność realizacji zadań. Jego zaangażowanie w rozwój zespołu i chęć dzielenia się wiedzą sprawiają, że jest cenionym mentorem, który inspiruje innych do osiągania coraz wyższych standardów w pracy."
+      "about": "Dzięki dogłębnej wiedzy w zakresie technologii .NET oraz umiejętnościom zarządzania zespołem, Piotr potrafi skutecznie kierować projektami, dbając o terminowość i efektywność realizacji zadań. Jego zaangażowanie w rozwój zespołu i chęć dzielenia się wiedzą sprawiają, że jest cenionym mentorem, który inspiruje innych do osiągania coraz wyższych standardów w pracy.",
+      "presentationTitle": "Wprowadzenie do generatorów kodu źródłowego w C#",
+      "presentationUrl": "piotr-dobrowolski.pdf",
+      "videoUrl": "https://www.youtube.com/watch?v=yAGkzRW1V64"
     },
     {
       "name": "Patryk",
@@ -41,7 +47,10 @@
         }
       ],
       "avatarUrl": "patryk-mauer.jpg",
-      "about": "Doktorant na Politechnice Opolskiej w dyscyplinie Informatyka Techniczna i Telekomunikacja, współwłaściciel Epicentrum Art Gallery w Opolu oraz firmy informatycznej IT Goal sp. z o.o. Jego zainteresowania to automatyzacja i robotyzacja procesów biznesowych, w tym z wykorzystaniem uczenia maszynowego."
+      "about": "Doktorant na Politechnice Opolskiej w dyscyplinie Informatyka Techniczna i Telekomunikacja, współwłaściciel Epicentrum Art Gallery w Opolu oraz firmy informatycznej IT Goal sp. z o.o. Jego zainteresowania to automatyzacja i robotyzacja procesów biznesowych, w tym z wykorzystaniem uczenia maszynowego.",
+      "presentationTitle": "",
+      "presentationUrl": "",
+      "videoUrl": "https://www.youtube.com/watch?v=_Drmd0U4Aco"
     }
   ],
   "agenda": [
