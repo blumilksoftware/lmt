@@ -85,7 +85,6 @@ function initialize() {
         const meetupDate = moment(meetup.datetime)
 
         return (
-          now.isSameOrBefore(endOfDay, 'day') &&
           meetupDate.isSameOrAfter(now, 'day')
         )
       })
@@ -152,10 +151,7 @@ function initialize() {
       this.pastMeetups = this.meetups
         .filter((meetup) => {
           const meetupDate = moment(meetup.datetime)
-          return (
-              meetupDate.isBefore(now, 'day') ||
-              (meetupDate.isSame(now, 'day') && now.isAfter(endOfDay))
-          )
+          return (meetupDate.isBefore(now, 'day'))
         })
         .map((meetup) => ({
           ...meetup,
