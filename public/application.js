@@ -144,7 +144,6 @@ function initialize() {
     },
     processPastMeetups: function () {
       const now = moment()
-      const endOfDay = moment().endOf('day')
 
       this.pastMeetups = this.meetups
         .filter((meetup) => {
