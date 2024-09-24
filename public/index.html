@@ -803,9 +803,7 @@
       </div>
     </section>
     <section
-      x-data="{ selectedImage: null, navigateToPastMeetup(meetupId) {
-    window.open(`meetup.html?meetupId=${meetupId}`, '_blank');
-  }}"
+      x-data="{ selectedImage: null }"
       id="poprzednieMeetupy"
     >
       <template x-if="pastMeetups.length > 0">
@@ -824,35 +822,36 @@
               class="w-max-2xl flex shrink flex-col divide-y divide-y-reverse divide-slate-100/25 rounded-2xl px-4 pt-2"
             >
               <template x-for="meetup in pastMeetups">
-                <div
-                  class="flex cursor-pointer flex-row items-center py-4 lg:py-10"
-                  @click="navigateToPastMeetup(meetup.id)"
-                >
+                <a :href=`meetup.html?meetupId=${meetup.id}` target="_blank">
                   <div
-                    class="text-2xl font-bold text-green-500 lg:text-4xl"
-                    x-text="meetup.formattedDate"
-                  ></div>
-                  <div
-                    class="pl-4 text-base font-bold lg:px-8"
-                    x-text="meetup.title"
-                  ></div>
-                  <div class="flex flex-grow justify-end pr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-6 w-6 -rotate-90"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                      />
-                    </svg>
+                          class="flex cursor-pointer flex-row items-center py-4 lg:py-10"
+                  >
+                    <div
+                            class="text-2xl font-bold text-green-500 lg:text-4xl"
+                            x-text="meetup.formattedDate"
+                    ></div>
+                    <div
+                            class="pl-4 text-base font-bold lg:px-8"
+                            x-text="meetup.title"
+                    ></div>
+                    <div class="flex flex-grow justify-end pr-4">
+                      <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              class="h-6 w-6 -rotate-90"
+                      >
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                </div>
+                </a>
               </template>
             </div>
           </div>
