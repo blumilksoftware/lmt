@@ -400,13 +400,18 @@
                   <template
                     x-if="meetup.lineup[selectedSpeakerIndex].presentationTitle"
                   >
-                    <div class="mb-4 flex items-center lg:mb-6">
-                      <div class="mr-2">
+                    <a
+                      class="mb-4 lg:mb-6"
+                      :href="meetup.lineup[selectedSpeakerIndex].presentationUrl"
+                      target="_blank"
+                    >
+                      <div class="flex items-center">
                         <svg
-                          class="size-5"
+                          class="mr-2 size-5"
                           viewBox="0 0 15 19"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Przejdź do slajdów z prezentacji"
                         >
                           <g id="SVGRepo_iconDocument">
                             <path
@@ -418,30 +423,26 @@
                             />
                           </g>
                         </svg>
+                        <p
+                          x-text="meetup.lineup[selectedSpeakerIndex].presentationTitle"
+                          class="font-semibold"
+                        ></p>
                       </div>
-                      <div>
-                        <div>
-                          <a
-                            :href="meetup.lineup[selectedSpeakerIndex].presentationUrl"
-                            target="_blank"
-                          >
-                            <p
-                              x-text="meetup.lineup[selectedSpeakerIndex].presentationTitle"
-                              class="font-semibold"
-                            ></p>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    </a>
                   </template>
                   <template x-if="meetup.lineup[selectedSpeakerIndex].videoUrl">
-                    <div class="mb-4 flex items-center lg:mb-6">
-                      <div class="mr-2">
+                    <a
+                      :href="meetup.lineup[selectedSpeakerIndex].videoUrl"
+                      target="_blank"
+                      class="mb-4 lg:mb-6"
+                    >
+                      <div class="flex items-center">
                         <svg
-                          class="size-5"
+                          class="mr-2 size-5"
                           viewBox="0 0 18 15"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Przejdź do nagrania z prezentacji"
                         >
                           <g id="SVGRepo_iconPlay">
                             <path
@@ -460,16 +461,9 @@
                             />
                           </g>
                         </svg>
+                        <p class="font-semibold">Obejrzyj na YouTube</p>
                       </div>
-                      <div>
-                        <a
-                          :href="meetup.lineup[selectedSpeakerIndex].videoUrl"
-                          target="_blank"
-                        >
-                          <p class="font-semibold">Obejrzyj na YouTube</p>
-                        </a>
-                      </div>
-                    </div>
+                    </a>
                   </template>
                 </div>
                 <div class="flex h-full flex-row items-end gap-2 pb-14 pt-4">
