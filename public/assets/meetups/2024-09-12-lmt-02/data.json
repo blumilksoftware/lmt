@@ -14,7 +14,7 @@
           "url": "https://www.synergycodes.com/"
         }
       ],
-      "avatarUrl": "przemyslaw-sokolowski.jpg",
+      "avatarUrl": "przemyslaw-sokolowski.webp",
       "about": "Przemek to software engineer i tech lead w Synergy Codes. Na co dzień pracuje z różnorodnymi technologiami, takimi jak .NET, NestJS, Vue, Angular i React. Kluczowe dla niego jest dostosowanie technologii do konkretnego rozwiązania, ponieważ nie każde narzędzie pasuje do każdego przypadku. Przemek wierzy, że elastyczność w doborze technologii jest niezbędna do tworzenia efektywnych i skalowalnych rozwiązań.",
       "presentationTitle": "HDD, czyli jak można zgubić się w projekcie",
       "presentationUrl": "przemyslaw-sokolowski.pdf",
@@ -30,7 +30,7 @@
           "url": "https://softiq.pl/"
         }
       ],
-      "avatarUrl": "piotr-dobrowolski.jpeg",
+      "avatarUrl": "piotr-dobrowolski.webp",
       "about": "Dzięki dogłębnej wiedzy w zakresie technologii .NET oraz umiejętnościom zarządzania zespołem, Piotr potrafi skutecznie kierować projektami, dbając o terminowość i efektywność realizacji zadań. Jego zaangażowanie w rozwój zespołu i chęć dzielenia się wiedzą sprawiają, że jest cenionym mentorem, który inspiruje innych do osiągania coraz wyższych standardów w pracy.",
       "presentationTitle": "Wprowadzenie do generatorów kodu źródłowego w C#",
       "presentationUrl": "piotr-dobrowolski.pdf",
@@ -46,7 +46,7 @@
           "url": "https://www.blumilk.pl/"
         }
       ],
-      "avatarUrl": "patryk-mauer.jpg",
+      "avatarUrl": "patryk-mauer.webp",
       "about": "Doktorant na Politechnice Opolskiej w dyscyplinie Informatyka Techniczna i Telekomunikacja, współwłaściciel Epicentrum Art Gallery w Opolu oraz firmy informatycznej IT Goal sp. z o.o. Jego zainteresowania to automatyzacja i robotyzacja procesów biznesowych, w tym z wykorzystaniem uczenia maszynowego.",
       "presentationTitle": "Przewidywanie wyników aukcyjnych dzieł sztuki",
       "presentationUrl": "patryk-mauer.pdf",
@@ -93,41 +93,41 @@
     {
       "name": "Collegium Witelona Uczelnia Państwowa",
       "website": "https://collegiumwitelona.pl/",
-      "logoUrl": "cwup.png"
+      "logoUrl": "cwup.webp"
     },
     {
       "name": "Miasto Legnica",
       "website": "https://prezydent.legnica.eu/",
-      "logoUrl": "legnica.png"
+      "logoUrl": "legnica.webp"
     },
     {
       "name": "Legnicka Specjalna Strefa Ekonomiczna S.A.",
       "website": "https://lsse.eu/",
-      "logoUrl": "lsse.png"
+      "logoUrl": "lsse.webp"
     }
   ],
   "partners": [
     {
       "name": "Synergy Codes",
       "website": "https://www.synergycodes.com/",
-      "logoUrl": "synergy-codes.png"
+      "logoUrl": "synergy-codes.webp"
     },
     {
       "name": "Kancelaria radcy prawnego Joanna Rewak",
       "website": "https://kancelaria.rewak.pl/",
-      "logoUrl": "kancelaria-joanna-rewak.png"
+      "logoUrl": "kancelaria-joanna-rewak.webp"
     }
   ],
   "sponsors": [
     {
       "name": "Softiq",
       "website": "https://softiq.pl/",
-      "logoUrl": "softiq.png"
+      "logoUrl": "softiq.webp"
     },
     {
       "name": "JetBrains",
       "website": "https://www.jetbrains.com/",
-      "logoUrl": "jetbrains.png"
+      "logoUrl": "jetbrains.webp"
     }
   ],
   "partnersGridCols": 4,

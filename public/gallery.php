@@ -7,7 +7,7 @@ function getGalleryImages($meetupId) {
 
     if (is_dir($galleryPath)) {
         $files = scandir($galleryPath);
-        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 
         foreach ($files as $file) {
             $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
