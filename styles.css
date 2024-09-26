@@ -15,7 +15,7 @@ html {
   background:
     linear-gradient(0deg, #231769 8.09%, rgba(0, 0, 0, 0) 51.12%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
-    url(./images/background.jpg),
+    url(./images/background.webp),
     lightgray 50%;
   background-size: cover;
   background-repeat: no-repeat;

@@ -14,7 +14,7 @@
           "url": "https://softiq.pl/"
         }
       ],
-      "avatarUrl": "adam-marszowski.jpeg",
+      "avatarUrl": "adam-marszowski.webp",
       "about": "Adam specjalizuje się w programowaniu w React i Java. Na co dzień pracuje nad tworzeniem i rozwijaniem aplikacji webowych. Aktywnie uczestniczy w społeczności technologicznej, dzieląc się swoim doświadczeniem i wiedzą na temat najnowszych trendów i innowacji w dziedzinie technologii webowych oraz AI.",
       "presentationTitle": "",
       "presentationUrl": "",
@@ -34,7 +34,7 @@
           "url": "https://kancelaria.rewak.pl/"
         }
       ],
-      "avatarUrl": "joanna-rewak.png",
+      "avatarUrl": "joanna-rewak.webp",
       "about": "Asia jest radcą prawnym pasjonującym się prawem nowych technologii. Specjalizuje się w tworzeniu umów, regulaminów oraz dokumentów dotyczących ochrony danych dla podmiotów z branży technologicznej. Ciekawostkami prawnymi dzieli się w social mediach.",
       "presentationTitle": "",
       "presentationUrl": "",
@@ -50,7 +50,7 @@
           "url": "https://www.blumilk.pl/"
         }
       ],
-      "avatarUrl": "jacek-sawoszczuk.jpeg",
+      "avatarUrl": "jacek-sawoszczuk.webp",
       "about": "Jacek jest programistą fullstack — pracuje głównie z PHP, ale sięga także po Go i C#. Nie boi się też pracy na frontendzie, gdzie specjalizuje się w Vue.js i Tailwindzie. Entuzjasta oprogramowania open-source, Linuksa i całej społeczności powstałej wokół otwartego oprogramowania.",
       "presentationTitle": "",
       "presentationUrl": "",
@@ -93,14 +93,14 @@
     {
       "name": "Collegium Witelona Uczelnia Państwowa",
       "website": "https://collegiumwitelona.pl/",
-      "logoUrl": "cwup.png"
+      "logoUrl": "cwup.webp"
     }
   ],
   "partners": [
     {
       "name": "Softiq",
       "website": "https://softiq.pl/",
-      "logoUrl": "softiq.png"
+      "logoUrl": "softiq.webp"
     }
   ],
   "sponsors": [],
