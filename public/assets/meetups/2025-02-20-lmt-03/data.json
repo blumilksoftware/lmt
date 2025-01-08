@@ -1,0 +1,71 @@
+{
+  "title": "Legnicki Meetup Technologiczny #3",
+  "datetime": "2025-02-20 18:00:00",
+  "place": "Legnicki Browar Książęcy",
+  "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
+  "lineup": [
+    {
+      "name": "Pierwszy",
+      "surname": "Prelegent",
+      "role": "programista",
+      "companies": [],
+      "avatarUrl": "no-photo-man.png",
+      "about": "TBA"
+    },
+    {
+      "name": "Drugi",
+      "surname": "Prelegent",
+      "role": "programista",
+      "companies": [],
+      "avatarUrl": "no-photo-woman.png",
+      "about": "TBA"
+    },
+    {
+      "name": "Trzeci",
+      "surname": "Prelegent",
+      "role": "programista",
+      "companies": [],
+      "avatarUrl": "no-photo-man.png",
+      "about": "TBA"
+    }
+  ],
+  "agenda": [
+    {
+      "start": "18:00",
+      "title": "Otwarcie spotkania"
+    },
+    {
+      "start": "18:30",
+      "title": "Pierwsza prezentacja",
+      "speaker": "Pierwszy Prelegent",
+      "description": "TBA"
+    },
+    {
+      "start": "19:15",
+      "title": "Przerwa"
+    },
+    {
+      "start": "19:30",
+      "title": "Druga prezentacja",
+      "speaker": "Drugi Prelegent",
+      "description": "TBA"
+    },
+    {
+      "start": "20:15",
+      "title": "Przerwa"
+    },
+    {
+      "start": "20:30",
+      "title": "Trzecia prezentacja",
+      "speaker": "Trzeci Prelegent",
+      "description": "TBA"
+    },
+    {
+      "start": "21:15",
+      "title": "Networking"
+    }
+  ],
+  "sponsors": [],
+  "partners": [],
+  "gallery": []
+}

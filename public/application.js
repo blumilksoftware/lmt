@@ -46,15 +46,15 @@ function initialize() {
             avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`,
             presentationUrl: `${meetupFolder}/presentations/${speaker.presentationUrl}`,
           }))
-          meetupData.patrons = meetupData.patrons.map((patron) => ({
+          meetupData.patrons = (meetupData.patrons || []).map((patron) => ({
             ...patron,
             logoUrl: `${meetupFolder}/images/partners/${patron.logoUrl}`,
           }))
-          meetupData.partners = meetupData.partners.map((partner) => ({
+          meetupData.partners = (meetupData.partners || []).map((partner) => ({
             ...partner,
             logoUrl: `${meetupFolder}/images/partners/${partner.logoUrl}`,
           }))
-          meetupData.sponsors = meetupData.sponsors.map((sponsor) => ({
+          meetupData.sponsors = (meetupData.sponsors || []).map((sponsor) => ({
             ...sponsor,
             logoUrl: `${meetupFolder}/images/partners/${sponsor.logoUrl}`,
           }))
