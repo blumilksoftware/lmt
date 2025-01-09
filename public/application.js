@@ -41,7 +41,6 @@ function initialize() {
           )
           const meetupId = meetupFolder.split('/').pop()
           meetupData.id = meetupId
-
           meetupData.lineup = meetupData.lineup.map((speaker) => ({
             ...speaker,
             avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`,
