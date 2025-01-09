@@ -10,7 +10,10 @@
       "role": "programista",
       "companies": [],
       "avatarUrl": "no-photo-man.png",
-      "about": "TBA"
+      "about": "TBA",
+      "presentationTitle": "",
+      "presentationUrl": "",
+      "videoUrl": ""
     },
     {
       "name": "Drugi",
@@ -18,7 +21,10 @@
       "role": "programista",
       "companies": [],
       "avatarUrl": "no-photo-woman.png",
-      "about": "TBA"
+      "about": "TBA",
+      "presentationTitle": "",
+      "presentationUrl": "",
+      "videoUrl": ""
     },
     {
       "name": "Trzeci",
@@ -26,7 +32,10 @@
       "role": "programista",
       "companies": [],
       "avatarUrl": "no-photo-man.png",
-      "about": "TBA"
+      "about": "TBA",
+      "presentationTitle": "",
+      "presentationUrl": "",
+      "videoUrl": ""
     }
   ],
   "agenda": [
@@ -67,5 +76,8 @@
   ],
   "sponsors": [],
   "partners": [],
-  "gallery": []
+  "partnersGridCols": 4,
+  "gallery": [],
+  "photographers": "",
+  "regulations": ""
 }

@@ -41,6 +41,7 @@ function initialize() {
           )
           const meetupId = meetupFolder.split('/').pop()
           meetupData.id = meetupId
+
           meetupData.lineup = meetupData.lineup.map((speaker) => ({
             ...speaker,
             avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`,
@@ -80,8 +81,11 @@ function initialize() {
       }
     },
     loadUpcomingMeetup: function () {
+      if (this.meetup) {
+        return
+      }
+
       const now = moment()
-      const endOfDay = moment().endOf('day')
 
       const upcomingMeetup = this.meetups.find((meetup) => {
         const meetupDate = moment(meetup.datetime)
@@ -102,6 +106,10 @@ function initialize() {
       }
     },
     processMeetup: function (meetup) {
+      if (this.meetup && this.meetup.id === meetup.id) {
+        return
+      }
+
       let time = moment(meetup.datetime).locale('pl')
       meetup.date = time.format('DD MMMM')
       meetup.time = time.format('HH:mm')
