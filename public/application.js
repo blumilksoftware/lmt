@@ -46,15 +46,15 @@ function initialize() {
             avatarUrl: `${meetupFolder}/images/speakers/${speaker.avatarUrl}`,
             presentationUrl: `${meetupFolder}/presentations/${speaker.presentationUrl}`,
           }))
-          meetupData.patrons = meetupData.patrons.map((patron) => ({
+          meetupData.patrons = (meetupData.patrons || []).map((patron) => ({
             ...patron,
             logoUrl: `${meetupFolder}/images/partners/${patron.logoUrl}`,
           }))
-          meetupData.partners = meetupData.partners.map((partner) => ({
+          meetupData.partners = (meetupData.partners || []).map((partner) => ({
             ...partner,
             logoUrl: `${meetupFolder}/images/partners/${partner.logoUrl}`,
           }))
-          meetupData.sponsors = meetupData.sponsors.map((sponsor) => ({
+          meetupData.sponsors = (meetupData.sponsors || []).map((sponsor) => ({
             ...sponsor,
             logoUrl: `${meetupFolder}/images/partners/${sponsor.logoUrl}`,
           }))
@@ -80,8 +80,11 @@ function initialize() {
       }
     },
     loadUpcomingMeetup: function () {
+      if (this.meetup) {
+        return
+      }
+
       const now = moment()
-      const endOfDay = moment().endOf('day')
 
       const upcomingMeetup = this.meetups.find((meetup) => {
         const meetupDate = moment(meetup.datetime)
@@ -102,6 +105,10 @@ function initialize() {
       }
     },
     processMeetup: function (meetup) {
+      if (this.meetup && this.meetup.id === meetup.id) {
+        return
+      }
+
       let time = moment(meetup.datetime).locale('pl')
       meetup.date = time.format('DD MMMM')
       meetup.time = time.format('HH:mm')
