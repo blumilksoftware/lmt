@@ -5,12 +5,17 @@
   "localization": "https://maps.app.goo.gl/MFfX39G6NrAerXWd6",
   "lineup": [
     {
-      "name": "Pierwszy",
-      "surname": "Prelegent",
-      "role": "programista",
-      "companies": [],
-      "avatarUrl": "no-photo-man.png",
-      "about": "TBA",
+      "name": "Łukasz",
+      "surname": "Tkacz",
+      "role": "DevOps Team Lead",
+      "companies": [
+        {
+          "name": "Ingenious.BUILD",
+          "url": "https://www.ingenious.build/"
+        }
+      ],
+      "avatarUrl": "lukasz-tkacz.webp",
+      "about": "Łukasz zajmuje się infrastrukturą, obsługą CI/CD i wsparciem deweloperów w ich codziennej pracy. Wcześniej pracował jako programista full-stack (Laravel, Vue), a obecnie stara się więc łączyć oba te światy, aby lepiej rozwiązywać problemy i wspomagać dostarczanie oprogramowania. W wolnym czasie górski ultramaratończyk, co rzutuje też na pracę – nie ma rzeczy niemożliwych, to tylko kwestia czasu.",
       "presentationTitle": "",
       "presentationUrl": "",
       "videoUrl": ""
@@ -45,9 +50,9 @@
     },
     {
       "start": "18:30",
-      "title": "Pierwsza prezentacja",
-      "speaker": "Pierwszy Prelegent",
-      "description": "TBA"
+      "title": "DevOps dla programistów. Jak wspólnie tworzyć lepszy kod?",
+      "speaker": "Łukasz Tkacz",
+      "description": "Łukasz w swojej prezentacji przedstawi, że tworzenie aplikacji lub usługi to nie tylko napisanie kodu - ten musi zostać sprawdzony, a następnie dostarczony do klienta. W prezentacji pochylimy się nad zagadnieniami CI/CD oraz związanymi z nimi metrykami i sposobami ich zbierania."
     },
     {
       "start": "19:15",
