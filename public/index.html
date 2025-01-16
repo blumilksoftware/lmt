@@ -859,7 +859,7 @@
     </section>
     <section class="relative mt-[110px] lg:mt-48">
       <template x-if="meetup">
-        <div class="relative z-10 mx-auto max-w-6xl" id="rejestracja">
+        <div class="relative z-10 mx-auto max-w-6xl" id="rejestracja" x-init="htmx.process(document.body)">
           <div
             hx-ext="loading-states"
             data-loading-delay="300"
