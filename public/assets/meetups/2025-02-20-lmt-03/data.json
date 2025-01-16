@@ -81,7 +81,14 @@
   ],
   "sponsors": [],
   "partners": [],
-  "partnersGridCols": 4,
+  "patrons": [
+    {
+      "name": "Legnicka Specjalna Strefa Ekonomiczna S.A.",
+      "website": "https://lsse.eu/",
+      "logoUrl": "lsse.webp"
+    }
+  ],
+  "partnersGridCols": 2,
   "gallery": [],
   "photographers": "",
   "regulations": ""
