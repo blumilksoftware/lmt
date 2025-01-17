@@ -21,12 +21,17 @@
       "videoUrl": ""
     },
     {
-      "name": "Drugi",
-      "surname": "Prelegent",
-      "role": "programista",
-      "companies": [],
-      "avatarUrl": "no-photo-woman.png",
-      "about": "TBA",
+      "name": "Kamil",
+      "surname": "Piech",
+      "role": "Inżynier oprogramowania",
+      "companies": [
+        {
+          "name": "Blumilk sp. z o.o.",
+          "url": "https://www.blumilk.pl/"
+        }
+      ],
+      "avatarUrl": "kamil-piech.webp",
+      "about": "Inżynier oprogramowania w Blumilk, wykładowca Collegium Witelona Uczelnia Państwowa w Legnicy, a po godzinach – freelancer. Fullstack developer specjalizujący się w PHP, Laravelu i Vue.js, choć nie stroni od technologii mobilnych, gdy projekt tego wymaga. Po pracy, zamiast spędzać kolejne godziny przed monitorem, można go spotkać na szutrowych trasach i leśnych ścieżkach.",
       "presentationTitle": "",
       "presentationUrl": "",
       "videoUrl": ""
@@ -60,9 +65,9 @@
     },
     {
       "start": "19:30",
-      "title": "Druga prezentacja",
-      "speaker": "Drugi Prelegent",
-      "description": "TBA"
+      "title": "No-code na przykładzie FlutterFlow: czy tak będziemy 'programować' w przyszłości?",
+      "speaker": "Kamil Piech",
+      "description": "Kamil opowie o platformie no-code FlutterFlow, która umożliwia tworzenie aplikacji mobilnych (i nie tylko) bez konieczności pisania kodu. W trakcie prezentacji pokaże, jak działa to narzędzie, i przedstawi jego możliwości, ograniczenia oraz potencjał.\nPoruszony zostanie również temat przyszłości takich rozwiązań – czy no-code ma szansę zdominować rynek programistyczny, czy pozostanie narzędziem wykorzystywanym głównie do tworzenia MVP i PoC?"
     },
     {
       "start": "20:15",
