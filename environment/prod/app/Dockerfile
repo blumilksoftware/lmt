@@ -27,7 +27,7 @@ COPY ./public/index.html ./public/index.html
 RUN npx tailwindcss -i ./styles.css -o ./public/output.css
 
 ### APPLICATION ###
-FROM php:8.4.1-fpm-bookworm@sha256:319fef0a241cb9ff1afd0b8c689633214be7c3bb4a4029c305dec103b5695d6b AS app
+FROM php:8.4.2-fpm-bookworm@sha256:e8c1afd3cc12230906106f482852250f461e588ffaaaa8d73ef3d6f78c727565 AS app
 
 COPY --from=vendor /usr/bin/composer /usr/local/bin/composer
 
