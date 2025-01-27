@@ -37,12 +37,17 @@
       "videoUrl": ""
     },
     {
-      "name": "Trzeci",
-      "surname": "Prelegent",
-      "role": "programista",
-      "companies": [],
-      "avatarUrl": "no-photo-man.png",
-      "about": "TBA",
+      "name": "Szymon",
+      "surname": "Sandura",
+      "role": ".NET Backend Developer",
+      "companies": [
+        {
+          "name": "Iteo sp. z o.o.",
+          "url": "https://iteo.com/"
+        }
+      ],
+      "avatarUrl": "szymon-sandura.webp",
+      "about": "Szymon projektuje systemy o różnej skali, specjalizuje się w architekturze rozproszonej oraz w systemach wspieranych wyszukiwaniem semantycznym i technologią RAG. Jego praca to nie tylko pisanie kodu – to także poszukiwanie optymalnych rozwiązań dla najbardziej wymagających wyzwań technologicznych. Po godzinach oddaje się swojej wieloletniej pasji – grze na instrumentach. Już od 25 lat rozwija swoje muzyczne zdolności, sięgając po różnorodne instrumenty.",
       "presentationTitle": "",
       "presentationUrl": "",
       "videoUrl": ""
@@ -75,9 +80,9 @@
     },
     {
       "start": "20:30",
-      "title": "Trzecia prezentacja",
-      "speaker": "Trzeci Prelegent",
-      "description": "TBA"
+      "title": "Gameboy w języku C#: Podstawy emulacji niskopoziomowej",
+      "speaker": "Szymon Sandura",
+      "description": "Szymon zaprezentuje fascynujący świat emulacji, przenosząc uczestników w świat Retro Game Devu. Omówi podstawy emulacji niskopoziomowej, tajniki architektury konsoli Gameboy oraz proces tworzenia własnego emulatora w .NET. Na przykładzie autorskiego projektu pokaże, jak testować i optymalizować wydajność emulatora w języku C#."
     },
     {
       "start": "21:15",
