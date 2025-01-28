@@ -93,6 +93,11 @@
   "partners": [],
   "patrons": [
     {
+      "name": "Miasto Legnica",
+      "website": "https://prezydent.legnica.eu/",
+      "logoUrl": "legnica.webp"
+    },
+    {
       "name": "Legnicka Specjalna Strefa Ekonomiczna S.A.",
       "website": "https://lsse.eu/",
       "logoUrl": "lsse.webp"
