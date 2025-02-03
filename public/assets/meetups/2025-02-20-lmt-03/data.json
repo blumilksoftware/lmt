@@ -89,7 +89,13 @@
       "title": "Networking"
     }
   ],
-  "sponsors": [],
+  "sponsors": [
+    {
+      "name": "Softiq",
+      "website": "https://softiq.pl/",
+      "logoUrl": "softiq.webp"
+    }
+  ],
   "partners": [],
   "patrons": [
     {
