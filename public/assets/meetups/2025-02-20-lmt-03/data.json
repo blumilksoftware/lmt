@@ -105,14 +105,14 @@
   ],
   "patrons": [
     {
-      "name": "Collegium Witelona Uczelnia Państwowa",
-      "website": "https://collegiumwitelona.pl/",
-      "logoUrl": "cwup.webp"
-    },
-    {
       "name": "Miasto Legnica",
       "website": "https://prezydent.legnica.eu/",
       "logoUrl": "legnica.webp"
+    },
+    {
+      "name": "Collegium Witelona Uczelnia Państwowa",
+      "website": "https://collegiumwitelona.pl/",
+      "logoUrl": "cwup.webp"
     },
     {
       "name": "Legnicka Specjalna Strefa Ekonomiczna S.A.",
