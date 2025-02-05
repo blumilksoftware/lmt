@@ -96,7 +96,13 @@
       "logoUrl": "softiq.webp"
     }
   ],
-  "partners": [],
+  "partners": [
+    {
+      "name": "Iteo sp. z o.o.",
+      "website": "https://iteo.com/",
+      "logoUrl": "iteo.webp"
+    }
+  ],
   "patrons": [
     {
       "name": "Collegium Witelona Uczelnia Państwowa",
@@ -114,7 +120,7 @@
       "logoUrl": "lsse.webp"
     }
   ],
-  "partnersGridCols": 2,
+  "partnersGridCols": 4,
   "gallery": [],
   "photographers": "",
   "regulations": ""
