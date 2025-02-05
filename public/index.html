@@ -457,10 +457,10 @@
     <section>
       <template x-if="meetup">
         <div
-          class="flex w-full justify-center bg-slate-950 px-6 py-10 lg:bg-[#6C1DF2]"
+          class="flex w-full flex-col items-center justify-center gap-16 bg-slate-950 px-6 py-10 lg:gap-0 lg:bg-[#6C1DF2]"
           id="partnerzy"
         >
-          <div class="grid lg:flex items-center gap-16">
+          <div class="flex flex-col justify-center gap-16 lg:flex-row">
             <div class="flex flex-col lg:flex-col-reverse">
               <div
                 class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
@@ -471,88 +471,104 @@
                   Organizator
                 </p>
               </div>
-              <div class="flex h-[120px] items-center lg:mx-auto">
+              <div
+                class="flex h-[120px] w-[215px] items-center lg:w-[238px] lg:flex-1"
+              >
                 <a href="https://blumilk.pl/" target="_blank">
                   <img
                     src="./images/blumilk-white.webp"
                     alt="Blumilk sp. z o.o."
-                    class="h-[71px]"
+                    class="max-h-[120px]"
                   />
                 </a>
               </div>
             </div>
-            <template x-for="patron in meetup.patrons">
-              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
+            <div class="flex flex-col gap-16 lg:flex-row">
+              <template x-for="patron in meetup.patrons">
                 <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                  class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse"
                 >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                  <div
+                    class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
                   >
-                    Patronat
-                  </p>
-                </div>
-                <div
-                  class="flex h-[120px] w-[215px] items-center justify-center"
-                >
-                  <a :href="patron.website" target="_blank">
-                    <img
-                      :src="patron.logoUrl"
-                      :alt="patron.name"
-                      class="max-h-[120px]"
-                    />
-                  </a>
-                </div>
-              </div>
-            </template>
-            <template x-for="sponsor in meetup.sponsors">
-              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                    >
+                      Patronat
+                    </p>
+                  </div>
+                  <div
+                    class="flex h-[120px] w-[215px] items-center justify-center"
                   >
-                    Sponsor
-                  </p>
+                    <a :href="patron.website" target="_blank">
+                      <img
+                        :src="patron.logoUrl"
+                        :alt="patron.name"
+                        class="max-h-[120px]"
+                      />
+                    </a>
+                  </div>
                 </div>
+              </template>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center gap-16 lg:mt-16 lg:flex-row">
+            <div class="flex flex-col gap-16 lg:flex-col-reverse">
+              <template x-for="sponsor in meetup.sponsors">
                 <div
-                  class="flex h-[120px] w-[215px] items-center justify-center"
+                  class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse"
                 >
-                  <a :href="sponsor.website" target="_blank">
-                    <img
-                      :src="sponsor.logoUrl"
-                      :alt="sponsor.name"
-                      class="max-h-[120px]"
-                    />
-                  </a>
-                </div>
-              </div>
-            </template>
-            <template x-for="partner in meetup.partners">
-              <div class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse">
-                <div
-                  class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
-                >
-                  <p
-                    class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                  <div
+                    class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
                   >
-                    Partner
-                  </p>
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                    >
+                      Sponsor
+                    </p>
+                  </div>
+                  <div
+                    class="flex h-[120px] w-[215px] items-center justify-center"
+                  >
+                    <a :href="sponsor.website" target="_blank">
+                      <img
+                        :src="sponsor.logoUrl"
+                        :alt="sponsor.name"
+                        class="max-h-[120px]"
+                      />
+                    </a>
+                  </div>
                 </div>
+              </template>
+            </div>
+            <div class="flex flex-col gap-16 lg:flex-row">
+              <template x-for="partner in meetup.partners">
                 <div
-                  class="flex h-[120px] w-[215px] items-center justify-center"
+                  class="mr-auto flex flex-col lg:m-auto lg:flex-col-reverse"
                 >
-                  <a :href="partner.website" target="_blank">
-                    <img
-                      :src="partner.logoUrl"
-                      :alt="partner.name"
-                      class="max-h-[120px]"
-                    />
-                  </a>
+                  <div
+                    class="flex justify-start pb-5 pt-0 lg:justify-center lg:pb-0 lg:pt-6"
+                  >
+                    <p
+                      class="rounded-md bg-violet-700 px-5 py-1 text-center text-white lg:w-[111px] lg:bg-slate-900 lg:py-0"
+                    >
+                      Partner
+                    </p>
+                  </div>
+                  <div
+                    class="flex h-[120px] w-[215px] items-center justify-center"
+                  >
+                    <a :href="partner.website" target="_blank">
+                      <img
+                        :src="partner.logoUrl"
+                        :alt="partner.name"
+                        class="max-h-[120px]"
+                      />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </template>
+              </template>
+            </div>
           </div>
         </div>
       </template>
@@ -859,7 +875,11 @@
     </section>
     <section class="relative mt-[110px] lg:mt-48">
       <template x-if="meetup">
-        <div class="relative z-10 mx-auto max-w-6xl" id="rejestracja" x-init="htmx.process(document.body)">
+        <div
+          class="relative z-10 mx-auto max-w-6xl"
+          id="rejestracja"
+          x-init="htmx.process(document.body)"
+        >
           <div
             hx-ext="loading-states"
             data-loading-delay="300"
