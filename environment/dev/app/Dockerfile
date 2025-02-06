@@ -61,13 +61,17 @@ RUN apt-get update \
     && apt-get update && apt-get install --assume-yes \
         nginx=${NGINX_VERSION} \
         libzip-dev \
+        libjpeg-dev \
         libpng-dev \
+        libwebp-dev \
         libpq-dev \
         libicu-dev \
         supervisor \
         cron \
         git \
         exif \
+     && docker-php-ext-configure \
+         gd --with-jpeg --with-webp \
     && docker-php-ext-install \
         zip \
         gd \

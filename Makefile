@@ -10,6 +10,9 @@ CURRENT_USER_GROUP_ID = $(shell id --group)
 CURRENT_DIR = $(shell pwd)
 PHP_SERVICE_NAME=app
 
+DATABASE_USERNAME=lmt
+TEST_DATABASE_NAME=lmt-test
+
 build:
 	docker compose build --pull
 

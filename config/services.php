@@ -2,4 +2,6 @@
 
 declare(strict_types=1);
 
-return [];
+return [
+    "notification_email" => env("REGISTRATION_NOTIFICATION_EMAIL"),
+];
