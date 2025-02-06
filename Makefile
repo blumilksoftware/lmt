@@ -16,11 +16,8 @@ build:
 run:
 	docker compose up -d
 
-tailwind:
-	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx tailwindcss -i ./styles.css -o ./public/output.css
-
 dev:
-	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx tailwindcss -i ./styles.css -o ./public/output.css --watch
+	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npm run dev
 
 stop:
 	docker compose stop
@@ -28,10 +25,10 @@ stop:
 restart: stop run
 
 lint:
-	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx prettier . --check
+	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npm run lint
 
 lintf:
-	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npx prettier . --write
+	docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} npm run lintf
 
 shell:
 	@docker compose exec --user ${CURRENT_USER_ID} ${PHP_SERVICE_NAME} bash
