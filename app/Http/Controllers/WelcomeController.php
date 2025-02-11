@@ -15,7 +15,7 @@ class WelcomeController extends Controller
         $meetup = Meetup::query()
             ->current()
             ->active()
-            ->oldest("date")
+            ->orderBy("date")
             ->first();
 
         if ($meetup) {
