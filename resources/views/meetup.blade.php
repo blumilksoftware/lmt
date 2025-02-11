@@ -29,4 +29,3 @@
 
   <x-partials.footer :meetup="$meetup" />
 </x-layout>
-
