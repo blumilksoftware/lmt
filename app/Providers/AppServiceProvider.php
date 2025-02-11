@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Blumilksoftware\Lmt\Providers;
 
+use Blumilksoftware\Lmt\Models\Meetup;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Telescope\TelescopeServiceProvider as LaravelTelescopeServiceProvider;
 
@@ -19,5 +21,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Relation::morphMap([
+            "meetup" => Meetup::class,
+        ]);
     }
 }

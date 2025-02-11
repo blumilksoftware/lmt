@@ -1,4 +1,4 @@
-import Alpine from 'alpinejs'
+import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
 import timer from './timer.js'
 import carousel from './carousel.js'
 import disclosure from './disclosure.js'
@@ -14,3 +14,5 @@ document.addEventListener('alpine:init', () => {
 })
 
 Alpine.start()
+
+Livewire.start()

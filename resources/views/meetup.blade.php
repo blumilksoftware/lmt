@@ -15,7 +15,7 @@
     <x-partials.meetups :meetups="$previousMeetups" />
   @endif
 
-  @if (count($meetup->photos ?? []) === 12)
+  @if (!$meetup->isCurrent() && count($meetup->photos ?? []) === 12)
     <x-partials.gallery photographers="{{ $meetup->photographers }}" :photos="$meetup->photos" />
   @endif
 

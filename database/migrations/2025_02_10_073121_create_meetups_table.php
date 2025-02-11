@@ -17,7 +17,7 @@ return new class() extends Migration {
             $table->string("localization");
             $table->string("fb_event");
             $table->string("photographers")->nullable();
-            $table->boolean("active");
+            $table->boolean("active")->default(false);
 
             $table->dateTime("date");
             $table->timestamps();

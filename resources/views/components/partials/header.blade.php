@@ -32,9 +32,11 @@
           </a>
         </div>
       </div>
-      <div class="mx-0 mt-10 hidden! lg:flex!">
-        <x-timer target-date="{{ $meetup->date->toDateTimeString() }}" />
-      </div>
+      @if ($meetup->date->isFuture())
+        <div class="mx-0 mt-10 hidden! lg:flex!">
+          <x-timer target-date="{{ $meetup->date->toDateTimeString() }}" />
+        </div>
+      @endif
     @endif
   </div>
   <div

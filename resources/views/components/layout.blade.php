@@ -15,8 +15,10 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+  @livewireStyles
   @vite('resources/css/app.css')
   @vite('resources/js/app.js')
+  @livewireScriptConfig
 </head>
 <body class="overflow-x-hidden bg-slate-950 bg-cover" style="background-image: url({{ asset('/images/background.webp') }})">
  {{ $slot }}

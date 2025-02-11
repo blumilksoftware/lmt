@@ -61,9 +61,10 @@ class MeetupResource extends Resource
                                 ->required(),
                             Components\DateTimePicker::make("date")
                                 ->label("Data")
+                                ->seconds(false)
                                 ->native(false)
                                 ->displayFormat("d.m.Y H:i")
-                                ->format("Y-m-d H:i:s")
+                                ->format("Y-m-d H:i")
                                 ->required(),
 
                             SpatieMediaLibraryFileUpload::make("regulations")
@@ -79,7 +80,6 @@ class MeetupResource extends Resource
                                 ->maxLength(255),
                             SpatieMediaLibraryFileUpload::make("photos")
                                 ->multiple()
-                                ->minFiles(12)
                                 ->maxFiles(12)
                                 ->reorderable()
                                 ->appendFiles()

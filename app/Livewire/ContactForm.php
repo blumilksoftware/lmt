@@ -13,12 +13,18 @@ use Livewire\Component;
 
 class ContactForm extends Component
 {
+    public Meetup $meetup;
     public ?string $email;
     public ?string $name;
     public ?string $surname;
     public ?string $company;
     public bool $consent = false;
     public bool $success = false;
+
+    public function mount(Meetup $meetup): void
+    {
+        $this->meetup = $meetup;
+    }
 
     public function rules(): array
     {
@@ -42,14 +48,11 @@ class ContactForm extends Component
     {
         $this->validate();
 
-        /** @var Meetup $meetup */
-        $meetup = Meetup::query()->active()->current()->firstOrFail();
-
         Mail::to($this->email)->send(new RegistrationConfirmation([
             "name" => $this->name,
-            "date" => $meetup->date->translatedFormat("d F Y, H:i"),
-            "place" => $meetup->place,
-            "fb_event" => $meetup->fb_event,
+            "date" => $this->meetup->date->translatedFormat("d F Y, H:i"),
+            "place" => $this->meetup->place,
+            "fb_event" => $this->meetup->fb_event,
         ]));
 
         Mail::to(config("services.notification_email"))
@@ -59,6 +62,7 @@ class ContactForm extends Component
                 "surname" => $this->surname,
                 "company" => $this->company,
                 "consent" => $this->consent,
+                "meetup" => route("meetups.show", $this->meetup->slug),
                 "date" => now()->toDateTimeString(),
             ]));
 

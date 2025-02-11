@@ -29,11 +29,12 @@ class SomeoneRegistered extends Mailable
     public function content(): Content
     {
         return new Content(view: "mail.registration_notice", with: [
-            "name" => $this->data["name"] ?? "-",
-            "surname" => $this->data["surname"] ?? "-",
-            "email" => $this->data["email"] ?? "-",
-            "company" => $this->data["company"] ?? "-",
-            "date" => $this->data["date"] ?? "-",
+            "name" => $this->data["name"],
+            "surname" => $this->data["surname"],
+            "email" => $this->data["email"],
+            "company" => $this->data["company"],
+            "date" => $this->data["date"],
+            "meetup" => $this->data["meetup"],
         ]);
     }
 }

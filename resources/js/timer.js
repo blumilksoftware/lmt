@@ -18,7 +18,7 @@ export default targetDate => ({
       return
     }
 
-    this.days = String(Math.floor(duration.days())).padStart(2, '0')
+    this.days = String(Math.floor(duration.asDays())).padStart(2, '0')
     this.hours = String(duration.hours()).padStart(2, '0')
     this.minutes = String(duration.minutes()).padStart(2, '0')
     this.seconds = String(duration.seconds()).padStart(2, '0')

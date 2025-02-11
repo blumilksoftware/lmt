@@ -6,4 +6,5 @@ Nowa rejestracja na stronie LMT:
   <li>Email: {{ $email }}</li>
   <li>Firma: {{ $company }}</li>
   <li>Data rejestracji: {{ $date }}</li>
+  <li>Meetup: <a href="{{ $meetup }}">{{ $meetup }}</a></li>
 </ul>

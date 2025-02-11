@@ -49,7 +49,7 @@ class Meetup extends Model implements HasMedia
 
     public function isCurrent(): bool
     {
-        return $this->date->lte(now()->endOfDay());
+        return $this->date->gte(now());
     }
 
     public function agendas(): HasMany
@@ -84,7 +84,7 @@ class Meetup extends Model implements HasMedia
 
     public function scopeCurrent(Builder $query): Builder
     {
-        return $query->whereDate("date", "<=", now());
+        return $query->whereDate("date", ">=", now());
     }
 
     public function registerMediaCollections(): void

@@ -2,7 +2,7 @@
 
 <section class="relative mt-[110px] lg:mt-48">
   @if ($meetup?->isCurrent())
-    <livewire:contact-form />
+    <livewire:contact-form :meetup="$meetup" />
   @endif
   <div class="bg-white px-2 py-4 xs:px-4 lg:mt-[74px] lg:p-8">
     <div class="relative z-20 mx-auto flex! max-w-7xl items-center opacity-50">
