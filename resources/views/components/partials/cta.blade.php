@@ -1,5 +1,5 @@
-<section>
-  <div class="pointer-events-none absolute right-0 hidden! lg:flex!">
+<section class="overflow-hidden">
+  <div class="pointer-events-none absolute overflow-hidden right-0 hidden! lg:flex!">
     <div class="css-blurry-violet-gradient"></div>
     <div class="css-blurry-green-gradient"></div>
   </div>

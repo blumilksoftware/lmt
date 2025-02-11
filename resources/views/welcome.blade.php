@@ -1,19 +1,14 @@
 @props(["previousMeetups" => []])
 
 <x-layout>
+  <x-partials.navigation />
+  <x-partials.header />
 
-  <div class="flex flex-col">
-    <div class="flex-1">
-      <x-partials.navigation />
-      <x-partials.header />
+  <x-partials.cta />
 
-      <x-partials.cta />
-
-      @if (empty($previousMeetups))
-        <x-partials.meetups :meetups="$previousMeetups" />
-      @endif
-    </div>
-    <x-partials.footer />
-  </div>
+  @if (empty($previousMeetups))
+    <x-partials.meetups :meetups="$previousMeetups" />
+    @endif
+  <x-partials.footer />
 </x-layout>
 
