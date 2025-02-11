@@ -14,7 +14,7 @@ return new class() extends Migration {
             $table->id();
 
             $table->string("title");
-            $table->string("speaker");
+            $table->string("speaker")->nullable();
             $table->text("description")->nullable();
             $table->string("start");
             $table->integer("order_column")->nullable();
