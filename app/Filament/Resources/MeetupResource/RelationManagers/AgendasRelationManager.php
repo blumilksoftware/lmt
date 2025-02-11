@@ -26,7 +26,6 @@ class AgendasRelationManager extends RelationManager
                     ->required(),
                 Forms\Components\TextInput::make("speaker")
                     ->label("Prelegent")
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make("title")
                     ->label("Tytuł")
