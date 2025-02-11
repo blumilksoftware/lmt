@@ -34,7 +34,7 @@ enum CompanyType: string implements HasLabel
             self::Host => "Organizator",
             self::Partner => "Partner",
             self::Sponsor => "Sponsor",
-            self::Patron => "Patron",
+            self::Patron => "Patronat",
             self::Division => "Podział",
         };
     }
