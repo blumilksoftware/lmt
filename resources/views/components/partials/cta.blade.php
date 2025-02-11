@@ -1,8 +1,4 @@
-<section class="overflow-hidden">
-  <div class="pointer-events-none absolute overflow-hidden right-0 hidden! lg:flex!">
-    <div class="css-blurry-violet-gradient"></div>
-    <div class="css-blurry-green-gradient"></div>
-  </div>
+<section>
   <div class="relative mx-12 mb-14 mt-14 h-fit max-w-7xl flex-col text-center font-bold text-white lg:mx-auto lg:mb-32 lg:mt-40">
     <div class="text-[28px] text-white xs:text-[34px] lg:text-6xl">
       Zainteresowany?

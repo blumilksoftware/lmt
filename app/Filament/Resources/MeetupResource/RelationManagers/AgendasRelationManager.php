@@ -13,7 +13,7 @@ use Filament\Tables\Table;
 
 class AgendasRelationManager extends RelationManager
 {
-    protected static ?string $title = "Wpisy Agendy";
+    protected static ?string $title = "Wpisy agendy";
     protected static string $relationship = "agendas";
 
     public function form(Form $form): Form
@@ -41,7 +41,7 @@ class AgendasRelationManager extends RelationManager
         return $table
             ->reorderable("order_column")
             ->defaultSort("order_column")
-            ->pluralModelLabel("Wpisy Agendy")
+            ->pluralModelLabel("Wpisy agendy")
             ->modelLabel("Wpis agendy")
             ->columns([
                 Tables\Columns\TextColumn::make("start")

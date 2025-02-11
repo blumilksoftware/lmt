@@ -123,9 +123,9 @@ class MeetupResource extends Resource
     public static function getRelations(): array
     {
         return [
-            AgendasRelationManager::class,
-            SpeakersRelationManager::class,
             CompaniesRelationManager::class,
+            SpeakersRelationManager::class,
+            AgendasRelationManager::class,
         ];
     }
 

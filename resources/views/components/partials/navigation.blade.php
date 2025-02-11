@@ -1,4 +1,4 @@
-@props(["meetup" => null])
+@props(["meetup" => null, "previousMeetups" => collect()])
 
 <section x-data="{ open: false }">
   <nav class="bg-transparent xl:hidden!">
@@ -46,7 +46,7 @@
           </a>
         @endif
 
-        @if (!empty($previousMeetups))
+        @if (!$previousMeetups->isNotEmpty())
         <a href="#poprzednieMeetupy" class="block! px-3 py-2 hover:bg-gray-700 hover:text-white">
           Poprzednie edycje
         </a>
@@ -92,7 +92,7 @@
                   Agenda
                 </a>
               @endif
-              @if (!empty($previousMeetups))
+              @if ($previousMeetups->isNotEmpty())
                 <a href="#poprzednieMeetupy" class="block px-3 py-2 hover:bg-gray-700 hover:text-white">
                   Poprzednie edycje
                 </a>

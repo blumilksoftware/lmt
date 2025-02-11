@@ -1,4 +1,4 @@
-@props(['meetup' => null, 'previousMeetups' => []])
+@props(['meetup' => null, 'previousMeetups' => collect()])
 
 <section>
   <div class="relative mx-auto flex! max-w-7xl flex-col items-start px-4 pt-[74px] text-white md:pt-36 lg:px-8">

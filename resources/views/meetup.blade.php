@@ -1,4 +1,4 @@
-@props(["meetup" => null, "previousMeetups" => []])
+@props(["meetup" => null, "previousMeetups" => collect()])
 
 <x-layout>
 

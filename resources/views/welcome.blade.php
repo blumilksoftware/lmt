@@ -1,7 +1,7 @@
-@props(["previousMeetups" => []])
+@props(["previousMeetups" => collect()])
 
 <x-layout>
-  <x-partials.navigation />
+  <x-partials.navigation :previous-meetups="$previousMeetups" />
   <x-partials.header />
 
   <x-partials.cta />
