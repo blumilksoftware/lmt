@@ -7,7 +7,7 @@
 
   <x-partials.cta />
 
-  @if (empty($previousMeetups))
+  @if (!empty($previousMeetups))
     <x-partials.meetups :meetups="$previousMeetups" />
   @endif
   <x-partials.footer />
