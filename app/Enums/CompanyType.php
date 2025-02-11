@@ -16,8 +16,12 @@ enum CompanyType: string implements HasLabel
 
     public static function available(): array
     {
-        return collect(CompanyType::cases())
-            ->filter(fn(CompanyType $value) => $value !== CompanyType::Division)
+        return collect([
+            self::Host,
+            self::Patron,
+            self::Sponsor,
+            self::Partner,
+        ])
             ->mapWithKeys(fn(CompanyType $type) => [
                 $type->value => $type->getLabel(),
             ])

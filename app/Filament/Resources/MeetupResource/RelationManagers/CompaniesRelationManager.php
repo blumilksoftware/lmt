@@ -43,6 +43,7 @@ class CompaniesRelationManager extends RelationManager
                 Forms\Components\TextInput::make("url")
                     ->label("Link do strony")
                     ->url()
+                    ->required()
                     ->maxLength(255),
             ]);
     }

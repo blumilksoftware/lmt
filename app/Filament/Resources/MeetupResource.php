@@ -97,19 +97,23 @@ class MeetupResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort("created_at", "desc")
             ->columns([
                 Tables\Columns\TextColumn::make("title")
                     ->label("Tytuł")
+                    ->limit(40)
                     ->searchable(),
                 Tables\Columns\TextColumn::make("place")
                     ->label("Miejsce")
                     ->searchable(),
                 Tables\Columns\TextColumn::make("date")
                     ->label("Data")
-                    ->dateTime()
-                    ->searchable(),
+                    ->dateTime(),
                 Tables\Columns\ToggleColumn::make("active")
                     ->label("Widoczne"),
+                Tables\Columns\TextColumn::make("created_at")
+                    ->label("Data utworzenia")
+                    ->getStateUsing(fn(Meetup $record): string => $record->created_at->diffForHumans()),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

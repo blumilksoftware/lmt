@@ -22,7 +22,7 @@ class MeetupController extends Controller
                 ->whereNot("id", $meetup->id)
                 ->orderByDesc("date")
                 ->get()
-            : [];
+            : collect();
 
         return view("meetup", [
             "meetup" => $meetup,

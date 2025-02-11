@@ -5,13 +5,21 @@
   <x-partials.navigation :meetup="$meetup" :previousMeetups="$previousMeetups" />
   <x-partials.header :meetup="$meetup" />
 
-  <x-partials.partners :partners="$meetup->companies" />
-  <x-partials.speakers :speakers="$meetup->speakers" />
-  <x-partials.agenda :items="$meetup->agendas" />
+  @if ($meetup->companies->isNotEmpty())
+    <x-partials.partners :partners="$meetup->companies" />
+  @endif
+
+  @if ($meetup->speakers->isNotEmpty())
+    <x-partials.speakers :speakers="$meetup->speakers" />
+  @endif
+
+  @if ($meetup->agendas->isNotEmpty())
+    <x-partials.agenda :items="$meetup->agendas" />
+  @endif
 
   <x-partials.cta />
 
-  @if (!empty($previousMeetups))
+  @if ($previousMeetups->isNotEmpty())
     <x-partials.meetups :meetups="$previousMeetups" />
   @endif
 
