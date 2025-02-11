@@ -16,9 +16,9 @@ RUN wget --output-document age.tar.gz "https://github.com/FiloSottile/age/releas
 
 FROM composer/composer:2.8.5-bin@sha256:f39305913df47b4de56c64f4719d35eedbd65d7d96ff554110b9e9bd0c7a18c0 AS composer-bin
 
-FROM node:21.7.3-bookworm-slim@sha256:dfc05dee209a1d7adf2ef189bd97396daad4e97c6eaa85778d6f75205ba1b0fb AS node
+FROM node:23.7.0-bookworm AS node
 
-FROM php:8.4.3-fpm-bookworm@sha256:5148d67c6a67e00736c7a1be2e3b5287e370fd64d24f7777f5e39bf4c45b9175
+FROM php:8.3.10-fpm-bookworm
 
 COPY --from=composer-bin ./composer /usr/bin/composer
 COPY --from=secops-tools /usr/local/bin/age /usr/local/bin/age
@@ -60,10 +60,24 @@ RUN apt-get update \
     && echo "deb https://nginx.org/packages/mainline/debian bookworm nginx" | tee /etc/apt/sources.list.d/nginx.list \
     && apt-get update && apt-get install --assume-yes \
         nginx=${NGINX_VERSION} \
-        7zip \
         libzip-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libpq-dev \
+        libicu-dev \
         supervisor \
-        cron
+        cron \
+        git \
+        exif \
+     && docker-php-ext-configure \
+         gd --with-jpeg --with-webp \
+    && docker-php-ext-install \
+        zip \
+        gd \
+        intl \
+        exif \
+        pdo_pgsql
 
 COPY ./entrypoint.sh /entrypoint.sh
 

@@ -1,5 +1,0 @@
-**/*.lock
-**/*.yml
-**/*.yaml
-**/*.md
-tailwind.config.js
