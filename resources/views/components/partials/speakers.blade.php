@@ -18,7 +18,7 @@
                   class="h-full overflow-hidden"
               >
                 <img class="h-full w-full cursor-pointer object-cover object-center"
-                     src="{{ $speaker->photo->getUrl() }}"
+                     src="{{ $speaker->photo->getUrl("webp") }}"
                      alt="{{ $speaker->full_name }}"
                 >
               </div>
@@ -86,7 +86,7 @@
           <div class="flex w-full flex-col">
             <div>
               <img class="h-full w-full"
-                   src="{{ $speaker->photo->getUrl() }}"
+                   src="{{ $speaker->photo->getUrl("webp") }}"
                    alt="{{ $speaker->full_name }}"
               >
             </div>

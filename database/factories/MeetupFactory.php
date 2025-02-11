@@ -24,7 +24,7 @@ class MeetupFactory extends Factory
             "fb_event" => fake()->url(),
             "date" => fake()->dateTimeBetween(now()->startOfYear(), now()->endOfYear()),
             "photographers" => fake()->name(),
-            "active" => false,
+            "active" => fake()->boolean(70),
         ];
     }
 

@@ -6,7 +6,7 @@
       <x-icons.xmark class="mt-12 size-24" />
     </div>
     <div class="absolute right-0 top-10 hidden! h-24 w-24 lg:block! 2xl:right-10">
-      <x-icons.xmark class="mt-36 size-12 2xl:ml-40" />
+      <x-icons.xmark-white class="mt-36 size-12 2xl:ml-40" />
     </div>
     <div id="wydarzenie"
          class="px-4 text-left text-[42px] font-bold leading-none sm:pl-0 sm:text-7xl lg:w-full lg:text-9xl">

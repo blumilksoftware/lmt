@@ -49,6 +49,7 @@ class SpeakersRelationManager extends RelationManager
                                             ->imageEditor()
                                             ->imageEditorAspectRatios(["16:9"])
                                             ->collection("photo")
+                                            ->conversion("webp")
                                             ->required(),
                                     ]),
                                 Forms\Components\Repeater::make("companies")

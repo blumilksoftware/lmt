@@ -31,10 +31,10 @@ composer install
 npm install
 ```
 
-Run `make tailwind` to build stylesheets:
+Run `make dev` to build stylesheets:
 
 ```
-make tailwind
+make dev
 ```
 
 Run `make lint` to check for lint issues:

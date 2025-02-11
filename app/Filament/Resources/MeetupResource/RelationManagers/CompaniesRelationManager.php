@@ -38,6 +38,7 @@ class CompaniesRelationManager extends RelationManager
                     ->imageEditor()
                     ->imageEditorAspectRatios(["16:9"])
                     ->collection("logo")
+                    ->conversion("webp")
                     ->required(),
                 Forms\Components\TextInput::make("url")
                     ->label("Link do strony")

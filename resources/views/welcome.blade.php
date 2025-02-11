@@ -7,8 +7,9 @@
 
   <x-partials.cta />
 
-  <x-partials.meetups :meetups="$previousMeetups" />
-
+  @if (empty($previousMeetups))
+    <x-partials.meetups :meetups="$previousMeetups" />
+  @endif
   <x-partials.footer />
 </x-layout>
 

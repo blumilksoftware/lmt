@@ -23,7 +23,5 @@ class DatabaseSeeder extends Seeder
             ->hasSpeakers(3)
             ->hasCompanies(8)
             ->create();
-
-        Meetup::query()->first()->update(["active" => true]);
     }
 }

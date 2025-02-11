@@ -92,4 +92,11 @@ class Meetup extends Model implements HasMedia
         $this->addMediaCollection("regulations")->singleFile();
         $this->addMediaCollection("photos");
     }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion("webp")
+            ->format("webp")
+            ->optimize();
+    }
 }

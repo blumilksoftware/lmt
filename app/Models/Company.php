@@ -54,4 +54,11 @@ class Company extends Model implements HasMedia, Sortable
     {
         $this->addMediaCollection("logo")->singleFile();
     }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this->addMediaConversion("webp")
+            ->format("webp")
+            ->optimize();
+    }
 }

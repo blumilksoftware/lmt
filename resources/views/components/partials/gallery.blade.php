@@ -29,7 +29,7 @@
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index }})">
             <img
                 class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
-                src="{{ $photo->getUrl() }}"
+                src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
         @endforeach
@@ -39,7 +39,7 @@
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index + 3 }})">
             <img
                 class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
-                src="{{ $photo->getUrl() }}"
+                src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
         @endforeach
@@ -49,7 +49,7 @@
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index + 6 }})">
             <img
                 class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
-                src="{{ $photo->getUrl() }}"
+                src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
         @endforeach
@@ -59,7 +59,7 @@
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index + 9 }})">
             <img
                 class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
-                src="{{ $photo->getUrl() }}"
+                src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
         @endforeach
@@ -79,7 +79,7 @@
         @foreach($photos as $photo)
           <img class="max-h-full max-w-full object-contain"
                x-show="current === {{ $loop->index }}"
-               src="{{ $photo->getUrl() }}"
+               src="{{ $photo->getUrl("webp") }}"
                alt="">
         @endforeach
       </div>

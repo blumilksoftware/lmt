@@ -36,7 +36,7 @@ class MeetupResource extends Resource
                             Components\TextInput::make("title")
                                 ->label("Tytuł")
                                 ->maxLength(255)
-                                ->live()
+                                ->live(onBlur: true)
                                 ->afterStateUpdated(fn(Set $set, ?string $state) => $set("slug", Str::slug($state)))
                                 ->required(),
                             Components\TextInput::make("slug")
@@ -70,8 +70,7 @@ class MeetupResource extends Resource
                                 ->label("Regulamin")
                                 ->preserveFilenames()
                                 ->acceptedFileTypes(["application/pdf"])
-                                ->collection("regulations")
-                                ->required(),
+                                ->collection("regulations"),
                         ]),
                     Components\Tabs\Tab::make("Galeria")
                         ->schema([
@@ -88,6 +87,7 @@ class MeetupResource extends Resource
                                 ->image()
                                 ->imageEditor()
                                 ->imageEditorAspectRatios(["16:9"])
+                                ->conversion("webp")
                                 ->collection("photos"),
                         ]),
                 ]),
