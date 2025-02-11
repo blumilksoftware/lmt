@@ -11,4 +11,3 @@
     @endif
   <x-partials.footer />
 </x-layout>
-
