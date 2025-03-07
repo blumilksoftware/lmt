@@ -16,9 +16,9 @@
       ],
       "avatarUrl": "lukasz-tkacz.webp",
       "about": "Łukasz zajmuje się infrastrukturą, obsługą CI/CD i wsparciem deweloperów w ich codziennej pracy. Wcześniej pracował jako programista full-stack (Laravel, Vue), a obecnie stara się więc łączyć oba te światy, aby lepiej rozwiązywać problemy i wspomagać dostarczanie oprogramowania. W wolnym czasie górski ultramaratończyk, co rzutuje też na pracę – nie ma rzeczy niemożliwych, to tylko kwestia czasu.",
-      "presentationTitle": "",
-      "presentationUrl": "",
-      "videoUrl": ""
+      "presentationTitle": "DevOps dla programistów. Jak wspólnie tworzyć lepszy kod?",
+      "presentationUrl": "lukasz-tkacz.pdf",
+      "videoUrl": "https://www.youtube.com/watch?v=oPu1-uQtO-M"
     },
     {
       "name": "Kamil",
@@ -32,9 +32,9 @@
       ],
       "avatarUrl": "kamil-piech.webp",
       "about": "Inżynier oprogramowania w Blumilk, wykładowca Collegium Witelona Uczelnia Państwowa w Legnicy, a po godzinach – freelancer. Fullstack developer specjalizujący się w PHP, Laravelu i Vue.js, choć nie stroni od technologii mobilnych, gdy projekt tego wymaga. Po pracy, zamiast spędzać kolejne godziny przed monitorem, można go spotkać na szutrowych trasach i leśnych ścieżkach.",
-      "presentationTitle": "",
-      "presentationUrl": "",
-      "videoUrl": ""
+      "presentationTitle": "No-code na przykładzie FlutterFlow: czy tak będziemy 'programować' w przyszłości?",
+      "presentationUrl": "kamil-piech.pdf",
+      "videoUrl": "https://www.youtube.com/watch?v=O5A_AKiqQUs"
     },
     {
       "name": "Szymon",
@@ -48,9 +48,9 @@
       ],
       "avatarUrl": "szymon-sandura.webp",
       "about": "Szymon projektuje systemy o różnej skali, specjalizuje się w architekturze rozproszonej oraz w systemach wspieranych wyszukiwaniem semantycznym i technologią RAG. Jego praca to nie tylko pisanie kodu – to także poszukiwanie optymalnych rozwiązań dla najbardziej wymagających wyzwań technologicznych. Po godzinach oddaje się swojej wieloletniej pasji – grze na instrumentach. Już od 25 lat rozwija swoje muzyczne zdolności, sięgając po różnorodne instrumenty.",
-      "presentationTitle": "",
-      "presentationUrl": "",
-      "videoUrl": ""
+      "presentationTitle": "Gameboy w języku C#: Podstawy emulacji niskopoziomowej",
+      "presentationUrl": "szymon-sandura.pdf",
+      "videoUrl": "https://www.youtube.com/watch?v=h7CNW71OKY8"
     }
   ],
   "agenda": [
