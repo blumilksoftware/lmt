@@ -4,6 +4,10 @@ networks:
   traefik-proxy-blumilk-local:
     external: true
 
+volumes:
+  lmt-postgres-data:
+    name: lmt-postgres-data
+
 services:
   app:
     build:
@@ -36,6 +40,28 @@ services:
     networks:
       - lmt-dev
       - traefik-proxy-blumilk-local
+    restart: unless-stopped
+
+  database:
+    build:
+      context: environment/dev/postgres
+    container_name: lmt-db-dev
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
+      - PGDATA=/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready --dbname ${DB_DATABASE} --username ${DB_USERNAME}" ]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+    ports:
+      - ${DOCKER_DATABASE_HOST_PORT:-5432}:5432
+    volumes:
+      - lmt-postgres-data:/var/lib/postgresql/data
+    networks:
+      - lmt-dev
     restart: unless-stopped
 
   mailpit:

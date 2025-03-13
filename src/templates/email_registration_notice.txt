@@ -1,7 +1,0 @@
-Nowa rejestracja na stronie LMT:
-
-- Imię: {{ name }}
-- Nazwisko: {{ surname }}
-- Email: {{ email }}
-- Firma: {{ company }}
-- Data rejestracji: {{ registration_date }}
