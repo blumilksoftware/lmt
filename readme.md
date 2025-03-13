@@ -31,6 +31,12 @@ composer install
 npm install
 ```
 
+Run `php artisan storage:link`:
+
+```
+php artisan storage:link
+```
+
 Run `make dev` to build stylesheets:
 
 ```
