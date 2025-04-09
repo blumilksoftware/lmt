@@ -17,14 +17,9 @@ FROM node:21.7.3-bookworm-slim@sha256:dfc05dee209a1d7adf2ef189bd97396daad4e97c6e
 
 WORKDIR /app_frontend_dependencies
 
-COPY package.json package-lock.json styles.css tailwind.config.js ./
+COPY package.json package-lock.json ./
 
 RUN npm clean-install
-
-COPY ./public/meetup.html ./public/meetup.html
-COPY ./public/index.html ./public/index.html
-
-RUN npx tailwindcss -i ./styles.css -o ./public/output.css
 
 ### APPLICATION ###
 FROM php:8.4.3-fpm-bookworm@sha256:5148d67c6a67e00736c7a1be2e3b5287e370fd64d24f7777f5e39bf4c45b9175 AS app
@@ -56,7 +51,7 @@ COPY ./environment/prod/app/entrypoint.sh /entrypoint.sh
 WORKDIR /application
 
 # Copy Frontend build
-COPY --chown=www-data:www-data --from=frontend /app_frontend_dependencies/public/output.css ./public/output.css
+COPY --chown=www-data:www-data --from=frontend /app_frontend_dependencies/public/build ./public/build/
 
 # Copy Composer dependencies
 COPY --chown=www-data:www-data --from=vendor /app_composer_dependencies/vendor ./vendor/

@@ -1,0 +1,163 @@
+name: Deploy to dev
+
+concurrency:
+  group: deploy-dev
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    environment: dev
+    runs-on: ubuntu-24.04
+    name: Deploy to dev
+    env:
+      DOCKER_REGISTRY: registry.blumilk.pl
+      DOCKER_REGISTRY_USER_NAME: robot@blumilkbot-harbor
+      DOCKER_REGISTRY_PROJECT_NAME: lmt
+      DOCKER_REGISTRY_REPO_NAME: website
+      TARGET_DIR_ON_SERVER: /blumilk/deployments/dev/projects
+    steps:
+      - name: set branch name
+        run: echo "BRANCH_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
+
+      - name: checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          fetch-depth: 0
+          ref: ${{ env.BRANCH_NAME }}
+
+      - name: sync with main branch
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git merge --no-commit --no-ff origin/main
+
+      - name: set deployment project version
+        run: echo "DEPLOYMENT_PROJECT_VERSION=$(bash ./environment/.deployment/scripts/version.sh --long)" >> $GITHUB_ENV
+
+      - name: set docker image name
+        run: echo "DOCKER_IMAGE_NAME=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
+
+      - name: fetch server secrets
+        uses: Infisical/secrets-action@v1.0.8
+        with:
+          domain: https://infisical.blumilk.pl
+          client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
+          client-secret: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_SECRET }}
+          project-slug: blumilk-infra-pv-ih
+          env-slug: infra
+          secret-path: /servers/ovh/ns31445530
+          export-type: env
+          recursive: true
+          include-imports: true
+
+      - name: set up Docker Buildx
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db # v3.6.1
+
+      - name: login to Docker Registry
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+        with:
+          registry: ${{ env.DOCKER_REGISTRY }}
+          username: ${{ env.DOCKER_REGISTRY_USER_NAME }}
+          password: ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }}  # masked secret fetched from Infisical
+
+      - name: set docker app database image name
+        run: echo "DOCKER_APP_DATABASE_IMAGE_NAME=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}-postgres" >> $GITHUB_ENV
+
+
+      - name: Docker meta for app database
+        id: meta-app-database
+        uses: docker/metadata-action@v5.5.1
+        with:
+          images: |
+            ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}
+          tags: |
+            type=raw,value=dev
+          context: workflow
+
+      - name: build and push app database image
+        uses: docker/build-push-action@v5.1.0
+        with:
+          context: .
+          file: ./environment/.docker/postgres/Dockerfile
+          labels: ${{ steps.meta-app-database.outputs.labels }}
+          tags: ${{ steps.meta-app-database.outputs.tags }}
+          push: true
+          cache-from: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-dev-build-cache
+          cache-to: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-dev-build-cache, mode=max
+
+      - name: Docker meta for app
+        id: meta
+        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5.5.1
+        with:
+          images: ${{ env.DOCKER_IMAGE_NAME }}
+          tags: |
+            type=raw,value=dev
+          context: workflow
+
+      - name: build and push app image
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5.4.0
+        with:
+          context: .
+          file: ./environment/.docker/app/Dockerfile
+          target: production
+          build-args: |
+            DEPLOYMENT_PROJECT_VERSION_ARG=${{ env.DEPLOYMENT_PROJECT_VERSION }}
+            ENVIRONMENT=dev
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          push: true
+          cache-from: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-dev-build-cache
+          cache-to: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-dev-build-cache, mode=max
+
+      - name: set deployment path on server
+        run: echo "DEPLOYMENT_PATH_ON_SERVER=${{ env.TARGET_DIR_ON_SERVER }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
+
+      - name: copy files via ssh
+        uses: appleboy/scp-action@917f8b81dfc1ccd331fef9e2d61bdc6c8be94634 # v0.1.7
+        with:
+          timeout: 10s
+          command_timeout: 10m
+          host: ${{ env.SERVER_OVH_NS31445530_IP }} # masked secret fetched from Infisical
+          port: ${{ env.SERVER_OVH_NS31445530_SSH_PORT }} # masked secret fetched from Infisical
+          username: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_NAME }} # masked secret fetched from Infisical
+          key: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY }} # masked secret fetched from Infisical
+          passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
+          source: "./environment/.deployment/dev/*"
+          target: ${{ env.DEPLOYMENT_PATH_ON_SERVER }}
+          rm: true
+
+
+      - name: fetch project deployment secrets
+        uses: Infisical/secrets-action@v1.0.8
+        with:
+          domain: https://infisical.blumilk.pl
+          client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
+          client-secret: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_SECRET }}
+          project-slug: lmt-d-hr8
+          env-slug: dev
+          secret-path: /deployment
+          export-type: env
+          recursive: false
+          include-imports: false
+
+      - name: run deployment script over ssh
+        uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # v1.0.3
+        with:
+          timeout: 10s
+          command_timeout: 10m
+          host: ${{ env.SERVER_OVH_NS31445530_IP }} # masked secret fetched from Infisical
+          port: ${{ env.SERVER_OVH_NS31445530_SSH_PORT }} # masked secret fetched from Infisical
+          username: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_NAME }} # masked secret fetched from Infisical
+          key: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY }} # masked secret fetched from Infisical
+          passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
+          script_stop: true
+          # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_DEV_SECRET_KEY
+          script: |
+            cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/dev
+            echo ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
+            SOPS_AGE_KEY=${{ env.SOPS_AGE_DEV_SECRET_KEY }} task deploy
+            docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi
+            docker logout ${{ env.DOCKER_REGISTRY }}

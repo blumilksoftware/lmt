@@ -1,5 +1,5 @@
 networks:
-  lmt-dev:
+  lmt-local:
     driver: bridge
   traefik-proxy-blumilk-local:
     external: true
@@ -10,10 +10,13 @@ volumes:
 
 services:
   app:
+    container_name: lmt-app-local
     build:
-      context: ./environment/dev/app
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: environment/.docker/app/Dockerfile
+      target: local
       args:
+        - INSTALL_XDEBUG=${DOCKER_INSTALL_XDEBUG:-false}
         - USER_ID=${DOCKER_HOST_USER_ID:-1000}
     labels:
       - "traefik.enable=true"
@@ -27,25 +30,24 @@ services:
       - "traefik.http.routers.lmt-https-router.rule=Host(`lmt.blumilk.localhost`)"
       - "traefik.http.routers.lmt-https-router.entrypoints=websecure"
       - "traefik.http.routers.lmt-https-router.tls=true"
-    container_name: lmt-dev-app-container
     working_dir: /application
     volumes:
-      - ./environment/dev/app/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./environment/dev/app/php.ini:/usr/local/etc/php/conf.d/zzz-overrides.ini:ro
-      - ./environment/dev/app/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-overrides.conf:ro
-      - ./environment/dev/app/supervisord.conf:/etc/supervisor/custom-supervisord.conf:ro
+      - ./environment/local/app/php.ini:/usr/local/etc/php/conf.d/zzz-overrides.ini:ro
+      - ./environment/local/app/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-overrides.conf:ro
+      - ./environment/local/app/supervisord.conf:/etc/supervisor/custom-supervisord.conf:ro
       - .:/application
     ports:
       - ${DOCKER_APP_HOST_PORT:-8051}:80
     networks:
-      - lmt-dev
+      - lmt-local
       - traefik-proxy-blumilk-local
     restart: unless-stopped
 
   database:
     build:
-      context: environment/dev/postgres
-    container_name: lmt-db-dev
+      context: .
+      dockerfile: environment/.docker/postgres/Dockerfile
+    container_name: lmt-db-local
     environment:
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
@@ -61,17 +63,17 @@ services:
     volumes:
       - lmt-postgres-data:/var/lib/postgresql/data
     networks:
-      - lmt-dev
+      - lmt-local
     restart: unless-stopped
 
   mailpit:
     image: axllent/mailpit:v1.22.0@sha256:1ebd4123a99eb6b74799d13d4811f9fc5c3b70df26e1ae536af82987022fcb48
-    container_name: lmt-dev-mailpit-container
+    container_name: lmt-mailpit-local
     ports:
       - ${EXTERNAL_MAILPIT_DASHBOARD_PORT:-8052}:8025
       - ${EXTERNAL_MAILPIT_SMTP_PORT:-8053}:1025
     networks:
-      - lmt-dev
+      - lmt-local
       - traefik-proxy-blumilk-local
     labels:
       - "traefik.enable=true"

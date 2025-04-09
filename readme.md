@@ -15,20 +15,25 @@ cp .env.example .env
 Build app containers:
 
 ```
-make build
+task build
 ```
 
 Run containers:
 
 ```
-make run
+task run
 ```
 
-Enter the app container with `make shell`, then install php and node dependencies:
+Enter the app container with `task shell`, then install php and node dependencies:
 
 ```
 composer install
 npm install
+```
+Run `php artisan key:generate`:
+
+```
+php artisan key:generate
 ```
 
 Run `php artisan storage:link`:
@@ -37,28 +42,29 @@ Run `php artisan storage:link`:
 php artisan storage:link
 ```
 
-Run `make dev` to build stylesheets:
+Run `task dev` to build stylesheets:
 
 ```
-make dev
+task dev
 ```
 
-Run `make lint` to check for lint issues:
+Run `task lint` to check for lint issues:
 
 ```
-make lint
+task lint
 ```
 
-Run `make lintf` to fix lint issues:
+Run `task lintf` to fix lint issues:
 
 ```
-make lintf
+task lintf
 ```
 
 The website should be available at [localhost:8051](localhost:8051) and [lmt.blumilk.localhost](lmt.blumilk.localhost)
 if we use a Blumilk local traefik proxy.
 
-| service | container name            | default external port |
-|---------|---------------------------|-----------------------|
-| app     | lmt-dev-app-container     | 8051                  |
-| mailpit | lmt-dev-mailpit-container | 8052                  |
+| service   | container name    | default external port |
+|-----------|-------------------|-----------------------|
+| app       | lmt-app-local     | 8051                  |
+| mailpit   | lmt-mailpit-local | 8052                  |                  
+| database  | lmt-db-local      | 8055                  |  
