@@ -91,6 +91,8 @@ RUN composer install \
 
 FROM node AS frontend-build
 
+ARG ENVIRONMENT
+
 WORKDIR /app_frontend_dependencies
 
 # last position is target directory
@@ -98,6 +100,8 @@ COPY package.json \
     package-lock.json \
     vite.config.js \
     ./
+
+COPY ./environment/${ENVIRONMENT}/app/vite.${ENVIRONMENT}.env .env
 
 RUN npm clean-install
 
