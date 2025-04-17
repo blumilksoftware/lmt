@@ -15,8 +15,8 @@ jobs:
     env:
       DOCKER_REGISTRY: registry.blumilk.pl
       DOCKER_REGISTRY_USER_NAME: robot@blumilkbot-harbor
-      DOCKER_REGISTRY_PROJECT_NAME: lmt
-      DOCKER_REGISTRY_REPO_NAME: website
+      DOCKER_REGISTRY_PROJECT_NAME: internal-public
+      DOCKER_REGISTRY_REPO_NAME: lmt
       TARGET_DIR_ON_SERVER: /blumilk/deployments/dev/projects
     steps:
       - name: set branch name
