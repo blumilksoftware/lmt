@@ -15,21 +15,24 @@ RUN apt-get update \
     && echo "deb https://nginx.org/packages/mainline/debian bookworm nginx" | tee /etc/apt/sources.list.d/nginx.list \
     && apt-get update && apt-get install --assume-yes \
         nginx=${NGINX_VERSION} \
-        gnupg \
-        zip \
         libzip-dev \
-        libpq-dev \
+        libjpeg-dev \
         libpng-dev \
+        libwebp-dev \
+        libpq-dev \
         libicu-dev \
-        libexif-dev \
         supervisor \
         cron \
+        git \
+        exif \
+     && docker-php-ext-configure \
+         gd --with-jpeg --with-webp \
     && docker-php-ext-install \
         zip \
-        pdo_pgsql \
         gd \
         intl \
-        exif
+        exif \
+        pdo_pgsql
 
 COPY ./environment/.docker/app/entrypoint.sh /entrypoint.sh
 COPY ./environment/.docker/app/nginx.conf /etc/nginx/nginx.conf
