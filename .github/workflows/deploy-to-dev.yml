@@ -1,0 +1,29 @@
+name: Deploy to dev
+
+concurrency:
+  group: deploy-dev
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    environment: dev
+    runs-on: ubuntu-24.04
+    name: Deploy to dev
+    env:
+      DOCKER_REGISTRY: registry.blumilk.pl
+      DOCKER_REGISTRY_USER_NAME: robot@blumilkbot-harbor
+      DOCKER_REGISTRY_PROJECT_NAME: internal-public
+      DOCKER_REGISTRY_REPO_NAME: lmt
+      TARGET_DIR_ON_SERVER: /blumilk/deployments/dev/projects
+    steps:
+      - name: set branch name
+        run: echo "BRANCH_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
+
+      - name: checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          fetch-depth: 0
+          ref: ${{ env.BRANCH_NAME }}
