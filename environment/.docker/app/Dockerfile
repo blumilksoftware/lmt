@@ -111,6 +111,10 @@ RUN npm clean-install
 COPY resources/js ./resources/js/
 COPY resources/css ./resources/css/
 COPY resources/views ./resources/views/
+COPY ./public/index.php ./public/index.php
+
+COPY --from=vendor-build /app_composer_dependencies/vendor ./vendor
+
 
 RUN npm run build
 
