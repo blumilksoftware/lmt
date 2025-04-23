@@ -10,7 +10,7 @@ volumes:
 
 services:
   lmt-dev-app:
-    image: registry.blumilk.pl/lmt/website:dev
+    image: registry.blumilk.pl/internal-public/lmt:dev
     container_name: lmt-dev-app-container
     pull_policy: always
     logging:
@@ -43,7 +43,7 @@ services:
       - .deployment
 
   lmt-dev-database:
-    image: registry.blumilk.pl/lmt/website:dev
+    image: registry.blumilk.pl/internal-public/lmt:dev
     pull_policy: always
     container_name: lmt-dev-database
     deploy:
