@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Blumilksoftware\Lmt\Models;
 
 use database\factories\UserFactory;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Carbon;
+use Filament\Panel;
 
 /**
  * @property int $id
@@ -18,7 +20,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory;
@@ -35,5 +37,10 @@ class User extends Authenticatable
             "password" => "hashed",
             "contact_notifications" => "boolean",
         ];
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return str_ends_with($this->email, config('app.allowed_email_domain'));
     }
 }
