@@ -22,5 +22,5 @@ return [
         "driver" => env("APP_MAINTENANCE_DRIVER", "file"),
         "store" => env("APP_MAINTENANCE_STORE", "database"),
     ],
-    'allowed_email_domain' => env('ALLOWED_EMAIL_DOMAIN', '@example.com'),
+    "allowed_email_domain" => env("ALLOWED_EMAIL_DOMAIN", "@example.com"),
 ];
