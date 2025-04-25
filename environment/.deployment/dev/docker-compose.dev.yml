@@ -30,7 +30,7 @@ services:
       - "traefik.http.routers.lmt-dev-app.entrypoints=websecure"
       - "traefik.http.routers.lmt-dev-app.tls=true"
       - "traefik.http.routers.lmt-dev-app.tls.certresolver=lets-encrypt-resolver"
-      - "traefik.http.routers.lmt-dev-app.middlewares=response-gzip-compress@file"
+      - "traefik.http.routers.lmt-dev-app.middlewares=no-index-robots-response-header@file,security-headers@file"
       - "io.portainer.accesscontrol.teams=LMT"
     working_dir: /application
     volumes:
