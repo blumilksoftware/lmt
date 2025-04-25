@@ -23,7 +23,6 @@ RUN apt-get update \
         libicu-dev \
         supervisor \
         cron \
-        git \
         exif \
      && docker-php-ext-configure \
          gd --with-jpeg --with-webp \
@@ -111,7 +110,6 @@ RUN npm clean-install
 COPY resources/js ./resources/js/
 COPY resources/css ./resources/css/
 COPY resources/views ./resources/views/
-COPY ./public/index.php ./public/index.php
 
 COPY --from=vendor-build /app_composer_dependencies/vendor/livewire ./vendor/livewire
 
