@@ -31,7 +31,6 @@ tasks:
     cmds:
       - cmd: docker compose exec --user $CURRENT_USER_ID $DOCKER_COMPOSE_APP_CONTAINER composer install
       - task: _set-app-key
-      - cmd: sleep 5
       - cmd: docker compose exec --user $CURRENT_USER_ID $DOCKER_COMPOSE_APP_CONTAINER php artisan migrate --seed
       - cmd: docker compose exec --user $CURRENT_USER_ID $DOCKER_COMPOSE_APP_CONTAINER php artisan storage:link
       - cmd: docker compose exec --user $CURRENT_USER_ID $DOCKER_COMPOSE_APP_CONTAINER npm install
