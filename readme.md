@@ -23,10 +23,6 @@ Other installation methods: https://taskfile.dev/installation \
 GitHub: https://github.com/go-task/task \
 Taskfile releases: https://github.com/go-task/task/releases
 
-### Other OS
-
-If you are using other OS, please contribute and create pull request.
-
 # Task commands
 
 ---
@@ -93,10 +89,6 @@ You can run PHP-CS-Fixer:
 ```
 task fix
 ```
-
-By default `.env` file is ready to go, and prepared for Blumilk local environment purposes. So no changes are needed. \
-But if you need to customize it, just edit `.env` file. \
-Project is flexible and all important settings are customizable via `.env` file.
 
 The website should be available at [localhost:8051](localhost:8051) and [lmt.blumilk.localhost](lmt.blumilk.localhost)
 if we use a Blumilk local traefik proxy.
