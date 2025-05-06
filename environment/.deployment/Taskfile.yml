@@ -7,8 +7,8 @@ tasks:
   deploy:
     deps: [create-deployment-file, decrypt-secrets]
     vars:
-      DOCKER_COMPOSE_FILE: docker-compose.dev.yml
-      DOCKER_COMPOSE_APP_SERVICE: lmt-dev-app
+      DOCKER_COMPOSE_FILE: docker-compose.{{ .ENVIRONMENT }}.yml
+      DOCKER_COMPOSE_APP_SERVICE: lmt-{{ .ENVIRONMENT }}-app
       POST_DEPLOY_SCRIPT_FILE: post-deploy-actions.sh
     cmds:
       - cmd: docker compose --file {{ .DOCKER_COMPOSE_FILE }} pull
@@ -21,8 +21,8 @@ tasks:
     requires:
       vars: [SOPS_AGE_KEY]
     vars:
-      DOTENV_FILE: .env.dev
-      SECRETS_FILE: .env.dev.secrets
+      DOTENV_FILE: .env.{{ .ENVIRONMENT }}
+      SECRETS_FILE: .env.{{ .ENVIRONMENT }}.secrets
     cmds:
       - cmd: echo "Moving {{ .DOTENV_FILE }} to .env"
       - cmd: mv {{ .DOTENV_FILE }} .env

@@ -125,7 +125,7 @@ jobs:
           username: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_NAME }} # masked secret fetched from Infisical
           key: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY }} # masked secret fetched from Infisical
           passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
-          source: "./environment/.deployment/dev/*"
+          source: "./environment/.deployment/dev/*,./environment/.deployment/Taskfile.yml"
           target: ${{ env.DEPLOYMENT_PATH_ON_SERVER }}
           rm: true
 
@@ -156,8 +156,11 @@ jobs:
           script_stop: true
           # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_DEV_SECRET_KEY
           script: |
-            cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/dev
+            cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/
+            mv Taskfile.yml dev/
             echo ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
-            SOPS_AGE_KEY=${{ env.SOPS_AGE_DEV_SECRET_KEY }} task deploy
+            export SOPS_AGE_KEY=${{ env.SOPS_AGE_DEV_SECRET_KEY }} 
+            export ENVIRONMENT=dev 
+            task deploy 
             docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi
             docker logout ${{ env.DOCKER_REGISTRY }}
