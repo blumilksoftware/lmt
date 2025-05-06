@@ -1,8 +1,8 @@
 .idea
 .vscode
 /vendor/
+*.decrypted
 .env
-.env.prod.secrets.decrypted
 /cache/*
 !/cache/.gitkeep
 node_modules/

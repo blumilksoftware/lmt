@@ -1,5 +1,10 @@
 creation_rules:
 
+  - name: dev
+    path_regex: \.env\.dev\.secrets.*$
+    age: >-
+      age1m3ruqh8ldq9wy9w5rpyj2wed0nc0n4ejda2lau2009w2rlvu7qjqacfqp2
+
   - name: prod
     path_regex: \.env\.prod\.secrets.*$
     age: >-
