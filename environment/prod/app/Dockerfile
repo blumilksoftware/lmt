@@ -1,5 +1,5 @@
 ### PHP DEPENDENCIES ###
-FROM composer:2.8.5@sha256:e0c9ac329256c25b0dee572df37d986570fb26bb6baaa7d0abe69b84181701e1 AS vendor
+FROM composer:2.8.7@sha256:6219da36bb4d78b0c90daf443f3327577a7744b64711c8abcf362ddd212f1ee8 AS vendor
 
 WORKDIR /app_composer_dependencies
 
@@ -27,7 +27,7 @@ COPY ./public/index.html ./public/index.html
 RUN npx tailwindcss -i ./styles.css -o ./public/output.css
 
 ### APPLICATION ###
-FROM php:8.4.3-fpm-bookworm@sha256:5148d67c6a67e00736c7a1be2e3b5287e370fd64d24f7777f5e39bf4c45b9175 AS app
+FROM php:8.4.6-fpm-bookworm@sha256:bdceea8abacbf5a18112a301f29a19ac4d1c41ea8303c3c8bdacdd749c0da583 AS app
 
 COPY --from=vendor /usr/bin/composer /usr/local/bin/composer
 
