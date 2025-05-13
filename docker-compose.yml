@@ -1,7 +1,7 @@
 networks:
   lmt-local:
     driver: bridge
-  traefik-proxy-blumilk-local:
+  traefik-proxy-blumilk-local-environment:
     external: true
 
 volumes:
@@ -20,16 +20,24 @@ services:
         - USER_ID=${DOCKER_HOST_USER_ID:-1000}
     labels:
       - "traefik.enable=true"
-      - "traefik.blumilk.environment=true"
+      - "traefik.blumilk.local.environment=true"
       # HTTP
-      - "traefik.http.routers.lmt-http-router.rule=Host(`lmt.blumilk.localhost`)"
+      - "traefik.http.routers.lmt-http-router.rule=Host(`${APP_DOCKER_HOST_NAME}`)"
       - "traefik.http.routers.lmt-http-router.entrypoints=web"
-      # HTTP to HTTPS redirect
-      #      - "traefik.http.routers.lmt-http-router.middlewares=https-redirect@file"
+      - "traefik.http.routers.lmt-http-router.service=lmt-app"
       # HTTPS
-      - "traefik.http.routers.lmt-https-router.rule=Host(`lmt.blumilk.localhost`)"
+      - "traefik.http.routers.lmt-https-router.rule=Host(`${APP_DOCKER_HOST_NAME}`)"
       - "traefik.http.routers.lmt-https-router.entrypoints=websecure"
       - "traefik.http.routers.lmt-https-router.tls=true"
+      - "traefik.http.routers.lmt-https-router.service=lmt-app"
+      # APP LOADBALANCER
+      - "traefik.http.services.lmt-app.loadbalancer.server.port=80"
+      # VITE DEV SERVER
+      - "traefik.http.routers.lmt-vite-dev-server-https-router.rule=Host(`${VITE_DEV_SERVER_DOCKER_HOST_NAME}`)"
+      - "traefik.http.routers.lmt-vite-dev-server-https-router.entrypoints=websecure"
+      - "traefik.http.routers.lmt-vite-dev-server-https-router.tls=true"
+      - "traefik.http.routers.lmt-vite-dev-server-https-router.service=lmt-vite-dev-server"
+      - "traefik.http.services.lmt-vite-dev-server.loadbalancer.server.port=5173"
     working_dir: /application
     volumes:
       - ./environment/local/app/php.ini:/usr/local/etc/php/conf.d/zzz-overrides.ini:ro
@@ -40,7 +48,7 @@ services:
       - ${DOCKER_APP_HOST_PORT:-8051}:80
     networks:
       - lmt-local
-      - traefik-proxy-blumilk-local
+      - traefik-proxy-blumilk-local-environment
     restart: unless-stopped
 
   database:
@@ -74,19 +82,17 @@ services:
       - ${EXTERNAL_MAILPIT_SMTP_PORT:-8053}:1025
     networks:
       - lmt-local
-      - traefik-proxy-blumilk-local
+      - traefik-proxy-blumilk-local-environment
     labels:
       - "traefik.enable=true"
-      - "traefik.blumilk.environment=true"
+      - "traefik.blumilk.local.environment=true"
       # HTTP
-      - "traefik.http.routers.lmt-mailpit-http-router.rule=Host(`lmt-mailpit.blumilk.localhost`)"
+      - "traefik.http.routers.lmt-mailpit-http-router.rule=Host(`${MAILPIT_DOCKER_HOST_NAME}`)"
       - "traefik.http.routers.lmt-mailpit-http-router.entrypoints=web"
-      # HTTP to HTTPS redirect
-      #      - "traefik.http.routers.lmt-mailpit-http-router.middlewares=https-redirect@file"
       # HTTPS
-      - "traefik.http.routers.lmt-mailpit-https-router.rule=Host(`lmt-mailpit.blumilk.localhost`)"
+      - "traefik.http.routers.lmt-mailpit-https-router.rule=Host(`${MAILPIT_DOCKER_HOST_NAME}`)"
       - "traefik.http.routers.lmt-mailpit-https-router.entrypoints=websecure"
       - "traefik.http.routers.lmt-mailpit-https-router.tls=true"
-      # LOADBALANCER MAILHOG PORT
+      # LOADBALANCER MAILPIT PORT
       - "traefik.http.services.lmt-mailpit.loadbalancer.server.port=8025"
     restart: unless-stopped

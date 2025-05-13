@@ -95,7 +95,7 @@ if we use a Blumilk local traefik proxy.
 
 | service             | container name                                | default external port          |
 |---------------------|-----------------------------------------------|--------------------------------|
-| app                 | [lmt-app-local](http://lmt.blumilk.localhost) | [8051](http://localhost:8051/) |
+| app                 | [lmt-app-local](http://lmt.blumilk.local.env) | [8051](http://localhost:8051/) |
 | mailpit (dashboard) | lmt-mailpit-local                             | [8052](http://localhost:8052/) |                  
 | database            | lmt-db-local                                  | 8055                           |  
 
