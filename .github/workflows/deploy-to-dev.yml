@@ -163,4 +163,5 @@ jobs:
             export ENVIRONMENT=dev 
             task deploy 
             docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi
+            docker images --filter dangling=true | grep ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }} | awk '{print $3}'| xargs --no-run-if-empty docker rmi
             docker logout ${{ env.DOCKER_REGISTRY }}
