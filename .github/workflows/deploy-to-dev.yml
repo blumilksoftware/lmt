@@ -18,6 +18,7 @@ jobs:
       DOCKER_REGISTRY_PROJECT_NAME: internal-public
       DOCKER_REGISTRY_REPO_NAME: lmt
       TARGET_DIR_ON_SERVER: /blumilk/deployments/dev/projects
+      ENVIRONMENT: dev
     steps:
       - name: set branch name
         run: echo "BRANCH_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
@@ -157,11 +158,11 @@ jobs:
           # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_DEV_SECRET_KEY
           script: |
             cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/
-            mv Taskfile.yml dev/
-            cd dev/
+            mv Taskfile.yml ${{ env.ENVIRONMENT }}/
+            cd ${{ env.ENVIRONMENT }}/
             echo ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
             export SOPS_AGE_KEY=${{ env.SOPS_AGE_DEV_SECRET_KEY }} 
-            export ENVIRONMENT=dev 
+            export ENVIRONMENT=${{ env.ENVIRONMENT }} 
             task deploy 
             docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi
             docker images --filter dangling=true | grep ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }} | awk '{print $3}'| xargs --no-run-if-empty docker rmi
