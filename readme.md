@@ -90,14 +90,14 @@ You can run PHP-CS-Fixer:
 task fix
 ```
 
-The website should be available at [localhost:8051](localhost:8051) and [lmt.blumilk.localhost](lmt.blumilk.localhost)
+The website should be available at [localhost:8051](localhost:8051) and [lmt.blumilk.local.env](lmt.blumilk.local.env)
 if we use a Blumilk local traefik proxy.
 
-| service             | container name                                | default external port          |
-|---------------------|-----------------------------------------------|--------------------------------|
-| app                 | [lmt-app-local](http://lmt.blumilk.local.env) | [8051](http://localhost:8051/) |
-| mailpit (dashboard) | lmt-mailpit-local                             | [8052](http://localhost:8052/) |                  
-| database            | lmt-db-local                                  | 8055                           |  
+| service             | container name                                 | default external port          |
+|---------------------|------------------------------------------------|--------------------------------|
+| app                 | [lmt-app-local](https://lmt.blumilk.local.env) | [8051](http://localhost:8051/) |
+| mailpit (dashboard) | lmt-mailpit-local                              | [8052](http://localhost:8052/) |                  
+| database            | lmt-db-local                                   | 8055                           |  
 
 
 ### Working with encrypted data
