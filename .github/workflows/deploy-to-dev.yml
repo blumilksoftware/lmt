@@ -158,6 +158,7 @@ jobs:
           script: |
             cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/
             mv Taskfile.yml dev/
+            cd dev/
             echo ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
             export SOPS_AGE_KEY=${{ env.SOPS_AGE_DEV_SECRET_KEY }} 
             export ENVIRONMENT=dev 
