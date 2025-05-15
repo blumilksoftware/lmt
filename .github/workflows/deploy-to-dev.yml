@@ -145,7 +145,7 @@ jobs:
           include-imports: false
 
       - name: run deployment script over ssh
-        uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # v1.0.3
+        uses: appleboy/ssh-action@v1.2.2
         with:
           timeout: 10s
           command_timeout: 10m
@@ -154,7 +154,6 @@ jobs:
           username: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_NAME }} # masked secret fetched from Infisical
           key: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY }} # masked secret fetched from Infisical
           passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
-          script_stop: true
           # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_DEV_SECRET_KEY
           script: |
             cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/

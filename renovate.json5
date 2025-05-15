@@ -7,7 +7,6 @@
     'Blusia', // Agnieszka Rudek
   ],
   ignoreDeps: [
-    'ghcr.io/blumilksoftware/lmt',
     'registry.blumilk.pl/internal-public/lmt',
   ],
 }

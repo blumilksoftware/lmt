@@ -10,6 +10,7 @@
 
 codestyle.php
 docker-compose*
+eslint.config.js
 Taskfile.yml
 node_modules/
 phpstan*

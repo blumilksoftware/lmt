@@ -37,7 +37,7 @@ tasks:
       - task: create-test-database
 
   dev:
-    desc: "Run Vitepress local dev server"
+    desc: "Run Vite local dev server"
     deps: [run]
     cmds:
       - cmd: docker compose exec --user $CURRENT_USER_ID $DOCKER_COMPOSE_APP_CONTAINER npm run dev
@@ -105,7 +105,7 @@ tasks:
 
   type-check:
     desc: "Run npm type-check"
-    deps: [ run ]
+    deps: [run]
     cmds:
       - cmd: docker compose exec --user $CURRENT_USER_ID $DOCKER_COMPOSE_APP_CONTAINER npm run type-check
 
