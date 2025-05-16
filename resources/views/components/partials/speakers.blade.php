@@ -48,7 +48,7 @@
                 </p>
                 @if ($speaker->slides)
                   <a class="mb-4 lg:mb-6" target="_blank"
-                     href="{{ $speaker->slides }}">
+                     href="{{ $speaker->slides->getUrl() }}">
                     <div class="flex items-center">
                       <x-icons.slides class="mr-2 size-5" aria-label="Przejdź do slajdów z prezentacji" />
                       <p class="font-semibold">{{ $speaker->presentation }}</p>
@@ -90,20 +90,43 @@
                    alt="{{ $speaker->full_name }}"
               >
             </div>
-            <div class="px-14 pt-12 font-bold">
-              <div class="text-4xl">{{ $speaker->first_name }}</div>
-              <div class="text-4xl">{{ $speaker->last_name }}</div>
-            </div>
-            <div class="px-14 pt-4 text-base">
-              @foreach($speaker->companies as $company)
-                <a target="_blank" href="{{ $company['url'] }}"
-                   class="font-bold text-violet-700">{{ $company['name'] }}</a>
-              @endforeach
-            </div>
-            <div class="flex px-14 pb-14 pt-4 text-base text-neutral-200">
-              <p>
-                {{ $speaker->description }}
-              </p>
+            <div class="px-14 pt-14 pb-10 space-y-4">
+              <div class="font-bold">
+                <div class="text-4xl">{{ $speaker->first_name }}</div>
+                <div class="text-4xl">{{ $speaker->last_name }}</div>
+              </div>
+              <div class="text-base">
+                @foreach($speaker->companies as $company)
+                  <a target="_blank" href="{{ $company['url'] }}"
+                     class="font-bold text-violet-700">{{ $company['name'] }}</a>
+                @endforeach
+              </div>
+              <div class="flex text-base text-neutral-200">
+                <p>
+                  {{ $speaker->description }}
+                </p>
+              </div>
+              <div>
+                @if ($speaker->slides)
+                  <a target="_blank"
+                     href="{{ $speaker->slides->getUrl() }}">
+                    <div class="flex items-center">
+                      <x-icons.slides class="mr-2 size-5" aria-label="Przejdź do slajdów z prezentacji" />
+                      <p class="font-semibold">{{ $speaker->presentation }}</p>
+                    </div>
+                  </a>
+                @endif
+              </div>
+              <div>
+                @if ($speaker->video_url)
+                  <a target="_blank" href="{{ $speaker->video_url }}">
+                    <div class="flex items-center">
+                      <x-icons.presentation class="mr-2 size-5" aria-label="Przejdź do nagrania z prezentacji" />
+                      <p class="font-semibold">Obejrzyj na YouTube</p>
+                    </div>
+                  </a>
+                @endif
+              </div>
             </div>
           </div>
         @endforeach

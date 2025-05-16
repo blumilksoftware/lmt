@@ -6,5 +6,7 @@
   additionalReviewers: [
     'Blusia', // Agnieszka Rudek
   ],
-  ignoreDeps: ['ghcr.io/blumilksoftware/lmt'],
+  ignoreDeps: [
+    'registry.blumilk.pl/internal-public/lmt',
+  ],
 }
