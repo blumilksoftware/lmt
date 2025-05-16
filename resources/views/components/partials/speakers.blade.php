@@ -48,7 +48,7 @@
                 </p>
                 @if ($speaker->slides)
                   <a class="mb-4 lg:mb-6" target="_blank"
-                     href="{{ $speaker->slides }}">
+                     href="{{ $speaker->slides->getUrl() }}">
                     <div class="flex items-center">
                       <x-icons.slides class="mr-2 size-5" aria-label="Przejdź do slajdów z prezentacji" />
                       <p class="font-semibold">{{ $speaker->presentation }}</p>
