@@ -11,16 +11,16 @@
   },
   "dependencies": {
     "@blumilksoftware/eslint-config": "^3.0.0",
-    "@tailwindcss/forms": "^0.5.9",
-    "@tailwindcss/typography": "^0.5.15",
-    "@tailwindcss/vite": "^4.0.3",
-    "alpinejs": "^3.14.1",
-    "autoprefixer": "^10.4.20",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.6",
+    "alpinejs": "^3.14.9",
+    "autoprefixer": "^10.4.21",
     "axios": "^1.7.4",
-    "laravel-vite-plugin": "^1.0",
+    "laravel-vite-plugin": "^1.2.0",
     "moment": "^2.30.1",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^4.0.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6",
     "vite": "^6.1.0"
   }
 }
