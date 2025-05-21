@@ -77,7 +77,8 @@ jobs:
           images: |
             ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}
           tags: |
-            type=raw,value=prod
+            type=raw,value=${{ inputs.tag }}
+            type=raw,value=latest
           context: workflow
 
       - name: build and push app database image
@@ -97,7 +98,8 @@ jobs:
         with:
           images: ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
-            type=raw,value=prod
+            type=raw,value=${{ inputs.tag }}
+            type=raw,value=latest
           context: workflow
 
       - name: build and push app image
@@ -108,7 +110,7 @@ jobs:
           target: production
           build-args: |
             DEPLOYMENT_PROJECT_VERSION_ARG=${{ env.DEPLOYMENT_PROJECT_VERSION }}
-            ENVIRONMENT=prod
+            ENVIRONMENT_ARG=prod
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
           push: true
