@@ -1,0 +1,76 @@
+networks:
+  traefik-proxy:
+    external: true
+  lmt-prod:
+    driver: bridge
+
+volumes:
+  lmt-prod-postgres-data:
+    name: lmt-prod-postgres-data
+
+services:
+  lmt-prod-app:
+    image: registry.blumilk.pl/internal-public/lmt:prod
+    container_name: lmt-prod-app-container
+    pull_policy: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          memory: 1GB
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.lmt-prod-app.rule=Host(`${LMT_HOST_NAME}`)"
+      - "traefik.http.routers.lmt-prod-app.entrypoints=websecure"
+      - "traefik.http.routers.lmt-prod-app.tls=true"
+      - "traefik.http.routers.lmt-prod-app.tls.certresolver=lets-encrypt-resolver"
+      - "traefik.http.routers.lmt-prod-app.middlewares=response-gzip-compress@file"
+      - "io.portainer.accesscontrol.teams=LMT"
+    working_dir: /application
+    volumes:
+      - ./.env:/application/.env:ro
+    networks:
+      - lmt-prod
+      - traefik-proxy
+    restart: unless-stopped
+    env_file:
+      - .deployment
+
+  lmt-prod-database:
+    image: registry.blumilk.pl/internal-public/lmt-postgres:prod
+    pull_policy: always
+    container_name: lmt-prod-database-container
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
+    labels:
+      - "io.portainer.accesscontrol.teams=LMT"
+    environment:
+      - POSTGRES_USER=${DB_USERNAME:? variable DB_USERNAME not set}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:? variable DB_PASSWORD not set}
+      - POSTGRES_DB=${DB_DATABASE:? variable DB_DATABASE not set}
+      - PGDATA=/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready --dbname ${DB_DATABASE} --username ${DB_USERNAME}" ]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+    volumes:
+      - lmt-prod-postgres-data:/var/lib/postgresql/data
+    networks:
+      - lmt-prod
+    restart: unless-stopped
