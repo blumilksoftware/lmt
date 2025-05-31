@@ -1,8 +1,8 @@
-FROM registry.blumilk.pl/internal-public/secops-tools-bin:v1.0.0 AS secops-tools-bin
-FROM composer:2.8.6 AS composer
-FROM node:23.7.0-bookworm-slim AS node
+FROM registry.blumilk.pl/internal-public/secops-tools-bin:v1.0.0@sha256:8f2508eb12466da04fdb55b9b24aaf9220a5b1548c12483b8fa31ec24f0ea8da AS secops-tools-bin
+FROM composer:2.8.9@sha256:623d15a4aae78c868a35c3942add4bb9b2f98e4a3ec26e1928c84df14695d4b0 AS composer
+FROM node:23.11.1-bookworm-slim@sha256:86191b94d2a163be41f3dc7fe5e5fcaca8ba2f1be7275d98a06343483c17414a AS node
 
-FROM php:8.3.10-fpm-bookworm AS base
+FROM php:8.4.7-fpm-bookworm@sha256:66305ffab7428447e9a88648a5aab0558f1570eaff14c2c82fc71dff33ad84c7 AS base
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
@@ -69,7 +69,7 @@ RUN ln --symbolic /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/
     && chown --no-dereference ${USER_NAME}:root /usr/local/bin/npx
 
 # renovate: datasource=github-tags depName=xdebug/xdebug
-ARG XDEBUG_VERSION=3.4.2
+ARG XDEBUG_VERSION=3.4.3
 ARG INSTALL_XDEBUG=false
 
 RUN if [ ${INSTALL_XDEBUG} = true ]; then \
