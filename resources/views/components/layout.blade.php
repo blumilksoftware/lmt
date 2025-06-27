@@ -19,6 +19,7 @@
   @vite('resources/css/app.css')
   @vite('resources/js/app.js')
   @livewireScriptConfig
+  {!! RecaptchaV3::initJs() !!}
 </head>
 <body class="overflow-x-hidden bg-slate-950 bg-cover" style="background-image: url({{ asset('/images/background.webp') }})">
  {{ $slot }}
