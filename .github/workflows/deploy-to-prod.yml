@@ -1,24 +1,26 @@
-name: Deploy to dev
+name: Deploy to prod
 
 concurrency:
-  group: deploy-dev
+  group: deploy-prod
   cancel-in-progress: false
 
 on:
+  release:
+    types: [ published ]
   workflow_dispatch:
 
 jobs:
   deploy:
-    environment: dev
+    environment: prod
     runs-on: ubuntu-24.04
-    name: Deploy to dev
+    name: Deploy to prod
     env:
       DOCKER_REGISTRY: registry.blumilk.pl
       DOCKER_REGISTRY_USER_NAME: robot@blumilkbot-harbor
       DOCKER_REGISTRY_PROJECT_NAME: internal-public
       DOCKER_REGISTRY_REPO_NAME: lmt
-      TARGET_DIR_ON_SERVER: /blumilk/deployments/dev/projects
-      ENVIRONMENT: dev
+      TARGET_DIR_ON_SERVER: /blumilk/deployments/prod/projects
+      ENVIRONMENT: prod
     steps:
       - name: set branch name
         run: echo "BRANCH_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
@@ -75,7 +77,8 @@ jobs:
           images: |
             ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}
           tags: |
-            type=raw,value=dev
+            type=raw,value=${{ inputs.tag }}
+            type=raw,value=latest
           context: workflow
 
       - name: build and push app database image
@@ -86,8 +89,8 @@ jobs:
           labels: ${{ steps.meta-app-database.outputs.labels }}
           tags: ${{ steps.meta-app-database.outputs.tags }}
           push: true
-          cache-from: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-dev-build-cache
-          cache-to: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-dev-build-cache, mode=max
+          cache-from: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-prod-build-cache
+          cache-to: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-prod-build-cache, mode=max
 
       - name: Docker meta for app
         id: meta
@@ -95,7 +98,8 @@ jobs:
         with:
           images: ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
-            type=raw,value=dev
+            type=raw,value=${{ inputs.tag }}
+            type=raw,value=latest
           context: workflow
 
       - name: build and push app image
@@ -110,8 +114,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
           push: true
-          cache-from: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-dev-build-cache
-          cache-to: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-dev-build-cache, mode=max
+          cache-from: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-prod-build-cache
+          cache-to: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-prod-build-cache, mode=max
 
       - name: set deployment path on server
         run: echo "DEPLOYMENT_PATH_ON_SERVER=${{ env.TARGET_DIR_ON_SERVER }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
@@ -138,14 +142,14 @@ jobs:
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
           client-secret: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_SECRET }}
           project-slug: lmt-d-hr8
-          env-slug: dev
+          env-slug: prod
           secret-path: /deployment
           export-type: env
           recursive: false
           include-imports: false
 
       - name: run deployment script over ssh
-        uses: appleboy/ssh-action@v1.2.2
+        uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # v1.0.3
         with:
           timeout: 10s
           command_timeout: 10m
@@ -154,13 +158,14 @@ jobs:
           username: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_NAME }} # masked secret fetched from Infisical
           key: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY }} # masked secret fetched from Infisical
           passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
-          # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_DEV_SECRET_KEY
+          script_stop: true
+          # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_PROD_SECRET_KEY
           script: |
             cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/
             mv Taskfile.yml ${{ env.ENVIRONMENT }}/
             cd ${{ env.ENVIRONMENT }}/
             echo ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
-            export SOPS_AGE_KEY=${{ env.SOPS_AGE_DEV_SECRET_KEY }} 
+            export SOPS_AGE_KEY=${{ env.SOPS_AGE_PROD_SECRET_KEY }} 
             export ENVIRONMENT=${{ env.ENVIRONMENT }} 
             task deploy 
             docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi

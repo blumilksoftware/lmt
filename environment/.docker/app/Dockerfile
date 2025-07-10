@@ -93,7 +93,8 @@ RUN composer install \
 
 FROM node AS frontend-build
 
-ARG ENVIRONMENT
+ARG ENVIRONMENT_ARG
+ENV ENVIRONMENT=${ENVIRONMENT_ARG}
 
 WORKDIR /app_frontend_dependencies
 
@@ -118,7 +119,8 @@ RUN npm run build
 
 FROM base AS production
 
-ARG ENVIRONMENT
+ARG ENVIRONMENT_ARG
+ENV ENVIRONMENT=${ENVIRONMENT_ARG}
 
 RUN docker-php-ext-install \
     opcache
