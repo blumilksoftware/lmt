@@ -24,7 +24,7 @@ jobs:
         run: echo "BRANCH_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
 
       - name: checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           ref: ${{ env.BRANCH_NAME }}
@@ -42,7 +42,7 @@ jobs:
         run: echo "DOCKER_IMAGE_NAME=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
 
       - name: fetch server secrets
-        uses: Infisical/secrets-action@v1.0.8
+        uses: Infisical/secrets-action@a663da43e1541832614bfd9dcf9ab67381ea2b98 # v1.0.12
         with:
           domain: https://infisical.blumilk.pl
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
@@ -55,10 +55,10 @@ jobs:
           include-imports: true
 
       - name: set up Docker Buildx
-        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db # v3.6.1
+        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
 
       - name: login to Docker Registry
-        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
           registry: ${{ env.DOCKER_REGISTRY }}
           username: ${{ env.DOCKER_REGISTRY_USER_NAME }}
@@ -70,7 +70,7 @@ jobs:
 
       - name: Docker meta for app database
         id: meta-app-database
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
         with:
           images: |
             ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}
@@ -79,7 +79,7 @@ jobs:
           context: workflow
 
       - name: build and push app database image
-        uses: docker/build-push-action@v5.1.0
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5.4.0
         with:
           context: .
           file: ./environment/.docker/postgres/Dockerfile
@@ -91,7 +91,7 @@ jobs:
 
       - name: Docker meta for app
         id: meta
-        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81 # v5.5.1
+        uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0
         with:
           images: ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
@@ -132,7 +132,7 @@ jobs:
 
 
       - name: fetch project deployment secrets
-        uses: Infisical/secrets-action@v1.0.8
+        uses: Infisical/secrets-action@a663da43e1541832614bfd9dcf9ab67381ea2b98 # v1.0.12
         with:
           domain: https://infisical.blumilk.pl
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
@@ -145,7 +145,7 @@ jobs:
           include-imports: false
 
       - name: run deployment script over ssh
-        uses: appleboy/ssh-action@v1.2.2
+        uses: appleboy/ssh-action@2ead5e36573f08b82fbfce1504f1a4b05a647c6f # v1.2.2
         with:
           timeout: 10s
           command_timeout: 10m
