@@ -5,15 +5,18 @@ concurrency:
   cancel-in-progress: false
 
 on:
-  release:
-    types: [ published ]
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to deploy"
+        required: true
 
 jobs:
+
   deploy:
     environment: production
+    name: "Deploy to production [tag: ${{ inputs.tag }}]"
     runs-on: ubuntu-24.04
-    name: Deploy to production
     env:
       DOCKER_REGISTRY: registry.blumilk.pl
       DOCKER_REGISTRY_USER_NAME: robot@blumilkbot-harbor
@@ -22,20 +25,11 @@ jobs:
       TARGET_DIR_ON_SERVER: /blumilk/deployments/prod/projects
       ENVIRONMENT: production
     steps:
-      - name: set branch name
-        run: echo "BRANCH_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
-
       - name: checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
-          fetch-depth: 0
-          ref: ${{ env.BRANCH_NAME }}
-
-      - name: sync with main branch
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          git merge --no-commit --no-ff origin/main
+          fetch-tags: true
+          ref: ${{ inputs.tag }}
 
       - name: set deployment project version
         run: echo "DEPLOYMENT_PROJECT_VERSION=$(bash ./environment/.deployment/scripts/version.sh --long)" >> $GITHUB_ENV
@@ -44,7 +38,7 @@ jobs:
         run: echo "DOCKER_IMAGE_NAME=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
 
       - name: fetch server secrets
-        uses: Infisical/secrets-action@v1.0.8
+        uses: Infisical/secrets-action@v1.0.12
         with:
           domain: https://infisical.blumilk.pl
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
@@ -129,12 +123,12 @@ jobs:
           username: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_NAME }} # masked secret fetched from Infisical
           key: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY }} # masked secret fetched from Infisical
           passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
-          source: "./environment/.deployment/dev/*,./environment/.deployment/Taskfile.yml"
+          source: "./environment/.deployment/production/*,./environment/.deployment/Taskfile.yml"
           target: ${{ env.DEPLOYMENT_PATH_ON_SERVER }}
           rm: true
 
       - name: fetch project deployment secrets
-        uses: Infisical/secrets-action@v1.0.8
+        uses: Infisical/secrets-action@v1.0.12
         with:
           domain: https://infisical.blumilk.pl
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
