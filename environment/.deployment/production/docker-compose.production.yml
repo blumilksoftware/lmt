@@ -1,17 +1,17 @@
 networks:
   traefik-proxy:
     external: true
-  lmt-prod:
+  lmt-production:
     driver: bridge
 
 volumes:
-  lmt-prod-postgres-data:
-    name: lmt-prod-postgres-data
+  lmt-production-postgres-data:
+    name: lmt-production-postgres-data
 
 services:
-  lmt-prod-app:
-    image: registry.blumilk.pl/internal-public/lmt:prod
-    container_name: lmt-prod-app-container
+  lmt-production-app:
+    image: registry.blumilk.pl/internal-public/lmt:latest
+    container_name: lmt-production-app-container
     pull_policy: always
     logging:
       driver: "json-file"
@@ -26,26 +26,26 @@ services:
           memory: 1GB
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.lmt-prod-app.rule=Host(`${LMT_HOST_NAME}`)"
-      - "traefik.http.routers.lmt-prod-app.entrypoints=websecure"
-      - "traefik.http.routers.lmt-prod-app.tls=true"
-      - "traefik.http.routers.lmt-prod-app.tls.certresolver=lets-encrypt-resolver"
-      - "traefik.http.routers.lmt-prod-app.middlewares=response-gzip-compress@file"
-      - "io.portainer.accesscontrol.teams=LMT"
+      - "traefik.http.routers.lmt-production-app.rule=Host(`${LMT_HOST_NAME}`)"
+      - "traefik.http.routers.lmt-production-app.entrypoints=websecure"
+      - "traefik.http.routers.lmt-production-app.tls=true"
+      - "traefik.http.routers.lmt-production-app.tls.certresolver=lets-encrypt-resolver"
+      - "traefik.http.routers.lmt-production-app.middlewares=response-gzip-compress@file"
+      - "io.portainer.accesscontrol.teams=LMT-production"
     working_dir: /application
     volumes:
       - ./.env:/application/.env:ro
     networks:
-      - lmt-prod
+      - lmt-production
       - traefik-proxy
     restart: unless-stopped
     env_file:
       - .deployment
 
-  lmt-prod-database:
-    image: registry.blumilk.pl/internal-public/lmt-postgres:prod
+  lmt-production-database:
+    image: registry.blumilk.pl/internal-public/lmt-postgres:latest
     pull_policy: always
-    container_name: lmt-prod-database-container
+    container_name: lmt-production-database-container
     deploy:
       mode: replicated
       replicas: 1
@@ -58,7 +58,7 @@ services:
         max-size: "50m"
         max-file: "5"
     labels:
-      - "io.portainer.accesscontrol.teams=LMT"
+      - "io.portainer.accesscontrol.teams=LMT-production"
     environment:
       - POSTGRES_USER=${DB_USERNAME:? variable DB_USERNAME not set}
       - POSTGRES_PASSWORD=${DB_PASSWORD:? variable DB_PASSWORD not set}
@@ -70,7 +70,7 @@ services:
       timeout: 3s
       retries: 5
     volumes:
-      - lmt-prod-postgres-data:/var/lib/postgresql/data
+      - lmt-production-postgres-data:/var/lib/postgresql/data
     networks:
-      - lmt-prod
+      - lmt-production
     restart: unless-stopped

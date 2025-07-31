@@ -1,7 +1,7 @@
-name: Deploy to prod
+name: Deploy to production
 
 concurrency:
-  group: deploy-prod
+  group: deploy-production
   cancel-in-progress: false
 
 on:
@@ -11,16 +11,16 @@ on:
 
 jobs:
   deploy:
-    environment: prod
+    environment: production
     runs-on: ubuntu-24.04
-    name: Deploy to prod
+    name: Deploy to production
     env:
       DOCKER_REGISTRY: registry.blumilk.pl
       DOCKER_REGISTRY_USER_NAME: robot@blumilkbot-harbor
       DOCKER_REGISTRY_PROJECT_NAME: internal-public
       DOCKER_REGISTRY_REPO_NAME: lmt
       TARGET_DIR_ON_SERVER: /blumilk/deployments/prod/projects
-      ENVIRONMENT: prod
+      ENVIRONMENT: production
     steps:
       - name: set branch name
         run: echo "BRANCH_NAME=$GITHUB_REF_NAME" >> $GITHUB_ENV
@@ -69,7 +69,6 @@ jobs:
       - name: set docker app database image name
         run: echo "DOCKER_APP_DATABASE_IMAGE_NAME=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}-postgres" >> $GITHUB_ENV
 
-
       - name: Docker meta for app database
         id: meta-app-database
         uses: docker/metadata-action@v5.5.1
@@ -89,8 +88,8 @@ jobs:
           labels: ${{ steps.meta-app-database.outputs.labels }}
           tags: ${{ steps.meta-app-database.outputs.tags }}
           push: true
-          cache-from: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-prod-build-cache
-          cache-to: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-prod-build-cache, mode=max
+          cache-from: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-production-build-cache
+          cache-to: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-production-build-cache, mode=max
 
       - name: Docker meta for app
         id: meta
@@ -114,8 +113,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
           push: true
-          cache-from: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-prod-build-cache
-          cache-to: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-prod-build-cache, mode=max
+          cache-from: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-production-build-cache
+          cache-to: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-production-build-cache, mode=max
 
       - name: set deployment path on server
         run: echo "DEPLOYMENT_PATH_ON_SERVER=${{ env.TARGET_DIR_ON_SERVER }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
@@ -134,7 +133,6 @@ jobs:
           target: ${{ env.DEPLOYMENT_PATH_ON_SERVER }}
           rm: true
 
-
       - name: fetch project deployment secrets
         uses: Infisical/secrets-action@v1.0.8
         with:
@@ -142,7 +140,7 @@ jobs:
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
           client-secret: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_SECRET }}
           project-slug: lmt-d-hr8
-          env-slug: prod
+          env-slug: production
           secret-path: /deployment
           export-type: env
           recursive: false
@@ -159,13 +157,13 @@ jobs:
           key: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY }} # masked secret fetched from Infisical
           passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
           script_stop: true
-          # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_PROD_SECRET_KEY
+          # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_PRODUCTION_SECRET_KEY
           script: |
             cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/
             mv Taskfile.yml ${{ env.ENVIRONMENT }}/
             cd ${{ env.ENVIRONMENT }}/
             echo ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
-            export SOPS_AGE_KEY=${{ env.SOPS_AGE_PROD_SECRET_KEY }} 
+            export SOPS_AGE_KEY=${{ env.SOPS_AGE_PRODUCTION_SECRET_KEY }} 
             export ENVIRONMENT=${{ env.ENVIRONMENT }} 
             task deploy 
             docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi
