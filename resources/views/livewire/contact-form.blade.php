@@ -1,4 +1,8 @@
-<div>
+@php
+  $siteKey = config("recaptchav3.sitekey");
+@endphp
+
+<div wire:id="contact">
   <div class="pointer-events-none absolute right-0 hidden! lg:flex!">
     <div class="css-blurry-violet-gradient"></div>
     <div class="css-blurry-green-gradient"></div>
@@ -27,6 +31,7 @@
       @else
         <form id="registration-form" wire:submit.prevent="submit" wire:loading.remove>
           <div id="registration-errors" class="text-center text-red-600"></div>
+          <input type="hidden" wire:model="recaptcha" name="recaptcha" />
           <div class="mx-auto my-5 flex! max-w-2xl flex-col gap-8">
             <p class="my-7 text-center text-sm lg:text-base">
               Legnicki Meetup Technologiczny to spotkanie stacjonarne.
@@ -136,4 +141,11 @@
       @endif
     </div>
   </div>
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ $siteKey }}', {action: 'contact'}).then(function(token) {
+        @this.set('recaptcha', token)
+      })
+    });
+  </script>
 </div>

@@ -14,6 +14,7 @@ use Livewire\Component;
 class ContactForm extends Component
 {
     public Meetup $meetup;
+    public ?string $recaptcha;
     public ?string $email;
     public ?string $name;
     public ?string $surname;
@@ -34,6 +35,7 @@ class ContactForm extends Component
             "surname" => ["required", "min:2", "max:50"],
             "company" => ["max:50"],
             "consent" => ["required", "accepted"],
+            "recaptcha" => ["required", "recaptchav3:contact,0.5"],
         ];
     }
 

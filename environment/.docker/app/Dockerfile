@@ -1,8 +1,8 @@
-FROM registry.blumilk.pl/internal-public/secops-tools-bin:v1.0.0 AS secops-tools-bin
-FROM composer:2.8.6 AS composer
-FROM node:23.10.0-bookworm-slim AS node
+FROM registry.blumilk.pl/internal-public/secops-tools-bin:v1.1.0@sha256:80e61cf01f5465d6353bc4ad07e5940eb0055c572d265c7819e04f37167f8bc8 AS secops-tools-bin
+FROM composer:2.8.9@sha256:69d57c07ed077bc22d6e584202b6d9160f636abdb6df25c7c437ded589b3fa6c AS composer
+FROM node:24.3.0-bookworm-slim@sha256:8225b1806c6e37dced949224b5c0d8278a2fe593967288620e0af69b2cbc4539 AS node
 
-FROM php:8.3.19-fpm-bookworm AS base
+FROM php:8.3.23-fpm-bookworm AS base
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
