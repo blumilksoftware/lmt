@@ -22,5 +22,7 @@ vendor/
 
 /environment
 !/environment/.deployment/scripts/post-deploy-actions.sh
+!/environment/.deployment/Taskfile.yml
 !/environment/.docker
 !/environment/dev
+!/environment/production
