@@ -2,7 +2,7 @@ networks:
   traefik-proxy:
     external: true
   lmt-production:
-    driver: bridge
+    name: lmt-production
 
 volumes:
   lmt-production-postgres-data:
@@ -25,13 +25,13 @@ services:
         limits:
           memory: 1GB
     labels:
+      - "io.portainer.accesscontrol.teams=LMT-production"
       - "traefik.enable=true"
       - "traefik.http.routers.lmt-production-app.rule=Host(`${LMT_HOST_NAME}`)"
       - "traefik.http.routers.lmt-production-app.entrypoints=websecure"
       - "traefik.http.routers.lmt-production-app.tls=true"
       - "traefik.http.routers.lmt-production-app.tls.certresolver=lets-encrypt-resolver"
       - "traefik.http.routers.lmt-production-app.middlewares=response-gzip-compress@file"
-      - "io.portainer.accesscontrol.teams=LMT-production"
     working_dir: /application
     volumes:
       - ./.env:/application/.env:ro

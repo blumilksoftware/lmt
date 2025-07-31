@@ -1,20 +1,21 @@
 FROM registry.blumilk.pl/internal-public/secops-tools-bin:v1.0.0 AS secops-tools-bin
 FROM composer:2.8.6 AS composer
-FROM node:23.7.0-bookworm-slim AS node
+FROM node:23.10.0-bookworm-slim AS node
 
-FROM php:8.3.10-fpm-bookworm AS base
+FROM php:8.3.19-fpm-bookworm AS base
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 # For other versions check: http://nginx.org/packages/mainline/debian/pool/nginx/n/nginx/
-ARG NGINX_VERSION="1.25.4-1~bookworm"
+# renovate: datasource=github-tags depName=nginx/nginx extractVersion=^release-(?<version>.*)$
+ARG NGINX_VERSION="1.29.0"
 
 RUN apt-get update \
     && apt-get install --assume-yes gpg \
     && curl https://nginx.org/keys/nginx_signing.key | gpg --dearmour --output /etc/apt/trusted.gpg.d/apt.nginx.org.gpg > /dev/null \
     && echo "deb https://nginx.org/packages/mainline/debian bookworm nginx" | tee /etc/apt/sources.list.d/nginx.list \
     && apt-get update && apt-get install --assume-yes \
-        nginx=${NGINX_VERSION} \
+        nginx=${NGINX_VERSION}-1~bookworm \
         libzip-dev \
         libjpeg-dev \
         libpng-dev \
@@ -69,7 +70,7 @@ RUN ln --symbolic /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/
     && chown --no-dereference ${USER_NAME}:root /usr/local/bin/npx
 
 # renovate: datasource=github-tags depName=xdebug/xdebug
-ARG XDEBUG_VERSION=3.4.2
+ARG XDEBUG_VERSION=3.4.5
 ARG INSTALL_XDEBUG=false
 
 RUN if [ ${INSTALL_XDEBUG} = true ]; then \
