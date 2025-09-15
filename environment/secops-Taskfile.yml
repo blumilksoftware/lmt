@@ -19,6 +19,21 @@ tasks:
           ENVIRONMENT: dev
           AGE_SECRET_KEY: ${SOPS_AGE_DEV_SECRET_KEY}
 
+  encrypt-production-secrets:
+    desc: "Encrypt app production secrets"
+    cmds:
+      - task: _encrypt-secrets
+        vars:
+          ENVIRONMENT: production
+
+  decrypt-production-secrets:
+    desc: "Decrypt app production secrets"
+    cmds:
+      - task: _decrypt-secrets
+        vars:
+          ENVIRONMENT: production
+          AGE_SECRET_KEY: ${SOPS_AGE_PRODUCTION_SECRET_KEY}
+
   _encrypt-secrets:
     internal: true
     cmds:
