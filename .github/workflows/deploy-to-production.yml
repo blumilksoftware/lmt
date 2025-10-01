@@ -1,0 +1,32 @@
+name: Deploy to production
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to deploy"
+        required: true
+
+jobs:
+
+  deploy:
+    environment: production
+    name: "Deploy to production [tag: ${{ inputs.tag }}]"
+    runs-on: ubuntu-24.04
+    env:
+      DOCKER_REGISTRY: registry.blumilk.pl
+      DOCKER_REGISTRY_USER_NAME: robot@blumilkbot-harbor
+      DOCKER_REGISTRY_PROJECT_NAME: internal-public
+      DOCKER_REGISTRY_REPO_NAME: lmt
+      TARGET_DIR_ON_SERVER: /blumilk/deployments/prod/projects
+      ENVIRONMENT: production
+    steps:
+      - name: checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          fetch-tags: true
+          ref: ${{ inputs.tag }}
