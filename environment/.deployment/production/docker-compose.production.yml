@@ -33,7 +33,7 @@ services:
       - "traefik.http.routers.lmt-production-app.entrypoints=websecure"
       - "traefik.http.routers.lmt-production-app.tls=true"
       - "traefik.http.routers.lmt-production-app.tls.certresolver=lets-encrypt-resolver"
-      - "traefik.http.routers.lmt-production-app.middlewares=response-gzip-compress@file"
+      - "traefik.http.routers.lmt-production-app.middlewares=security-headers@file"
     working_dir: /application
     volumes:
       - ./.env:/application/.env:ro
