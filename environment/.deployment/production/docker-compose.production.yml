@@ -7,6 +7,8 @@ networks:
 volumes:
   lmt-production-postgres-data:
     name: lmt-production-postgres-data
+  lmt-production-storage-data:
+    name: lmt-production-storage-data
 
 services:
   lmt-production-app:
@@ -35,6 +37,7 @@ services:
     working_dir: /application
     volumes:
       - ./.env:/application/.env:ro
+      - lmt-production-storage-data:/application/storage
     networks:
       - lmt-production
       - traefik-proxy
