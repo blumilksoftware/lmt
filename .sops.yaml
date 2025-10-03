@@ -5,7 +5,7 @@ creation_rules:
     age: >-
       age1m3ruqh8ldq9wy9w5rpyj2wed0nc0n4ejda2lau2009w2rlvu7qjqacfqp2
 
-  - name: prod
-    path_regex: \.env\.prod\.secrets.*$
+  - name: production
+    path_regex: \.env\.production\.secrets.*$
     age: >-
       age1ys9k3fkd2cxzkpllfe75gagjrfks45r6x9rhllr4lqvfxx520qaqxtj697

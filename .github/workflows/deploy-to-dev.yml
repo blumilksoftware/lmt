@@ -106,7 +106,7 @@ jobs:
           target: production
           build-args: |
             DEPLOYMENT_PROJECT_VERSION_ARG=${{ env.DEPLOYMENT_PROJECT_VERSION }}
-            ENVIRONMENT=${{ env.ENVIRONMENT }}
+            ENVIRONMENT_ARG=${{ env.ENVIRONMENT }}
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
           push: true

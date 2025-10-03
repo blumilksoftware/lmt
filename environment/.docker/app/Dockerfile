@@ -7,14 +7,15 @@ FROM php:8.3.23-fpm-bookworm AS base
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 # For other versions check: http://nginx.org/packages/mainline/debian/pool/nginx/n/nginx/
-ARG NGINX_VERSION="1.27.4-1~bookworm"
+# renovate: datasource=github-tags depName=nginx/nginx extractVersion=^release-(?<version>.*)$
+ARG NGINX_VERSION="1.29.0"
 
 RUN apt-get update \
     && apt-get install --assume-yes gpg \
     && curl https://nginx.org/keys/nginx_signing.key | gpg --dearmour --output /etc/apt/trusted.gpg.d/apt.nginx.org.gpg > /dev/null \
     && echo "deb https://nginx.org/packages/mainline/debian bookworm nginx" | tee /etc/apt/sources.list.d/nginx.list \
     && apt-get update && apt-get install --assume-yes \
-        nginx=${NGINX_VERSION} \
+        nginx=${NGINX_VERSION}-1~bookworm \
         libzip-dev \
         libjpeg-dev \
         libpng-dev \
@@ -69,7 +70,7 @@ RUN ln --symbolic /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/
     && chown --no-dereference ${USER_NAME}:root /usr/local/bin/npx
 
 # renovate: datasource=github-tags depName=xdebug/xdebug
-ARG XDEBUG_VERSION=3.4.4
+ARG XDEBUG_VERSION=3.4.5
 ARG INSTALL_XDEBUG=false
 
 RUN if [ ${INSTALL_XDEBUG} = true ]; then \
@@ -93,7 +94,8 @@ RUN composer install \
 
 FROM node AS frontend-build
 
-ARG ENVIRONMENT
+ARG ENVIRONMENT_ARG
+ENV ENVIRONMENT=${ENVIRONMENT_ARG}
 
 WORKDIR /app_frontend_dependencies
 
@@ -118,7 +120,8 @@ RUN npm run build
 
 FROM base AS production
 
-ARG ENVIRONMENT
+ARG ENVIRONMENT_ARG
+ENV ENVIRONMENT=${ENVIRONMENT_ARG}
 
 RUN docker-php-ext-install \
     opcache
