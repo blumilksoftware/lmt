@@ -18,7 +18,7 @@ class ContactForm extends Component
     public ?string $email;
     public ?string $name;
     public ?string $surname;
-    public ?string $company;
+    public ?string $company = null;
     public bool $consent = false;
     public bool $success = false;
 
