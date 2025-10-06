@@ -67,7 +67,7 @@ Then it will:
 
 To develop project run:
 ```shell
-task dev
+task vite
 ```
 This command will run Vite development server. \
 App will be available at:

@@ -86,8 +86,8 @@ jobs:
           labels: ${{ steps.meta-app-database.outputs.labels }}
           tags: ${{ steps.meta-app-database.outputs.tags }}
           push: true
-          cache-from: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-dev-build-cache
-          cache-to: type=gha, ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}-dev-build-cache, mode=max
+          cache-from: type=registry,ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}:build-cache
+          cache-to: type=registry,ref=${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}:build-cache,mode=max
 
       - name: Docker meta for app
         id: meta
@@ -110,8 +110,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
           push: true
-          cache-from: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-dev-build-cache
-          cache-to: type=gha, ref=${{ env.DOCKER_IMAGE_NAME }}-dev-build-cache, mode=max
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_NAME }}:build-cache
+          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE_NAME }}:build-cache,mode=max
 
       - name: set deployment path on server
         run: echo "DEPLOYMENT_PATH_ON_SERVER=${{ env.TARGET_DIR_ON_SERVER }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
