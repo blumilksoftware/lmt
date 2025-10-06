@@ -36,7 +36,7 @@ tasks:
       - cmd: docker compose exec --user $CURRENT_USER_ID $DOCKER_COMPOSE_APP_CONTAINER npm install
       - task: create-test-database
 
-  dev:
+  vite:
     desc: "Run Vite local dev server"
     deps: [run]
     cmds:
