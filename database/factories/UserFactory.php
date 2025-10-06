@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use Blumilksoftware\Lmt\Enums\Role;
 use Blumilksoftware\Lmt\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -21,6 +22,8 @@ class UserFactory extends Factory
             "email" => fake()->unique()->safeEmail(),
             "password" => Hash::make("password"),
             "remember_token" => Str::random(10),
+            "active" => true,
+            "role" => Role::Admin,
         ];
     }
 }

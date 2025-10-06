@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Blumilksoftware\Lmt\Providers\Filament;
 
 use Blumilksoftware\Lmt\Filament\Resources\MeetupResource;
+use Blumilksoftware\Lmt\Filament\Resources\UserResource;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -35,6 +36,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->resources([
                 MeetupResource::class,
+                UserResource::class,
             ])
             ->pages([])
             ->widgets([])
