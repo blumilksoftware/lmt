@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Blumilksoftware\Lmt\Models;
 
+use Blumilksoftware\Lmt\Enums\Role;
 use database\factories\UserFactory;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -16,9 +17,12 @@ use Illuminate\Support\Carbon;
  * @property string $name
  * @property string $email
  * @property string $password
+ * @property bool $active
+ * @property Role $role
  * @property bool $contact_notifications
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ * @property-read bool $isAdmin
  */
 class User extends Authenticatable implements FilamentUser
 {
@@ -26,14 +30,38 @@ class User extends Authenticatable implements FilamentUser
     use HasFactory;
 
     protected $guarded = [];
+    protected $fillable = [
+        "name",
+        "email",
+        "password",
+        "role",
+        "moderator",
+        "active",
+    ];
     protected $hidden = [
         "password",
         "remember_token",
     ];
+    protected $casts = [
+        "active" => "boolean",
+        "email_verified_at" => "datetime",
+        "password" => "hashed",
+        "role" => Role::class,
+    ];
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return str_ends_with($this->email, config("app.allowed_email_domain"));
+        return $this->active && str_ends_with($this->email, config("app.allowed_email_domain"));
+    }
+
+    public function isModerator(): bool
+    {
+        return $this->role === Role::Moderator;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === Role::Admin;
     }
 
     protected function casts(): array
