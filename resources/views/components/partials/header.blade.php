@@ -27,7 +27,7 @@
         </div>
         <div class="flex! flex-row items-center pl-2 pt-4 md:pl-8 md:pt-0">
           <x-icons.location class="size-6 self-center lg:size-4" />
-          <a href="httpss://www.google.com" target="_blank" class="pl-3 text-xl hover:underline">
+          <a href="{{ $meetup->localization }}" target="_blank" class="pl-3 text-xl hover:underline">
             {{ $meetup->place }}
           </a>
         </div>
