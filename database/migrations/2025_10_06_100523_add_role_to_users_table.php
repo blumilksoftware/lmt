@@ -10,7 +10,7 @@ return new class() extends Migration {
     public function up(): void
     {
         Schema::table("users", function (Blueprint $table): void {
-            $table->string("role")->default("moderator");
+            $table->string("role")->default("admin");
             $table->boolean("active")->default(true);
         });
     }
