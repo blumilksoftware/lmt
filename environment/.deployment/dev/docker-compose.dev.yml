@@ -43,7 +43,7 @@ services:
       - .deployment
 
   lmt-dev-database:
-    image: registry.blumilk.pl/internal-public/lmt-postgres:dev@sha256:8e86448ead086651d28c0ed8c75ecb2e7f163718290aa910c1f757848563339f
+    image: registry.blumilk.pl/internal-public/lmt-postgres:dev@sha256:1ccbba80fecf4cff62973322be369115fd32f81b8755147bbdad9c9102cdffa2
     pull_policy: always
     container_name: lmt-dev-database-container
     deploy:
