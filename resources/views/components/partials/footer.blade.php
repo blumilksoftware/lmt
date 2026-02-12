@@ -8,7 +8,7 @@
     <div class="relative z-20 mx-auto flex! max-w-7xl items-center opacity-50">
       <div class="flex! flex-grow flex-col text-xs lg:flex-row lg:gap-2 lg:text-base">
         <div>
-          2025 Legnicki Meetup Technologiczny powered by
+          {{ date('Y') }} Legnicki Meetup Technologiczny powered by
           <a href="https://blumilk.pl/"
              class="font-bold"
              target="_blank"
