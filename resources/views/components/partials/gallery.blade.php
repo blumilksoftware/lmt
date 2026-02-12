@@ -28,7 +28,7 @@
         @foreach($row1 as $photo)
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index }})">
             <img
-                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
+                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105 aspect-[4/3]"
                 src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
@@ -38,7 +38,7 @@
         @foreach($row2 as $photo)
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index + 3 }})">
             <img
-                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
+                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105 aspect-[4/3]"
                 src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
@@ -48,7 +48,7 @@
         @foreach($row3 as $photo)
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index + 6 }})">
             <img
-                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
+                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105 aspect-[4/3]"
                 src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
@@ -58,7 +58,7 @@
         @foreach($row4 as $photo)
           <div class="overflow-hidden rounded-md" @click="select({{ $loop->index + 9 }})">
             <img
-                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105"
+                class="h-full w-full cursor-pointer rounded-md object-cover transition-transform duration-300 hover:scale-105 aspect-[4/3]"
                 src="{{ $photo->getUrl("webp") }}"
                 alt="">
           </div>
