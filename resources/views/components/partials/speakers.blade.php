@@ -2,15 +2,15 @@
 
 <section class="my-6">
     <div id="prelegenci" class="static mx-auto w-full text-white">
-        <div class="my-16 p-4 text-center text-5xl font-bold lg:hidden">
+        <div class="my-16 p-4 text-center text-5xl font-bold 2xl:hidden">
             Prelegenci
         </div>
-        <div class="-my-8 mx-auto hidden! max-w-7xl text-center text-[18em] font-bold text-white opacity-5 lg:block!">
+        <div class="-my-8 mx-auto hidden! max-w-7xl text-center text-[18em] font-bold text-white opacity-5 2xl:block!">
             Lineup
         </div>
-        <div class="w-full lg:-mt-48 lg:h-[650px] 2xl:h-[750px]" x-data="carousel({{ count($speakers) }})">
-            <div class="hidden! h-full w-full lg:flex!">
-                <div class="z-10 hidden! h-full w-fit overflow-hidden rounded-r-2xl lg:flex!">
+        <div class="w-full 2xl:-mt-48 2xl:h-[650px] 2xl:h-[750px]" x-data="carousel({{ count($speakers) }})">
+            <div class="hidden! h-full w-full 2xl:flex!">
+                <div class="z-10 hidden! h-full w-fit overflow-hidden rounded-r-2xl 2xl:flex!">
                     <div class="flex h-full w-full overflow-hidden">
                         @foreach($speakers as $speaker)
                             <div
@@ -28,7 +28,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="hidden! h-full w-[40%] flex-col pl-[3%] pt-[70px] lg:flex!">
+                <div class="hidden! h-full w-[40%] flex-col pl-[3%] pt-[70px] 2xl:flex!">
                     <div class="w-[111px] rounded-md bg-violet-700 text-center text-base text-white">
                         Prelegenci
                     </div>
@@ -46,10 +46,10 @@
                                 @endforeach
                             </div>
                             <div class="flex flex-col w-3/4 pt-6 text-base text-gray-300">
-                                <p class="mb-4 lg:mb-8">{{ $speaker->description }}</p>
+                                <p class="mb-4 2xl:mb-8">{{ $speaker->description }}</p>
 
                                 @if ($speaker->slides)
-                                    <a class="mb-4 lg:mb-6" target="_blank" href="{{ $speaker->slides->getUrl() }}">
+                                    <a class="mb-4 2xl:mb-6" target="_blank" href="{{ $speaker->slides->getUrl() }}">
                                         <div class="flex items-center">
                                             <x-icons.slides class="mr-2 size-5" aria-label="Przejdź do slajdów z prezentacji" />
                                             <p class="font-semibold">{{ $speaker->presentation }}</p>
@@ -58,7 +58,7 @@
                                 @endif
 
                                 @if ($speaker->video_url)
-                                    <a target="_blank" class="mb-4 lg:mb-6" href="{{ $speaker->video_url }}">
+                                    <a target="_blank" class="mb-4 2xl:mb-6" href="{{ $speaker->video_url }}">
                                         <div class="flex items-center">
                                             <x-icons.presentation class="mr-2 size-5" aria-label="Przejdź do nagrania z prezentacji" />
                                             <p class="font-semibold">Obejrzyj na YouTube</p>
@@ -85,7 +85,7 @@
                     @endif
                 </div>
             </div>
-            <div class="lg:hidden">
+            <div class="2xl:hidden">
                 @foreach($speakers as $speaker)
                     <div class="flex w-full flex-col">
                         <div>
