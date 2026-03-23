@@ -68,13 +68,13 @@
                         <div class="flex h-full flex-row items-end gap-2 pb-14 pt-4">
                             <button
                                     @click="previous()"
-                                    class="flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-[5px] border border-violet-700"
+                                    class="flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-[5px] border border-violet-700 z-50"
                             >
                                 <x-icons.arrow class="rotate-180" />
                             </button>
                             <button
                                     @click="next()"
-                                    class="flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-[5px] bg-violet-700"
+                                    class="flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-[5px] bg-violet-700 z-50"
                             >
                                 <x-icons.arrow />
                             </button>
