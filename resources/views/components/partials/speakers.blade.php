@@ -9,7 +9,6 @@
         </div>
         <div class="w-full 2xl:-mt-48 2xl:h-[750px]" x-data="carousel({{ count($speakers) }})">
 
-            {{-- DESKTOP: karuzela ze strzałkami (2xl+) --}}
             <div class="hidden! h-full w-full 2xl:flex!">
                 <div class="z-10 hidden! h-full w-fit overflow-hidden rounded-r-2xl 2xl:flex!">
                     <div class="flex h-full w-full max-h-[750px] overflow-hidden">
@@ -84,7 +83,6 @@
                 </div>
             </div>
 
-            {{-- TABLET: zdjęcie po lewej (40%), tekst po prawej (60%), lista (md do 2xl) --}}
             <div class="hidden! md:block! 2xl:hidden!">
                 <div class="space-y-10 px-6 py-4">
                     @foreach($speakers as $speaker)
@@ -133,7 +131,6 @@
                 </div>
             </div>
 
-            {{-- TELEFON: zdjęcie na górze, tekst pod spodem, lista (do md) --}}
             <div class="md:hidden!">
                 @foreach($speakers as $speaker)
                     <div class="flex w-full flex-col mb-10">
