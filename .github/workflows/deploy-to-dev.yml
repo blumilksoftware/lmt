@@ -45,7 +45,7 @@ jobs:
         run: echo "DOCKER_IMAGE_NAME=${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_REGISTRY_PROJECT_NAME }}/${{ env.DOCKER_REGISTRY_REPO_NAME }}" >> $GITHUB_ENV
 
       - name: fetch server secrets
-        uses: Infisical/secrets-action@8802effbe453d0576cd923567dcc2c97a1f54058 # v1.0.15
+        uses: Infisical/secrets-action@77ab1f4ccd183a543cb5b42435fbd181189f4995 # v1.0.16
         with:
           domain: https://infisical.blumilk.pl
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
@@ -58,10 +58,10 @@ jobs:
           include-imports: true
 
       - name: set up Docker Buildx
-        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
 
       - name: login to Docker Registry
-        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
         with:
           registry: ${{ env.DOCKER_REGISTRY }}
           username: ${{ env.DOCKER_REGISTRY_USER_NAME }}
@@ -73,7 +73,7 @@ jobs:
 
       - name: Docker meta for app database
         id: meta-app-database
-        uses: docker/metadata-action@318604b99e75e41977312d83839a89be02ca4893 # v5.9.0
+        uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         with:
           images: |
             ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}
@@ -94,7 +94,7 @@ jobs:
 
       - name: Docker meta for app
         id: meta
-        uses: docker/metadata-action@318604b99e75e41977312d83839a89be02ca4893 # v5.9.0
+        uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         with:
           images: ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
@@ -135,7 +135,7 @@ jobs:
 
 
       - name: fetch project deployment secrets
-        uses: Infisical/secrets-action@8802effbe453d0576cd923567dcc2c97a1f54058 # v1.0.15
+        uses: Infisical/secrets-action@77ab1f4ccd183a543cb5b42435fbd181189f4995 # v1.0.16
         with:
           domain: https://infisical.blumilk.pl
           client-id: ${{ secrets.INFISICAL_MACHINE_IDENTITY_GHA_BOT_CLIENT_ID }}
@@ -148,7 +148,7 @@ jobs:
           include-imports: false
 
       - name: run deployment script over ssh
-        uses: appleboy/ssh-action@91f3272fc5907f4699dcf59761eb622a07342f5a # v1.2.3
+        uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
         with:
           timeout: 10s
           command_timeout: 10m
