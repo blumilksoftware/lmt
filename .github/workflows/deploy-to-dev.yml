@@ -159,6 +159,7 @@ jobs:
           passphrase: ${{ env.SERVER_OVH_NS31445530_BLUMILKBOT_USER_SSH_PRIVATE_KEY_PASSPHRASE }} # masked secret fetched from Infisical
           # masked secrets from Infisical: HARBOR_ROBOT_BLUMILKBOT_TOKEN, SOPS_AGE_DEV_SECRET_KEY
           script: |
+            set -e
             cd ${{ env.DEPLOYMENT_PATH_ON_SERVER }}/environment/.deployment/
             mv Taskfile.yml ${{ env.ENVIRONMENT }}/
             cd ${{ env.ENVIRONMENT }}/
