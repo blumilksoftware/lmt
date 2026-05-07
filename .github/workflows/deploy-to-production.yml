@@ -78,7 +78,7 @@ jobs:
           context: workflow
 
       - name: build and push app database image
-        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5.4.0
+        uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f # v7.1.0
         with:
           context: .
           file: ./environment/.docker/postgres/Dockerfile
@@ -99,7 +99,7 @@ jobs:
           context: workflow
 
       - name: build and push app image
-        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5.4.0
+        uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f # v7.1.0
         with:
           context: .
           file: ./environment/.docker/app/Dockerfile
