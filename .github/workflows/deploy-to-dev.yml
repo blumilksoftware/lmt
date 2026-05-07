@@ -73,7 +73,7 @@ jobs:
 
       - name: Docker meta for app database
         id: meta-app-database
-        uses: docker/metadata-action@318604b99e75e41977312d83839a89be02ca4893 # v5.9.0
+        uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
         with:
           images: |
             ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }}
@@ -94,7 +94,7 @@ jobs:
 
       - name: Docker meta for app
         id: meta
-        uses: docker/metadata-action@318604b99e75e41977312d83839a89be02ca4893 # v5.9.0
+        uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
         with:
           images: ${{ env.DOCKER_IMAGE_NAME }}
           tags: |
