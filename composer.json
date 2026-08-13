@@ -6,20 +6,20 @@
     "require": {
         "php": "^8.3",
         "filament/filament": "^3.3.50",
-        "filament/spatie-laravel-media-library-plugin": "^3.3.50",
+        "filament/spatie-laravel-media-library-plugin": "^3.3.54",
         "josiasmontag/laravel-recaptchav3": "^1.0.5",
         "laravel/framework": "^11.51.0",
         "laravel/tinker": "^2.11.1",
-        "livewire/livewire": "^3.7.15",
+        "livewire/livewire": "^3.8.3",
         "spatie/eloquent-sortable": "^4.5.2",
         "fakerphp/faker": "^1.24.1"
     },
     "require-dev": {
         "blumilksoftware/codestyle": "^4.1.0",
-        "laravel/telescope": "^5.20.0",
+        "laravel/telescope": "^5.22.1",
         "mockery/mockery": "^1.6.12",
-        "nunomaduro/collision": "^8.9.4",
-        "phpunit/phpunit": "^11.5.55"
+        "nunomaduro/collision": "^8.9.5",
+        "phpunit/phpunit": "^11.5.56"
     },
     "autoload": {
         "psr-4": {
