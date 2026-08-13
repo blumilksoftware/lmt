@@ -8,7 +8,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 # For other versions check: http://nginx.org/packages/mainline/debian/pool/nginx/n/nginx/
 # renovate: datasource=github-tags depName=nginx/nginx extractVersion=^release-(?<version>.*)$
-ARG NGINX_VERSION="1.29.8"
+ARG NGINX_VERSION="1.31.3"
 
 RUN apt-get update \
     && apt-get install --assume-yes gpg \
