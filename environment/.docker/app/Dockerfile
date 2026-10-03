@@ -1,14 +1,14 @@
 FROM registry.blumilk.pl/internal-public/secops-tools-bin:v1.3.0@sha256:7bfcc9b09c994da1cb00f7b25e13c4d71081e5494c16f2e89b55a28b673fd79f AS secops-tools-bin
-FROM composer:2.9.8@sha256:b09bccd91a78fe8a9ab4b33d707b862e8fe54fec17782e32683ad2a69c46867d AS composer
-FROM node:24.19.0-bookworm-slim@sha256:3638d9a6fe4030bd716be989438248074489337ba3275657f93595428be4fc03 AS node
+FROM composer:2.10.3@sha256:af98f42dfff7c68ba8d53c2164fd9fde1087b7d449514baa38c418b1f6bc4bac AS composer
+FROM node:24.21.0-bookworm-slim@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6 AS node
 
-FROM php:8.3.33-fpm-bookworm@sha256:78a4d3237f558785f4345538354470c4a736d2ffc05e6e8ee30cea161045a865 AS base
+FROM php:8.3.35-fpm-bookworm@sha256:536a1188a926efe7e6f927b7ca01f3a043c63d0a527567c6d4d3bf9fbd637866 AS base
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 # For other versions check: http://nginx.org/packages/mainline/debian/pool/nginx/n/nginx/
 # renovate: datasource=github-tags depName=nginx/nginx extractVersion=^release-(?<version>.*)$
-ARG NGINX_VERSION="1.31.3"
+ARG NGINX_VERSION="1.31.6"
 
 RUN apt-get update \
     && apt-get install --assume-yes gpg \
