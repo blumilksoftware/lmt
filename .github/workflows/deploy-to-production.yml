@@ -161,8 +161,9 @@ jobs:
             cd ${{ env.ENVIRONMENT }}/
             echo ${{ env.HARBOR_ROBOT_BLUMILKBOT_TOKEN }} | docker login ${{ env.DOCKER_REGISTRY }} --username ${{ env.DOCKER_REGISTRY_USER_NAME }} --password-stdin
             export SOPS_AGE_KEY=${{ env.SOPS_AGE_PRODUCTION_SECRET_KEY }} 
-            export ENVIRONMENT=${{ env.ENVIRONMENT }} 
-            task deploy 
-            docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi
-            docker images --filter dangling=true | grep ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }} | awk '{print $3}'| xargs --no-run-if-empty docker rmi
+            export ENVIRONMENT=${{ env.ENVIRONMENT }}
+            export DEPLOYMENT_TAG=${{ inputs.tag }}
+            task deploy
+            docker images --filter dangling=true | grep "${{ env.DOCKER_IMAGE_NAME }}" | awk '{print $3}'| xargs --no-run-if-empty docker rmi || true
+            docker images --filter dangling=true | grep ${{ env.DOCKER_APP_DATABASE_IMAGE_NAME }} | awk '{print $3}'| xargs --no-run-if-empty docker rmi || true
             docker logout ${{ env.DOCKER_REGISTRY }}
