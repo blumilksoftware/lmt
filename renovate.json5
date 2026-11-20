@@ -8,5 +8,6 @@
   ],
   ignoreDeps: [
     'registry.blumilk.pl/internal-public/lmt',
+    'registry.blumilk.pl/internal-public/lmt-postgres',
   ],
 }
