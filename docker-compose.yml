@@ -75,7 +75,7 @@ services:
     restart: unless-stopped
 
   mailpit:
-    image: axllent/mailpit:v1.30.7@sha256:d5ecbb067db3705fa953d79e1b7f81ef84038df67aba6c52825d8c02a1ea748a
+    image: axllent/mailpit:v1.34.0@sha256:23a2ef85bc50853ab3093645d1d64679afd8887e89da5e48a88940c172591a4e
     container_name: lmt-mailpit-local
     ports:
       - ${EXTERNAL_MAILPIT_DASHBOARD_PORT:-8052}:8025
